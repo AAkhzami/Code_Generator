@@ -1,0 +1,14 @@
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\bin\Debug\Code Generator.exe.config
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\bin\Debug\Code Generator.exe
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\bin\Debug\Code Generator.pdb
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\obj\Debug\Code Generator.csproj.AssemblyReference.cache
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\obj\Debug\Code Generator.csproj.CoreCompileInputs.cache
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\obj\Debug\Code Generator.exe
+C:\Users\justa\OneDrive\Desktop\Programming\C#\Projects\Code Generator\obj\Debug\Code Generator.pdb
+C:\Users\justa\Downloads\Project\Code Generator\bin\Debug\Code Generator.exe.config
+C:\Users\justa\Downloads\Project\Code Generator\bin\Debug\Code Generator.exe
+C:\Users\justa\Downloads\Project\Code Generator\bin\Debug\Code Generator.pdb
+C:\Users\justa\Downloads\Project\Code Generator\obj\Debug\Code Generator.csproj.AssemblyReference.cache
+C:\Users\justa\Downloads\Project\Code Generator\obj\Debug\Code Generator.csproj.CoreCompileInputs.cache
+C:\Users\justa\Downloads\Project\Code Generator\obj\Debug\Code Generator.exe
+C:\Users\justa\Downloads\Project\Code Generator\obj\Debug\Code Generator.pdb
