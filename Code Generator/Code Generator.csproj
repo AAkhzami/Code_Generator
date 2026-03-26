@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Code_Generator_Business_Layer\Code_Generator_Business_Layer.csproj">
+      <Project>{ac047428-5509-4456-8d60-d43f392f7776}</Project>
+      <Name>Code_Generator_Business_Layer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,7 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCRUDMethods.cs" />
+    <Compile Include="clsClassesGenerator.cs" />
+    <Compile Include="clsExport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Code_Generator_Data_Access_Layer\Code_Generator_Data_Access_Layer.csproj">
+      <Project>{8f4cadad-97e6-4f22-9d1e-222a2a54afd1}</Project>
+      <Name>Code_Generator_Data_Access_Layer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
