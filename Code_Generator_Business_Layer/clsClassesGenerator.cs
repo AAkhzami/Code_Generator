@@ -15,17 +15,18 @@ namespace Code_Generator_Business_Layer
         private static string Libraries()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("using System;");
-            sb.Append("using System.Collections.Generic;");
-            sb.Append("using System.Data.SqlClient;");
+            sb.Append("using System;" + Environment.NewLine);            
+            sb.Append("using System.Collections.Generic;" + Environment.NewLine);
+            sb.Append("using System.Data;" + Environment.NewLine);
+            sb.Append("using System.Data.SqlClient;" + Environment.NewLine);
             return sb.ToString();
         }
         static public string CreateClass(string tableName, strConnectionInfo connectionInfo)
         {
             StringBuilder ClassString = new StringBuilder();
             ClassString.Append(Libraries());
-            ClassString.Append($"public class cls{tableName}");
-            ClassString.Append("{");
+            ClassString.Append($"public class cls{tableName}" + Environment.NewLine);
+            ClassString.Append("{" + Environment.NewLine);
 
             ClassString.Append(WriteSelectRecordMethod(tableName, connectionInfo));
             ClassString.Append(WriteAddNewRecordMethod(tableName, connectionInfo));
@@ -33,7 +34,7 @@ namespace Code_Generator_Business_Layer
             ClassString.Append(WriteDeleteRecordMethod(tableName, connectionInfo));
             ClassString.Append(WriteGetAllRecordMethod(tableName, connectionInfo));
 
-            ClassString.Append("}");
+            ClassString.Append("}" + Environment.NewLine);
 
             return ClassString.ToString();
         }

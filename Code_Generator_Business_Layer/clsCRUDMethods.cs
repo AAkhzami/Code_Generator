@@ -171,9 +171,9 @@ namespace Code_Generator_Business_Layer
             }
             string connectiontext = $"\"{connectionString}\"";
             string TheBodyOfMethod = $@"
-                                        int recordId = null;
+                                        int? recordId = null;
                                         string connection_text = {connectiontext};
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+                                        SqlConnection connection = new SqlConnection(connection_text);
                                         string query = {query_text}
                                         SqlCommand command = new SqlCommand(query, connection);
                                         {sb}
@@ -261,7 +261,7 @@ namespace Code_Generator_Business_Layer
             string TheBodyOfMethod = $@"
                                         int rowsAffected = 0;
                                         string connection_text = {connectiontext};
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+                                        SqlConnection connection = new SqlConnection(connection_text);
                                         string query = {query_text}
                                         SqlCommand command = new SqlCommand(query, connection);
                                         {sb}
@@ -322,7 +322,7 @@ namespace Code_Generator_Business_Layer
             StringBuilder stringBuilder = new StringBuilder();
             foreach (strColumnsInfo parameter in parametersList)
             {
-                stringBuilder.Append($"{parameter.ColumnName.ToLower()} = ({MapSqlTypeToCSharp(parameter.DataType)})[\"{parameter.ColumnName}\"];" + Environment.NewLine);
+                stringBuilder.Append($"{parameter.ColumnName.ToLower()} = ({MapSqlTypeToCSharp(parameter.DataType)})reader[\"{parameter.ColumnName}\"];" + Environment.NewLine);
             }
             return stringBuilder.ToString();
         }
@@ -347,7 +347,7 @@ namespace Code_Generator_Business_Layer
             string TheBodyOfMethod = $@"
                                         bool isFound = false;
                                         string connection_text = {connectiontext};
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+                                        SqlConnection connection = new SqlConnection(connection_text);
                                         string query = {query_text}
                                         SqlCommand command = new SqlCommand(query, connection);
                                         {AppendingValues}
@@ -360,7 +360,7 @@ namespace Code_Generator_Business_Layer
                                                 isFound = true;
                                                 {GettingInformationFormateString}
                                             }}
-                                            reader.Closer();
+                                            reader.Close();
                                         }}
                                         catch (Exception ex)
                                         {{
@@ -411,7 +411,7 @@ namespace Code_Generator_Business_Layer
             string TheBodyOfMethod = $@"
                                         int rowsAffected = 0;
                                         string connection_text = {connectiontext};
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+                                        SqlConnection connection = new SqlConnection(connection_text);
                                         string query = {query_text}
                                         SqlCommand command = new SqlCommand(query, connection);
                                         {AppendingValues}
@@ -429,7 +429,7 @@ namespace Code_Generator_Business_Layer
                                         {{
                                             connection.Close();
                                         }}
-                                        return isFound;";
+                                        return rowsAffected > 0;";
 
             return TheBodyOfMethod;
         }
@@ -452,7 +452,7 @@ namespace Code_Generator_Business_Layer
             string TheBodyOfMethod = $@"
                                         DataTable dt = new DataTable();
                                         string connection_text = {connectiontext};
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+                                        SqlConnection connection = new SqlConnection(connection_text);
                                         string query = {query_text}
                                         SqlCommand command = new SqlCommand(query, connection);
                                         try
@@ -521,7 +521,7 @@ namespace Code_Generator_Business_Layer
 
             string name = char.ToUpper(tableName[0]) + tableName.Substring(1);
 
-            string FunctionParameters = GetReferParamtersFunction(columnsInfo);
+            string FunctionParameters = GetIDentityParametersName(columnsInfo);
             string headerOfFunction = $"public static bool Delete{name}ByID ({FunctionParameters})";
             string bodyOfFunction = WriteBodyOfDeleteRecordMethod(tableName, connectionInfo);
 
