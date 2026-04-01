@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsCRUDMethods.cs" />
+    <Compile Include="clsDataAccessLayer.cs" />
     <Compile Include="clsClassesGenerator.cs" />
     <Compile Include="clsExport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

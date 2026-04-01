@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static Code_Generator_Business_Layer.clsCRUDMethods;
+using static Code_Generator_Business_Layer.clsDataAccessLayer;
 
 namespace Code_Generator_Business_Layer
 {
@@ -11,6 +11,14 @@ namespace Code_Generator_Business_Layer
         public static List<string> GetAllTablesNameOnDatabase(string Database)
         {
             return clsDatabaseInfo_Data.GetAllTablesOnDatabase(Database);
+        }
+        public static string CreateConnectionSettings(strConnectionInfo ConnectionInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Libraries());
+            sb.Append($"namespace {ConnectionInfo.dbName}_Data_Layer \n{{");
+            sb.Append($"public class clsDataAccessSettings \n{{\tpublic static string connectionString = \"Server = .; Database = {ConnectionInfo.dbName}; User Id = {ConnectionInfo.userID}; Password = {ConnectionInfo.password}\";\n}}\n}}");
+            return sb.ToString();
         }
         private static string Libraries()
         {
@@ -25,6 +33,9 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder ClassString = new StringBuilder();
             ClassString.Append(Libraries());
+
+            ClassString.Append($"namespace {connectionInfo.dbName}_DataAccess_Layer \n{{");
+
             ClassString.Append($"public class cls{tableName}" + Environment.NewLine);
             ClassString.Append("{" + Environment.NewLine);
 
@@ -34,7 +45,7 @@ namespace Code_Generator_Business_Layer
             ClassString.Append(WriteDeleteRecordMethod(tableName, connectionInfo));
             ClassString.Append(WriteGetAllRecordMethod(tableName, connectionInfo));
 
-            ClassString.Append("}" + Environment.NewLine);
+            ClassString.Append("}}" + Environment.NewLine);
 
             return ClassString.ToString();
         }
@@ -46,7 +57,6 @@ namespace Code_Generator_Business_Layer
             {
                 ClassesList.Add(CreateClass(table,connectionInfo));
             }
-
             return ClassesList;
         }
     }
