@@ -15,37 +15,32 @@ namespace Code_Generator
 
     internal class Program
     {
-        
         static void Main(string[] args)
         {
-            /*
-                //clsCRUDMethods.strConnectionInfo ConnectionInfo = new clsCRUDMethods.strConnectionInfo();
-                //ConnectionInfo.dbName = "Clinic";
-                //ConnectionInfo.password = "sa123456";
-                //ConnectionInfo.userID = "sa";
-                //string Class = clsClassesGenerator.CreateClass("Persons", ConnectionInfo);
-                //clsExport.CreateFile(Class, "cls_People_Testing", "cs");
-                //Console.WriteLine("Complete!");
-                //Console.WriteLine(clsCreateOperationCRUDMethods.WriteSelectAllRecordsQuery(ConnectionInfo.dbName, "Persons"));
 
-            */
 
             clsDataAccessLayer.strConnectionInfo ConnectionInfo = new clsDataAccessLayer.strConnectionInfo();
-            ConnectionInfo.dbName = "Clinic";
-            ConnectionInfo.password = "sa123456";
-            ConnectionInfo.userID = "sa";
+            ConnectionInfo.dbName = "DBName";
+            ConnectionInfo.password = "passKey";
+            ConnectionInfo.userID = "userID";
 
-            List<string> ClassesList = clsClassesGenerator.CreateAllClassByDatabaseName(ConnectionInfo);
+            List<string> DataAccessClassesList = clsClassesGenerator.CreateAllDataAccessClasses(ConnectionInfo);
             List<string> TablesName = clsClassesGenerator.GetAllTablesNameOnDatabase(ConnectionInfo.dbName);
+
+            for (int i = 0; i < DataAccessClassesList.Count; i++)
+            {
+                clsExport.CreateClassWithContent(DataAccessClassesList[i], $@"cls_{TablesName[i]}_Data", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
+            }
+            clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
+
+            List<string> ClassesList = clsClassesGenerator.CreateAllBusinessClasses(ConnectionInfo);
 
             for (int i = 0; i < ClassesList.Count; i++)
             {
-                clsExport.CreateClassWithContent(ClassesList[i], $@"cls_{TablesName[i]}", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
+                clsExport.CreateClassWithContent(ClassesList[i], $@"cls_{TablesName[i]}", $"{ConnectionInfo.dbName}_Business_Layer", @"D:\MyClasses\");
             }
-            clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
-            //clsExport.CreateFolder("D:\\MyClasses\\DataAccess");
-
             Console.WriteLine("Completed!");
+
         }
     }
 }

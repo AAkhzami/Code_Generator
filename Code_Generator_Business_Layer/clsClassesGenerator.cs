@@ -6,7 +6,7 @@ using static Code_Generator_Business_Layer.clsDataAccessLayer;
 
 namespace Code_Generator_Business_Layer
 {
-    public class clsClassesGenerator
+    public class clsClassesGenerator : clsGlobal
     {
         public static List<string> GetAllTablesNameOnDatabase(string Database)
         {
@@ -29,14 +29,14 @@ namespace Code_Generator_Business_Layer
             sb.Append("using System.Data.SqlClient;" + Environment.NewLine);
             return sb.ToString();
         }
-        static public string CreateClass(string tableName, strConnectionInfo connectionInfo)
+        static public string CreateDataAccessClass(string tableName, strConnectionInfo connectionInfo)
         {
             StringBuilder ClassString = new StringBuilder();
             ClassString.Append(Libraries());
 
             ClassString.Append($"namespace {connectionInfo.dbName}_DataAccess_Layer \n{{");
 
-            ClassString.Append($"public class cls{tableName}" + Environment.NewLine);
+            ClassString.Append($"public class cls{tableName}Data" + Environment.NewLine);
             ClassString.Append("{" + Environment.NewLine);
 
             ClassString.Append(WriteSelectRecordMethod(tableName, connectionInfo));
@@ -49,13 +49,46 @@ namespace Code_Generator_Business_Layer
 
             return ClassString.ToString();
         }
-        static public List<string> CreateAllClassByDatabaseName(strConnectionInfo connectionInfo)
+        static public string CreateBusinessClass(strConnectionInfo connectionInfo, string TableName)
+        {
+            StringBuilder ClassString = new StringBuilder();
+            ClassString.Append(Libraries());
+            ClassString.AppendLine($"using {connectionInfo.dbName}_Data_Layer;");
+            ClassString.Append($"namespace {connectionInfo.dbName}_Business_Layer \n{{");
+            clsBusinessLayer bl = new clsBusinessLayer(connectionInfo, TableName);
+
+            string className = $"cls{TableName}";
+            ClassString.AppendLine($"\n\tpublic class {className}\n{{");
+            ClassString.AppendLine("\t\t" + bl.GetAllProperties());
+            ClassString.AppendLine("\t\t" + bl.Constructors(className));
+            ClassString.AppendLine("\t\t" + bl.CreateFindRecord());
+            ClassString.AppendLine("\t\t" + bl.CreateAddNewRecordMethod());
+            ClassString.AppendLine("\t\t" + bl.CreateUpdateRecordMethod());
+            ClassString.AppendLine("\t\t" + bl.CreateDeleteRecord());
+            ClassString.AppendLine("\t\t" + bl.CreateGetAllRecords());
+            ClassString.AppendLine("\t}");
+            ClassString.AppendLine("}");
+
+            return ClassString.ToString();
+        }
+        static public List<string> CreateAllDataAccessClasses(strConnectionInfo connectionInfo)
         {
             List<string> ClassesList = new List<string>();
             List<string> tables = GetAllTablesNameOnDatabase(connectionInfo.dbName);
             foreach (string table in tables)
             {
-                ClassesList.Add(CreateClass(table,connectionInfo));
+                ClassesList.Add(CreateDataAccessClass(table,connectionInfo));
+            }
+            return ClassesList;
+        }
+
+        static public List<string> CreateAllBusinessClasses(strConnectionInfo connectionInfo)
+        {
+            List<string> ClassesList = new List<string>();
+            List<string> tables = GetAllTablesNameOnDatabase(connectionInfo.dbName);
+            foreach (string table in tables)
+            {
+                ClassesList.Add(CreateBusinessClass(connectionInfo, table));
             }
             return ClassesList;
         }
