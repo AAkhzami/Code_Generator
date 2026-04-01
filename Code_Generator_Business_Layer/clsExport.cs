@@ -7,9 +7,7 @@ namespace Code_Generator_Business_Layer
     {
         static private void CreateFile(string content, string fileName,string type, string folderPath = null)
         {
-            if (folderPath != null) folderPath += "\\";
-
-            string filePath = folderPath + fileName + "." + type;
+            string filePath = Path.Combine(folderPath ?? "", fileName + "." + type);
             System.IO.File.WriteAllText(filePath, content);
         }
         static private bool CreateFolder(string FolderPath)

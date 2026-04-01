@@ -46,12 +46,11 @@ namespace Code_Generator_Data_Access_Layer
         {
 
             List<string> cName = new List<string>();
-            string query = $@"
-                        use {DBName}
+            string query = @"
                         SELECT TABLE_NAME as Name
                         FROM INFORMATION_SCHEMA.TABLES 
                         WHERE TABLE_TYPE = 'BASE TABLE' ";
-            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString))
+            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString.Replace("master", DBName)))
             {
                 try
                 {
@@ -72,50 +71,11 @@ namespace Code_Generator_Data_Access_Layer
             }
             return cName;
         }
-        static public ColumnsInfo GetColumnsByTableName(string DBName, string TableName)
-        {
-
-            ColumnsInfo ColumnInfo = new ColumnsInfo { };
-            string query = $@"
-                        use {DBName}
-                        Select 
-                        c.name as [ColumnName],
-                        t.name as [DataType],
-                        c.is_nullable as [IsNullable],
-                        c.is_identity as [IsIdentity]
-                        From sys.columns c
-                        inner join sys.types t on c.user_type_id = t.user_type_id
-                        where c.object_id = OBJECT_ID('{TableName}')";
-            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            ColumnInfo.ColumnName = (string)reader["ColumnName"];
-                            ColumnInfo.DataType = (string)reader["DataType"];
-                            ColumnInfo.IsNullable = (bool)reader["IsNullable"];
-                            ColumnInfo.IsIdentity = (bool)reader["IsIdentity"];
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //Console.WriteLine("Error: " + ex.Message);
-                }
-            }
-            return ColumnInfo;
-        }
         static public List<ColumnsInfo> GetAllColumnsByTableName(string DBName, string TableName)
         {
 
             List<ColumnsInfo> ColumnsInfo = new List<ColumnsInfo> { };
             string query = $@"
-                        use {DBName}
                         Select 
                         c.name as [ColumnName],
                         t.name as [DataType],
@@ -123,23 +83,24 @@ namespace Code_Generator_Data_Access_Layer
                         c.is_identity as [IsIdentity]
                         From sys.columns c
                         inner join sys.types t on c.user_type_id = t.user_type_id
-                        where c.object_id = OBJECT_ID('{TableName}')";
-            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString))
+                        where c.object_id = OBJECT_ID(@TableName)";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString.Replace("master", DBName)))
             {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@TableName", TableName);
                 try
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        ColumnsInfo ColumnInfo = new ColumnsInfo { };
                         while (reader.Read())
                         {
-                            ColumnInfo.ColumnName = (string)reader["ColumnName"];
-                            ColumnInfo.DataType = (string)reader["DataType"];
-                            ColumnInfo.IsNullable = (bool)reader["IsNullable"];
-                            ColumnInfo.IsIdentity = (bool)reader["IsIdentity"];
-
+                            ColumnsInfo ColumnInfo = new ColumnsInfo { 
+                                ColumnName = (string)reader["ColumnName"],
+                                DataType = (string)reader["DataType"],
+                                IsNullable = (bool)reader["IsNullable"],
+                                IsIdentity = (bool)reader["IsIdentity"],
+                            };
                             ColumnsInfo.Add(ColumnInfo);
                         }
                     }
@@ -150,48 +111,6 @@ namespace Code_Generator_Data_Access_Layer
                 }
             }
             return ColumnsInfo;
-        }
-        
-        static public bool GetColumnsByTableName(string DBName, string TableName,
-            ref string ColumnName, ref string DataType, ref bool IsNullable, ref bool IsIdentity)
-        {
-            bool isFound = false;
-            ColumnsInfo ColumnInfo = new ColumnsInfo { };
-            string query = $@"
-                        use {DBName}
-                        Select 
-                        c.name as [ColumnName],
-                        t.name as [DataType],
-                        c.is_nullable as [IsNullable],
-                        c.is_identity as [IsIdentity]
-                        From sys.columns c
-                        inner join sys.types t on c.user_type_id = t.user_type_id
-                        where c.object_id = OBJECT_ID('{TableName}')";
-            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            isFound = true;
-                            ColumnName = (string)reader["ColumnName"];
-                            DataType = (string)reader["DataType"];
-                            IsNullable = (bool)reader["IsNullable"];
-                            IsIdentity = (bool)reader["IsIdentity"];
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    isFound = false;
-                    //Console.WriteLine("Error: " + ex.Message);
-                }
-            }
-            return isFound;
-        }
+        }                
     }
 }

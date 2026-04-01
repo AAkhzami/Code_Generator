@@ -21,15 +21,17 @@ namespace Code_Generator
 
             clsDataAccessLayer.strConnectionInfo ConnectionInfo = new clsDataAccessLayer.strConnectionInfo();
             ConnectionInfo.dbName = "DBName";
-            ConnectionInfo.password = "passKey";
+            ConnectionInfo.password = "password";
             ConnectionInfo.userID = "userID";
+
+            //Console.WriteLine(clsDataAccessLayer.WriteAddNewRecordMethod("Persons", ConnectionInfo));
 
             List<string> DataAccessClassesList = clsClassesGenerator.CreateAllDataAccessClasses(ConnectionInfo);
             List<string> TablesName = clsClassesGenerator.GetAllTablesNameOnDatabase(ConnectionInfo.dbName);
 
             for (int i = 0; i < DataAccessClassesList.Count; i++)
             {
-                clsExport.CreateClassWithContent(DataAccessClassesList[i], $@"cls_{TablesName[i]}_Data", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
+                clsExport.CreateClassWithContent(DataAccessClassesList[i], $@"cls{TablesName[i]}Data", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
             }
             clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", @"D:\MyClasses\");
 
@@ -37,7 +39,7 @@ namespace Code_Generator
 
             for (int i = 0; i < ClassesList.Count; i++)
             {
-                clsExport.CreateClassWithContent(ClassesList[i], $@"cls_{TablesName[i]}", $"{ConnectionInfo.dbName}_Business_Layer", @"D:\MyClasses\");
+                clsExport.CreateClassWithContent(ClassesList[i], $@"cls{TablesName[i]}", $"{ConnectionInfo.dbName}_Business_Layer", @"D:\MyClasses\");
             }
             Console.WriteLine("Completed!");
 

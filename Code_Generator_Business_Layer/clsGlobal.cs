@@ -10,7 +10,7 @@ namespace Code_Generator_Business_Layer
     public class clsGlobal
     {
         public enum enFilterType { IdentityC, NullableC };
-
+         
         public struct strColumnsInfo
         {
             public string ColumnName { get; set; }
@@ -24,7 +24,37 @@ namespace Code_Generator_Business_Layer
             public string password;
             public string dbName;
         }
+        public static string DefaultValue(string dataType)
+        {
+            switch (dataType.ToLower().Replace("?", ""))
+            {
+                case "string":
+                    return "null";
 
+                case "int":
+                case "long":
+                case "short":
+                case "byte":
+                    return "0";
+
+                case "decimal":
+                case "float":
+                case "double":
+                    return "0";
+
+                case "bool":
+                    return "false";
+
+                case "datetime":
+                    return "DateTime.Now";
+
+                case "guid":
+                    return "Guid.Empty";
+
+                default:
+                    return "null";
+            }
+        }
         public static List<strColumnsInfo> GetAllColumnsInfo(string DBName, string TableName)
         {
             List<strColumnsInfo> columnsInfoList = new List<strColumnsInfo>();
@@ -67,7 +97,7 @@ namespace Code_Generator_Business_Layer
         {
             string csharpType;
 
-            switch (sqlType)
+            switch (sqlType.ToLower())
             {
                 case "bigint": csharpType = "long"; break;
                 case "int": csharpType = "int"; break;
@@ -104,10 +134,9 @@ namespace Code_Generator_Business_Layer
         public static string GetIDentityParametersName(List<strColumnsInfo> columnsInfos, bool AddType = false)
         {
             List<string> IdentityColumnsList = new List<string>();
-            string IdentityColumn = "";
             foreach (strColumnsInfo columnInfo in columnsInfos)
             {
-
+                string IdentityColumn = "";
                 if (columnInfo.IsIdentity)
                 {
                     if (AddType)

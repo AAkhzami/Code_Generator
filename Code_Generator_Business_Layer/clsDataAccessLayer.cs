@@ -10,8 +10,7 @@ namespace Code_Generator_Business_Layer
 {
     public class clsDataAccessLayer : clsGlobal
     {
-        
-        
+
         //Insert Methods
         private static string WriteAddQuery(string DatabaseName, string TableName)
         {
@@ -38,8 +37,6 @@ namespace Code_Generator_Business_Layer
         {
             List<strColumnsInfo> columnsInfo = GetAllColumnsInfo(connectionInfo.dbName, tableName);
             string query_text = WriteAddQuery(connectionInfo.dbName, tableName);
-            query_text.Insert(0, "\"");
-            query_text.Insert(query_text.Length - 1, "\"");
 
             StringBuilder sb = new StringBuilder();
 
@@ -50,27 +47,25 @@ namespace Code_Generator_Business_Layer
             }
             string TheBodyOfMethod = $@"
                                         int? recordId = null;
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
                                         string query = {query_text}
-                                        SqlCommand command = new SqlCommand(query, connection);
-                                        {sb}
-                                        try
+                                        using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                                         {{
-                                            connection.Open();
-                                            object result = command.ExecuteScalar();
-
-                                            if (result != null && int.TryParse(result.ToString(), out int newID))
+                                            SqlCommand command = new SqlCommand(query, connection);
+                                            {sb}
+                                            try
                                             {{
-                                                recordId = newID;
+                                                connection.Open();
+                                                object result = command.ExecuteScalar();
+
+                                                if (result != null && int.TryParse(result.ToString(), out int newID))
+                                                {{
+                                                    recordId = newID;
+                                                }}
                                             }}
-                                        }}
-                                        catch (Exception ex)
-                                        {{
-                                            recordId = null;
-                                        }}
-                                        finally
-                                        {{
-                                        connection.Close();
+                                            catch (Exception ex)
+                                            {{
+                                                recordId = null;
+                                            }}
                                         }}
                                         return recordId;";
 
@@ -85,30 +80,23 @@ namespace Code_Generator_Business_Layer
         {
             List<strColumnsInfo> columnsInfos = GetAllColumnsInfo(DatabaseName, TableName);
 
-            string[] IdentityParameters = GetIDentityParametersName(columnsInfos).Split(',');
-            string[] Parameters = GetColumnsNamesString(columnsInfos,true).Split(',');
-            string[] Representative = GetColumnsNamesString(columnsInfos, false, "@").Split(',');
-
-            StringBuilder SetParametersString = new StringBuilder();
-            for(int i = 0; i < Parameters.Length -1; i++)
+            List<string> SetParameters = new List<string>();
+            foreach (strColumnsInfo column in columnsInfos)
             {
-                SetParametersString.Append("        " + Parameters[i + 1] + " = " + Representative[i]);
-                if (!(i == (Parameters.Length - (1 + IdentityParameters.Length)))) SetParametersString.Append(",");
-                SetParametersString.Append(Environment.NewLine);
+                if(!column.IsIdentity)
+                    SetParameters.Add($"    {column.ColumnName} = @{column.ColumnName}");
             }
+            string setClause = string.Join(",\n     ",SetParameters);
 
-            StringBuilder ConditionString = new StringBuilder();
-
-            for (int i = 0; i < IdentityParameters.Length; i++)
+            List<strColumnsInfo> ConditionString = FilterColumnsInfo(columnsInfos, enFilterType.IdentityC);
+            List<string> WhereConditions = new List<string>();
+            foreach (strColumnsInfo idcolumn in ConditionString)
             {
-                if (i == 0)
-                    ConditionString.Append($"where {IdentityParameters[i]} = @{IdentityParameters[i]}");
-                else
-                    ConditionString.Append($"And {IdentityParameters[i]} = @{IdentityParameters[i]}");
-
+                WhereConditions.Add($"{idcolumn.ColumnName} = @{idcolumn.ColumnName}");
             }
-
-            string query = $"@\"UPDATE {TableName}\n        Set \n{SetParametersString}        {ConditionString}\";";
+            string WhereConditionsClause = string.Join("    And     ", WhereConditions);
+            
+            string query = $"@\"UPDATE {TableName}\n        Set \n{setClause}\n        {WhereConditionsClause}\";";
             return query;
         }
         private static string WriteBodyOfUpdateRecordMethod(string tableName, strConnectionInfo connectionInfo)
@@ -124,25 +112,24 @@ namespace Code_Generator_Business_Layer
             }
 
             string TheBodyOfMethod = $@"
-                                        int rowsAffected = 0;
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-                                        string query = {query_text}
-                                        SqlCommand command = new SqlCommand(query, connection);
-                                        {sb}
-                                        try
-                                        {{
-                                            connection.Open();
-                                            rowsAffected = command.ExecuteNonQuery();
-                                        }}
-                                        catch (Exception ex)
-                                        {{
-                                            return false;
-                                        }}
-                                        finally
-                                        {{
-                                        connection.Close();
-                                        }}
-                                        return rowsAffected > 0;";
+                            int rowsAffected = 0;
+                            string query = {query_text}
+
+                            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                            {{
+                                SqlCommand command = new SqlCommand(query, connection);
+                                {sb}
+                                try
+                                {{
+                                    connection.Open();
+                                    rowsAffected = command.ExecuteNonQuery();
+                                }}
+                                catch (Exception ex)
+                                {{
+                                    return false;
+                                }}
+                            }}
+                            return rowsAffected > 0;";
 
             return TheBodyOfMethod;
         }
@@ -186,7 +173,17 @@ namespace Code_Generator_Business_Layer
             StringBuilder stringBuilder = new StringBuilder();
             foreach (strColumnsInfo parameter in parametersList)
             {
-                stringBuilder.Append($"{parameter.ColumnName.ToLower()} = ({MapSqlTypeToCSharp(parameter.DataType)})reader[\"{parameter.ColumnName}\"];" + Environment.NewLine);
+                string colName = parameter.ColumnName;
+                string type = MapSqlTypeToCSharp(parameter.DataType);
+                if (parameter.IsNullable)
+                {
+                    stringBuilder.AppendLine($@"if (reader[""{colName}""] != DBNull.Value)
+                                                {colName.ToLower()} = ({type})reader[""{colName}""];
+                                            else
+                                                {colName.ToLower()} = {DefaultValue(type)};");
+                }
+                else
+                    stringBuilder.AppendLine($"{colName.ToLower()} = ({type})reader[\"{colName}\"];");
             }
             return stringBuilder.ToString();
         }
@@ -207,31 +204,31 @@ namespace Code_Generator_Business_Layer
             string GettingInformationFormateString= CreateSellectionInformationAndVariable(ParamtersList);
 
             string TheBodyOfMethod = $@"
-                                        bool isFound = false;
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-                                        string query = {query_text}
-                                        SqlCommand command = new SqlCommand(query, connection);
-                                        {AppendingValues}
-                                        try
+                                bool isFound = false;
+                                string query = {query_text}
+
+                                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                                {{
+                                    SqlCommand command = new SqlCommand(query, connection);
+                                    {AppendingValues}
+                                    try
+                                    {{
+                                        connection.Open();
+                                        using (SqlDataReader reader = command.ExecuteReader())
                                         {{
-                                            connection.Open();
-                                            SqlDataReader reader = command.ExecuteReader();
                                             if(reader.Read())
                                             {{
                                                 isFound = true;
                                                 {GettingInformationFormateString}
                                             }}
-                                            reader.Close();
                                         }}
-                                        catch (Exception ex)
-                                        {{
-                                            return false;
-                                        }}
-                                        finally
-                                        {{
-                                        connection.Close();
-                                        }}
-                                        return isFound;";
+                                    }}
+                                    catch (Exception ex)
+                                    {{
+                                        isFound = false;
+                                    }}
+                                }}
+                                return isFound;";
 
             return TheBodyOfMethod;
         }
@@ -268,26 +265,24 @@ namespace Code_Generator_Business_Layer
 
 
             string TheBodyOfMethod = $@"
-                                        int rowsAffected = 0;
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-                                        string query = {query_text}
-                                        SqlCommand command = new SqlCommand(query, connection);
-                                        {AppendingValues}
-                                        try
-                                        {{
-                                            connection.Open();
-                                            rowsAffected = command.ExecuteNonQuery();
-                                            
-                                        }}
-                                        catch (Exception ex)
-                                        {{
-                                            return false;
-                                        }}
-                                        finally
-                                        {{
-                                            connection.Close();
-                                        }}
-                                        return rowsAffected > 0;";
+                                int rowsAffected = 0;
+                                string query = {query_text}
+
+                                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                                {{
+                                    SqlCommand command = new SqlCommand(query, connection);
+                                    {AppendingValues}
+                                    try
+                                    {{
+                                        connection.Open();
+                                        rowsAffected = command.ExecuteNonQuery();
+                                    }}
+                                    catch (Exception ex)
+                                    {{
+                                        return false;
+                                    }}
+                                }}
+                                return rowsAffected > 0;";
 
             return TheBodyOfMethod;
         }
@@ -306,29 +301,28 @@ namespace Code_Generator_Business_Layer
         {
             string query_text = WriteSelectAllRecordsQuery(connectionInfo.dbName, tableName);
             string TheBodyOfMethod = $@"
-                                        DataTable dt = new DataTable();
-                                        SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
-                                        string query = {query_text}
-                                        SqlCommand command = new SqlCommand(query, connection);
-                                        try
-                                        {{
-                                            connection.Open();
-                                            SqlDataReader reader = command.ExecuteReader();
+                            DataTable dt = new DataTable();
+                            string query = {query_text}
 
-                                            if (reader.HasRows)
-                                            {{
-                                                dt.Load(reader);
-                                            }}
-
-                                            reader.Close();
-                                        }}
-                                        catch (Exception ex)
-                                        {{ }}
-                                        finally
+                            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                            {{
+                                SqlCommand command = new SqlCommand(query, connection);
+                                try
+                                {{
+                                    connection.Open();
+                                    using (SqlDataReader reader = command.ExecuteReader())
+                                    {{
+                                        if (reader.HasRows)
                                         {{
-                                            connection.Close();
+                                            dt.Load(reader);
                                         }}
-                                        return dt;";
+                                    }}
+                                }}
+                                catch (Exception ex)
+                                {{ 
+                                }}
+                            }}
+                            return dt;";
 
             return TheBodyOfMethod;
         }

@@ -32,12 +32,12 @@ namespace Code_Generator_Business_Layer
         static public string CreateDataAccessClass(string tableName, strConnectionInfo connectionInfo)
         {
             StringBuilder ClassString = new StringBuilder();
-            ClassString.Append(Libraries());
+            ClassString.AppendLine(Libraries());
 
-            ClassString.Append($"namespace {connectionInfo.dbName}_DataAccess_Layer \n{{");
-
-            ClassString.Append($"public class cls{tableName}Data" + Environment.NewLine);
-            ClassString.Append("{" + Environment.NewLine);
+            ClassString.AppendLine($"namespace {connectionInfo.dbName}_DataAccess_Layer");
+            ClassString.AppendLine("{");
+            ClassString.AppendLine($"   public class cls{tableName}Data" + Environment.NewLine);
+            ClassString.AppendLine("    {" );
 
             ClassString.Append(WriteSelectRecordMethod(tableName, connectionInfo));
             ClassString.Append(WriteAddNewRecordMethod(tableName, connectionInfo));
@@ -45,7 +45,8 @@ namespace Code_Generator_Business_Layer
             ClassString.Append(WriteDeleteRecordMethod(tableName, connectionInfo));
             ClassString.Append(WriteGetAllRecordMethod(tableName, connectionInfo));
 
-            ClassString.Append("}}" + Environment.NewLine);
+            ClassString.AppendLine("    }");
+            ClassString.AppendLine("}");
 
             return ClassString.ToString();
         }
@@ -64,6 +65,7 @@ namespace Code_Generator_Business_Layer
             ClassString.AppendLine("\t\t" + bl.CreateFindRecord());
             ClassString.AppendLine("\t\t" + bl.CreateAddNewRecordMethod());
             ClassString.AppendLine("\t\t" + bl.CreateUpdateRecordMethod());
+            ClassString.AppendLine("\t\t" + bl.CreateSaveRecordMethod());
             ClassString.AppendLine("\t\t" + bl.CreateDeleteRecord());
             ClassString.AppendLine("\t\t" + bl.CreateGetAllRecords());
             ClassString.AppendLine("\t}");

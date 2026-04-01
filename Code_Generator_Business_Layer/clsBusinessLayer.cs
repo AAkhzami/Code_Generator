@@ -29,37 +29,7 @@ namespace Code_Generator_Business_Layer
             }
             return propertiesText.ToString();
         }
-        private string _DefaultValue(string dataType)
-        {
-            switch (dataType.ToLower().Replace("?", ""))
-            {
-                case "string":
-                    return "null";
-
-                case "int":
-                case "long":
-                case "short":
-                case "byte":
-                    return "0";
-
-                case "decimal":
-                case "float":
-                case "double":
-                    return "0";
-
-                case "bool":
-                    return "false";
-
-                case "datetime":
-                    return "DateTime.Now";
-
-                case "guid":
-                    return "Guid.Empty";
-
-                default:
-                    return "null";
-            }
-        }
+        
         public string Constructors(string className)
         {
             StringBuilder sb = new StringBuilder();
@@ -68,7 +38,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("{");
             foreach (strColumnsInfo column in _ColumnsListInfo)
             {
-                sb.AppendLine($"\tthis.{column.ColumnName} = {_DefaultValue(MapSqlTypeToCSharp(column.DataType,true))};");
+                sb.AppendLine($"\tthis.{column.ColumnName} = {DefaultValue(MapSqlTypeToCSharp(column.DataType,true))};");
             }
             sb.AppendLine("\tMode = enMode.AddNew;");
             sb.AppendLine("}");
@@ -93,22 +63,16 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"private bool _AddNew{_TableName}()");
             sb.AppendLine("{");
             sb.Append($"this.{ID} = cls{_TableName}Data.AddNew{name}(");
-            int counter = 0;
-            foreach (strColumnsInfo column in _ColumnsListInfo)
-            {
-                if (column.IsIdentity)
-                {
-                    counter++;
-                    continue;
-                }
-                sb.Append($"this.{column.ColumnName}");
-                if( counter != _ColumnsListInfo.Count -1)
-                {
-                    sb.Append(",");
-                }
-                counter++;
 
+            List<string> Parameters = new List<string>();
+            foreach(strColumnsInfo col  in _ColumnsListInfo)
+            {
+                if(!col.IsIdentity)
+                {
+                    Parameters.Add($"this.{col.ColumnName}");
+                }
             }
+            sb.Append(string.Join(", ", Parameters));
             sb.AppendLine(");");
             sb.AppendLine($"return (this.{ID} != null);");
             sb.AppendLine("}");
@@ -207,7 +171,7 @@ namespace Code_Generator_Business_Layer
                 if(!column.IsIdentity)
                 {
                     type = MapSqlTypeToCSharp(column.DataType);
-                    sb.Append($"{type} {column.ColumnName} = {_DefaultValue(type)};");
+                    sb.AppendLine($"{type} {column.ColumnName} = {DefaultValue(type)};");
                 }
             }
             sb.Append($"\n\tbool IsFound = cls{_TableName}Data.Get{_TableName}InfoByID(");
