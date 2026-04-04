@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="../Code_Generator_Business_Layer/Code_Generator_Business_Layer.csproj" Id="ac047428-5509-4456-8d60-d43f392f7776" />
-  <Project Path="../Code_Generator_Data_Access_Layer/Code_Generator_Data_Access_Layer.csproj" Id="8f4cadad-97e6-4f22-9d1e-222a2a54afd1" />
-  <Project Path="Code Generator.csproj" Id="9298011b-3f46-4fae-9586-25f740a9fd73" />
-</Solution>
