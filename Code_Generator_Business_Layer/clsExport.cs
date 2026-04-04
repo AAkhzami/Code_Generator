@@ -27,7 +27,9 @@ namespace Code_Generator_Business_Layer
         }
         static public void CreateClassWithContent(string content, string fileName, string folderName,string path)
         {
-            string FolderPath = path + folderName;            
+            
+            //string FolderPath = path + folderName;
+            string FolderPath = Path.Combine(path,folderName);
             CreateFolder(FolderPath);
             CreateFile(content, fileName, "cs",FolderPath);            
         }

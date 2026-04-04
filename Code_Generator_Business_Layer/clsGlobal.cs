@@ -1,6 +1,7 @@
 ﻿using Code_Generator_Data_Access_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,6 +178,18 @@ namespace Code_Generator_Business_Layer
             string Parameters_Text = string.Join(",", ParametersList);
 
             return Parameters_Text;
+        }
+        public static DataTable GetAllDatabase()
+        {
+            return clsDatabaseInfo_Data.GetAllDatabase();
+        }
+        public static DataTable GetAllTablesOnDatabaseTable(string DatabaseName)
+        {
+            return clsDatabaseInfo_Data.GetAllTablesOnDatabaseTable(DatabaseName);
+        }
+        static public DataTable GetAllColumnsByTableNameTable(string DBName, string TableName)
+        {
+            return clsDatabaseInfo_Data.GetAllColumnsByTableNameTable(DBName, TableName);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Code_Generator_Business_Layer
             sb.Append("using System.Data.SqlClient;" + Environment.NewLine);
             return sb.ToString();
         }
-        static public string CreateDataAccessClass(string tableName, strConnectionInfo connectionInfo)
+        static public string CreateDataAccessClass( strConnectionInfo connectionInfo, string tableName)
         {
             StringBuilder ClassString = new StringBuilder();
             ClassString.AppendLine(Libraries());
@@ -73,18 +73,18 @@ namespace Code_Generator_Business_Layer
 
             return ClassString.ToString();
         }
-        static public List<string> CreateAllDataAccessClasses(strConnectionInfo connectionInfo)
+        static public List<string> CreateAllDataAccessClassesAllTables(strConnectionInfo connectionInfo)
         {
             List<string> ClassesList = new List<string>();
             List<string> tables = GetAllTablesNameOnDatabase(connectionInfo.dbName);
             foreach (string table in tables)
             {
-                ClassesList.Add(CreateDataAccessClass(table,connectionInfo));
+                ClassesList.Add(CreateDataAccessClass(connectionInfo, table));
             }
             return ClassesList;
         }
 
-        static public List<string> CreateAllBusinessClasses(strConnectionInfo connectionInfo)
+        static public List<string> CreateAllBusinessClassesForAllTables(strConnectionInfo connectionInfo)
         {
             List<string> ClassesList = new List<string>();
             List<string> tables = GetAllTablesNameOnDatabase(connectionInfo.dbName);
@@ -94,5 +94,24 @@ namespace Code_Generator_Business_Layer
             }
             return ClassesList;
         }
+
+        //static public List<string> CreateDataAccessClasses(strConnectionInfo connectionInfo, List<string> tables)
+        //{
+        //    List<string> ClassesList = new List<string>();
+        //    foreach (string table in tables)
+        //    {
+        //        ClassesList.Add(CreateDataAccessClass(table, connectionInfo));
+        //    }
+        //    return ClassesList;
+        //}
+        //static public List<string> CreateBusinessClasses(strConnectionInfo connectionInfo, List<string> tables)
+        //{
+        //    List<string> ClassesList = new List<string>();
+        //    foreach (string table in tables)
+        //    {
+        //        ClassesList.Add(CreateBusinessClass(connectionInfo, table));
+        //    }
+        //    return ClassesList;
+        //}
     }
 }

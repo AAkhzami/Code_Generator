@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 
@@ -14,10 +15,10 @@ namespace Code_Generator_Data_Access_Layer
             public bool IsNullable { get; set; }
             public bool IsIdentity { get; set; }
         }
-        static public List<string> GetAllDatabase()
+        static public DataTable GetAllDatabase()
         {
-            List<string> dbNames = new List<string>();
-            string query = "SELECT name FROM sys.databases WHERE database_id > 4 ORDER BY name";
+            DataTable dt = new DataTable();
+            string query = "SELECT Name FROM sys.databases WHERE database_id > 4 ORDER BY name";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString))
             {
@@ -30,7 +31,35 @@ namespace Code_Generator_Data_Access_Layer
                     {
                         while (reader.Read())
                         {
-                            dbNames.Add(reader["name"].ToString());
+                            dt.Load(reader);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+
+            return dt;
+        }
+        static public DataTable GetAllTablesOnDatabaseTable(string DBName)
+        {
+            DataTable dt = new DataTable();
+            string query = @"
+                        SELECT TABLE_NAME as Name
+                        FROM INFORMATION_SCHEMA.TABLES 
+                        WHERE TABLE_TYPE = 'BASE TABLE' ";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString.Replace("master", DBName)))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dt.Load(reader);
                         }
                     }
                 }
@@ -39,8 +68,7 @@ namespace Code_Generator_Data_Access_Layer
                     //Console.WriteLine("Error: " + ex.Message);
                 }
             }
-
-            return dbNames;
+            return dt;
         }
         static public List<string> GetAllTablesOnDatabase(string DBName)
         {
@@ -111,6 +139,40 @@ namespace Code_Generator_Data_Access_Layer
                 }
             }
             return ColumnsInfo;
-        }                
+        }
+        static public DataTable GetAllColumnsByTableNameTable(string DBName, string TableName)
+        {
+            DataTable dt = new DataTable();
+            string query = $@"
+                        Select 
+                        c.name as [ColumnName],
+                        t.name as [DataType],
+                        c.is_nullable as [IsNullable],
+                        c.is_identity as [IsIdentity]
+                        From sys.columns c
+                        inner join sys.types t on c.user_type_id = t.user_type_id
+                        where c.object_id = OBJECT_ID(@TableName)";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString.Replace("master", DBName)))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@TableName", TableName);
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dt.Load(reader);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+            return dt;
+        }
     }
 }
