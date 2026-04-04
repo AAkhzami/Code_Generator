@@ -14,19 +14,19 @@ A tool designed to automate the creation of **Multi-Tier Architecture** layers f
 
 ### 🔐 1. Login Screen
 
-![Login](login_screen.png)
+![Login](/screenshots/login_screen.png)
 
 I made this screen to connect securely to the SQL Server.
 
 ### 🗄️ 2. Database Selection
 
-![Database](select_database.png)
+![Database](/screenshots/select_database.png)
 
 Once connected, you can see all your databases and choose the one you want to work on.
 
 ### 📊 3. Table & Code Generation
 
-![Tables](select_tables.png)
+![Tables](/screenshots/select_tables.png)
 
 This is the heart of the project! You select a table, and the tool shows you the columns and generates the `Data Layer` and `Business Layer` files for you.
 
