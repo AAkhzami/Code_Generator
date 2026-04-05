@@ -148,6 +148,12 @@ namespace Code_Generator_DApp
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(_FolderPath))
+            {
+                MessageBox.Show("Please select a valid output directory first!", "Missing Path", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             if (cbDL.Checked || cbBL.Checked)
             {
                 if (MessageBox.Show("Are you sure ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
