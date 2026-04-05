@@ -197,7 +197,10 @@ namespace Code_Generator_DApp
                 }
 
                 if(cbDL.Checked)
+                {
                     _CreateDataLayer(_DatabaseName, DatabaseLayerClasses, TablesName, _FolderPath);
+                    clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", _FolderPath);
+                }
                 
                 if(cbBL.Checked)
                     _CreateBusinessLayer(_DatabaseName, BusinessLayerClasses, TablesName, _FolderPath);
