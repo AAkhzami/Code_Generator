@@ -129,7 +129,6 @@ namespace Code_Generator_DApp
             folderBrowserDialog1.ShowNewFolderButton = true;
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(folderBrowserDialog1.SelectedPath);
                 _FolderPath = folderBrowserDialog1.SelectedPath;
                 btnCreate.Enabled = true;
             }
@@ -148,12 +147,12 @@ namespace Code_Generator_DApp
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(_FolderPath))
+            if (string.IsNullOrWhiteSpace(_FolderPath))
             {
                 MessageBox.Show("Please select a valid output directory first!", "Missing Path", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             if (cbDL.Checked || cbBL.Checked)
             {
                 if (MessageBox.Show("Are you sure ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -207,15 +206,14 @@ namespace Code_Generator_DApp
                     _CreateDataLayer(_DatabaseName, DatabaseLayerClasses, TablesName, _FolderPath);
                     clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", _FolderPath);
                 }
-                
-                if(cbBL.Checked)
+
+                if (cbBL.Checked)
                     _CreateBusinessLayer(_DatabaseName, BusinessLayerClasses, TablesName, _FolderPath);
 
             }
 
             MessageBox.Show("Files are created successfully!", "Created Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
     }
 }
