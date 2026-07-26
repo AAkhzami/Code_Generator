@@ -13,3 +13,12 @@ C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_G
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Data_Access_Layer.dll
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Data_Access_Layer.pdb
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Business_Layer\obj\Debug\Code_Gen.E1290B09.Up2Date
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Business_Layer.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Business_Layer.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Data_Access_Layer.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\bin\Debug\Code_Generator_Data_Access_Layer.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\obj\Debug\Code_Generator_Business_Layer.csproj.AssemblyReference.cache
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\obj\Debug\Code_Generator_Business_Layer.csproj.CoreCompileInputs.cache
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\obj\Debug\Code_Gen.E1290B09.Up2Date
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\obj\Debug\Code_Generator_Business_Layer.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Business_Layer\obj\Debug\Code_Generator_Business_Layer.pdb
