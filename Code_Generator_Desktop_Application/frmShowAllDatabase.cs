@@ -80,6 +80,7 @@ namespace Code_Generator_DApp
             {
                 tpTablesSelector.Enabled = true;
                 tc.SelectedTab = tc.TabPages["tpTablesSelector"];
+                clsCurrentUser.ConnectionInfo.dbName = name;
                 _LoadTablesData(name);
             }
         }

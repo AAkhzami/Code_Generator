@@ -15,3 +15,20 @@ C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_G
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Gen.4B4A89A0.Up2Date
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.exe
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_DApp.exe.config
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_DApp.exe
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_DApp.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_Business_Layer.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_Data_Access_Layer.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_Business_Layer.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Code_Generator_Data_Access_Layer.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_Desktop_Application.csproj.AssemblyReference.cache
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.exe.config
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.frmShowAllDatabase.resources
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.login.resources
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Properties.Resources.resources
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_Desktop_Application.csproj.GenerateResource.cache
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_Desktop_Application.csproj.CoreCompileInputs.cache
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Gen.4B4A89A0.Up2Date
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.exe
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.pdb
