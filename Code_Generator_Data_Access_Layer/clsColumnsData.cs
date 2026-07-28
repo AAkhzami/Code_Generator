@@ -11,6 +11,7 @@ namespace Code_Generator_Data_Access_Layer
 {
     public class clsColumnsData
     {
+		
         static public DataTable GetAllColumnsInfoByTableName(string DatabaseName,string TableName)
         {
             DataTable dt = new DataTable();
@@ -59,6 +60,7 @@ namespace Code_Generator_Data_Access_Layer
 						left join cte_uq uq on
 							uq.object_id = c.object_id and uq.column_id = c.column_id
 						where c.object_id = OBJECT_ID(@TableName)";
+			
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessConnections.ConnectionsString.Replace("master", DatabaseName)))
             {
