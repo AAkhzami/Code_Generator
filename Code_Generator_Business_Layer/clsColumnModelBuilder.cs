@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,36 +35,53 @@ namespace Code_Generator_Business_Layer
             _tableName = TableName;
             _databaseName = DatabaseName;
         }
-        public string MappingDataType(string dataType)
+        public string MappingDataType(string sqlType)
         {
-            switch (dataType.ToLower().Replace("?", ""))
-            {
-                case "string":
-                    return "null";
+            string csharpType;
 
-                case "int":
-                case "long":
-                case "short":
-                case "byte":
-                    return "0";
+            switch (sqlType.ToLower())
+            {
+                case "bigint": csharpType = "long"; break;
+
+                case "int": csharpType = "int"; break;
+
+                case "smallint": csharpType = "short"; break;
+
+                case "tinyint": csharpType = "byte"; break;
+
+                case "bit": csharpType = "bool"; break;
 
                 case "decimal":
-                case "float":
-                case "double":
-                    return "0";
+                case "numeric":
+                case "money":
+                case "smallmoney": csharpType = "decimal"; break;
 
-                case "bool":
-                    return "false";
+                case "float": csharpType = "double"; break;
+
+                case "real": csharpType = "float"; break;
 
                 case "datetime":
-                    return "DateTime.Now";
+                case "datetime2":
+                case "date":
+                case "smalldatetime": csharpType = "DateTime"; break;
 
-                case "guid":
-                    return "Guid.Empty";
+                case "varchar":
+                case "nvarchar":
+                case "text":
+                case "ntext":
+                case "char":
+                case "nchar": csharpType = "string"; break;
 
-                default:
-                    return "null";
+                case "binary":
+                case "varbinary":
+                case "image": csharpType = "byte[]"; break;
+
+                case "uniqueidentifier": csharpType = "Guid"; break;
+
+                default: csharpType = "object"; break;
             }
+
+            return csharpType;
         }
         public strColumnInfo GetColumnInfo(string ColumnName)
         {
@@ -77,7 +95,7 @@ namespace Code_Generator_Business_Layer
                     info.ColumnName = (string)dr[1];
                     info.ColumnSqlType = (string)dr[2];
                     info.ColumnType = MappingDataType((string)dr[2]);
-                    info.MaxLength = (int)dr[3];
+                    info.MaxLength = (short)dr[3];
                     info.IsNullable = (bool)dr[4];
                     info.DefaultValue = (string)dr[5];
                     info.IsPrimaryKey = (bool)dr[6];
