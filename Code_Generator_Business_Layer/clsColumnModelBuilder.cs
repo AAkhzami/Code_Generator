@@ -153,5 +153,16 @@ namespace Code_Generator_Business_Layer
             }
             return info;
         }
+
+        public List<clsColumnModelBuilder.strColumnInfo> GetAllColumnsInfo()
+        {
+            List<strColumnInfo> list = new List<strColumnInfo>();
+            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(InsertColumnData(dr));
+            }
+            return list;
+        }
     }
 }
