@@ -97,11 +97,11 @@ namespace Code_Generator_Business_Layer
                     info.ColumnType = MappingDataType((string)dr[2]);
                     info.MaxLength = (short)dr[3];
                     info.IsNullable = (bool)dr[4];
-                    info.DefaultValue = (string)dr[5];
-                    info.IsPrimaryKey = (bool)dr[6];
-                    info.IsForeignKey = (bool)dr[7];
-                    info.ReferencedTable = (string)dr[8];
-                    info.IsUnique = (bool)dr[9];
+                    info.DefaultValue = dr[5].ToString();
+                    info.IsPrimaryKey = Convert.ToBoolean((int)dr[6]);
+                    info.IsForeignKey = Convert.ToBoolean((int)dr[7]);
+                    info.ReferencedTable = dr[8].ToString();
+                    info.IsUnique = Convert.ToBoolean((int)dr[9]);
 
                     break;
                 }
