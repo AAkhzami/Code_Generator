@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsColumnsData.cs" />
     <Compile Include="clsDataAccessConnections.cs" />
     <Compile Include="clsDatabaseInfo_Data.cs" />
     <Compile Include="clsTablesInfoData.cs" />
