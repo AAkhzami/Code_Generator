@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,45 @@ namespace Code_Generator_Business_Layer
 
             return csharpType;
         }
+
+        private strColumnInfo InsertColumnData(DataRow column)
+        {
+            strColumnInfo info = new strColumnInfo();
+
+            info.ColumnID = (int)column[0];
+            info.ColumnName = (string)column[1];
+            info.ColumnSqlType = (string)column[2];
+            info.ColumnType = MappingDataType((string)column[2]);
+            info.MaxLength = (short)column[3];
+            info.IsNullable = (bool)column[4];
+
+            if (column[5] == System.DBNull.Value)
+            {
+                info.DefaultValue = "Null";
+            }
+            else
+            {
+                info.DefaultValue = column[5].ToString();
+            }
+
+            info.IsPrimaryKey = Convert.ToBoolean((int)column[6]);
+            info.IsForeignKey = Convert.ToBoolean((int)column[7]);
+
+            if (column[8] == System.DBNull.Value)
+            {
+                info.ReferencedTable = "Null";
+            }
+            else
+            {
+                info.ReferencedTable = column[8].ToString();
+            }
+
+            info.IsUnique = Convert.ToBoolean((int)column[9]);
+
+            return info;
+
+        }
+
         public strColumnInfo GetColumnInfo(string ColumnName)
         {
             DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
@@ -91,18 +131,22 @@ namespace Code_Generator_Business_Layer
             {
                 if((string)dr[1] == ColumnName)
                 {
-                    info.ColumnID = (int)dr[0];
-                    info.ColumnName = (string)dr[1];
-                    info.ColumnSqlType = (string)dr[2];
-                    info.ColumnType = MappingDataType((string)dr[2]);
-                    info.MaxLength = (short)dr[3];
-                    info.IsNullable = (bool)dr[4];
-                    info.DefaultValue = dr[5].ToString();
-                    info.IsPrimaryKey = Convert.ToBoolean((int)dr[6]);
-                    info.IsForeignKey = Convert.ToBoolean((int)dr[7]);
-                    info.ReferencedTable = dr[8].ToString();
-                    info.IsUnique = Convert.ToBoolean((int)dr[9]);
+                    info = InsertColumnData(dr);
+                    break;
+                }
 
+            }
+            return info;
+        }
+        public strColumnInfo GetColumnInfo(int ColumnID)
+        {
+            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
+            strColumnInfo info = new strColumnInfo();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if ((int)dr[0] == ColumnID)
+                {
+                    info = InsertColumnData(dr);
                     break;
                 }
 
