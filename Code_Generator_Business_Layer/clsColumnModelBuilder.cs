@@ -164,5 +164,11 @@ namespace Code_Generator_Business_Layer
             }
             return list;
         }
+        public DataTable GetAllColumnsInfoInDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Load((IDataReader)GetAllColumnsInfo());
+            return dt;
+        }
     }
 }
