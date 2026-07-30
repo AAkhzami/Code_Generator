@@ -69,7 +69,7 @@ namespace Code_Generator_Data_Access_Layer
                 try
                 {
                     connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+					using (SqlDataReader reader = command.ExecuteReader())
                     {
                         dt.Load(reader);                        
                     }

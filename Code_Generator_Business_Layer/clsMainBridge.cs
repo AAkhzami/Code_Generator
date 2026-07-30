@@ -22,10 +22,10 @@ namespace Code_Generator_Business_Layer
         {
             return clsColumnsData.GetAllColumnsInfoByTableName(Database,Table);
         }
-        static public DataTable GetAllColumnsInfo(string Database, string Table)
+        static public List<clsColumnModelBuilder.strColumnInfo> GetAllColumnsInfo(string Database, string Table)
         {
             clsColumnModelBuilder cm = new clsColumnModelBuilder(Database, Table);
-            return cm.GetAllColumnsInfoInDataTable();
+            return cm.GetAllColumnsInfo();
         }
     }
 }
