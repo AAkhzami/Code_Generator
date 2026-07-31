@@ -15,7 +15,7 @@ namespace Code_Generator_Business_Layer
         public clsBusinessLayerGenerator(string Database, string Table)
         {
             _database = Database;
-            _table = char.ToUpper(_table[0]) + _table.Substring(1);
+            _table = string.IsNullOrEmpty(Table) ? Table : char.ToUpper(_table[0]) + _table.Substring(1);
             _Columns = new clsColumnModelBuilder(_database, Table);
         }
 
