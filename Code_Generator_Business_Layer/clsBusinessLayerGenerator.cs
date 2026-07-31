@@ -150,7 +150,16 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"public cls{_table}()");
 
             sb.AppendLine("{");
-            ColumnsList.ForEach(c =>  sb.AppendLine($"\tthis.{c.ColumnName} = {clsHelper.DefaultValue(c.ColumnType)};"));
+            ColumnsList.ForEach(c => {
+                if(c.IsPrimaryKey)
+                {
+                    sb.AppendLine($"\tthis.{c.ColumnName} = null;");
+                }
+                else
+                {
+                    sb.AppendLine($"\tthis.{c.ColumnName} = {clsHelper.DefaultValue(c.ColumnType)};");
+                }
+            });
 
             sb.AppendLine("\tMode = enMode.AddNew;");
             sb.AppendLine("}");
