@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,23 +65,20 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"public static cls{_table} Find({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
             sb.AppendLine("{");
 
-            foreach (clsColumnModelBuilder.strColumnInfo column in _ListColumns)
-            {
-                if (!column.IsPrimaryKey)
+            _ListColumns.ForEach(
+                c =>
                 {
-                    sb.Append("\t");
-                    sb.AppendLine($"{clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
-                }
-            }
+                    if (!c.IsPrimaryKey)
+                    {
+                        sb.AppendLine($"\t{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {c.ColumnName} = {clsHelper.DefaultValue(c.ColumnType)};");
+                    }
+                });
+
             sb.Append($"\tbool IsFound = cls{_table}Data.Get{_table}InfoByID(");
 
             List<string> propertiesList = new List<string>();
 
-            foreach (clsColumnModelBuilder.strColumnInfo column in _ListColumns)
-            {
-                propertiesList.Add(column.ColumnName);
-            }
-
+            _ListColumns.ForEach(c => propertiesList.Add(c.ColumnName));
 
             sb.Append(clsHelper.FormatingProperties(propertiesList, "ref ", 1));
 
