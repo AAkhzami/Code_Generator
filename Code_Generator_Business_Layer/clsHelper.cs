@@ -94,5 +94,32 @@ namespace Code_Generator_Business_Layer
 
             return result;
         }
+
+        /// <summary>
+        /// Formats a database column name into a C# safe parameter name using camelCase.
+        /// Automatically handles reserved C# keywords by appending the '@' prefix (e.g., "class" becomes "@class").
+        /// </summary>
+        /// <param name="columnName">The name of the database column or property.</param>
+        public static string ToSafeParamName(string columnName)
+        {
+            string paramName = char.ToLower(columnName[0]) + columnName.Substring(1);
+
+            string[] reservedKeywords = { "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked",
+            "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else",
+            "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for",
+            "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is",
+            "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override",
+            "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte",
+            "sealed", "short", "sizeof", "stackalloc", "static", "string", "struct", "switch",
+            "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe",
+            "ushort", "using", "virtual", "void", "volatile", "while"};
+
+            if (reservedKeywords.Contains(paramName))
+            {
+                return "_" + paramName;
+            }
+
+            return paramName;
+        }
     }
 }
