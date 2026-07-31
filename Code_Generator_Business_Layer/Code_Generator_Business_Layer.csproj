@@ -48,6 +48,7 @@
     <Compile Include="clsClassesGenerator.cs" />
     <Compile Include="clsExport.cs" />
     <Compile Include="clsGlobal.cs" />
+    <Compile Include="clsHelper.cs" />
     <Compile Include="clsMainBridge.cs" />
     <Compile Include="clsTSqlScriptBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

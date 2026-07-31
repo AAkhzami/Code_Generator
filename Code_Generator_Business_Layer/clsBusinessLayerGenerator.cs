@@ -26,11 +26,14 @@ namespace Code_Generator_Business_Layer
             propertiesText.AppendLine("public enMode Mode = enMode.AddNew;");
             foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
             {
-                if(column.IsNullable)
+                if (column.IsNullable)
+                {
+                    propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} {{get;set;}}");
+                }
+                else
                 {
                     propertiesText.AppendLine($"public {column.ColumnType} {column.ColumnName} {{get;set;}}");
                 }
-                propertiesText.AppendLine($"public {column.ColumnType} {column.ColumnName} {{get;set;}}");
             }
             return propertiesText.ToString();
         }
@@ -41,7 +44,7 @@ namespace Code_Generator_Business_Layer
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"private bool _AddNew{_table}()");
             sb.AppendLine("{");
-            sb.Append($"this.{_Columns.PrimaryKey} = cls{_table}Data.AddNew{name}(");
+            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNew{name}(");
 
             List<string> Parameters = new List<string>();
             foreach (clsColumnModelBuilder.strColumnInfo col in _Columns.GetAllColumnsInfo())
@@ -53,8 +56,8 @@ namespace Code_Generator_Business_Layer
             }
 
             sb.Append(string.Join(", ", Parameters));
-            sb.AppendLine(");");
-            sb.AppendLine($"return (this.{_Columns.PrimaryKey} != null);");
+            sb.Append(");");
+            sb.Append($"return (this.{_Columns.PrimaryKey.ColumnName} != null);");
             sb.AppendLine("}");
 
 
