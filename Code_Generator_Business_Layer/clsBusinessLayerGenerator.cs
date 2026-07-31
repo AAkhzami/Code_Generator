@@ -25,11 +25,12 @@ namespace Code_Generator_Business_Layer
             StringBuilder propertiesText = new StringBuilder();
             propertiesText.AppendLine("public enum enMode { AddNew = 0, Update = 1 };");
             propertiesText.AppendLine("public enMode Mode = enMode.AddNew;");
-            foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
-            {
-                bool isNullable = column.IsPrimaryKey || column.IsNullable;
-                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, isNullable)} {column.ColumnName} {{get;set;}}");
-            }
+
+            _Columns.GetAllColumnsInfo().ForEach(c => {
+                bool isNullable = c.IsPrimaryKey || c.IsNullable;
+                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(c.ColumnType, isNullable)} {c.ColumnName} {{get;set;}}");
+            });
+
             return propertiesText.ToString();
         }
         public string GenerateCreateMethod()
@@ -41,13 +42,14 @@ namespace Code_Generator_Business_Layer
             sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNew{_table}(");
 
             List<string> Parameters = new List<string>();
-            foreach (clsColumnModelBuilder.strColumnInfo col in _Columns.GetAllColumnsInfo())
+
+            _Columns.GetAllColumnsInfo().ForEach((c) =>
             {
-                if (!col.IsPrimaryKey && !col.IsIdentity)
+                if (!c.IsPrimaryKey && !c.IsIdentity)
                 {
-                    Parameters.Add($"this.{col.ColumnName}");
+                    Parameters.Add($"this.{c.ColumnName}");
                 }
-            }
+            });
 
             sb.Append(string.Join(", ", Parameters));
             sb.AppendLine(");");
@@ -107,10 +109,10 @@ namespace Code_Generator_Business_Layer
             sb.Append($"\treturn cls{_table}Data.Update{_table}InfoByID(");
 
             List<string> columnsName = new List<string>();
-            foreach (clsColumnModelBuilder.strColumnInfo c in _Columns.GetAllColumnsInfo())
-            {
+
+            _Columns.GetAllColumnsInfo().ForEach(c => {
                 columnsName.Add(c.ColumnName);
-            }
+            });
 
             sb.Append(clsHelper.FormatingProperties(columnsName, "this.", 0));
             sb.AppendLine(");");
@@ -121,7 +123,6 @@ namespace Code_Generator_Business_Layer
         }
         public string GenerateDeleteMethod()
         {
-
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"public static bool Delete{_table}({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
             sb.AppendLine("{");
@@ -149,10 +150,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"public cls{_table}()");
 
             sb.AppendLine("{");
-            foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
-            {
-                sb.AppendLine($"\tthis.{column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
-            }
+            ColumnsList.ForEach(c =>  sb.AppendLine($"\tthis.{c.ColumnName} = {clsHelper.DefaultValue(c.ColumnType)};"));
 
             sb.AppendLine("\tMode = enMode.AddNew;");
             sb.AppendLine("}");
@@ -165,21 +163,21 @@ namespace Code_Generator_Business_Layer
             List<clsColumnModelBuilder.strColumnInfo> ColumnsList = _Columns.GetAllColumnsInfo();
             List<string> columnsNameAndType = new List<string>();
 
-            foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
+            ColumnsList.ForEach(c =>
             {
-                bool isNullable = column.IsNullable || column.IsPrimaryKey;
-                columnsNameAndType.Add($"{clsHelper.FormatNullableType(column.ColumnType, isNullable)} {clsHelper.SafeParamName(column.ColumnName)}");
-            }
+                bool isNullable = c.IsNullable || c.IsPrimaryKey;
+                columnsNameAndType.Add($"{clsHelper.FormatNullableType(c.ColumnType, isNullable)} {clsHelper.SafeParamName(c.ColumnName)}");
+            });
 
 
             sb.AppendLine($"private cls{_table}({clsHelper.FormatingProperties(columnsNameAndType)})");
 
             sb.AppendLine("{");
 
-            foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
+            ColumnsList.ForEach(c =>
             {
-                sb.AppendLine($"\tthis.{column.ColumnName} = {clsHelper.SafeParamName(column.ColumnName)};");
-            }
+                sb.AppendLine($"\tthis.{c.ColumnName} = {clsHelper.SafeParamName(c.ColumnName)};");
+            });
 
             sb.AppendLine("\tMode = enMode.Update;");
 
