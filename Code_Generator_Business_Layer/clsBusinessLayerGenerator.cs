@@ -15,8 +15,8 @@ namespace Code_Generator_Business_Layer
         public clsBusinessLayerGenerator(string Database, string Table)
         {
             _database = Database;
-            _table = Table;
-            _Columns = new clsColumnModelBuilder(_database, _table);
+            _table = char.ToUpper(_table[0]) + _table.Substring(1);
+            _Columns = new clsColumnModelBuilder(_database, Table);
         }
 
         public string GenerateProperties()
@@ -46,12 +46,11 @@ namespace Code_Generator_Business_Layer
         }
         public string GenerateCreateMethod()
         {
-            string name = char.ToUpper(_table[0]) + _table.Substring(1);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"private bool _AddNew{_table}()");
             sb.AppendLine("{");
-            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNew{name}(");
+            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNew{_table}(");
 
             List<string> Parameters = new List<string>();
             foreach (clsColumnModelBuilder.strColumnInfo col in _Columns.GetAllColumnsInfo())
@@ -115,13 +114,12 @@ namespace Code_Generator_Business_Layer
         }
         public string GenerateUpdateMethod()
         {
-            string name = char.ToUpper(_table[0]) + _table.Substring(1);
 
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"private bool _Update{_table}()");
             sb.AppendLine("{");
-            sb.Append($"\treturn cls{_table}Data.Update{name}InfoByID(");
+            sb.Append($"\treturn cls{_table}Data.Update{_table}InfoByID(");
 
             List<string> columnsName = new List<string>();
             foreach (clsColumnModelBuilder.strColumnInfo c in _Columns.GetAllColumnsInfo())
@@ -138,12 +136,22 @@ namespace Code_Generator_Business_Layer
         }
         public string GenerateDeleteMethod()
         {
-            string name = char.ToUpper(_table[0]) + _table.Substring(1);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"public static bool Delete{_table}({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
             sb.AppendLine("{");
-            sb.AppendLine($"\treturn cls{_table}Data.Delete{name}ByID({_Columns.PrimaryKey.ColumnName});");
+            sb.AppendLine($"\treturn cls{_table}Data.Delete{_table}ByID({_Columns.PrimaryKey.ColumnName});");
+            sb.AppendLine("}");
+            return sb.ToString();
+        }
+        public string GenerateReadAllMethod()
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"public static DataTable GetAll{_table}()");
+            sb.AppendLine("{");
+            sb.AppendLine($"\treturn cls{_table}Data.GetAll{_table}Records();");
             sb.AppendLine("}");
             return sb.ToString();
         }
