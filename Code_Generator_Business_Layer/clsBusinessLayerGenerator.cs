@@ -19,7 +19,7 @@ namespace Code_Generator_Business_Layer
             _Columns = new clsColumnModelBuilder(_database, _table);
         }
 
-        public string WriteProperties()
+        public string GenerateProperties()
         {
             StringBuilder propertiesText = new StringBuilder();
             propertiesText.AppendLine("public enum enMode { AddNew = 0, Update = 1 };");
@@ -44,7 +44,7 @@ namespace Code_Generator_Business_Layer
             }
             return propertiesText.ToString();
         }
-        public string WriteCreateMethod()
+        public string GenerateCreateMethod()
         {
             string name = char.ToUpper(_table[0]) + _table.Substring(1);
 
@@ -70,7 +70,7 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
-        public string WriteReadMethod()
+        public string GenerateReadMethod()
         {
             List<clsColumnModelBuilder.strColumnInfo> _ListColumns = _Columns.GetAllColumnsInfo();
 
@@ -113,7 +113,7 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
-        public string WriteUpdateMethod()
+        public string GenerateUpdateMethod()
         {
             string name = char.ToUpper(_table[0]) + _table.Substring(1);
 
