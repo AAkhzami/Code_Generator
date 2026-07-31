@@ -169,7 +169,7 @@ namespace Code_Generator_Business_Layer
 
             foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
             {
-                columnsNameAndType.Add($"{clsHelper.FormatNullableType(column.ColumnType,column.IsNullable)} {column.ColumnName.ToLower()}");
+                columnsNameAndType.Add($"{clsHelper.FormatNullableType(column.ColumnType,column.IsNullable)} {clsHelper.SafeParamName(column.ColumnName)}");
             }
 
 

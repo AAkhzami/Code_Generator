@@ -100,7 +100,7 @@ namespace Code_Generator_Business_Layer
         /// Automatically handles reserved C# keywords by appending the '@' prefix (e.g., "class" becomes "@class").
         /// </summary>
         /// <param name="columnName">The name of the database column or property.</param>
-        public static string ToSafeParamName(string columnName)
+        public static string SafeParamName(string columnName)
         {
             string paramName = char.ToLower(columnName[0]) + columnName.Substring(1);
 
