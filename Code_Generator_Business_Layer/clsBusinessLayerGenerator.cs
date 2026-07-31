@@ -83,7 +83,7 @@ namespace Code_Generator_Business_Layer
                 if (!column.IsPrimaryKey && !column.IsIdentity)
                 {
                     sb.Append("\t");
-                    sb.AppendLine($"{column.ColumnType} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
+                    sb.AppendLine($"{clsHelper.FormatNullableType(column.ColumnType,column.IsNullable)} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
                 }
             }
             sb.Append($"\tbool IsFound = cls{_table}Data.Get{_table}InfoByID(");
