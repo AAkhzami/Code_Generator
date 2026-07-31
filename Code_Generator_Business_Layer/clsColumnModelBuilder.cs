@@ -25,7 +25,7 @@ namespace Code_Generator_Business_Layer
 
         string _tableName;
         string _databaseName;
-        public strColumnInfo PrimaryKey; 
+        public strColumnInfo PrimaryKey;
         public clsColumnModelBuilder(string DatabaseName, string TableName)
         {
             _tableName = TableName;

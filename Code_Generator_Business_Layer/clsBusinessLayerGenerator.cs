@@ -26,13 +26,20 @@ namespace Code_Generator_Business_Layer
             propertiesText.AppendLine("public enMode Mode = enMode.AddNew;");
             foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
             {
-                if (column.IsNullable)
+                if(!column.IsPrimaryKey)
                 {
-                    propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} {{get;set;}}");
+                    if (column.IsNullable)
+                    {
+                        propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} {{get;set;}}");
+                    }
+                    else
+                    {
+                        propertiesText.AppendLine($"public {column.ColumnType} {column.ColumnName} {{get;set;}}");
+                    }
                 }
                 else
                 {
-                    propertiesText.AppendLine($"public {column.ColumnType} {column.ColumnName} {{get;set;}}");
+                    propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, true)} {column.ColumnName} {{get;set;}}");
                 }
             }
             return propertiesText.ToString();
@@ -49,7 +56,7 @@ namespace Code_Generator_Business_Layer
             List<string> Parameters = new List<string>();
             foreach (clsColumnModelBuilder.strColumnInfo col in _Columns.GetAllColumnsInfo())
             {
-                if (!col.IsPrimaryKey)
+                if (!col.IsPrimaryKey && !col.IsIdentity)
                 {
                     Parameters.Add($"this.{col.ColumnName}");
                 }
@@ -57,7 +64,50 @@ namespace Code_Generator_Business_Layer
 
             sb.Append(string.Join(", ", Parameters));
             sb.Append(");");
-            sb.Append($"return (this.{_Columns.PrimaryKey.ColumnName} != null);");
+            sb.AppendLine($"return (this.{_Columns.PrimaryKey.ColumnName} != null);");
+            sb.AppendLine("}");
+
+
+            return sb.ToString();
+        }
+        public string WriteReadMethod()
+        {
+            List<clsColumnModelBuilder.strColumnInfo> _ListColumns = _Columns.GetAllColumnsInfo();
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"public static cls{_table} Find({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
+            sb.AppendLine("{");
+
+            foreach (clsColumnModelBuilder.strColumnInfo column in _ListColumns)
+            {
+                if (!column.IsPrimaryKey && !column.IsIdentity)
+                {
+                    sb.Append("\t");
+                    sb.AppendLine($"{column.ColumnType} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
+                }
+            }
+            sb.Append($"\tbool IsFound = cls{_table}Data.Get{_table}InfoByID(");
+
+            List<string> propertiesList = new List<string>();
+
+            foreach (clsColumnModelBuilder.strColumnInfo column in _ListColumns)
+            {
+                propertiesList.Add(column.ColumnName);
+            }
+
+
+            sb.Append(clsHelper.FormatingProperties(propertiesList, "ref ",1));
+
+            sb.AppendLine($");");
+
+            sb.AppendLine("\tif(IsFound)");
+            sb.AppendLine("\t{");
+            sb.AppendLine($"\t\treturn new cls{_table}({clsHelper.FormatingProperties(propertiesList)});");
+            sb.AppendLine("\t}");
+            sb.AppendLine("\telse");
+            sb.AppendLine("\t{");
+            sb.AppendLine("\t\treturn null;");
+            sb.AppendLine("\t}");
             sb.AppendLine("}");
 
 
