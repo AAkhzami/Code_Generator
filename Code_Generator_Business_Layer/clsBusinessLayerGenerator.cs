@@ -113,5 +113,28 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
+        public string WriteUpdateMethod()
+        {
+            string name = char.ToUpper(_table[0]) + _table.Substring(1);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"private bool _Update{_table}()");
+            sb.AppendLine("{");
+            sb.Append($"\treturn cls{_table}Data.Update{name}InfoByID(");
+
+            List<string> columnsName = new List<string>();
+            foreach(clsColumnModelBuilder.strColumnInfo c in _Columns.GetAllColumnsInfo())
+            {
+                columnsName.Add(c.ColumnName);
+            }
+
+            sb.Append(clsHelper.FormatingProperties(columnsName, "this.",0));
+            sb.AppendLine(");");
+            sb.AppendLine("}");
+
+
+            return sb.ToString();
+        }
     }
 }
