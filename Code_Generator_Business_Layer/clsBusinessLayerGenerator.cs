@@ -27,7 +27,7 @@ namespace Code_Generator_Business_Layer
             foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
             {
                 bool isNullable = column.IsPrimaryKey || column.IsNullable;
-                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, isNullable)} {clsHelper.SafeParamName(column.ColumnName)} {{get;set;}}");
+                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, isNullable)} {column.ColumnName} {{get;set;}}");
             }
             return propertiesText.ToString();
         }
