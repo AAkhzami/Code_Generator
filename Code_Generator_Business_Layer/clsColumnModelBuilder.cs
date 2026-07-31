@@ -2,11 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer
 {
@@ -30,11 +25,12 @@ namespace Code_Generator_Business_Layer
 
         string _tableName;
         string _databaseName;
-
+        public strColumnInfo PrimaryKey; 
         public clsColumnModelBuilder(string DatabaseName, string TableName)
         {
             _tableName = TableName;
             _databaseName = DatabaseName;
+            PrimaryKey = GetPrimaryKey();
         }
         public string MappingDataType(string sqlType)
         {
@@ -153,7 +149,18 @@ namespace Code_Generator_Business_Layer
             }
             return info;
         }
-
+        private strColumnInfo GetPrimaryKey()
+        {
+            strColumnInfo pk = new strColumnInfo();
+            foreach(strColumnInfo c in GetAllColumnsInfo())
+            {
+                if(c.IsPrimaryKey)
+                {
+                    pk = c;
+                }
+            }
+            return pk;
+        }
         public List<clsColumnModelBuilder.strColumnInfo> GetAllColumnsInfo()
         {
             List<strColumnInfo> list = new List<strColumnInfo>();
