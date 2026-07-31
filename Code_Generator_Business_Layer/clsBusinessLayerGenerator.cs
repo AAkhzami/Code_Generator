@@ -27,7 +27,7 @@ namespace Code_Generator_Business_Layer
             foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
             {
                 bool isNullable = column.IsPrimaryKey || column.IsNullable;
-                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, isNullable)} {column.ColumnName} {{get;set;}}");
+                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(column.ColumnType, isNullable)} {clsHelper.SafeParamName(column.ColumnName)} {{get;set;}}");
             }
             return propertiesText.ToString();
         }
@@ -66,7 +66,7 @@ namespace Code_Generator_Business_Layer
 
             foreach (clsColumnModelBuilder.strColumnInfo column in _ListColumns)
             {
-                if (!column.IsPrimaryKey && !column.IsIdentity)
+                if (!column.IsPrimaryKey)
                 {
                     sb.Append("\t");
                     sb.AppendLine($"{clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
@@ -169,7 +169,8 @@ namespace Code_Generator_Business_Layer
 
             foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
             {
-                columnsNameAndType.Add($"{clsHelper.FormatNullableType(column.ColumnType,column.IsNullable)} {clsHelper.SafeParamName(column.ColumnName)}");
+                bool isNullable = column.IsNullable || column.IsPrimaryKey;
+                columnsNameAndType.Add($"{clsHelper.FormatNullableType(column.ColumnType, isNullable)} {clsHelper.SafeParamName(column.ColumnName)}");
             }
 
 
@@ -179,7 +180,7 @@ namespace Code_Generator_Business_Layer
 
             foreach (clsColumnModelBuilder.strColumnInfo column in ColumnsList)
             {
-                sb.AppendLine($"\tthis.{column.ColumnName} = {column.ColumnName.ToLower()};");
+                sb.AppendLine($"\tthis.{column.ColumnName} = {clsHelper.SafeParamName(column.ColumnName)};");
             }
 
             sb.AppendLine("\tMode = enMode.Update;");
