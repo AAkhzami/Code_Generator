@@ -26,7 +26,7 @@ namespace Code_Generator_Business_Layer
             propertiesText.AppendLine("public enMode Mode = enMode.AddNew;");
             foreach (clsColumnModelBuilder.strColumnInfo column in _Columns.GetAllColumnsInfo())
             {
-                if(!column.IsPrimaryKey)
+                if (!column.IsPrimaryKey)
                 {
                     if (column.IsNullable)
                     {
@@ -83,7 +83,7 @@ namespace Code_Generator_Business_Layer
                 if (!column.IsPrimaryKey && !column.IsIdentity)
                 {
                     sb.Append("\t");
-                    sb.AppendLine($"{clsHelper.FormatNullableType(column.ColumnType,column.IsNullable)} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
+                    sb.AppendLine($"{clsHelper.FormatNullableType(column.ColumnType, column.IsNullable)} {column.ColumnName} = {clsHelper.DefaultValue(column.ColumnType)};");
                 }
             }
             sb.Append($"\tbool IsFound = cls{_table}Data.Get{_table}InfoByID(");
@@ -96,7 +96,7 @@ namespace Code_Generator_Business_Layer
             }
 
 
-            sb.Append(clsHelper.FormatingProperties(propertiesList, "ref ",1));
+            sb.Append(clsHelper.FormatingProperties(propertiesList, "ref ", 1));
 
             sb.AppendLine($");");
 
@@ -124,16 +124,27 @@ namespace Code_Generator_Business_Layer
             sb.Append($"\treturn cls{_table}Data.Update{name}InfoByID(");
 
             List<string> columnsName = new List<string>();
-            foreach(clsColumnModelBuilder.strColumnInfo c in _Columns.GetAllColumnsInfo())
+            foreach (clsColumnModelBuilder.strColumnInfo c in _Columns.GetAllColumnsInfo())
             {
                 columnsName.Add(c.ColumnName);
             }
 
-            sb.Append(clsHelper.FormatingProperties(columnsName, "this.",0));
+            sb.Append(clsHelper.FormatingProperties(columnsName, "this.", 0));
             sb.AppendLine(");");
             sb.AppendLine("}");
 
 
+            return sb.ToString();
+        }
+        public string GenerateDeleteMethod()
+        {
+            string name = char.ToUpper(_table[0]) + _table.Substring(1);
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"public static bool Delete{_table}({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
+            sb.AppendLine("{");
+            sb.AppendLine($"\treturn cls{_table}Data.Delete{name}ByID({_Columns.PrimaryKey.ColumnName});");
+            sb.AppendLine("}");
             return sb.ToString();
         }
     }
