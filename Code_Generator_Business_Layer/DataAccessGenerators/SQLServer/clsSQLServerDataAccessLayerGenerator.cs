@@ -33,8 +33,17 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
 
             return query.ToString();
         }
+        private string GenerateSelectQuery()
+        {
+            var columns = _Columns.GetAllColumnsInfo().ToList();
+            StringBuilder query = new StringBuilder();
+            query.AppendLine($"Select {clsHelper.FormatingProperties(columns.ToList().Select(n => n.ColumnName).ToList())}");
+            query.AppendLine($"from {_tableName}");
+            query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
+            return query.ToString();
+        }
 
-
+        // Methods
         public string GenerateCreateMethod()
         {
             var columns = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
@@ -68,7 +77,42 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         }
         public string GenerateReadMethod()
         {
-            return "Read Method";
+            var columns = _Columns.GetAllColumnsInfo().ToList();
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static bool Get{_tableName}By{_Columns.PrimaryKey.ColumnName}");
+            method.Append("(");
+            var parameters = columns.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}");
+            method.Append(clsHelper.FormatingProperties(parameters.ToList(),"ref ",1));
+            method.AppendLine(")");
+            method.AppendLine("{");
+            method.AppendLine($"\tbool isFound = false;");
+            method.AppendLine($"\tstring query = @\"{GenerateSelectQuery()}\";");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
+            method.AppendLine("\t{");
+            method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{_Columns.PrimaryKey.ColumnName}\", {clsHelper.SafeParamName(_Columns.PrimaryKey.ColumnName)});");
+            method.AppendLine($"\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine($"\t\t\tconnection.Open();");
+            method.AppendLine($"\t\t\tusing (SqlDataReader reader = command.ExecuteReader())");
+            method.AppendLine("\t\t\t{");
+            method.AppendLine("\t\t\t\tif (reader.Read())");
+            method.AppendLine("\t\t\t\t{");
+            method.AppendLine($"\t\t\t\t\tisFound = true;");
+            columns.Skip(1).ToList().ForEach(c => method.AppendLine($"\t\t\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = reader[\"{c.ColumnName}\"] != DBNull.Value ? ({clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)})reader[\"{c.ColumnName}\"] : null;"));
+            method.AppendLine("\t\t\t\t}");
+            method.AppendLine("\t\t\t}");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\tisFound = false;");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("\treturn isFound;");     
+            method.AppendLine("}");
+            
+            return method.ToString();
         }
         public string GenerateUpdateMethod()
         {
