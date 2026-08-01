@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -190,6 +191,10 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("\treturn isDeleted;");
             method.AppendLine("}");
             return method.ToString();
+        }
+        public DataTable GenerateReadAllRecordsMethod()
+        {
+
         }
     }
 }
