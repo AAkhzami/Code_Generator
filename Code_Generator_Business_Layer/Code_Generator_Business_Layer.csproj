@@ -51,6 +51,7 @@
     <Compile Include="clsHelper.cs" />
     <Compile Include="clsMainBridge.cs" />
     <Compile Include="clsTSqlScriptBuilder.cs" />
+    <Compile Include="DataAccessGenerators\SQLServer\clsSQLServerDataAccessLayerGenerator.cs" />
     <Compile Include="DataAccessGenerators\iDataAccessGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

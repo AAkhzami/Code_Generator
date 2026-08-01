@@ -121,5 +121,10 @@ namespace Code_Generator_Business_Layer
 
             return paramName;
         }
+
+        internal static object FormatingProperties(List<clsColumnModelBuilder.strColumnInfo> strColumnInfos, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
