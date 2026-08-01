@@ -42,31 +42,21 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.Append($"public static {clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} AddNew{_tableName}");
             method.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList())})");
             method.AppendLine("{");
-
-
-
-
-
             method.AppendLine($"\t{clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} result = null;");
             method.AppendLine($"\tstring query = @\"{GenerateInsertQuery()}\";");
             method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
-
-
             columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
             method.AppendLine($"\t\ttry");
             method.AppendLine("\t\t{");
-
             method.AppendLine($"\t\t\tconnection.Open();");
             method.AppendLine($"\t\t\tobject scalarResult = command.ExecuteScalar();");
-
             method.AppendLine($"\t\t\tif (scalarResult != null && {_Columns.PrimaryKey.ColumnType}.TryParse(scalarResult.ToString(), out {_Columns.PrimaryKey.ColumnType} newRecord))");
             method.AppendLine("\t\t\t\t{");
             method.AppendLine($"\t\t\t\t\tresult = newRecord;");
             method.AppendLine("\t\t\t\t}");
             method.AppendLine("\t\t}");
-
             method.AppendLine("\t\tcatch (Exception ex)");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\t// Handle exception");
