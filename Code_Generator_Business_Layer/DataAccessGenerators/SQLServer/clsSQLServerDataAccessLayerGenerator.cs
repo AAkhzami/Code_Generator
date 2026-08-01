@@ -210,9 +210,12 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("\t\ttry");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\tconnection.Open();");
-            method.AppendLine("\t\t\tif (SqlDataReader reader = command.ExecuteReader())");
+            method.AppendLine("\t\t\tusing (SqlDataReader reader = command.ExecuteReader())");
             method.AppendLine("\t\t\t{");
-            method.AppendLine("\t\t\t\tdt.Load(reader);");
+            method.AppendLine("\t\t\t\tif(reader.HasRows)");
+            method.AppendLine("\t\t\t\t{");
+            method.AppendLine("\t\t\t\t\tdt.Load(reader);");
+            method.AppendLine("\t\t\t\t}");
             method.AppendLine("\t\t\t}");
             method.AppendLine("\t\t}");
             method.AppendLine("\t\tcatch (Exception ex)");
