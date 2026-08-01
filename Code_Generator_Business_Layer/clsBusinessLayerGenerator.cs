@@ -26,7 +26,8 @@ namespace Code_Generator_Business_Layer
             propertiesText.AppendLine("public enum enMode { AddNew = 0, Update = 1 };");
             propertiesText.AppendLine("public enMode Mode = enMode.AddNew;");
 
-            _Columns.GetAllColumnsInfo().ForEach(c => {
+            _Columns.GetAllColumnsInfo().ForEach(c =>
+            {
                 bool isNullable = c.IsPrimaryKey || c.IsNullable;
                 propertiesText.AppendLine($"public {clsHelper.FormatNullableType(c.ColumnType, isNullable)} {c.ColumnName} {{get;set;}}");
             });
@@ -110,7 +111,8 @@ namespace Code_Generator_Business_Layer
 
             List<string> columnsName = new List<string>();
 
-            _Columns.GetAllColumnsInfo().ForEach(c => {
+            _Columns.GetAllColumnsInfo().ForEach(c =>
+            {
                 columnsName.Add(c.ColumnName);
             });
 
@@ -150,8 +152,9 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"public cls{_table}()");
 
             sb.AppendLine("{");
-            ColumnsList.ForEach(c => {
-                if(c.IsPrimaryKey)
+            ColumnsList.ForEach(c =>
+            {
+                if (c.IsPrimaryKey)
                 {
                     sb.AppendLine($"\tthis.{c.ColumnName} = null;");
                 }
@@ -190,6 +193,30 @@ namespace Code_Generator_Business_Layer
 
             sb.AppendLine("\tMode = enMode.Update;");
 
+            sb.AppendLine("}");
+            return sb.ToString();
+        }
+        public string GenerateSaveMethod()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"public bool Save()");
+            sb.AppendLine("{");
+            sb.AppendLine("\tif(Mode == enMode.AddNew)");
+            sb.AppendLine("\t{");
+            sb.AppendLine($"\t\tif(_AddNew{_table}())");
+            sb.AppendLine("\t\t{");
+            sb.AppendLine("\t\t\tMode = enMode.Update;");
+            sb.AppendLine("\t\t\treturn true;");
+            sb.AppendLine("\t\t}");
+            sb.AppendLine("\t}");
+            sb.AppendLine("\telse if(Mode == enMode.Update)");
+            sb.AppendLine("\t{");
+            sb.AppendLine($"\t\treturn _Update{_table}();");
+            sb.AppendLine("\t}");
+            sb.AppendLine("\telse");
+            sb.AppendLine("\t{");
+            sb.AppendLine("\t\tthrow new Exception(\"Invalid Mode\");");
+            sb.AppendLine("\t}");
             sb.AppendLine("}");
             return sb.ToString();
         }
