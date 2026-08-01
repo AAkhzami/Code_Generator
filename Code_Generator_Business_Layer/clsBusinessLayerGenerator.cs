@@ -218,5 +218,23 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
+        public string GenerateClass()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("using System;");
+            sb.AppendLine($"public class cls{_table}");
+            sb.AppendLine("{");
+            sb.AppendLine(GenerateProperties());
+            sb.AppendLine(GeneratePublicConstructor());
+            sb.AppendLine(GeneratePrivateConstructor());
+            sb.AppendLine(GenerateCreateMethod());
+            sb.AppendLine(GenerateReadMethod());
+            sb.AppendLine(GenerateUpdateMethod());
+            sb.AppendLine(GenerateDeleteMethod());
+            sb.AppendLine(GenerateReadAllMethod());
+            sb.AppendLine(GenerateSaveMethod());
+            sb.AppendLine("}");
+            return sb.ToString();
+        }
     }
 }
