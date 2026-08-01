@@ -27,7 +27,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             var columns = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
             StringBuilder query = new StringBuilder();
             query.AppendLine($"Insert into {_tableName}");
-            query.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(n => clsHelper.FormatNullableType(n.ColumnType,n.IsNullable) + " " + n.ColumnName).ToList())})");
+            query.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(n => n.ColumnName).ToList())})");
             query.AppendLine($"Values ({clsHelper.FormatingProperties(columns.ToList().ToList().Select(n => "@" + n.ColumnName).ToList())})");
             query.AppendLine("select SCOPE_IDENTITY();");
 
@@ -40,7 +40,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             var columns = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
             StringBuilder method = new StringBuilder();
             method.Append($"public static {clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} AddNew{_tableName}");
-            method.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(c => clsHelper.SafeParamName(c.ColumnName)).ToList(),", ")})");
+            method.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList())})");
             method.AppendLine("{");
 
 
