@@ -13,7 +13,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         string GenerateReadMethod();
         string GenerateUpdateMethod();
         string GenerateDeleteMethod();
-        DataTable GenerateReadAllRecordsMethod();
+        string GenerateReadAllRecordsMethod();
 
     }
 }

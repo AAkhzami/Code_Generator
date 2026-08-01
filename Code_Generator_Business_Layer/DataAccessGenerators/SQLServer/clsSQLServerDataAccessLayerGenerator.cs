@@ -59,7 +59,12 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
             return query.ToString();
         }
-
+        private string GenerateSelectAllQuery()
+        {
+            StringBuilder query = new StringBuilder();
+            query.AppendLine($"Select * from {_tableName};");
+            return query.ToString();
+        }
 
         // Methods
         public string GenerateCreateMethod()
@@ -192,8 +197,33 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("}");
             return method.ToString();
         }
-        public DataTable GenerateReadAllRecordsMethod()
+        public string GenerateReadAllRecordsMethod()
         {
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static DataTable GetAll{_tableName}()");
+            method.AppendLine("{");
+            method.AppendLine($"\tDataTable dt = new DataTable();");
+            method.AppendLine($"\tstring query = @\"{GenerateSelectAllQuery()}\";");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
+            method.AppendLine("\t{");
+            method.AppendLine("\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\tconnection.Open();");
+            method.AppendLine("\t\t\tif (SqlDataReader reader = command.ExecuteReader())");
+            method.AppendLine("\t\t\t{");
+            method.AppendLine("\t\t\t\tdt.Load(reader);");
+            method.AppendLine("\t\t\t}");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("\treturn dt;");
+            method.AppendLine("}");
+            
+            return method.ToString();
 
         }
     }
