@@ -70,7 +70,6 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("\t\tcatch (Exception ex)");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\t// Handle exception");
-            method.AppendLine("\t\t\tthrow;");
             method.AppendLine("\t\t}");
             method.AppendLine("\t}");
             method.AppendLine("\treturn result;");     
