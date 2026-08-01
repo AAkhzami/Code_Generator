@@ -42,6 +42,15 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
             return query.ToString();
         }
+        private string GenerateUpdateQuery()
+        {
+            var columns = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
+            StringBuilder query = new StringBuilder();
+            query.AppendLine($"Update {_tableName}");
+            query.AppendLine($"set {clsHelper.FormatingProperties(columns.ToList().Where(n => !n.IsIdentity || !n.IsPrimaryKey).Select(n => $"{n.ColumnName} = @{n.ColumnName}").ToList())}");
+            query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
+            return query.ToString();
+        }
 
         // Methods
         public string GenerateCreateMethod()
@@ -116,7 +125,35 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         }
         public string GenerateUpdateMethod()
         {
-            return "Update Method";
+            StringBuilder method = new StringBuilder();
+            var columns = _Columns.GetAllColumnsInfo().ToList();
+            method.Append($"public static bool Update{_tableName}By{_Columns.PrimaryKey.ColumnName}");
+            method.Append("(");
+            method.Append(clsHelper.FormatingProperties(columns.ToList().Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, true)} {clsHelper.SafeParamName(c.ColumnName)}").ToList()));
+            method.AppendLine(")");
+            method.AppendLine("{");
+            method.AppendLine($"\tbool isUpdated = false;");
+            method.AppendLine($"\tstring query = @\"{GenerateUpdateQuery()}\";");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
+            method.AppendLine("\t{");
+            columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
+            method.AppendLine($"\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine($"\t\t\tconnection.Open();");
+            method.AppendLine($"\t\t\tint rowsAffected = command.ExecuteNonQuery();");
+            method.AppendLine($"\t\t\tisUpdated = rowsAffected > 0;");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\tisUpdated = false;");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("\treturn isUpdated;");
+            method.AppendLine("}");
+            return method.ToString();
+
         }
         public string GenerateDeleteMethod()
         {
