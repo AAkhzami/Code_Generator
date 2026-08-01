@@ -213,10 +213,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("\t{");
             sb.AppendLine($"\t\treturn _Update{_table}();");
             sb.AppendLine("\t}");
-            sb.AppendLine("\telse");
-            sb.AppendLine("\t{");
-            sb.AppendLine("\t\tthrow new Exception(\"Invalid Mode\");");
-            sb.AppendLine("\t}");
+            sb.AppendLine("\treturn false;");
             sb.AppendLine("}");
             return sb.ToString();
         }
