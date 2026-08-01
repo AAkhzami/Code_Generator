@@ -51,6 +51,14 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
             return query.ToString();
         }
+        private string GenerateDeleteQuery()
+        {
+            StringBuilder query = new StringBuilder();
+            query.AppendLine($"Delete from {_tableName}");
+            query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
+            return query.ToString();
+        }
+
 
         // Methods
         public string GenerateCreateMethod()
@@ -157,7 +165,31 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         }
         public string GenerateDeleteMethod()
         {
-            return "Delete Method";
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static bool Delete{_tableName}By{_Columns.PrimaryKey.ColumnName}");
+            method.Append($"({clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} {clsHelper.SafeParamName(_Columns.PrimaryKey.ColumnName)})");
+            method.AppendLine("{");
+            method.AppendLine($"\tbool isDeleted = false;");
+            method.AppendLine($"\tstring query = @\"{GenerateDeleteQuery()}\";");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
+            method.AppendLine("\t{");
+            method.AppendLine("\t\tcommand.Parameters.AddWithValue(\"@" + _Columns.PrimaryKey.ColumnName + "\", " + clsHelper.SafeParamName(_Columns.PrimaryKey.ColumnName) + ");");
+            method.AppendLine("\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\tconnection.Open();");
+            method.AppendLine("\t\t\tint rowsAffected = command.ExecuteNonQuery();");
+            method.AppendLine("\t\t\tisDeleted = rowsAffected > 0;");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\tisDeleted = false;");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("\treturn isDeleted;");
+            method.AppendLine("}");
+            return method.ToString();
         }
     }
 }
