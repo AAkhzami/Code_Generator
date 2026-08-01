@@ -8,7 +8,7 @@ using static Code_Generator_Business_Layer.clsGlobal;
 
 namespace Code_Generator_Business_Layer.DataAccessGenerators
 {
-    internal class clsSQLServerDataAccessLayerGenerator : iDataAccessGenerator
+    public class clsSQLServerDataAccessLayerGenerator : iDataAccessGenerator
     {
         string _tableName = "";
         string _databaseName = "";
@@ -27,8 +27,8 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             var columns = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
             StringBuilder query = new StringBuilder();
             query.AppendLine($"Insert into {_tableName}");
-            query.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(n => n.ColumnName).ToList(),", ")})");
-            query.AppendLine($"Values ({clsHelper.FormatingProperties(columns.ToList().ToList().Select(n => "@" + n.ColumnName).ToList(), ", ")})");
+            query.AppendLine($"({clsHelper.FormatingProperties(columns.ToList().Select(n => clsHelper.FormatNullableType(n.ColumnType,n.IsNullable) + " " + n.ColumnName).ToList())})");
+            query.AppendLine($"Values ({clsHelper.FormatingProperties(columns.ToList().ToList().Select(n => "@" + n.ColumnName).ToList())})");
             query.AppendLine("select SCOPE_IDENTITY();");
 
             return query.ToString();
@@ -48,13 +48,13 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
 
 
             method.AppendLine($"\t{clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} result = null;");
-            method.AppendLine($"\tstring query = \"{GenerateInsertQuery()}\";");
+            method.AppendLine($"\tstring query = @\"{GenerateInsertQuery()}\";");
             method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
 
 
-            columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(@{c.ColumnName}, {clsHelper.SafeParamName(c.ColumnName)});"));
+            columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
             method.AppendLine($"\t\ttry");
             method.AppendLine("\t\t{");
 
