@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer.DataAccessGenerators
 {
-    public class clsConnectionGenerator
+    internal class clsConnectionGenerator
     {
         public enum enConnectionType
         {
