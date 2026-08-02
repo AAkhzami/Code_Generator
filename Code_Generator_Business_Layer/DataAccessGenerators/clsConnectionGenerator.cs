@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer.DataAccessGenerators
 {
-    internal class clsConnectionGenerator
+    public class clsConnectionGenerator
     {
         public enum enConnectionType
         {
@@ -48,6 +48,21 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
                     break;
             }
             return sb.ToString();
+        }
+
+        public string GenerateConnectionString()
+        {
+            string connectionString = string.Empty;
+            switch (_connectionType)
+            {
+                case enConnectionType.StaticClass:
+                    connectionString = $"clsConnection.ConnectionString";
+                    break;
+                case enConnectionType.AppConfig:
+                    connectionString = $"ConfigurationManager.AppSettings[\"MyDbConnection\"]";
+                    break;
+            }
+            return connectionString;
         }
     }
 }
