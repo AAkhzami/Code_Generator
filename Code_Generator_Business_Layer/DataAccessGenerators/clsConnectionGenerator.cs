@@ -29,5 +29,25 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             _userName = UserName;
             _password = Password;
         }
+
+        public string GenerateConnection()
+        {
+            StringBuilder sb = new StringBuilder();
+            switch (_connectionType)
+            {
+                case enConnectionType.StaticClass:
+                    sb.AppendLine("public static class clsConnection");
+                    sb.AppendLine("{");
+                    sb.AppendLine($"\tpublic static string ConnectionString = \"Server = {_location}; Database = {_databaseName}; User Id = {_userName}; Password = {_password}\";");
+                    sb.AppendLine("}");
+                    break;
+                case enConnectionType.AppConfig:
+                    sb.AppendLine("<appSettings >");
+                    sb.AppendLine($"<add key = \"MyDbConnection\" value =\"Server={_location};Database={_databaseName};User Id={_userName};Password={_password};\"/>");
+                    sb.AppendLine("</appSettings>");
+                    break;
+            }
+            return sb.ToString();
+        }
     }
 }
