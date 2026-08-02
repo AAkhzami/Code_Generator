@@ -221,7 +221,6 @@ namespace Code_Generator_Business_Layer
         public string GenerateClass()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("using System;");
             sb.AppendLine($"public class cls{_table}");
             sb.AppendLine("{");
             sb.AppendLine(GenerateProperties());

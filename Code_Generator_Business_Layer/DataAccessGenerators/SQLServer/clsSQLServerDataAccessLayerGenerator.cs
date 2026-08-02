@@ -233,10 +233,6 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         public string GenerateDataAccessLayer()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("using System;");
-            sb.AppendLine("using System.Data;");
-            sb.AppendLine("using System.Data.SqlClient;");
-            sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("public class cls" + _tableName + "Data");
             sb.AppendLine("{");
             sb.AppendLine(GenerateCreateMethod());
