@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassCodeBuilder.cs" />
     <Compile Include="clsBusinessLayer.cs" />
     <Compile Include="BusinessGenerators\clsBusinessLayerGenerator.cs" />
     <Compile Include="clsColumnModelBuilder.cs" />
