@@ -14,12 +14,13 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         string _tableName = "";
         string _databaseName = "";
         clsColumnModelBuilder _Columns;
-        
-        public clsSQLServerDataAccessLayerGenerator(string Database, string Table)
+        clsConnectionGenerator _connection;
+        public clsSQLServerDataAccessLayerGenerator(string Database, string Table, clsConnectionGenerator connectionType)
         {
             _databaseName = Database;
             _tableName = Table;
             _Columns = new clsColumnModelBuilder(_databaseName, _tableName);
+            _connection = connectionType;
         }
 
         // Queries
@@ -76,7 +77,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("{");
             method.AppendLine($"\t{clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType,true)} result = null;");
             method.AppendLine($"\tstring query = @\"{GenerateInsertQuery()}\";");
-            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
             columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
@@ -110,7 +111,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("{");
             method.AppendLine($"\tbool isFound = false;");
             method.AppendLine($"\tstring query = @\"{GenerateSelectQuery()}\";");
-            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
             method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{_Columns.PrimaryKey.ColumnName}\", {clsHelper.SafeParamName(_Columns.PrimaryKey.ColumnName)});");
@@ -148,7 +149,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("{");
             method.AppendLine($"\tbool isUpdated = false;");
             method.AppendLine($"\tstring query = @\"{GenerateUpdateQuery()}\";");
-            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
             columns.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
@@ -177,7 +178,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("{");
             method.AppendLine($"\tbool isDeleted = false;");
             method.AppendLine($"\tstring query = @\"{GenerateDeleteQuery()}\";");
-            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
             method.AppendLine("\t\tcommand.Parameters.AddWithValue(\"@" + _Columns.PrimaryKey.ColumnName + "\", " + clsHelper.SafeParamName(_Columns.PrimaryKey.ColumnName) + ");");
@@ -204,7 +205,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             method.AppendLine("{");
             method.AppendLine($"\tDataTable dt = new DataTable();");
             method.AppendLine($"\tstring query = @\"{GenerateSelectAllQuery()}\";");
-            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection(clsGlobal.ConnectionString))");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(query, connection))");
             method.AppendLine("\t{");
             method.AppendLine("\t\ttry");
