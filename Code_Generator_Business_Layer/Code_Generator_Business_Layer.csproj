@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBusinessLayer.cs" />
-    <Compile Include="clsBusinessLayerGenerator.cs" />
+    <Compile Include="BusinessGenerators\clsBusinessLayerGenerator.cs" />
     <Compile Include="clsColumnModelBuilder.cs" />
     <Compile Include="clsDataAccessLayer.cs" />
     <Compile Include="clsClassesGenerator.cs" />
