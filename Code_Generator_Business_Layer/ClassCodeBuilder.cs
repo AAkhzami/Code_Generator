@@ -36,6 +36,10 @@ namespace Code_Generator_Business_Layer
             this.ClassType = ClassType;
             _dataAccessGenerator = dataAccessGenerator;
         }
+
+        /// <summary>
+        /// operationType is an enum that specifies the type of operation to generate. It can be either Insert, Update, Delete, Select, or All.
+        /// </summary>
         public enum enOperationType
         {
             Insert = 0,
@@ -64,26 +68,31 @@ namespace Code_Generator_Business_Layer
                 sb.AppendLine("using System.Configuration;");
             }
 
-            operationType.ForEach(op => {
-                switch (op)
+            if(operationType.Contains(enOperationType.All))
+            {
+                sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
+            }
+            else 
+            {
+                operationType.ForEach(op =>
                 {
-                    case enOperationType.Insert:
-                        sb.Append(dataAccessLayer.GenerateCreateMethod());
-                        break;
-                    case enOperationType.Update:
-                        sb.Append(dataAccessLayer.GenerateUpdateMethod());
-                        break;
-                    case enOperationType.Delete:
-                        sb.Append(dataAccessLayer.GenerateDeleteMethod());
-                        break;
-                    case enOperationType.Select:
-                        sb.Append(dataAccessLayer.GenerateReadMethod());
-                        break;
-                    case enOperationType.All:
-                        sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
-                        break;
-                }
-            });
+                    switch (op)
+                    {
+                        case enOperationType.Insert:
+                            sb.Append(_dataAccessGenerator.GenerateCreateMethod());
+                            break;
+                        case enOperationType.Update:
+                            sb.Append(_dataAccessGenerator.GenerateUpdateMethod());
+                            break;
+                        case enOperationType.Delete:
+                            sb.Append(_dataAccessGenerator.GenerateDeleteMethod());
+                            break;
+                        case enOperationType.Select:
+                            sb.Append(_dataAccessGenerator.GenerateReadMethod());
+                            break;
+                    }
+                });
+            }
 
             return sb.ToString();
         }

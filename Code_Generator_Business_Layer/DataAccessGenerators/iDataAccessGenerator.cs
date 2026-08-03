@@ -14,6 +14,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         string GenerateUpdateMethod();
         string GenerateDeleteMethod();
         string GenerateReadAllRecordsMethod();
+        string GenerateDataAccessLayerClass();
 
     }
 }
