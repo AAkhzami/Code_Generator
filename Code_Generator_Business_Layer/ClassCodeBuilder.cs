@@ -16,12 +16,12 @@ namespace Code_Generator_Business_Layer
             Delete = 2,
             Select = 3,
             All = 4,
-        } 
+        }
         public static string GenerateDataAccessLayerClass(string Database, string Table, clsConnectionGenerator connectionType, enOperationType operationType)
         {
             StringBuilder sb = new StringBuilder();
             clsSQLServerDataAccessLayerGenerator dataAccessLayer = new clsSQLServerDataAccessLayerGenerator(Database, Table, connectionType);
-            switch(operationType)
+            switch (operationType)
             {
                 case enOperationType.Insert:
                     sb.Append(dataAccessLayer.GenerateCreateMethod());
@@ -36,7 +36,31 @@ namespace Code_Generator_Business_Layer
                     sb.Append(dataAccessLayer.GenerateReadMethod());
                     break;
                 case enOperationType.All:
-                    sb.Append(dataAccessLayer.GenerateDataAccessLayer());
+                    sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
+                    break;
+            }
+            return sb.ToString();
+        }
+        public static string GenerateBusinessLayerClass(string Database, string Table, clsConnectionGenerator connectionType, enOperationType operationType)
+        {
+            StringBuilder sb = new StringBuilder();
+            clsBusinessLayerGenerator businessLayer = new clsBusinessLayerGenerator(Database, Table);
+            switch (operationType)
+            {
+                case enOperationType.Insert:
+                    sb.Append(businessLayer.GenerateCreateMethod());
+                    break;
+                case enOperationType.Update:
+                    sb.Append(businessLayer.GenerateUpdateMethod());
+                    break;
+                case enOperationType.Delete:
+                    sb.Append(businessLayer.GenerateDeleteMethod());
+                    break;
+                case enOperationType.Select:
+                    sb.Append(businessLayer.GenerateReadMethod());
+                    break;
+                case enOperationType.All:
+                    sb.Append(businessLayer.GenerateBusinessLayerClass());
                     break;
             }
             return sb.ToString();

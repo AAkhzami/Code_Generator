@@ -218,7 +218,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
-        public string GenerateClass()
+        public string GenerateBusinessLayerClass()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"public class cls{_table}");

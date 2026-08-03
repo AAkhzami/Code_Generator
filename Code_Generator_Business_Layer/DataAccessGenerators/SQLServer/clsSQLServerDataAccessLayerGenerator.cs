@@ -231,7 +231,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
 
         }
     
-        public string GenerateDataAccessLayer()
+        public string GenerateDataAccessLayerClass()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("public class cls" + _tableName + "Data");
