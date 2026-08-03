@@ -9,6 +9,33 @@ namespace Code_Generator_Business_Layer
 {
     internal class ClassCodeBuilder
     {
+        private readonly iDataAccessGenerator _dataAccessGenerator;
+        /// <summary>
+        ///  classType is an enum that specifies the type of class to generate. It can be either DataAccessLayer, BusinessLayer, or Both.
+        /// </summary>
+        public enum enClassType
+        {
+            DataAccessLayer = 0,
+            BusinessLayer = 1,
+            Both = 2,
+        }
+
+        public readonly enClassType ClassType;
+        private readonly string Database;
+        private readonly string Table;
+
+        /// <summary>
+        /// classCodeBuilder is a constructor that initializes the ClassCodeBuilder class with the specified database, table, class type, and data access generator.
+        /// </summary>
+        /// <param name="Database">The name of the database.</param>
+        /// <param name="Table">The name of the table.</param>
+        /// <param name="ClassType">The type of class to generate.</param>
+        /// <param name="dataAccessGenerator">The data access generator.</param>
+        public ClassCodeBuilder(string Database, string Table,enClassType ClassType,iDataAccessGenerator dataAccessGenerator)
+        {
+            this.ClassType = ClassType;
+            _dataAccessGenerator = dataAccessGenerator;
+        }
         public enum enOperationType
         {
             Insert = 0,
@@ -17,8 +44,13 @@ namespace Code_Generator_Business_Layer
             Select = 3,
             All = 4,
         }
-        public static string GenerateDataAccessLayerClass(string Database, string Table, clsConnectionGenerator connectionType, enOperationType operationType)
+        public string GenerateDataAccessLayerClass(clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
+            if(ClassType != enClassType.DataAccessLayer && ClassType != enClassType.Both)
+            {
+                throw new InvalidOperationException("Cannot generate Data Access Layer class when ClassType is not DataAccessLayer or Both.");
+            }
+
             StringBuilder sb = new StringBuilder();
             clsSQLServerDataAccessLayerGenerator dataAccessLayer = new clsSQLServerDataAccessLayerGenerator(Database, Table, connectionType);
 
@@ -32,48 +64,59 @@ namespace Code_Generator_Business_Layer
                 sb.AppendLine("using System.Configuration;");
             }
 
-            switch (operationType)
-            {
-                case enOperationType.Insert:
-                    sb.Append(dataAccessLayer.GenerateCreateMethod());
-                    break;
-                case enOperationType.Update:
-                    sb.Append(dataAccessLayer.GenerateUpdateMethod());
-                    break;
-                case enOperationType.Delete:
-                    sb.Append(dataAccessLayer.GenerateDeleteMethod());
-                    break;
-                case enOperationType.Select:
-                    sb.Append(dataAccessLayer.GenerateReadMethod());
-                    break;
-                case enOperationType.All:
-                    sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
-                    break;
-            }
+            operationType.ForEach(op => {
+                switch (op)
+                {
+                    case enOperationType.Insert:
+                        sb.Append(dataAccessLayer.GenerateCreateMethod());
+                        break;
+                    case enOperationType.Update:
+                        sb.Append(dataAccessLayer.GenerateUpdateMethod());
+                        break;
+                    case enOperationType.Delete:
+                        sb.Append(dataAccessLayer.GenerateDeleteMethod());
+                        break;
+                    case enOperationType.Select:
+                        sb.Append(dataAccessLayer.GenerateReadMethod());
+                        break;
+                    case enOperationType.All:
+                        sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
+                        break;
+                }
+            });
+
             return sb.ToString();
         }
-        public static string GenerateBusinessLayerClass(string Database, string Table, clsConnectionGenerator connectionType, enOperationType operationType)
+        public string GenerateBusinessLayerClass(clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
             clsBusinessLayerGenerator businessLayer = new clsBusinessLayerGenerator(Database, Table);
-            switch (operationType)
+
+            sb.AppendLine("using System;");
+            sb.AppendLine("using System.Collections.Generic;");
+            sb.AppendLine("using System.Data;");
+
+            operationType.ForEach(op =>
             {
-                case enOperationType.Insert:
-                    sb.Append(businessLayer.GenerateCreateMethod());
-                    break;
-                case enOperationType.Update:
-                    sb.Append(businessLayer.GenerateUpdateMethod());
-                    break;
-                case enOperationType.Delete:
-                    sb.Append(businessLayer.GenerateDeleteMethod());
-                    break;
-                case enOperationType.Select:
-                    sb.Append(businessLayer.GenerateReadMethod());
-                    break;
-                case enOperationType.All:
-                    sb.Append(businessLayer.GenerateBusinessLayerClass());
-                    break;
-            }
+                switch (op)
+                {
+                    case enOperationType.Insert:
+                        sb.Append(businessLayer.GenerateCreateMethod());
+                        break;
+                    case enOperationType.Update:
+                        sb.Append(businessLayer.GenerateUpdateMethod());
+                        break;
+                    case enOperationType.Delete:
+                        sb.Append(businessLayer.GenerateDeleteMethod());
+                        break;
+                    case enOperationType.Select:
+                        sb.Append(businessLayer.GenerateReadMethod());
+                        break;
+                    case enOperationType.All:
+                        sb.Append(businessLayer.GenerateBusinessLayerClass());
+                        break;
+                }
+            });
             return sb.ToString();
         }
     }
