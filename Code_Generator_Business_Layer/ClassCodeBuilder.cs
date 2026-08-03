@@ -21,6 +21,17 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder sb = new StringBuilder();
             clsSQLServerDataAccessLayerGenerator dataAccessLayer = new clsSQLServerDataAccessLayerGenerator(Database, Table, connectionType);
+
+            sb.AppendLine("using System;");
+            sb.AppendLine("using System.Collections.Generic;");
+            sb.AppendLine("using System.Data;");
+            sb.AppendLine("using System.Data.SqlClient;");
+
+            if (connectionType.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
+            {
+                sb.AppendLine("using System.Configuration;");
+            }
+
             switch (operationType)
             {
                 case enOperationType.Insert:

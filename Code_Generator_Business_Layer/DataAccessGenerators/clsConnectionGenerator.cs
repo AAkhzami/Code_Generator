@@ -14,7 +14,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             AppConfig = 1,
         }
 
-        enConnectionType _connectionType = enConnectionType.StaticClass;
+        public enConnectionType connectionType = enConnectionType.StaticClass;
         string _connectionString = string.Empty;
         string _location = string.Empty;
         string _databaseName = string.Empty;
@@ -23,7 +23,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
 
         public clsConnectionGenerator(enConnectionType connectionType, string Location, string DatabaseName, string UserName, string Password)
         {
-            _connectionType = connectionType;
+            this.connectionType = connectionType;
             _location = Location;
             _databaseName = DatabaseName;
             _userName = UserName;
@@ -33,7 +33,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         public string GenerateConnection()
         {
             StringBuilder sb = new StringBuilder();
-            switch (_connectionType)
+            switch (connectionType)
             {
                 case enConnectionType.StaticClass:
                     sb.AppendLine("public static class clsConnection");
@@ -53,7 +53,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         public string GenerateConnectionString()
         {
             string connectionString = string.Empty;
-            switch (_connectionType)
+            switch (connectionType)
             {
                 case enConnectionType.StaticClass:
                     connectionString = $"clsConnection.ConnectionString";
