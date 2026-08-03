@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Generator_Business_Layer.BusinessGenerators;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -8,7 +9,7 @@ using static Code_Generator_Business_Layer.clsGlobal;
 
 namespace Code_Generator_Business_Layer
 {
-    public class clsBusinessLayerGenerator
+    public class clsBusinessLayerGenerator : iBusinessGenerators
     {
         string _database;
         string _table;

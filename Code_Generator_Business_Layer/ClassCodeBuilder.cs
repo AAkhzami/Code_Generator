@@ -1,4 +1,5 @@
-﻿using Code_Generator_Business_Layer.DataAccessGenerators;
+﻿using Code_Generator_Business_Layer.BusinessGenerators;
+using Code_Generator_Business_Layer.DataAccessGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,7 +85,7 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
-        public string GenerateBusinessLayerClass(clsConnectionGenerator connectionType, List<enOperationType> operationType)
+        public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
             clsBusinessLayerGenerator businessLayer = new clsBusinessLayerGenerator(Database, Table);
@@ -100,7 +101,7 @@ namespace Code_Generator_Business_Layer
 
             if (operationType.Contains(enOperationType.All))
             {
-                sb.Append(_dataAccessGenerator.GenerateDataAccessLayerClass());
+                sb.Append(businessGenerator.GenerateBusinessLayerClass());
             }
             else
             {
@@ -109,19 +110,19 @@ namespace Code_Generator_Business_Layer
                     switch (op)
                     {
                         case enOperationType.Insert:
-                            sb.Append(_dataAccessGenerator.GenerateCreateMethod());
+                            sb.Append(businessGenerator.GenerateCreateMethod());
                             break;
                         case enOperationType.Update:
-                            sb.Append(_dataAccessGenerator.GenerateUpdateMethod());
+                            sb.Append(businessGenerator.GenerateUpdateMethod());
                             break;
                         case enOperationType.Delete:
-                            sb.Append(_dataAccessGenerator.GenerateDeleteMethod());
+                            sb.Append(businessGenerator.GenerateDeleteMethod());
                             break;
                         case enOperationType.Select:
-                            sb.Append(_dataAccessGenerator.GenerateReadMethod());
+                            sb.Append(businessGenerator.GenerateReadMethod());
                             break;
                         case enOperationType.SelectAll:
-                            sb.Append(_dataAccessGenerator.GenerateReadAllRecordsMethod());
+                            sb.Append(businessGenerator.GenerateReadAllMethod());
                             break;
                     }
                 });
