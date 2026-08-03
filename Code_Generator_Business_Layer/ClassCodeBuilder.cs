@@ -10,17 +10,7 @@ namespace Code_Generator_Business_Layer
     internal class ClassCodeBuilder
     {
         private readonly iDataAccessGenerator _dataAccessGenerator;
-        /// <summary>
-        ///  classType is an enum that specifies the type of class to generate. It can be either DataAccessLayer, BusinessLayer, or Both.
-        /// </summary>
-        public enum enClassType
-        {
-            DataAccessLayer = 0,
-            BusinessLayer = 1,
-            Both = 2,
-        }
 
-        public readonly enClassType ClassType;
         private readonly string Database;
         private readonly string Table;
 
@@ -31,10 +21,10 @@ namespace Code_Generator_Business_Layer
         /// <param name="Table">The name of the table.</param>
         /// <param name="ClassType">The type of class to generate.</param>
         /// <param name="dataAccessGenerator">The data access generator.</param>
-        public ClassCodeBuilder(string Database, string Table,enClassType ClassType,iDataAccessGenerator dataAccessGenerator)
+        public ClassCodeBuilder(string Database, string Table)
         {
-            this.ClassType = ClassType;
-            _dataAccessGenerator = dataAccessGenerator;
+            this.Database = Database;
+            this.Table = Table;
         }
 
         /// <summary>
@@ -49,13 +39,8 @@ namespace Code_Generator_Business_Layer
             SelectAll = 4,
             All = 5,
         }
-        public string GenerateDataAccessLayerClass(clsConnectionGenerator connectionType, List<enOperationType> operationType)
+        public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
-            if(ClassType != enClassType.DataAccessLayer && ClassType != enClassType.Both)
-            {
-                throw new InvalidOperationException("Cannot generate Data Access Layer class when ClassType is not DataAccessLayer or Both.");
-            }
-
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("using System;");
