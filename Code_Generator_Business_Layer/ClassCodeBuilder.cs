@@ -54,6 +54,9 @@ namespace Code_Generator_Business_Layer
                 sb.AppendLine("using System.Configuration;");
             }
 
+
+            sb.AppendLine($"namespace {Database}_DataAccess");
+            sb.AppendLine("{");
             if(operationType.Contains(enOperationType.All))
             {
                 sb.Append(_dataAccessGenerator.GenerateDataAccessLayerClass());
@@ -82,7 +85,7 @@ namespace Code_Generator_Business_Layer
                     }
                 });
             }
-
+            sb.AppendLine("}");
             return sb.ToString();
         }
         public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
@@ -94,11 +97,10 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
 
-            if (connectionType.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
-            {
-                sb.AppendLine("using System.Configuration;");
-            }
+            sb.AppendLine($"using {Database}_DataAccess;");
 
+            sb.AppendLine($"namespace {Database}_BusinessLayer");
+            sb.AppendLine("{");
             if (operationType.Contains(enOperationType.All))
             {
                 sb.Append(businessGenerator.GenerateBusinessLayerClass());
@@ -127,6 +129,7 @@ namespace Code_Generator_Business_Layer
                     }
                 });
             }
+            sb.AppendLine("}");
             return sb.ToString();
         }
     }
