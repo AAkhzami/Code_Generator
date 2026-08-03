@@ -46,7 +46,8 @@ namespace Code_Generator_Business_Layer
             Update = 1,
             Delete = 2,
             Select = 3,
-            All = 4,
+            SelectAll = 4,
+            All = 5,
         }
         public string GenerateDataAccessLayerClass(clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
@@ -56,7 +57,6 @@ namespace Code_Generator_Business_Layer
             }
 
             StringBuilder sb = new StringBuilder();
-            clsSQLServerDataAccessLayerGenerator dataAccessLayer = new clsSQLServerDataAccessLayerGenerator(Database, Table, connectionType);
 
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
@@ -70,7 +70,7 @@ namespace Code_Generator_Business_Layer
 
             if(operationType.Contains(enOperationType.All))
             {
-                sb.Append(dataAccessLayer.GenerateDataAccessLayerClass());
+                sb.Append(_dataAccessGenerator.GenerateDataAccessLayerClass());
             }
             else 
             {
@@ -90,6 +90,9 @@ namespace Code_Generator_Business_Layer
                         case enOperationType.Select:
                             sb.Append(_dataAccessGenerator.GenerateReadMethod());
                             break;
+                        case enOperationType.SelectAll:
+                            sb.Append(_dataAccessGenerator.GenerateReadAllRecordsMethod());
+                            break;
                     }
                 });
             }
@@ -105,27 +108,39 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Data;");
 
-            operationType.ForEach(op =>
+            if (connectionType.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
             {
-                switch (op)
+                sb.AppendLine("using System.Configuration;");
+            }
+
+            if (operationType.Contains(enOperationType.All))
+            {
+                sb.Append(_dataAccessGenerator.GenerateDataAccessLayerClass());
+            }
+            else
+            {
+                operationType.ForEach(op =>
                 {
-                    case enOperationType.Insert:
-                        sb.Append(businessLayer.GenerateCreateMethod());
-                        break;
-                    case enOperationType.Update:
-                        sb.Append(businessLayer.GenerateUpdateMethod());
-                        break;
-                    case enOperationType.Delete:
-                        sb.Append(businessLayer.GenerateDeleteMethod());
-                        break;
-                    case enOperationType.Select:
-                        sb.Append(businessLayer.GenerateReadMethod());
-                        break;
-                    case enOperationType.All:
-                        sb.Append(businessLayer.GenerateBusinessLayerClass());
-                        break;
-                }
-            });
+                    switch (op)
+                    {
+                        case enOperationType.Insert:
+                            sb.Append(_dataAccessGenerator.GenerateCreateMethod());
+                            break;
+                        case enOperationType.Update:
+                            sb.Append(_dataAccessGenerator.GenerateUpdateMethod());
+                            break;
+                        case enOperationType.Delete:
+                            sb.Append(_dataAccessGenerator.GenerateDeleteMethod());
+                            break;
+                        case enOperationType.Select:
+                            sb.Append(_dataAccessGenerator.GenerateReadMethod());
+                            break;
+                        case enOperationType.SelectAll:
+                            sb.Append(_dataAccessGenerator.GenerateReadAllRecordsMethod());
+                            break;
+                    }
+                });
+            }
             return sb.ToString();
         }
     }
