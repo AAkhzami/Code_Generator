@@ -5,33 +5,66 @@ using System.Data;
 
 namespace Code_Generator_Business_Layer
 {
+    /// <summary>
+    /// Provides functionality for retrieving database column metadata, mapping SQL data types to C# types, and constructing column models for code generation.
+    /// </summary>
     public class clsColumnModelBuilder
     {
+        /// <summary>
+        /// Represents detailed metadata and structural attributes for a specific database column.
+        /// </summary>
         public struct strColumnInfo
         {
+            /// <summary>Gets or sets the ordinal position or ID of the column.</summary>
             public int ColumnID;
+            /// <summary>Gets or sets the name of the database column.</summary>
             public string ColumnName;
+            /// <summary>Gets or sets the native SQL data type string (e.g., "varchar", "int").</summary>
             public string ColumnSqlType;
+            /// <summary>Gets or sets the mapped target C# data type string (e.g., "string", "int").</summary>
             public string ColumnType;
+            /// <summary>Gets or sets the maximum character or byte length of the column.</summary>
             public int MaxLength;
+            /// <summary>Gets or sets the default value configured for the column in the database.</summary>
             public string DefaultValue;
+            /// <summary>Gets or sets a value indicating whether the column allows NULL values.</summary>
             public bool IsNullable;
+            /// <summary>Gets or sets a value indicating whether the column is an auto-incrementing identity column.</summary>
             public bool IsIdentity;
+            /// <summary>Gets or sets a value indicating whether the column is part of the primary key.</summary>
             public bool IsPrimaryKey;
+            /// <summary>Gets or sets a value indicating whether the column is a foreign key referencing another table.</summary>
             public bool IsForeignKey;
+            /// <summary>Gets or sets the name of the target table referenced if this column is a foreign key.</summary>
             public string ReferencedTable;
+            /// <summary>Gets or sets a value indicating whether a unique constraint is applied to the column.</summary>
             public bool IsUnique;
         }
 
         string _tableName;
         string _databaseName;
+
+        /// <summary>
+        /// Holds metadata for the primary key column of the specified table.
+        /// </summary>
         public strColumnInfo PrimaryKey;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="clsColumnModelBuilder"/> class for a target database and table, automatically discovering the primary key.
+        /// </summary>
+        /// <param name="DatabaseName">The target database name.</param>
+        /// <param name="TableName">The target table name.</param>
         public clsColumnModelBuilder(string DatabaseName, string TableName)
         {
             _tableName = TableName;
             _databaseName = DatabaseName;
             PrimaryKey = GetPrimaryKey();
         }
+
+        /// <summary>
+        /// Maps a SQL Server data type string to its equivalent C# data type representation.
+        /// </summary>
+        /// <param name="sqlType">The SQL data type string to map.</param>
+        /// <returns>A string representing the matching C# data type (e.g., "int", "string", "DateTime").</returns>
         public string MappingDataType(string sqlType)
         {
             string csharpType;
@@ -81,6 +114,11 @@ namespace Code_Generator_Business_Layer
             return csharpType;
         }
 
+        /// <summary>
+        /// Parses a raw schema <see cref="DataRow"/> and populates a new <see cref="strColumnInfo"/> instance.
+        /// </summary>
+        /// <param name="column">The <see cref="DataRow"/> containing column schema properties.</param>
+        /// <returns>A populated <see cref="strColumnInfo"/> struct.</returns>
         private strColumnInfo InsertColumnData(DataRow column)
         {
             strColumnInfo info = new strColumnInfo();
@@ -119,6 +157,12 @@ namespace Code_Generator_Business_Layer
 
         }
 
+
+        /// <summary>
+        /// Retrieves metadata for a specific column matching the provided column name.
+        /// </summary>
+        /// <param name="ColumnName">The name of the column to look up.</param>
+        /// <returns>A <see cref="strColumnInfo"/> struct containing the matching column metadata.</returns>
         public strColumnInfo GetColumnInfo(string ColumnName)
         {
             DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
@@ -134,6 +178,12 @@ namespace Code_Generator_Business_Layer
             }
             return info;
         }
+
+        /// <summary>
+        /// Retrieves metadata for a specific column matching the provided column ID.
+        /// </summary>
+        /// <param name="ColumnID">The ordinal position/ID of the column to look up.</param>
+        /// <returns>A <see cref="strColumnInfo"/> struct containing the matching column metadata.</returns>
         public strColumnInfo GetColumnInfo(int ColumnID)
         {
             DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
@@ -149,6 +199,11 @@ namespace Code_Generator_Business_Layer
             }
             return info;
         }
+
+        /// <summary>
+        /// Identifies and returns metadata for the primary key column in the current table schema.
+        /// </summary>
+        /// <returns>A <see cref="strColumnInfo"/> struct for the primary key column.</returns>
         private strColumnInfo GetPrimaryKey()
         {
             strColumnInfo pk = new strColumnInfo();
@@ -161,6 +216,11 @@ namespace Code_Generator_Business_Layer
             }
             return pk;
         }
+
+        /// <summary>
+        /// Retrieves metadata for all columns belonging to the configured table.
+        /// </summary>
+        /// <returns>A <see cref="List{T}"/> of <see cref="strColumnInfo"/> structs representing each column in the table.</returns>
         public List<clsColumnModelBuilder.strColumnInfo> GetAllColumnsInfo()
         {
             List<strColumnInfo> list = new List<strColumnInfo>();
