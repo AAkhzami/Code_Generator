@@ -10,7 +10,6 @@ namespace Code_Generator_Business_Layer
 {
     internal class ClassCodeBuilder
     {
-        private readonly iDataAccessGenerator _dataAccessGenerator;
 
         private readonly string Database;
         private readonly string Table;
@@ -20,8 +19,6 @@ namespace Code_Generator_Business_Layer
         /// </summary>
         /// <param name="Database">The name of the database.</param>
         /// <param name="Table">The name of the table.</param>
-        /// <param name="ClassType">The type of class to generate.</param>
-        /// <param name="dataAccessGenerator">The data access generator.</param>
         public ClassCodeBuilder(string Database, string Table)
         {
             this.Database = Database;
@@ -59,31 +56,34 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("{");
             if(operationType.Contains(enOperationType.All))
             {
-                sb.Append(_dataAccessGenerator.GenerateDataAccessLayerClass());
+                sb.Append(dataAccessGenerator.GenerateDataAccessLayerClass());
             }
             else 
             {
+                sb.AppendLine($"public class cls{Table}Data");
+                sb.AppendLine("{");
                 operationType.ForEach(op =>
                 {
                     switch (op)
                     {
                         case enOperationType.Insert:
-                            sb.Append(_dataAccessGenerator.GenerateCreateMethod());
+                            sb.Append(dataAccessGenerator.GenerateCreateMethod());
                             break;
                         case enOperationType.Update:
-                            sb.Append(_dataAccessGenerator.GenerateUpdateMethod());
+                            sb.Append(dataAccessGenerator.GenerateUpdateMethod());
                             break;
                         case enOperationType.Delete:
-                            sb.Append(_dataAccessGenerator.GenerateDeleteMethod());
+                            sb.Append(dataAccessGenerator.GenerateDeleteMethod());
                             break;
                         case enOperationType.Select:
-                            sb.Append(_dataAccessGenerator.GenerateReadMethod());
+                            sb.Append(dataAccessGenerator.GenerateReadMethod());
                             break;
                         case enOperationType.SelectAll:
-                            sb.Append(_dataAccessGenerator.GenerateReadAllRecordsMethod());
+                            sb.Append(dataAccessGenerator.GenerateReadAllRecordsMethod());
                             break;
                     }
                 });
+                sb.AppendLine("}");
             }
             sb.AppendLine("}");
             return sb.ToString();
@@ -91,7 +91,6 @@ namespace Code_Generator_Business_Layer
         public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
-            clsBusinessLayerGenerator businessLayer = new clsBusinessLayerGenerator(Database, Table);
 
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
@@ -107,27 +106,36 @@ namespace Code_Generator_Business_Layer
             }
             else
             {
+                sb.AppendLine($"public class cls{Table}");
+                sb.AppendLine("{");
+                sb.AppendLine(businessGenerator.GenerateProperties());
                 operationType.ForEach(op =>
                 {
                     switch (op)
                     {
                         case enOperationType.Insert:
                             sb.Append(businessGenerator.GenerateCreateMethod());
+                            sb.AppendLine();
                             break;
                         case enOperationType.Update:
                             sb.Append(businessGenerator.GenerateUpdateMethod());
+                            sb.AppendLine();
                             break;
                         case enOperationType.Delete:
                             sb.Append(businessGenerator.GenerateDeleteMethod());
+                            sb.AppendLine();
                             break;
                         case enOperationType.Select:
                             sb.Append(businessGenerator.GenerateReadMethod());
+                            sb.AppendLine();
                             break;
                         case enOperationType.SelectAll:
                             sb.Append(businessGenerator.GenerateReadAllMethod());
+                            sb.AppendLine();
                             break;
                     }
                 });
+                sb.AppendLine("}");
             }
             sb.AppendLine("}");
             return sb.ToString();
