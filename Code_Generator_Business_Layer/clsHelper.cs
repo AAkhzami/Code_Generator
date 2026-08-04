@@ -122,5 +122,46 @@ namespace Code_Generator_Business_Layer
             return paramName;
         }
 
+        /// <summary>
+        /// Formats a raw source code string by automatically adjusting line indentation based on block braces ('{' and '}'), while preserving single-line property blocks.
+        /// </summary>
+        /// <param name="Content">The raw generated C# source code string to format.</param>
+        /// <returns>A formatted C# code string with standardized tab indentation.</returns>
+        static public string FormatCode(string Content)
+        {
+            short space = 0;
+            StringBuilder result = new StringBuilder();
+
+            List<string> list = Content.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None).ToList();
+
+            list.ForEach(l =>
+            {
+                bool isSingleLineBlock = l.Contains("{") && l.Contains("}");
+                if (!isSingleLineBlock)
+                {
+                    if (l.Trim().StartsWith("}"))
+                        space--;
+                }
+
+                for (int j = 0; j < space; j++)
+                {
+                    result.Append("\t");
+                }
+
+
+                result.AppendLine(l.Trim());
+
+                if (!isSingleLineBlock)
+                {
+                    if (l.Trim().EndsWith("{") || l.Trim().StartsWith("{"))
+                    {
+                        space++;
+                    }
+                }
+            }
+            );
+
+            return result.ToString();
+        }
     }
 }
