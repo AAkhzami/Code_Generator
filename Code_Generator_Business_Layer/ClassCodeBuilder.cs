@@ -88,7 +88,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
-        public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
+        public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
 
