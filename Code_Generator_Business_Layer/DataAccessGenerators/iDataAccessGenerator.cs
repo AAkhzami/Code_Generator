@@ -10,7 +10,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
     /// <summary>
     /// Defines the contract for data access layer code generators to produce static methods for executing direct database operations.
     /// </summary>
-    internal interface iDataAccessGenerator
+    public interface iDataAccessGenerator
     {
         /// <summary>
         /// Generates the static data access method for executing SQL INSERT commands and returning the newly created record ID.

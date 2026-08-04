@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer
 {
-    internal class ClassCodeBuilder
+    public class ClassCodeBuilder
     {
 
         private readonly string Database;
