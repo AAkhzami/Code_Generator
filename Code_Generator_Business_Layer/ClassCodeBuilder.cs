@@ -95,6 +95,13 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
+
+        /// <summary>
+        ///  statement that generates the business layer class based on the specified operation type. It uses the provided business generator to generate the appropriate code for each operation type.
+        /// </summary>
+        /// <param name="businessGenerator">The business generator used to generate the business layer class.</param>
+        /// <param name="operationType">The list of operation types to generate.</param>
+        /// <returns>The generated business layer class as a string.</returns>
         public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
@@ -147,6 +154,12 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// statement that generates the connection string based on the specified connection type. It uses the provided connection information to generate the appropriate code for each connection type.
+        /// </summary>
+        /// <param name="connectionInfo">The connection information used to generate the connection string.</param>
+        /// <returns>The generated connection string as a string.</returns>
         public string GenerateConnection(clsConnectionGenerator connectionInfo)
         {
             StringBuilder stringBuilder = new StringBuilder();
