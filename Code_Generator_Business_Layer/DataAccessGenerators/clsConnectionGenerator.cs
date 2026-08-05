@@ -15,19 +15,18 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         }
 
         public enConnectionType connectionType = enConnectionType.StaticClass;
-        string _connectionString = string.Empty;
-        string _location = string.Empty;
-        string _databaseName = string.Empty;
-        string _userName = string.Empty;
-        string _password = string.Empty;
+        public string location = string.Empty;
+        public string databaseName = string.Empty;
+        public string userName = string.Empty;
+        public string password = string.Empty;
 
         public clsConnectionGenerator(enConnectionType connectionType, string Location, string DatabaseName, string UserName, string Password)
         {
             this.connectionType = connectionType;
-            _location = Location;
-            _databaseName = DatabaseName;
-            _userName = UserName;
-            _password = Password;
+            location = Location;
+            databaseName = DatabaseName;
+            userName = UserName;
+            password = Password;
         }
 
         public string GenerateConnection()
@@ -38,12 +37,12 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
                 case enConnectionType.StaticClass:
                     sb.AppendLine("public static class clsConnection");
                     sb.AppendLine("{");
-                    sb.AppendLine($"\tpublic static string ConnectionString = \"Server = {_location}; Database = {_databaseName}; User Id = {_userName}; Password = {_password}\";");
+                    sb.AppendLine($"\tpublic static string ConnectionString = \"Server = {location}; Database = {databaseName}; User Id = {userName}; Password = {password}\";");
                     sb.AppendLine("}");
                     break;
                 case enConnectionType.AppConfig:
                     sb.AppendLine("<appSettings >");
-                    sb.AppendLine($"<add key = \"MyDbConnection\" value =\"Server={_location};Database={_databaseName};User Id={_userName};Password={_password};\"/>");
+                    sb.AppendLine($"<add key = \"MyDbConnection\" value =\"Server={location};Database={databaseName};User Id={userName};Password={password};\"/>");
                     sb.AppendLine("</appSettings>");
                     break;
             }

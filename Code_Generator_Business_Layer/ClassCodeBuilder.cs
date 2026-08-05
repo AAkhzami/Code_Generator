@@ -37,7 +37,7 @@ namespace Code_Generator_Business_Layer
             SelectAll = 4,
             All = 5,
         }
-        public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionGenerator connectionType, List<enOperationType> operationType)
+        public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionGenerator connectionInfo, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -46,7 +46,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("using System.Data;");
             sb.AppendLine("using System.Data.SqlClient;");
 
-            if (connectionType.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
+            if (connectionInfo.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
             {
                 sb.AppendLine("using System.Configuration;");
             }
@@ -139,6 +139,14 @@ namespace Code_Generator_Business_Layer
             }
             sb.AppendLine("}");
             return sb.ToString();
+        }
+        public string GenerateConnection(clsConnectionGenerator connectionInfo, clsConnectionGenerator.enConnectionType connectionType)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"namespace {connectionInfo.databaseName}_Data_Layer \n{{");
+            stringBuilder.AppendLine(connectionInfo.GenerateConnection());
+
+            return stringBuilder.ToString();
         }
     }
 }
