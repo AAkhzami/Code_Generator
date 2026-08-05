@@ -102,7 +102,7 @@ namespace Code_Generator_Business_Layer
         /// <param name="businessGenerator">The business generator used to generate the business layer class.</param>
         /// <param name="operationType">The list of operation types to generate.</param>
         /// <returns>The generated business layer class as a string.</returns>
-        public string GenerateBusinessLayerClass(iBusinessGenerators businessGenerator, List<enOperationType> operationType)
+        public string GenerateBusinessLayerClass(iBusinessGenerator businessGenerator, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
 

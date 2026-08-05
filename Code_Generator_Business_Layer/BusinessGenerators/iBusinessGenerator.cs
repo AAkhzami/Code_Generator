@@ -9,7 +9,7 @@ namespace Code_Generator_Business_Layer.BusinessGenerators
     /// <summary>
     /// Defines the contract for business layer code generators to produce code components, including properties, constructors, and CRUD operations.
     /// </summary>
-    public interface iBusinessGenerators
+    public interface iBusinessGenerator
     {
         /// <summary>
         /// Generates public auto-properties corresponding to the table columns in the database.
