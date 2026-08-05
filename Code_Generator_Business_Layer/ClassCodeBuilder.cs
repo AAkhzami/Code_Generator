@@ -140,11 +140,31 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
-        public string GenerateConnection(clsConnectionGenerator connectionInfo, clsConnectionGenerator.enConnectionType connectionType)
+        public string GenerateConnection(clsConnectionGenerator connectionInfo)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append($"namespace {connectionInfo.databaseName}_Data_Layer \n{{");
-            stringBuilder.AppendLine(connectionInfo.GenerateConnection());
+            
+            switch(connectionInfo.connectionType)
+            {
+                case clsConnectionGenerator.enConnectionType.StaticClass:
+
+                    stringBuilder.AppendLine("using System;");
+                    stringBuilder.AppendLine("using System.Data;");
+                    stringBuilder.AppendLine($"namespace {connectionInfo.databaseName}_DataAccess");
+                    stringBuilder.AppendLine("{");
+                    stringBuilder.AppendLine(connectionInfo.GenerateConnection());
+                    stringBuilder.AppendLine("}");
+
+                    break;
+                case clsConnectionGenerator.enConnectionType.AppConfig:
+
+                    stringBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+                    stringBuilder.AppendLine("<appSettings>");
+                    stringBuilder.AppendLine(connectionInfo.GenerateConnection());
+                    stringBuilder.AppendLine("</appSettings>");
+
+                    break;
+            }
 
             return stringBuilder.ToString();
         }
