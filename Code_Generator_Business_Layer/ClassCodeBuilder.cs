@@ -37,6 +37,13 @@ namespace Code_Generator_Business_Layer
             SelectAll = 4,
             All = 5,
         }
+        /// <summary>
+        ///  statement that generates the data access layer class based on the specified operation type. It uses the provided data access generator and connection information to generate the appropriate code for each operation type.
+        /// </summary>
+        /// <param name="dataAccessGenerator">The data access generator used to generate the data access layer class.</param>
+        /// <param name="connectionInfo">The connection information used to connect to the database.</param>
+        /// <param name="operationType">The list of operation types to generate.</param>
+        /// <returns>The generated data access layer class as a string.</returns>
         public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionGenerator connectionInfo, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
