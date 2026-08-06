@@ -25,6 +25,10 @@ namespace Code_Generator_Business_Layer
             public string ColumnType;
             /// <summary>Gets or sets the maximum character or byte length of the column.</summary>
             public int MaxLength;
+            /// <summary>Get or sets the precision</summary>
+            public byte Precision;
+            /// <summary>Get or sets the scale </summary>
+            public byte Scale;
             /// <summary>Gets or sets the default value configured for the column in the database.</summary>
             public string DefaultValue;
             /// <summary>Gets or sets a value indicating whether the column allows NULL values.</summary>
@@ -123,35 +127,38 @@ namespace Code_Generator_Business_Layer
         {
             strColumnInfo info = new strColumnInfo();
 
-            info.ColumnID = (int)column[0];
-            info.ColumnName = (string)column[1];
-            info.ColumnSqlType = (string)column[2];
-            info.ColumnType = MappingDataType((string)column[2]);
-            info.MaxLength = (short)column[3];
-            info.IsNullable = (bool)column[4];
+            info.ColumnID = (int)column["ColumnID"];
+            info.ColumnName = (string)column["ColumnName"];
+            info.ColumnSqlType = (string)column["SqlDataType"];
+            info.ColumnType = MappingDataType((string)column["SqlDataType"]);
+            info.MaxLength = (short)column["MaxLength"];
+            info.Precision = (byte)column["Precision"];
+            info.Scale = (byte)column["Scale"];
+            info.IsNullable = (bool)column["IsNullable"];
+            info.IsIdentity = (bool)column["IsIdentity"];
 
-            if (column[5] == System.DBNull.Value)
+            if (column["DefaultValue"] == System.DBNull.Value)
             {
                 info.DefaultValue = "Null";
             }
             else
             {
-                info.DefaultValue = column[5].ToString();
+                info.DefaultValue = column["DefaultValue"].ToString();
             }
 
-            info.IsPrimaryKey = Convert.ToBoolean((int)column[6]);
-            info.IsForeignKey = Convert.ToBoolean((int)column[7]);
+            info.IsPrimaryKey = Convert.ToBoolean((int)column["IsPrimaryKey"]);
+            info.IsForeignKey = Convert.ToBoolean((int)column["IsForeignKey"]);
 
-            if (column[8] == System.DBNull.Value)
+            if (column["ReferencedTable"] == System.DBNull.Value)
             {
                 info.ReferencedTable = "Null";
             }
             else
             {
-                info.ReferencedTable = column[8].ToString();
+                info.ReferencedTable = column["ReferencedTable"].ToString();
             }
 
-            info.IsUnique = Convert.ToBoolean((int)column[9]);
+            info.IsUnique = Convert.ToBoolean((int)column["IsUnique"]);
 
             return info;
 

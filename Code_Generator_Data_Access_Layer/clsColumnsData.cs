@@ -16,14 +16,15 @@ namespace Code_Generator_Data_Access_Layer
         {
             DataTable dt = new DataTable();
             string query = $@"
-                        with cte_pk as
+						with cte_pk as
 						(
 							select 
 							ic.column_id,
 							i.object_id
 							from sys.index_columns ic
 							inner join sys.indexes i on
-							ic.object_id = i.object_id
+							ic.object_id = i.object_id AND ic.index_id = i.index_id
+							where i.is_primary_key = 1
 						),
 						cte_uq as
 						(
@@ -38,7 +39,10 @@ namespace Code_Generator_Data_Access_Layer
 							c.name as ColumnName,
 							TYPE_NAME(c.system_type_id) as SqlDataType,
 							c.max_length as MaxLength,
+							c.precision AS Precision,
+							c.scale AS Scale,
 							c.is_nullable as IsNullable,
+							c.is_identity AS IsIdentity,
 							dc.definition as DefaultValue,
 							case 
 								when pk.column_id IS not null then 1 else 0 
