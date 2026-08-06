@@ -25,7 +25,7 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Create Procedure SP_GetAll{_TableName}Records");
+            sb.AppendLine($"Create Procedure SP_GetAllRecordsFrom{_TableName}");
             sb.AppendLine("as");
             sb.AppendLine("begin");
             sb.AppendLine("\tSET NOCOUNT ON;");
@@ -38,7 +38,7 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Create Procedure SP_Get{_TableName}Record");
+            sb.AppendLine($"Create Procedure SP_GetOneRecordFrom{_TableName}");
 
             sb.AppendLine(clsHelper.FormatingProperties(
                 _ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList()));
@@ -55,7 +55,7 @@ namespace Code_Generator_Business_Layer
         public string GenerateDeleteRecordByPrimaryKeyScript()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Create Procedure SP_Delete{_TableName}Record");
+            sb.AppendLine($"Create Procedure SP_DeleteOneRecordOn{_TableName}");
             sb.AppendLine(clsHelper.FormatingProperties(
                 _ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList()));
             sb.AppendLine("as");
@@ -72,7 +72,7 @@ namespace Code_Generator_Business_Layer
         public string GenerateAddNewRecord()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"create procedure SP_AddNew{_TableName}Record");
+            sb.AppendLine($"create procedure SP_AddNewRecordOn{_TableName}");
 
             List<string> ListParameters = new List<string>();
             _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList().ForEach(c => ListParameters.Add(c));
