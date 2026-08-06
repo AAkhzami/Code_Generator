@@ -48,7 +48,7 @@
     <Compile Include="clsExport.cs" />
     <Compile Include="clsHelper.cs" />
     <Compile Include="clsMainBridge.cs" />
-    <Compile Include="clsTSqlScriptBuilder.cs" />
+    <Compile Include="DataAccessGenerators\SQLServer\TSQL\clsTSqlScriptBuilder.cs" />
     <Compile Include="DataAccessGenerators\clsConnectionGenerator.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\clsSQLServerDataAccessLayerGenerator.cs" />
     <Compile Include="DataAccessGenerators\iDataAccessGenerator.cs" />
