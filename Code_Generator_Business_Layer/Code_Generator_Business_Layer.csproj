@@ -52,6 +52,7 @@
     <Compile Include="DataAccessGenerators\clsConnectionGenerator.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\clsSQLServerDataAccessLayerGenerator.cs" />
     <Compile Include="DataAccessGenerators\iDataAccessGenerator.cs" />
+    <Compile Include="DataAccessGenerators\SQLServer\TSQL\clsTSqlScriptExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
