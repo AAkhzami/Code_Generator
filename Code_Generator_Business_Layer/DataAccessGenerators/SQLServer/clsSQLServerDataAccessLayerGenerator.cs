@@ -14,12 +14,12 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         string _databaseName = "";
         clsColumnModelBuilder _Columns;
         clsConnectionGenerator _connection;
-        public clsSQLServerDataAccessLayerGenerator(string Database, string Table, clsConnectionGenerator connectionType)
+        public clsSQLServerDataAccessLayerGenerator(string Database, string Table, clsConnectionGenerator connectionInfo)
         {
             _databaseName = Database;
             _tableName = Table;
             _Columns = new clsColumnModelBuilder(_databaseName, _tableName);
-            _connection = connectionType;
+            _connection = connectionInfo;
         }
 
         // Queries

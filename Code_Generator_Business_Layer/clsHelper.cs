@@ -164,5 +164,15 @@ namespace Code_Generator_Business_Layer
 
             return result.ToString();
         }
+
+
+        public static T GetParamValue<T>(object dbValue)
+        {
+            if (dbValue == null || dbValue == DBNull.Value)
+            {
+                return default(T);
+            }
+            return (T)Convert.ChangeType(dbValue, Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T));
+        }
     }
 }
