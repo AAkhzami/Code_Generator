@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="clsColumnsData.cs" />
     <Compile Include="clsDataAccessConnections.cs" />
-    <Compile Include="clsDatabaseInfo_Data.cs" />
     <Compile Include="clsTablesInfoData.cs" />
     <Compile Include="clsUserDatabasesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
