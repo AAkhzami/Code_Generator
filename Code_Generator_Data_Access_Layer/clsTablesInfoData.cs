@@ -25,11 +25,8 @@ namespace Code_Generator_Data_Access_Layer
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
                     using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dt.Load(reader);
-                        }
+                    {        
+                       dt.Load(reader);
                     }
                 }
                 catch (Exception ex)
