@@ -75,8 +75,8 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine($"create procedure SP_AddNewRecordOn{_TableName}");
 
             List<string> ListParameters = new List<string>();
-            _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList().ForEach(c => ListParameters.Add(c));
-            _ColumnsList.Where(c => (c.IsPrimaryKey || c.IsIdentity)).Select(c => $"@{c.ColumnName} {c.ColumnSqlType} OUTPUT").ToList().ForEach(c => ListParameters.Add(c));
+            _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => $"@{c.ColumnName} {clsColumnModelBuilder.GetFullSqlType(c)}").ToList().ForEach(c => ListParameters.Add(c));
+            _ColumnsList.Where(c => (c.IsPrimaryKey || c.IsIdentity)).Select(c => $"@{c.ColumnName} {clsColumnModelBuilder.GetFullSqlType(c)} OUTPUT").ToList().ForEach(c => ListParameters.Add(c));
 
             sb.AppendLine( string.Join(",\n", ListParameters));
             sb.AppendLine("as");
@@ -84,7 +84,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("\tSET NOCOUNT ON;");
 
             sb.AppendLine("\tDeclare @OutputTable Table");
-            sb.AppendLine($"\t({string.Join(", ", _ColumnsList.Where(c => c.IsPrimaryKey || c.IsIdentity).Select(c => $"{c.ColumnName} {c.ColumnSqlType}").ToList())});");
+            sb.AppendLine($"\t({string.Join(", ", _ColumnsList.Where(c => c.IsPrimaryKey || c.IsIdentity).Select(c => $"{c.ColumnName} {clsColumnModelBuilder.GetFullSqlType(c)}").ToList())});");
 
             sb.AppendLine($"\tInsert into [{_TableName}]");
             sb.AppendLine($"\t({string.Join(",", _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => c.ColumnName))})");
