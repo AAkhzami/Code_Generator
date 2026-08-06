@@ -21,7 +21,7 @@ namespace Code_Generator_Business_Layer
             _ColumnsInfo = new clsColumnModelBuilder(_Database, _TableName);
             _ColumnsList = _ColumnsInfo.GetAllColumnsInfo();
         }
-        public string CreateGetAllRecordsScript()
+        public string GenerateGetAllRecordsScript()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -34,7 +34,7 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
-        public string CreateGetRecordByPrimaryKey()
+        public string GenerateGetRecordByPrimaryKeyScript()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -52,5 +52,6 @@ namespace Code_Generator_Business_Layer
 
             return sb.ToString();
         }
+
     }
 }
