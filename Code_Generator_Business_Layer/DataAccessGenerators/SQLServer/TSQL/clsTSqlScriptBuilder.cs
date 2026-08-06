@@ -25,7 +25,7 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Create Procedure GetAll{_TableName}");
+            sb.AppendLine($"Create Procedure GetAll{_TableName}Records");
             sb.AppendLine("as");
             sb.AppendLine("begin");
             sb.AppendLine("\tSET NOCOUNT ON;");
@@ -38,20 +38,36 @@ namespace Code_Generator_Business_Layer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Create Procedure GetBy{_ColumnsInfo.PrimaryKey.ColumnName}");
+            sb.AppendLine($"Create Procedure Get{_TableName}Record");
 
             sb.AppendLine(clsHelper.FormatingProperties(
                 _ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList()));
             sb.AppendLine("as");
             sb.AppendLine("begin");
             sb.AppendLine("\tSET NOCOUNT ON;");
-            sb.AppendLine($"select * from [{_TableName}]");
-            sb.AppendLine("where");
-            sb.AppendLine(string.Join(" and ",_ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"[{c.ColumnName}] = @{c.ColumnName}").ToList()));
+            sb.AppendLine($"\tselect * from [{_TableName}]");
+            sb.AppendLine("\twhere");
+            sb.AppendLine("\t" + string.Join(" and ",_ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"[{c.ColumnName}] = @{c.ColumnName}").ToList()));
             sb.AppendLine("end");
 
             return sb.ToString();
         }
+        public string GenerateDeleteRecordByPrimaryKeyScript()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Create Procedure Delete{_TableName}Record");
+            sb.AppendLine(clsHelper.FormatingProperties(
+                _ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"@{c.ColumnName} {c.ColumnSqlType}").ToList()));
+            sb.AppendLine("as");
+            sb.AppendLine("begin");
+            sb.AppendLine("\tSET NOCOUNT ON;");
+            sb.AppendLine($"\tDelete [{_TableName}]");
+            sb.AppendLine("\twhere");
+            sb.AppendLine("\t" + string.Join(" and ", _ColumnsList.Where(c => c.IsPrimaryKey == true).Select(c => $"[{c.ColumnName}] = @{c.ColumnName}").ToList()));
+            sb.AppendLine("\tSelect @@ROWCOUNT as RowAffected;");
+            sb.AppendLine("end");
 
+            return sb.ToString();
+        }
     }
 }
