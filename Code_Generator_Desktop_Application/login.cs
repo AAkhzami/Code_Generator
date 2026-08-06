@@ -81,8 +81,8 @@ namespace Code_Generator_DApp
                         MessageBox.Show("Failed");
                 }
 
-                clsCurrentUser.ConnectionInfo.userID = userID;
-                clsCurrentUser.ConnectionInfo.password = password;
+                clsCurrentUser.connectionInfo.userName = userID;
+                clsCurrentUser.connectionInfo.password = password;
             }
         }
         private void LoadDataFromRegistry()
@@ -92,8 +92,8 @@ namespace Code_Generator_DApp
             
             if(userID != null && password != null)
             {
-                clsCurrentUser.ConnectionInfo.userID = userID;
-                clsCurrentUser.ConnectionInfo.password = password;
+                clsCurrentUser.connectionInfo.userName = userID;
+                clsCurrentUser.connectionInfo.password = password;
 
                 txbUserID.Text = userID;
                 txbPassword.Text = password;

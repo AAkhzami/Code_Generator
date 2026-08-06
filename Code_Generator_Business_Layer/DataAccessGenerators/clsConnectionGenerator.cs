@@ -28,7 +28,13 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             userName = UserName;
             password = Password;
         }
-
+        public clsConnectionGenerator()
+        {
+            this.connectionType = enConnectionType.StaticClass;
+            this.location = ".";
+            this.userName = string.Empty;
+            this.password = string.Empty;
+        }
         public string GenerateConnection()
         {
             StringBuilder sb = new StringBuilder();

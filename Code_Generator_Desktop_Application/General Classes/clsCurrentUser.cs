@@ -1,4 +1,5 @@
 ﻿using Code_Generator_Business_Layer;
+using Code_Generator_Business_Layer.DataAccessGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,6 @@ namespace Code_Generator_DApp.General_Classes
 {
     public class clsCurrentUser
     {
-        public static clsGlobal.strConnectionInfo ConnectionInfo;
-        //public static string UserID = "";
-        //public static string Password = "";
+        public static clsConnectionGenerator connectionInfo = new clsConnectionGenerator();
     }
 }

@@ -28,7 +28,7 @@ namespace Code_Generator_DApp
             tpTablesSelector.Enabled = false;
             groupBox1.Enabled = false;
 
-            _dtDatabase = clsGlobal.GetAllDatabase();
+            _dtDatabase = clsMainBridge.GetAllDatabaseNameInCurrentDevise();
             dgvListOfDatabase.DataSource = _dtDatabase;
             if (dgvListOfDatabase.Rows.Count > 0)
             {
@@ -80,7 +80,7 @@ namespace Code_Generator_DApp
             {
                 tpTablesSelector.Enabled = true;
                 tc.SelectedTab = tc.TabPages["tpTablesSelector"];
-                clsCurrentUser.ConnectionInfo.dbName = name;
+                //clsCurrentUser.ConnectionInfo.dbName = name;
                 _LoadTablesData(name);
             }
         }
@@ -95,13 +95,13 @@ namespace Code_Generator_DApp
             string name = dgvListOfDatabase.CurrentRow.Cells[0].Value.ToString();
             tpTablesSelector.Enabled = true;
             tc.SelectedTab = tc.TabPages["tpTablesSelector"];
-            clsCurrentUser.ConnectionInfo.dbName = name;
+            //clsCurrentUser.ConnectionInfo.dbName = name;
             _LoadTablesData(name);
         }
         private void _LoadTablesData(string DatabaseName)
         {
             lblDatabaseName.Text = DatabaseName;
-            DataTable dt = clsGlobal.GetAllTablesOnDatabaseTable(DatabaseName);
+            DataTable dt = clsMainBridge.GetAllTablesByDatabaseName(DatabaseName);
             _DatabaseName = DatabaseName;
 
             if (dt.Rows.Count > 0)
@@ -117,7 +117,7 @@ namespace Code_Generator_DApp
         }
         private void _LoadColumnsData(string Database, string Table)
         {
-            DataTable dt = clsGlobal.GetAllColumnsByTableNameTable(Database, Table);
+            DataTable dt = clsMainBridge.GetAllColumnsRawInfo(Database, Table);
 
             if (dt.Rows.Count > 0)
             {
@@ -183,37 +183,37 @@ namespace Code_Generator_DApp
         }
         private void _CreateFiles()
         {
-            clsGlobal.strConnectionInfo ConnectionInfo = clsCurrentUser.ConnectionInfo;
-            List<string> DatabaseLayerClasses = new List<string>();
-            List<string> BusinessLayerClasses = new List<string>();
-            List<string> TablesName = new List<string>();
+            //clsGlobal.strConnectionInfo ConnectionInfo = clsCurrentUser.ConnectionInfo;
+            //List<string> DatabaseLayerClasses = new List<string>();
+            //List<string> BusinessLayerClasses = new List<string>();
+            //List<string> TablesName = new List<string>();
 
-            if (dgvTables.SelectedCells.Count > 0)
-            {
-                foreach (DataGridViewCell cell in dgvTables.SelectedCells)
-                {
-                    TablesName.Add(cell.Value.ToString());
+            //if (dgvTables.SelectedCells.Count > 0)
+            //{
+            //    foreach (DataGridViewCell cell in dgvTables.SelectedCells)
+            //    {
+            //        TablesName.Add(cell.Value.ToString());
 
-                    if (cbDL.Checked)
-                        DatabaseLayerClasses.Add(clsClassesGenerator.CreateDataAccessClass(ConnectionInfo, cell.Value.ToString()));
+            //        if (cbDL.Checked)
+            //            DatabaseLayerClasses.Add(clsClassesGenerator.CreateDataAccessClass(ConnectionInfo, cell.Value.ToString()));
 
-                    if (cbBL.Checked)
-                        BusinessLayerClasses.Add(clsClassesGenerator.CreateBusinessClass(ConnectionInfo, cell.Value.ToString()));
+            //        if (cbBL.Checked)
+            //            BusinessLayerClasses.Add(clsClassesGenerator.CreateBusinessClass(ConnectionInfo, cell.Value.ToString()));
 
-                }
+            //    }
 
-                if(cbDL.Checked)
-                {
-                    _CreateDataLayer(_DatabaseName, DatabaseLayerClasses, TablesName, _FolderPath);
-                    clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", _FolderPath);
-                }
+            //    if(cbDL.Checked)
+            //    {
+            //        _CreateDataLayer(_DatabaseName, DatabaseLayerClasses, TablesName, _FolderPath);
+            //        clsExport.CreateClassWithContent(clsClassesGenerator.CreateConnectionSettings(ConnectionInfo), @"clsDataAccessSettings", $"{ConnectionInfo.dbName}_DataAccess_Layer", _FolderPath);
+            //    }
 
-                if (cbBL.Checked)
-                    _CreateBusinessLayer(_DatabaseName, BusinessLayerClasses, TablesName, _FolderPath);
+            //    if (cbBL.Checked)
+            //        _CreateBusinessLayer(_DatabaseName, BusinessLayerClasses, TablesName, _FolderPath);
 
-            }
+            //}
 
-            MessageBox.Show("Files are created successfully!", "Created Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Files are created successfully!", "Created Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }
