@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using static Code_Generator_Business_Layer.clsGlobal;
 
 namespace Code_Generator_Business_Layer.DataAccessGenerators
 {

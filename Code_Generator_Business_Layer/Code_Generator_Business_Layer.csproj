@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="BusinessGenerators\iBusinessGenerator.cs" />
     <Compile Include="clsClassCodeBuilder.cs" />
-    <Compile Include="clsBusinessLayer.cs" />
     <Compile Include="BusinessGenerators\clsBusinessLayerGenerator.cs" />
     <Compile Include="clsColumnModelBuilder.cs" />
     <Compile Include="clsExport.cs" />
