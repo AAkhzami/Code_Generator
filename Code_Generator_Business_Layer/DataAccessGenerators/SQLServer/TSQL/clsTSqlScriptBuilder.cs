@@ -103,5 +103,25 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("end");
             return sb.ToString();
         }
+        public string GenerateUpdateRecord()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"create procedure SP_UpdateRcordeOn{_TableName}");
+            sb.AppendLine(string.Join(", \n",_ColumnsList.Select(c => $"@{c.ColumnName} {clsColumnModelBuilder.GetFullSqlType(c)}").ToList()));
+            sb.AppendLine("as");
+            sb.AppendLine("begin");
+            sb.AppendLine("\tSET NOCOUNT ON;");
+            sb.AppendLine($"\tUPDATE [{_TableName}]");
+            sb.AppendLine("SET");
+
+            sb.AppendLine(string.Join(", \n", _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => $"\t[{c.ColumnName}] = @{c.ColumnName}").ToList()));
+
+            sb.AppendLine("\twhere");
+            sb.Append("\t" + string.Join(" And ", _ColumnsList.Where(c => (c.IsPrimaryKey)).Select(c => $"[{c.ColumnName}] = @{c.ColumnName}").ToList()));
+            sb.AppendLine(";");
+            sb.AppendLine("\tselect @@ROWCOUNT as RowAffected;");
+            sb.AppendLine("end");
+            return sb.ToString();
+        }
     }
 }
