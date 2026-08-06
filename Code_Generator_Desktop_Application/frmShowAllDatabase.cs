@@ -80,7 +80,7 @@ namespace Code_Generator_DApp
             {
                 tpTablesSelector.Enabled = true;
                 tc.SelectedTab = tc.TabPages["tpTablesSelector"];
-                //clsCurrentUser.ConnectionInfo.dbName = name;
+                clsCurrentUser.connectionInfo.databaseName = name;
                 _LoadTablesData(name);
             }
         }
@@ -95,7 +95,7 @@ namespace Code_Generator_DApp
             string name = dgvListOfDatabase.CurrentRow.Cells[0].Value.ToString();
             tpTablesSelector.Enabled = true;
             tc.SelectedTab = tc.TabPages["tpTablesSelector"];
-            //clsCurrentUser.ConnectionInfo.dbName = name;
+            clsCurrentUser.connectionInfo.databaseName = name;
             _LoadTablesData(name);
         }
         private void _LoadTablesData(string DatabaseName)
