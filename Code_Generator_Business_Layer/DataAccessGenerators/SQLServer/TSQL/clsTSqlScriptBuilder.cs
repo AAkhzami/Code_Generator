@@ -82,11 +82,25 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("as");
             sb.AppendLine("begin");
             sb.AppendLine("\tSET NOCOUNT ON;");
+
+            sb.AppendLine("\tDeclare @OutputTable Table");
+            sb.AppendLine($"\t({string.Join(", ", _ColumnsList.Where(c => c.IsPrimaryKey || c.IsIdentity).Select(c => $"{c.ColumnName} {c.ColumnSqlType}").ToList())});");
+
             sb.AppendLine($"\tInsert into [{_TableName}]");
             sb.AppendLine($"\t({string.Join(",", _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => c.ColumnName))})");
+            
+            sb.Append($"\tOUTPUT ");
+            sb.Append($"{string.Join(", ", _ColumnsList.Where(c => c.IsPrimaryKey || c.IsIdentity).Select(c => $"inserted.{c.ColumnName}").ToList())}");
+            sb.AppendLine(" into @OutputTable");
+            
             sb.AppendLine("\tValues");
             sb.AppendLine($"\t({string.Join(",", _ColumnsList.Where(c => !(c.IsPrimaryKey || c.IsIdentity)).Select(c => "@" + c.ColumnName))})");
-            sb.AppendLine($"\tSet {string.Join(",", _ColumnsList.Where(c => (c.IsPrimaryKey)).Select(c => "@" + c.ColumnName + " = SCOPE_IDENTITY();"))}");
+
+            sb.AppendLine("\tSelect");
+            sb.AppendLine(string.Join(",\n", _ColumnsList.Where(c => c.IsPrimaryKey || c.IsIdentity).Select(c => $"\t@{c.ColumnName} = [{c.ColumnName}]").ToList()));
+            sb.AppendLine("\tfrom @OutputTable;");
+
+            sb.AppendLine("end");
             return sb.ToString();
         }
     }
