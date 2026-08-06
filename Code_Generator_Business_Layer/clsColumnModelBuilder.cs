@@ -52,6 +52,7 @@ namespace Code_Generator_Business_Layer
         /// Holds metadata for the primary key column of the specified table.
         /// </summary>
         public strColumnInfo PrimaryKey;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="clsColumnModelBuilder"/> class for a target database and table, automatically discovering the primary key.
         /// </summary>
@@ -237,6 +238,62 @@ namespace Code_Generator_Business_Layer
                 list.Add(InsertColumnData(dr));
             }
             return list;
+        }
+        static public string GetFullSqlType(strColumnInfo column)
+        {
+            switch (column.ColumnSqlType.ToLower())
+            {
+                case "char":
+                case "varchar":
+                {
+                    if (column.MaxLength == -1)
+                    {
+                        return $"{column.ColumnSqlType}(MAX)";
+                    }
+                    else if (column.MaxLength > 0)
+                    {
+                        return $"{column.ColumnSqlType}({column.MaxLength})";
+                    }
+                    break;
+                }
+                case "nchar":
+                case "nvarchar":
+                {
+                    if(column.MaxLength == -1)
+                    {
+                        return $"{column.ColumnSqlType}(MAX)";
+                    }
+                    else if (column.MaxLength > 0)
+                    {
+                        return $"{column.ColumnSqlType}({column.MaxLength/2})"; 
+                    }
+                    break;
+                }
+                case "numeric":
+                case "decimal":
+                {
+                    if(column.Precision > 0)
+                    {
+                        return $"{column.ColumnSqlType}({column.Precision},{column.Scale})";
+                    }
+                    break;
+                }
+                case "varbinary":
+                {
+                    if (column.MaxLength == -1)
+                    {
+                        return $"{column.ColumnSqlType}(MAX)";
+                    }
+                    else if (column.MaxLength > 0)
+                    {
+                        return $"{column.ColumnSqlType}({column.MaxLength})";
+                    }
+                    break;
+                }
+                default:
+                    return column.ColumnSqlType;
+            }
+            return column.ColumnSqlType;
         }
     }
 }
