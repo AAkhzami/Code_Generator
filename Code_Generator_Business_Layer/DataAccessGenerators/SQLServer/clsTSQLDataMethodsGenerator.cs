@@ -69,7 +69,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
                 c =>
                 {
                     method.AppendLine($"\t\t\tvar val{clsHelper.SafeParamName(c.ColumnName)} = ({clsHelper.FormatNullableType(c.ColumnType, true)})command.Parameters[\"@{c.ColumnName}\"].Value;");
-                    method.AppendLine($"\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = (val{clsHelper.SafeParamName(c.ColumnName)} != null) ? ({c.ColumnType})val{c.ColumnName} : default({c.ColumnType});");
+                    method.AppendLine($"\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = (val{clsHelper.SafeParamName(c.ColumnName)} != null) ? ({c.ColumnType})val{clsHelper.SafeParamName(c.ColumnName)} : default({c.ColumnType});");
                 });
 
             method.AppendLine("\t\t\treturn true;");
