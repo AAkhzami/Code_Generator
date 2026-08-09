@@ -23,14 +23,23 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateCreateMethod()
         {
-            var columnsWithOutPrimaryKey = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity || !n.IsPrimaryKey).ToList();
+            var columnsWithOutPrimaryKey = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
             var columnsWithPrimaryKeys = _Columns.GetAllColumnsInfo().Where(n => n.IsPrimaryKey).ToList();
 
             StringBuilder method = new StringBuilder();
-            method.Append($"public static {clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType, true)} AddNewRecordeOn{_TableName}");
-            method.AppendLine($"({clsHelper.FormatingProperties(columnsWithOutPrimaryKey.ToList().Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList())})");
+            method.Append($"public static bool AddNewRecordeOn{_TableName}");
+
+
+            List<string> functionsParameters = new List<string>();
+
+            columnsWithPrimaryKeys.Select(c => $"ref {clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
+                c => functionsParameters.Add(c));
+            columnsWithOutPrimaryKey.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
+                c => functionsParameters.Add(c));
+
+            method.AppendLine($"({string.Join(", ", functionsParameters)})");
+
             method.AppendLine("{");
-            method.AppendLine($"\t{clsHelper.FormatNullableType(_Columns.PrimaryKey.ColumnType, true)} result = null;");
             method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_Connection.GenerateConnectionString()}))");
             method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(\"SP_AddNewRecordOn{_TableName}\", connection))");
             method.AppendLine("\t{");
@@ -42,7 +51,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
             columnsWithPrimaryKeys.ForEach(
                 c =>
                 {                    
-                    method.AppendLine($"\t\tSqlParameter outPutParam{count} = new SqlParameter(\"@{c.ColumnName}\", System.Data.SqlDbType.)");
+                    method.AppendLine($"\t\tSqlParameter outPutParam{count} = new SqlParameter(\"@{c.ColumnName}\", System.Data.SqlDbType.{clsColumnModelBuilder.GetPropertyForDataSqlDbType(c.ColumnType)})");
                     method.AppendLine("\t\t{");
                     method.AppendLine($"\t\t\tDirection = System.Data.ParameterDirection.Output");
                     method.AppendLine("\t\t};");
@@ -50,7 +59,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
                     count++;
                 });
 
-
+            
             method.AppendLine($"\t\ttry");
             method.AppendLine("\t\t{");
             method.AppendLine($"\t\t\tconnection.Open();");
@@ -59,17 +68,18 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
             columnsWithPrimaryKeys.ForEach(
                 c =>
                 {
-                    method.AppendLine($"\t\t\t{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} new{c.ColumnName} = ({c.ColumnType})command.Parameters[\"@{c.ColumnName}\"].Value;");
-                    method.AppendLine($"{clsHelper.GetParamValue(c.ColumnSqlType)}");
+                    method.AppendLine($"\t\t\tvar val{clsHelper.SafeParamName(c.ColumnName)} = ({clsHelper.FormatNullableType(c.ColumnType, true)})command.Parameters[\"@{c.ColumnName}\"].Value;");
+                    method.AppendLine($"\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = (val{clsHelper.SafeParamName(c.ColumnName)} != null) ? ({c.ColumnType})val{c.ColumnName} : default({c.ColumnType});");
                 });
 
-            
+            method.AppendLine("\t\t\treturn true;");
+            method.AppendLine("\t\t}");
             method.AppendLine("\t\tcatch (Exception ex)");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\t// Handle exception");
             method.AppendLine("\t\t}");
             method.AppendLine("\t}");
-            method.AppendLine($"\treturn new{_Columns.PrimaryKey.ColumnName};");
+            method.AppendLine($"\treturn false;");
             method.AppendLine("}");
             return method.ToString();
         }

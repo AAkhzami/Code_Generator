@@ -295,5 +295,49 @@ namespace Code_Generator_Business_Layer
             }
             return column.ColumnSqlType;
         }
+        static public string GetPropertyForDataSqlDbType(string type)
+        {
+            switch (type.ToLower())
+            {
+                case "int":
+                    return nameof(SqlDbType.Int);
+
+                case "long":
+                    return nameof(SqlDbType.BigInt);
+
+                case "short":
+                    return nameof(SqlDbType.SmallInt);
+
+                case "byte":
+                    return nameof(SqlDbType.TinyInt);
+
+                case "bool":
+                    return nameof(SqlDbType.Bit);
+
+                case "string":
+                    return nameof(SqlDbType.NVarChar);
+
+                case "decimal":
+                    return nameof(SqlDbType.Decimal);
+
+                case "double":
+                    return nameof(SqlDbType.Float);
+
+                case "float":
+                    return nameof(SqlDbType.Real);
+
+                case "datetime":
+                    return nameof(SqlDbType.DateTime);
+
+                case "guid":
+                    return nameof(SqlDbType.UniqueIdentifier);
+
+                case "byte[]":
+                    return nameof(SqlDbType.VarBinary);
+
+                default:
+                    return nameof(SqlDbType.NVarChar);
+            }
+        }
     }
 }
