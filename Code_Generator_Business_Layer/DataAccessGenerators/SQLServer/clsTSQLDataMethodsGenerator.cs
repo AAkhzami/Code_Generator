@@ -217,7 +217,32 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateReadAllRecordsMethod()
         {
-            return "";
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static bool GetAll{_TableName}()");
+
+            
+            method.AppendLine("{");
+            method.AppendLine("\tDataTable dt = new DataTable();");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_Connection.GenerateConnectionString()}))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(\"SP_GetAllRecordsFrom{_TableName}\", connection))");
+            method.AppendLine("\t{");
+            method.AppendLine("\t\tcommand.CommandType = System.Data.CommandType.StoredProcedure;");
+            method.AppendLine($"\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine($"\t\t\tconnection.Open();");
+            method.AppendLine("\t\t\tusing (SqlDataReader reader = command.ExecuteReader())");
+            method.AppendLine("\t\t\t{");
+            method.AppendLine("\t\t\t\tdt.Load(reader);");
+            method.AppendLine("\t\t\t}");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("\treturn dt;");
+            method.AppendLine("}");
+            return method.ToString();
         }
         public string GenerateDataAccessLayerClass()
         {
