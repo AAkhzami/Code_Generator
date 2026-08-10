@@ -218,7 +218,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         public string GenerateReadAllRecordsMethod()
         {
             StringBuilder method = new StringBuilder();
-            method.Append($"public static DataTable GetAll{_TableName}()");
+            method.AppendLine($"public static DataTable GetAll{_TableName}()");
 
             
             method.AppendLine("{");
@@ -238,6 +238,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
             method.AppendLine("\t\tcatch (Exception ex)");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t\tdt= null;");
             method.AppendLine("\t\t}");
             method.AppendLine("\t}");
             method.AppendLine("\treturn dt;");
