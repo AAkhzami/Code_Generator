@@ -218,7 +218,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         public string GenerateReadAllRecordsMethod()
         {
             StringBuilder method = new StringBuilder();
-            method.Append($"public static bool GetAll{_TableName}()");
+            method.Append($"public static DataTable GetAll{_TableName}()");
 
             
             method.AppendLine("{");
