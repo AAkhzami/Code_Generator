@@ -14,9 +14,9 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         string _databaseName = "";
         clsColumnModelBuilder _Columns;
         clsConnectionGenerator _connection;
-        public clsSQLServerDataAccessLayerGenerator(string Database, string Table, clsConnectionGenerator connectionInfo)
+        public clsSQLServerDataAccessLayerGenerator(string Table, clsConnectionGenerator connectionInfo)
         {
-            _databaseName = Database;
+            _databaseName = connectionInfo.databaseName;
             _tableName = Table;
             _Columns = new clsColumnModelBuilder(_databaseName, _tableName);
             _connection = connectionInfo;
