@@ -117,7 +117,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateDeleteMethod()
         {
-            var parameters = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
+            var parameters = _Columns.GetAllColumnsInfo().Where(n => n.IsIdentity && n.IsPrimaryKey).ToList();
             StringBuilder method = new StringBuilder();
             method.Append($"public static bool DeleteRecordFrom{_TableName}");
 
