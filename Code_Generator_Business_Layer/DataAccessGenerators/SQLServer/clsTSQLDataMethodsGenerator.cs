@@ -85,7 +85,34 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateUpdateMethod()
         {
-            return "";
+            var parameters = _Columns.GetAllColumnsInfo();
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static bool AddNewRecordeOn{_TableName}");
+
+            method.AppendLine($"({string.Join(", ", parameters.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}"))})");
+
+            method.AppendLine("{");
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_Connection.GenerateConnectionString()}))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(\"SP_UpdateRcordeOn{_TableName}\", connection))");
+            method.AppendLine("\t{");
+            method.AppendLine("\t\tcommand.CommandType = System.Data.CommandType.StoredProcedure;");
+
+
+            parameters.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
+
+            method.AppendLine($"\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine($"\t\tconnection.Open();");
+            method.AppendLine($"\t\tcommand.ExecuteNonQuery();");
+            method.AppendLine("\t\t\treturn true;");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t\treturn false;");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine("}");
+            return method.ToString();
         }
         public string GenerateDeleteMethod()
         {
