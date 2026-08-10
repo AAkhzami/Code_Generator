@@ -10,13 +10,16 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer.TSQL
 {
     public class clsTSqlScriptExecutor
     {
-        public static bool ExecuteScript(string script, string connectionString)
+        public static bool ExecuteScript(string script, clsConnectionGenerator connectionInfo)
         {
-            return ExecuteScripts(new List<string> { script}, connectionString);                 
+            return ExecuteScripts(new List<string> { script}, connectionInfo);                 
         }
 
-        public static bool ExecuteScripts(List<string> scripts, string connectionString)
-        {            
+        public static bool ExecuteScripts(List<string> scripts, clsConnectionGenerator connectionInfo)
+        {
+             string connectionString;
+
+            connectionString = $"Server={connectionInfo.location};Database={connectionInfo.databaseName};User Id={connectionInfo.userName};Password={connectionInfo.password};";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
