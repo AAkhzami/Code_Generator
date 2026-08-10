@@ -93,7 +93,71 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateReadMethod()
         {
-            return "";
+            var columnsWithOutPrimaryKey = _Columns.GetAllColumnsInfo().Where(n => !n.IsIdentity && !n.IsPrimaryKey).ToList();
+            var columnsWithPrimaryKeys = _Columns.GetAllColumnsInfo().Where(n => n.IsPrimaryKey).ToList();
+
+            StringBuilder method = new StringBuilder();
+            method.Append($"public static bool GetOnRecordFrom{_TableName}");
+
+            List<string> functionsParameters = new List<string>();
+
+            columnsWithPrimaryKeys.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
+                c => functionsParameters.Add(c));
+            columnsWithOutPrimaryKey.Select(c => $"ref {clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
+                c => functionsParameters.Add(c));
+
+            method.AppendLine($"({string.Join(", ", functionsParameters)})");
+
+
+            method.AppendLine("{");
+
+            method.AppendLine("\tbool isFound = false;");
+
+            method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_Connection.GenerateConnectionString()}))");
+            method.AppendLine($"\tusing (SqlCommand command = new SqlCommand(\"SP_GetOneRecordFrom{_TableName}\", connection))");
+            method.AppendLine("\t{");
+            method.AppendLine("\t\tcommand.CommandType = System.Data.CommandType.StoredProcedure;");
+
+            columnsWithPrimaryKeys.ForEach(c => method.AppendLine($"\t\tcommand.Parameters.AddWithValue(\"@{c.ColumnName}\", {clsHelper.SafeParamName(c.ColumnName)});"));
+
+            method.AppendLine($"\t\ttry");
+            method.AppendLine("\t\t{");
+            method.AppendLine($"\t\t\tconnection.Open();");
+            method.AppendLine($"\t\t\tusing (SqlDataReader reader = command.ExecuteReader())");
+            method.AppendLine("\t\t\t{");
+            method.AppendLine("\t\t\t\tif(reader.Read())");
+            method.AppendLine("\t\t\t\t{");
+            columnsWithOutPrimaryKey.ForEach(
+                c =>
+                {
+                    method.AppendLine($"\t\t\t\t\tif (reader[\"{c.ColumnName}\"] != DBNull.Value)");
+                    method.AppendLine("\t\t\t\t\t{");
+                    method.AppendLine($"\t\t\t\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = ({c.ColumnType})reader[\"{c.ColumnName}\"];");
+                    method.AppendLine("\t\t\t\t\t}");
+                    if(c.IsNullable)
+                    {
+                        method.AppendLine($"\t\t\t\t\telse");
+                        method.AppendLine("\t\t\t\t\t{");
+                        method.AppendLine($"\t\t\t\t\t\t{clsHelper.SafeParamName(c.ColumnName)} = null;");
+                        method.AppendLine("\t\t\t\t\t}");
+                    }
+
+                });
+            method.AppendLine("\t\t\t\t\tisFound = true;");
+            method.AppendLine("\t\t\t\t}");
+            method.AppendLine("\t\t\t}");
+
+            method.AppendLine("\t\t\treturn true;");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t\tcatch (Exception ex)");
+            method.AppendLine("\t\t{");
+            method.AppendLine("\t\t\t// Handle exception");
+            method.AppendLine("\t\t\tisFound = false;");
+            method.AppendLine("\t\t}");
+            method.AppendLine("\t}");
+            method.AppendLine($"\treturn isFound;");
+            method.AppendLine("}");
+            return method.ToString();
         }
         public string GenerateReadAllRecordsMethod()
         {
