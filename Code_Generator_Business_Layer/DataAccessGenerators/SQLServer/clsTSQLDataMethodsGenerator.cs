@@ -87,7 +87,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         {
             var parameters = _Columns.GetAllColumnsInfo();
             StringBuilder method = new StringBuilder();
-            method.Append($"public static bool AddNewRecordeOn{_TableName}");
+            method.Append($"public static bool UpdateRecordFrom{_TableName}");
 
             method.AppendLine($"({string.Join(", ", parameters.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}"))})");
 
@@ -102,9 +102,10 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
 
             method.AppendLine($"\t\ttry");
             method.AppendLine("\t\t{");
-            method.AppendLine($"\t\tconnection.Open();");
-            method.AppendLine($"\t\tcommand.ExecuteNonQuery();");
+            method.AppendLine($"\t\t\tconnection.Open();");
+            method.AppendLine($"\t\t\tcommand.ExecuteNonQuery();");
             method.AppendLine("\t\t\treturn true;");
+            method.AppendLine("\t\t}");
             method.AppendLine("\t\tcatch (Exception ex)");
             method.AppendLine("\t\t{");
             method.AppendLine("\t\t\t// Handle exception");
