@@ -246,7 +246,16 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         }
         public string GenerateDataAccessLayerClass()
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"public class cls{_TableName}Data");
+            sb.AppendLine("{");
+            sb.AppendLine(GenerateCreateMethod());
+            sb.AppendLine(GenerateReadMethod());
+            sb.AppendLine(GenerateUpdateMethod());
+            sb.AppendLine(GenerateDeleteMethod());
+            sb.AppendLine(GenerateReadAllRecordsMethod());
+            sb.AppendLine("}");
+            return sb.ToString();
         }
     }
 }
