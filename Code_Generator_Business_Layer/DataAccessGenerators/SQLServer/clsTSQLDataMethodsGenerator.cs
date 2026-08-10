@@ -14,9 +14,9 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         clsColumnModelBuilder _Columns;
         clsConnectionGenerator _Connection;
         
-        public clsTSQLDataMethodsGenerator(string Database, string Table, clsConnectionGenerator connectionInfo)
+        public clsTSQLDataMethodsGenerator(string Table, clsConnectionGenerator connectionInfo)
         {
-            this._DatabaseName = Database;
+            this._DatabaseName = connectionInfo.databaseName;
             this._TableName = Table;
             this._Columns = new clsColumnModelBuilder(_DatabaseName, _TableName);
             this._Connection = connectionInfo;
