@@ -44,7 +44,7 @@ namespace Code_Generator_Business_Layer
         /// <param name="connectionInfo">The connection information used to connect to the database.</param>
         /// <param name="operationType">The list of operation types to generate.</param>
         /// <returns>The generated data access layer class as a string.</returns>
-        public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionGenerator connectionInfo, List<enOperationType> operationType)
+        public string GenerateDataAccessLayerClass(iDataAccessGenerator dataAccessGenerator, clsConnectionData connectionInfo, List<enOperationType> operationType)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -53,7 +53,7 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("using System.Data;");
             sb.AppendLine("using System.Data.SqlClient;");
 
-            if (connectionInfo.connectionType == clsConnectionGenerator.enConnectionType.AppConfig)
+            if (connectionInfo.connectionType == clsConnectionData.enConnectionType.AppConfig)
             {
                 sb.AppendLine("using System.Configuration;");
             }
@@ -160,13 +160,13 @@ namespace Code_Generator_Business_Layer
         /// </summary>
         /// <param name="connectionInfo">The connection information used to generate the connection string.</param>
         /// <returns>The generated connection string as a string.</returns>
-        public string GenerateConnection(clsConnectionGenerator connectionInfo)
+        public string GenerateConnection(clsConnectionData connectionInfo)
         {
             StringBuilder stringBuilder = new StringBuilder();
             
             switch(connectionInfo.connectionType)
             {
-                case clsConnectionGenerator.enConnectionType.StaticClass:
+                case clsConnectionData.enConnectionType.StaticClass:
 
                     stringBuilder.AppendLine("using System;");
                     stringBuilder.AppendLine("using System.Data;");
@@ -176,7 +176,7 @@ namespace Code_Generator_Business_Layer
                     stringBuilder.AppendLine("}");
 
                     break;
-                case clsConnectionGenerator.enConnectionType.AppConfig:
+                case clsConnectionData.enConnectionType.AppConfig:
 
                     stringBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
                     stringBuilder.AppendLine("<appSettings>");

@@ -10,12 +10,12 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer.TSQL
 {
     public class clsTSqlScriptExecutor
     {
-        public static bool ExecuteScript(string script, clsConnectionGenerator connectionInfo)
+        public static bool ExecuteScript(string script, clsConnectionData connectionInfo)
         {
             return ExecuteScripts(new List<string> { script}, connectionInfo);                 
         }
 
-        public static bool ExecuteScripts(List<string> scripts, clsConnectionGenerator connectionInfo)
+        public static bool ExecuteScripts(List<string> scripts, clsConnectionData connectionInfo)
         {
              string connectionString;
 

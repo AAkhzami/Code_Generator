@@ -12,9 +12,9 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
         string _DatabaseName;
         string _TableName;
         clsColumnModelBuilder _Columns;
-        clsConnectionGenerator _Connection;
+        clsConnectionData _Connection;
         
-        public clsTSQLDataMethodsGenerator(string Table, clsConnectionGenerator connectionInfo)
+        public clsTSQLDataMethodsGenerator(string Table, clsConnectionData connectionInfo)
         {
             this._DatabaseName = connectionInfo.databaseName;
             this._TableName = Table;

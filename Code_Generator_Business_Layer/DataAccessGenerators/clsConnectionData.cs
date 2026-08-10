@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer.DataAccessGenerators
 {
-    public class clsConnectionGenerator
+    public class clsConnectionData
     {
         public enum enConnectionType
         {
@@ -20,7 +20,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         public string userName = string.Empty;
         public string password = string.Empty;
 
-        public clsConnectionGenerator(enConnectionType connectionType, string Location, string DatabaseName, string UserName, string Password)
+        public clsConnectionData(enConnectionType connectionType, string Location, string DatabaseName, string UserName, string Password)
         {
             this.connectionType = connectionType;
             location = Location;
@@ -28,7 +28,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
             userName = UserName;
             password = Password;
         }
-        public clsConnectionGenerator()
+        public clsConnectionData()
         {
             this.connectionType = enConnectionType.StaticClass;
             this.location = ".";

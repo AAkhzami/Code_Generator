@@ -10,6 +10,6 @@ namespace Code_Generator_DApp.General_Classes
 {
     public class clsCurrentUser
     {
-        public static clsConnectionGenerator connectionInfo = new clsConnectionGenerator();
+        public static clsConnectionData connectionInfo = new clsConnectionData();
     }
 }

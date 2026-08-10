@@ -50,7 +50,7 @@
     <Compile Include="clsMainBridge.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\clsTSQLDataMethodsGenerator.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\TSQL\clsTSqlScriptBuilder.cs" />
-    <Compile Include="DataAccessGenerators\clsConnectionGenerator.cs" />
+    <Compile Include="DataAccessGenerators\clsConnectionData.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\clsSQLServerDataAccessLayerGenerator.cs" />
     <Compile Include="DataAccessGenerators\iDataAccessGenerator.cs" />
     <Compile Include="DataAccessGenerators\SQLServer\TSQL\clsTSqlScriptExecutor.cs" />
