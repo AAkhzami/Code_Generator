@@ -32,3 +32,5 @@ C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Git
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Gen.4B4A89A0.Up2Date
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.exe
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.pdb
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\Guna.UI2.dll
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.frmMainForm.resources

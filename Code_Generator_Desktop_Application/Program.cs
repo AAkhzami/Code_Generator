@@ -16,7 +16,8 @@ namespace Code_Generator_DApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            //Application.Run(new login());
+            Application.Run(new frmMainForm());
         }
     }
 }
