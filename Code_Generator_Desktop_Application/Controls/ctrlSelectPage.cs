@@ -14,6 +14,9 @@ namespace Code_Generator_DApp.Controls
     public partial class ctrlSelectPage : UserControl
     {
         string _Database;
+        int _ColumnsCount = 0;
+        int _TablesCount = 0;
+        int _CountTablesHavePK = 0;
         public ctrlSelectPage()
         {
             InitializeComponent();
@@ -25,14 +28,32 @@ namespace Code_Generator_DApp.Controls
             {
                 DataTable dt = new DataTable();
                 DataTable dtTables = clsMainBridge.GetAllTablesByDatabaseName(DatabaseName);
+                int CountColumns = 0;
+                string isWithPrimaryKey = "";
                 foreach (DataRow dr in dtTables.Rows)
                 {
+                    _TablesCount++;
                     List<clsColumnModelBuilder.strColumnInfo> Columns = clsMainBridge.GetAllColumnsInfo(_Database, dr[0].ToString());
-                    string isWithPrimaryKey = Columns.Where(c => c.IsPrimaryKey).ToList().Count > 0 ? "Ready" : "Waring No PK";
+                    CountColumns = Columns.Count;
+                    _ColumnsCount += CountColumns;
+
+                    if(Columns.Where(c => c.IsPrimaryKey).ToList().Count > 0)
+                    {
+                        isWithPrimaryKey = "Ready";
+                        _CountTablesHavePK++;
+                    }
+                    else
+                    {
+                        isWithPrimaryKey = "Warning No PK";
+                    }
 
                     dgvTablesInfo.Rows.Add(dr[0], Columns.Count, isWithPrimaryKey);
+                    isWithPrimaryKey = "";
                 }
             }
+            lblColumns.Text = _ColumnsCount.ToString();
+            lblKeysCount.Text = _CountTablesHavePK.ToString();
+            lblTableCount.Text = _TablesCount.ToString();
         }
 
         private void dgvTablesInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -43,13 +64,17 @@ namespace Code_Generator_DApp.Controls
 
                 if (status == "Ready")
                 {
-                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);
-                    e.CellStyle.ForeColor = Color.FromArgb(22, 101, 52);
+                    //e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);
+                    e.CellStyle.ForeColor = Color.FromArgb(108, 172, 132);
+                    e.CellStyle.Font = new Font("Segoe UI", 18, FontStyle.Bold);
+
                 }
                 else if (status == "Warning No PK")
                 {
-                    e.CellStyle.BackColor = Color.FromArgb(254, 226, 226);
-                    e.CellStyle.ForeColor = Color.FromArgb(153, 27, 27);
+                    //e.CellStyle.BackColor = Color.FromArgb(254, 226, 226);
+                    e.CellStyle.ForeColor = Color.FromArgb(206, 146, 66);
+                    e.CellStyle.Font = new Font("Segoe UI", 18, FontStyle.Bold);
+
                 }
             }
         }
