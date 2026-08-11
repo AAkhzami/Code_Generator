@@ -90,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -110,6 +111,39 @@
       <Project>{ac047428-5509-4456-8d60-d43f392f7776}</Project>
       <Name>Code_Generator_Business_Layer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_3_Not_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_2_Not_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_1_Not_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
