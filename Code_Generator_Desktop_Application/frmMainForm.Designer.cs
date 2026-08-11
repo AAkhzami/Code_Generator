@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,6 +72,16 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1371, 659);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // ctrlSelectPage1
+            // 
+            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlSelectPage1.Location = new System.Drawing.Point(10, 111);
+            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
+            this.ctrlSelectPage1.Size = new System.Drawing.Size(1351, 544);
+            this.ctrlSelectPage1.TabIndex = 6;
+            this.ctrlSelectPage1.Load += new System.EventHandler(this.ctrlSelectPage1_Load);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -88,6 +98,16 @@
             this.panel1.Size = new System.Drawing.Size(729, 45);
             this.panel1.TabIndex = 4;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Code_Generator_DApp.Properties.Resources.num_3_Not_Selected;
+            this.pictureBox4.Location = new System.Drawing.Point(533, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -98,6 +118,16 @@
             this.label3.Size = new System.Drawing.Size(148, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Preview && Generate";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.num_2_Not_Selected;
+            this.pictureBox3.Location = new System.Drawing.Point(285, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
             // 
             // guna2Panel4
             // 
@@ -121,6 +151,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Engine Setup";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.num_1;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // guna2Panel3
             // 
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -142,6 +182,16 @@
             this.label1.Size = new System.Drawing.Size(125, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Select && validate";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // cbSelectDatabase
             // 
@@ -172,53 +222,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1351, 2);
             this.guna2Panel2.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Code_Generator_DApp.Properties.Resources.num_3_Not_Selected;
-            this.pictureBox4.Location = new System.Drawing.Point(533, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.num_2_Not_Selected;
-            this.pictureBox3.Location = new System.Drawing.Point(285, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.num_1;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ctrlSelectPage1
-            // 
-            this.ctrlSelectPage1.Location = new System.Drawing.Point(10, 111);
-            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
-            this.ctrlSelectPage1.Size = new System.Drawing.Size(1351, 544);
-            this.ctrlSelectPage1.TabIndex = 6;
             // 
             // frmMainForm
             // 

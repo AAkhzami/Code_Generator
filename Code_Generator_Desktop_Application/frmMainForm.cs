@@ -16,5 +16,10 @@ namespace Code_Generator_DApp
         {
             InitializeComponent();
         }
+
+        private void ctrlSelectPage1_Load(object sender, EventArgs e)
+        {
+            ctrlSelectPage1._LoadData("Clinic");
+        }
     }
 }

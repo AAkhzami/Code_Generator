@@ -33,9 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSearchOnTable = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvTablesInfo = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.lblKeysCount = new System.Windows.Forms.Label();
@@ -108,10 +105,6 @@
             this.dgvTablesInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTablesInfo.ColumnHeadersHeight = 60;
             this.dgvTablesInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvTablesInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -136,24 +129,6 @@
             this.dgvTablesInfo.ThemeStyle.ReadOnly = true;
             this.dgvTablesInfo.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 8F);
             this.dgvTablesInfo.ThemeStyle.RowsStyle.Height = 30;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Table Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Columns";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Status";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // panel3
             // 
@@ -334,7 +309,6 @@
             this.Controls.Add(this.panel2);
             this.Name = "ctrlSelectPage";
             this.Size = new System.Drawing.Size(1351, 544);
-            this.Load += new System.EventHandler(this.ctrlSelectPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -353,9 +327,6 @@
 
         private Guna.UI2.WinForms.Guna2TextBox tbSearchOnTable;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTablesInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblKeysCount;
