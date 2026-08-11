@@ -21,8 +21,17 @@ namespace Code_Generator_DApp.Controls
         {
             InitializeComponent();
         }
-        public void _LoadData(string DatabaseName)
+        private void _Reset()
         {
+            dgvTablesInfo.Rows.Clear();
+            _ColumnsCount = 0;
+            _TablesCount = 0;
+            _CountTablesHavePK = 0;
+        }
+        public void LoadData(string DatabaseName)
+        {
+            _Reset();
+
             this._Database = DatabaseName;
             if (!string.IsNullOrEmpty(DatabaseName))
             {
