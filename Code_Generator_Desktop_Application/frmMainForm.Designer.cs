@@ -56,6 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTableCount = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.tbSearchOnTable = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,6 +81,7 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(27)))), ((int)(((byte)(37)))));
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.tbSearchOnTable);
             this.guna2Panel1.Controls.Add(this.panel3);
             this.guna2Panel1.Controls.Add(this.panel2);
             this.guna2Panel1.Controls.Add(this.panel1);
@@ -303,7 +305,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.lblTableCount);
             this.panel3.Controls.Add(this.pictureBox6);
-            this.panel3.Location = new System.Drawing.Point(327, 271);
+            this.panel3.Location = new System.Drawing.Point(327, 336);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(716, 60);
             this.panel3.TabIndex = 11;
@@ -404,6 +406,29 @@
             this.pictureBox6.TabIndex = 0;
             this.pictureBox6.TabStop = false;
             // 
+            // tbSearchOnTable
+            // 
+            this.tbSearchOnTable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbSearchOnTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
+            this.tbSearchOnTable.BorderRadius = 9;
+            this.tbSearchOnTable.BorderThickness = 2;
+            this.tbSearchOnTable.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSearchOnTable.DefaultText = "";
+            this.tbSearchOnTable.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbSearchOnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbSearchOnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSearchOnTable.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSearchOnTable.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearchOnTable.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearchOnTable.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearchOnTable.Location = new System.Drawing.Point(237, 261);
+            this.tbSearchOnTable.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbSearchOnTable.Name = "tbSearchOnTable";
+            this.tbSearchOnTable.PlaceholderText = "Search tables by name...";
+            this.tbSearchOnTable.SelectedText = "";
+            this.tbSearchOnTable.Size = new System.Drawing.Size(896, 67);
+            this.tbSearchOnTable.TabIndex = 14;
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,5 +490,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTableCount;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private Guna.UI2.WinForms.Guna2TextBox tbSearchOnTable;
     }
 }
