@@ -74,7 +74,8 @@
             // 
             // ctrlSelectPage1
             // 
-            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlSelectPage1.Location = new System.Drawing.Point(10, 111);
             this.ctrlSelectPage1.Name = "ctrlSelectPage1";
