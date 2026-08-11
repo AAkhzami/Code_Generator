@@ -32,19 +32,25 @@ namespace Code_Generator_DApp.Controls
 
                     dgvTablesInfo.Rows.Add(dr[0], Columns.Count, isWithPrimaryKey);
                 }
+            }
+        }
 
-                //if (dtTables.Rows.Count > 0)
-                //{
-                //    dgvTablesInfo.Columns[0].Name = "Table";
-                //    dgvTablesInfo.Columns[0].Width = 373;
+        private void dgvTablesInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvTablesInfo.Columns[e.ColumnIndex].Name == "cStatus")
+            {
+                string status = e.Value?.ToString();
 
-                //    dgvTablesInfo.Columns[1].Name = "Columns";
-                //    dgvTablesInfo.Columns[1].Width = 374;
-
-                //    dgvTablesInfo.Columns[2].Name = "Status";
-                //    dgvTablesInfo.Columns[2].Width = 373;
-
-                //}
+                if (status == "Ready")
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(220, 252, 231);
+                    e.CellStyle.ForeColor = Color.FromArgb(22, 101, 52);
+                }
+                else if (status == "Warning No PK")
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(254, 226, 226);
+                    e.CellStyle.ForeColor = Color.FromArgb(153, 27, 27);
+                }
             }
         }
     }

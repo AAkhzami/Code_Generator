@@ -49,9 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cColumns = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesInfo)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -111,19 +111,19 @@
             this.dgvTablesInfo.ColumnHeadersHeight = 60;
             this.dgvTablesInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvTablesInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cTable,
+            this.cColumns,
+            this.cStatus});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTablesInfo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTablesInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvTablesInfo.Location = new System.Drawing.Point(115, 272);
+            this.dgvTablesInfo.Location = new System.Drawing.Point(115, 313);
             this.dgvTablesInfo.Name = "dgvTablesInfo";
             this.dgvTablesInfo.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -135,8 +135,8 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTablesInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTablesInfo.RowHeadersVisible = false;
-            this.dgvTablesInfo.RowTemplate.Height = 30;
-            this.dgvTablesInfo.Size = new System.Drawing.Size(1120, 263);
+            this.dgvTablesInfo.RowTemplate.Height = 60;
+            this.dgvTablesInfo.Size = new System.Drawing.Size(1120, 219);
             this.dgvTablesInfo.TabIndex = 34;
             this.dgvTablesInfo.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTablesInfo.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
@@ -144,8 +144,9 @@
             this.dgvTablesInfo.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTablesInfo.ThemeStyle.HeaderStyle.Height = 60;
             this.dgvTablesInfo.ThemeStyle.ReadOnly = true;
-            this.dgvTablesInfo.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.dgvTablesInfo.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvTablesInfo.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTablesInfo.ThemeStyle.RowsStyle.Height = 60;
+            this.dgvTablesInfo.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTablesInfo_CellFormatting);
             // 
             // panel3
             // 
@@ -316,23 +317,23 @@
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             // 
-            // Column1
+            // cTable
             // 
-            this.Column1.HeaderText = "Table";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.cTable.HeaderText = "Table";
+            this.cTable.Name = "cTable";
+            this.cTable.ReadOnly = true;
             // 
-            // Column2
+            // cColumns
             // 
-            this.Column2.HeaderText = "Columns";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.cColumns.HeaderText = "Columns";
+            this.cColumns.Name = "cColumns";
+            this.cColumns.ReadOnly = true;
             // 
-            // Column3
+            // cStatus
             // 
-            this.Column3.HeaderText = "Status";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.cStatus.HeaderText = "Status";
+            this.cStatus.Name = "cStatus";
+            this.cStatus.ReadOnly = true;
             // 
             // ctrlSelectPage
             // 
@@ -377,8 +378,8 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cColumns;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStatus;
     }
 }
