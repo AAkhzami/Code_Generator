@@ -28,7 +28,7 @@ namespace Code_Generator_DApp.Controls
             _TablesCount = 0;
             _CountTablesHavePK = 0;
         }
-        public void _LoadData(string Database)
+        public void LoadData(string Database)
         {
             _Reset();
             if (string.IsNullOrEmpty(Database))
