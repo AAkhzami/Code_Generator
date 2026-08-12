@@ -48,6 +48,7 @@ namespace Code_Generator_DApp
         {
             cbSelectDatabase.Items.Clear();
             cbSelectDatabase.Items.Add("Select Database");
+            cbSelectDatabase.SelectedIndex = 0;
             DataTable dt = await clsMainBridge.GetAllDatabaseNameInCurrentDevise();
             foreach (DataRow dr in dt.Rows)
             {
