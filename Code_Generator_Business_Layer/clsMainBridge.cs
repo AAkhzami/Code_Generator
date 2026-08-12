@@ -54,7 +54,11 @@ namespace Code_Generator_Business_Layer
             clsColumnModelBuilder cm = new clsColumnModelBuilder(Database, Table);
             return cm.GetAllColumnsInfo();
         }
-        
+        /// <summary>
+        /// Retrieves a <see cref="DataTable"/> containing all table info within a specified database
+        /// </summary>
+        /// <param name="Database">The target database name.</param>
+        /// <returns>A <see cref="DataTable"/> listing table names belonging to the specified database.</returns>
         static public async Task<DataTable> GetAllTablesInfo(string Database)
         {
             return await clsTablesInfoData.GetAllTablesInfoByDatabaseName(Database);
