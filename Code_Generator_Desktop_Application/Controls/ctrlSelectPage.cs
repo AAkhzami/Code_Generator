@@ -28,6 +28,32 @@ namespace Code_Generator_DApp.Controls
             _TablesCount = 0;
             _CountTablesHavePK = 0;
         }
+        public void _LoadData(string Database)
+        {
+            _Reset();
+            if (string.IsNullOrEmpty(Database))
+                return;
+
+            DataTable dt = clsMainBridge.GetAllTablesInfo(Database);
+            
+            int _ColumnsCount = 0;
+            int _TablesCount = 0;
+            int _CountTablesHavePK = 0;
+            string isWithPrimaryKey = "";
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                _TablesCount++;
+                _ColumnsCount += (int)dr[1];
+                if (Convert.ToBoolean(dr[2]))
+                {
+                    _CountTablesHavePK++;
+                }
+                isWithPrimaryKey = Convert.ToBoolean(dr[2]) ? "Ready" : "Warning No PrimaryKey";
+                dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], isWithPrimaryKey);
+
+            }
+        }
         public void LoadData(string DatabaseName)
         {
             _Reset();
@@ -53,7 +79,7 @@ namespace Code_Generator_DApp.Controls
                     }
                     else
                     {
-                        isWithPrimaryKey = "Warning No PK";
+                        isWithPrimaryKey = "Warning No PrimaryKey";
                     }
 
                     dgvTablesInfo.Rows.Add(dr[0], Columns.Count, isWithPrimaryKey);

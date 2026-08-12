@@ -34,7 +34,7 @@ namespace Code_Generator_DApp
 
         private void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ctrlSelectPage1.LoadData(cbSelectDatabase.Text);
+            ctrlSelectPage1._LoadData(cbSelectDatabase.Text);
         }
     }
 }

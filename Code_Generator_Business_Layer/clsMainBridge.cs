@@ -54,5 +54,10 @@ namespace Code_Generator_Business_Layer
             clsColumnModelBuilder cm = new clsColumnModelBuilder(Database, Table);
             return cm.GetAllColumnsInfo();
         }
+        
+        static public DataTable GetAllTablesInfo(string Database)
+        {
+            return clsTablesInfoData.GetAllTablesInfoByDatabaseName(Database);
+        }
     }
 }
