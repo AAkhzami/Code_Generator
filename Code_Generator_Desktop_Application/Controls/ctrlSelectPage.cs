@@ -21,16 +21,19 @@ namespace Code_Generator_DApp.Controls
         {
             InitializeComponent();
         }
-        private void _Reset()
+        public void Reset()
         {
             dgvTablesInfo.Rows.Clear();
             _ColumnsCount = 0;
             _TablesCount = 0;
             _CountTablesHavePK = 0;
+            lblColumns.Text = "0";
+            lblKeysCount.Text = "0";
+            lblTableCount.Text = "0";
         }
         public async Task LoadData(string Database)
         {
-            _Reset();
+            Reset();
             if (string.IsNullOrEmpty(Database))
                 return;
 
@@ -53,6 +56,9 @@ namespace Code_Generator_DApp.Controls
                 dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], isWithPrimaryKey);
 
             }
+            lblColumns.Text = _ColumnsCount.ToString();
+            lblKeysCount.Text = _CountTablesHavePK.ToString();
+            lblTableCount.Text = _TablesCount.ToString();
         }
 
         private void dgvTablesInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -76,6 +82,13 @@ namespace Code_Generator_DApp.Controls
 
                 }
             }
+        }
+
+        private void ctrlSelectPage_Load(object sender, EventArgs e)
+        {
+            lblColumns.Text = "0";
+            lblKeysCount.Text = "0";
+            lblTableCount.Text = "0";
         }
     }
 }
