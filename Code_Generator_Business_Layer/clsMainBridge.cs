@@ -17,9 +17,9 @@ namespace Code_Generator_Business_Layer
         /// Retrieves a <see cref="DataTable"/> containing all user database names available on the local device/server instance.
         /// </summary>
         /// <returns>A <see cref="DataTable"/> listing the accessible database names.</returns>
-        static public DataTable GetAllDatabaseNameInCurrentDevise()
+        static public async Task<DataTable> GetAllDatabaseNameInCurrentDevise()
         {
-            return clsUserDatabasesData.GetAllDatabasesOnDevice();
+            return await clsUserDatabasesData.GetAllDatabasesOnDevice();
         }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace Code_Generator_Business_Layer
             return cm.GetAllColumnsInfo();
         }
         
-        static public DataTable GetAllTablesInfo(string Database)
+        static public async Task<DataTable> GetAllTablesInfo(string Database)
         {
-            return clsTablesInfoData.GetAllTablesInfoByDatabaseName(Database);
+            return await clsTablesInfoData.GetAllTablesInfoByDatabaseName(Database);
         }
     }
 }

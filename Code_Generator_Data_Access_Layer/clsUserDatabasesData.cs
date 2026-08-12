@@ -10,7 +10,7 @@ namespace Code_Generator_Data_Access_Layer
 {
     public class clsUserDatabasesData
     {
-        public static DataTable GetAllDatabasesOnDevice()
+        public static async Task<DataTable> GetAllDatabasesOnDevice()
         {
             DataTable dt = new DataTable();
 
@@ -23,7 +23,7 @@ namespace Code_Generator_Data_Access_Layer
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         while (reader.Read())
                         {

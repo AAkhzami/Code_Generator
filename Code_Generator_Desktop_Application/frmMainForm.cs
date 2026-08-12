@@ -23,18 +23,18 @@ namespace Code_Generator_DApp
 
         }
 
-        private void frmMainForm_Load(object sender, EventArgs e)
+        private async void frmMainForm_Load(object sender, EventArgs e)
         {
-            DataTable dt = clsMainBridge.GetAllDatabaseNameInCurrentDevise();
+            DataTable dt = await clsMainBridge.GetAllDatabaseNameInCurrentDevise();
             foreach (DataRow dr in dt.Rows)
             {
                 cbSelectDatabase.Items.Add(dr[0]);
             }
         }
 
-        private void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ctrlSelectPage1.LoadData(cbSelectDatabase.Text);
+            await ctrlSelectPage1.LoadData(cbSelectDatabase.Text);
         }
     }
 }

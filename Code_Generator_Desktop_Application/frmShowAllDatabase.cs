@@ -23,12 +23,12 @@ namespace Code_Generator_DApp
             InitializeComponent();
         }
 
-        private void frmShowAllDatabase_Load(object sender, EventArgs e)
+        private async void frmShowAllDatabase_Load(object sender, EventArgs e)
         {
             tpTablesSelector.Enabled = false;
             groupBox1.Enabled = false;
 
-            _dtDatabase = clsMainBridge.GetAllDatabaseNameInCurrentDevise();
+            _dtDatabase = await clsMainBridge.GetAllDatabaseNameInCurrentDevise();
             dgvListOfDatabase.DataSource = _dtDatabase;
             if (dgvListOfDatabase.Rows.Count > 0)
             {

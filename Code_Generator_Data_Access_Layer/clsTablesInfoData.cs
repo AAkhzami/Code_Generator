@@ -35,7 +35,7 @@ namespace Code_Generator_Data_Access_Layer
             }
             return dt;
         }
-        static public DataTable GetAllTablesInfoByDatabaseName(string DatabaseName)
+        static public async Task<DataTable> GetAllTablesInfoByDatabaseName(string DatabaseName)
         {
             DataTable dt = new DataTable();
             string query = @"
@@ -72,7 +72,7 @@ namespace Code_Generator_Data_Access_Layer
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         dt.Load(reader);
                     }

@@ -28,13 +28,13 @@ namespace Code_Generator_DApp.Controls
             _TablesCount = 0;
             _CountTablesHavePK = 0;
         }
-        public void LoadData(string Database)
+        public async Task LoadData(string Database)
         {
             _Reset();
             if (string.IsNullOrEmpty(Database))
                 return;
 
-            DataTable dt = clsMainBridge.GetAllTablesInfo(Database);
+            DataTable dt = await clsMainBridge.GetAllTablesInfo(Database);
             
             int _ColumnsCount = 0;
             int _TablesCount = 0;
