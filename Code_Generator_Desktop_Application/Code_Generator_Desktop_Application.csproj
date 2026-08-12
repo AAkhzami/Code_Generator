@@ -157,5 +157,8 @@
   <ItemGroup>
     <None Include="Resources\reset.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\Engine_Setup\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

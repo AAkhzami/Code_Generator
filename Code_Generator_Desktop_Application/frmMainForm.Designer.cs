@@ -31,10 +31,10 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpSelect = new System.Windows.Forms.TabPage();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpEngineSetup = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,10 +47,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tpPreviewGenerate = new System.Windows.Forms.TabPage();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
             this.guna2TabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpSelect.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -98,8 +99,9 @@
             this.guna2TabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TabControl1.Controls.Add(this.tabPage1);
-            this.guna2TabControl1.Controls.Add(this.tabPage2);
+            this.guna2TabControl1.Controls.Add(this.tpSelect);
+            this.guna2TabControl1.Controls.Add(this.tpEngineSetup);
+            this.guna2TabControl1.Controls.Add(this.tpPreviewGenerate);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
             this.guna2TabControl1.Location = new System.Drawing.Point(10, 100);
             this.guna2TabControl1.Name = "guna2TabControl1";
@@ -125,17 +127,17 @@
             this.guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.guna2TabControl1.TabMenuVisible = false;
             // 
-            // tabPage1
+            // tpSelect
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.tabPage1.Controls.Add(this.guna2Button1);
-            this.tabPage1.Controls.Add(this.ctrlSelectPage1);
-            this.tabPage1.Location = new System.Drawing.Point(5, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1342, 548);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tpSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.tpSelect.Controls.Add(this.guna2Button1);
+            this.tpSelect.Controls.Add(this.ctrlSelectPage1);
+            this.tpSelect.Location = new System.Drawing.Point(5, 4);
+            this.tpSelect.Name = "tpSelect";
+            this.tpSelect.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSelect.Size = new System.Drawing.Size(1342, 548);
+            this.tpSelect.TabIndex = 0;
+            this.tpSelect.Text = "Select_Table";
             // 
             // guna2Button1
             // 
@@ -164,15 +166,15 @@
             this.ctrlSelectPage1.Size = new System.Drawing.Size(1330, 473);
             this.ctrlSelectPage1.TabIndex = 7;
             // 
-            // tabPage2
+            // tpEngineSetup
             // 
-            this.tabPage2.Location = new System.Drawing.Point(5, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1342, 548);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpEngineSetup.Location = new System.Drawing.Point(184, 4);
+            this.tpEngineSetup.Name = "tpEngineSetup";
+            this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1163, 548);
+            this.tpEngineSetup.TabIndex = 1;
+            this.tpEngineSetup.Text = "Engine_Setup";
+            this.tpEngineSetup.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -316,6 +318,15 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1351, 2);
             this.guna2Panel2.TabIndex = 0;
             // 
+            // tpPreviewGenerate
+            // 
+            this.tpPreviewGenerate.Location = new System.Drawing.Point(184, 4);
+            this.tpPreviewGenerate.Name = "tpPreviewGenerate";
+            this.tpPreviewGenerate.Size = new System.Drawing.Size(1163, 548);
+            this.tpPreviewGenerate.TabIndex = 2;
+            this.tpPreviewGenerate.Text = "Preview_Generate";
+            this.tpPreviewGenerate.UseVisualStyleBackColor = true;
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,7 +343,7 @@
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).EndInit();
             this.guna2TabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tpSelect.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -359,10 +370,11 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpSelect;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Controls.ctrlSelectPage ctrlSelectPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpEngineSetup;
         private System.Windows.Forms.PictureBox btnReset;
+        private System.Windows.Forms.TabPage tpPreviewGenerate;
     }
 }
