@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tbSearchOnTable = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvTablesInfo = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cColumns = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,54 +39,28 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.lblKeysCount = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblColumns = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTableCount = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.txbSearchOnTable = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesInfo)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbSearchOnTable
-            // 
-            this.tbSearchOnTable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbSearchOnTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(171)))), ((int)(((byte)(249)))));
-            this.tbSearchOnTable.BorderRadius = 9;
-            this.tbSearchOnTable.BorderThickness = 2;
-            this.tbSearchOnTable.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearchOnTable.DefaultText = "";
-            this.tbSearchOnTable.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbSearchOnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbSearchOnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbSearchOnTable.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbSearchOnTable.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbSearchOnTable.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearchOnTable.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbSearchOnTable.IconLeft = global::Code_Generator_DApp.Properties.Resources.search;
-            this.tbSearchOnTable.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.tbSearchOnTable.IconLeftSize = new System.Drawing.Size(23, 23);
-            this.tbSearchOnTable.Location = new System.Drawing.Point(279, 138);
-            this.tbSearchOnTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbSearchOnTable.Name = "tbSearchOnTable";
-            this.tbSearchOnTable.PlaceholderText = "Search tables by name...";
-            this.tbSearchOnTable.SelectedText = "";
-            this.tbSearchOnTable.Size = new System.Drawing.Size(792, 59);
-            this.tbSearchOnTable.TabIndex = 35;
-            this.tbSearchOnTable.TextOffset = new System.Drawing.Point(20, 0);
             // 
             // dgvTablesInfo
             // 
@@ -206,16 +179,6 @@
             this.lblKeysCount.Text = "20";
             this.lblKeysCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Code_Generator_DApp.Properties.Resources.key;
-            this.pictureBox8.Location = new System.Drawing.Point(489, 15);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 13;
-            this.pictureBox8.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -239,16 +202,6 @@
             this.lblColumns.Text = "312";
             this.lblColumns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::Code_Generator_DApp.Properties.Resources.column;
-            this.pictureBox7.Location = new System.Drawing.Point(260, 14);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -271,16 +224,6 @@
             this.lblTableCount.TabIndex = 8;
             this.lblTableCount.Text = "24";
             this.lblTableCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Code_Generator_DApp.Properties.Resources.table;
-            this.pictureBox6.Location = new System.Drawing.Point(31, 15);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
             // 
             // panel2
             // 
@@ -328,6 +271,63 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(104, 100);
             this.guna2ShadowPanel1.TabIndex = 5;
             // 
+            // txbSearchOnTable
+            // 
+            this.txbSearchOnTable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbSearchOnTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(171)))), ((int)(((byte)(249)))));
+            this.txbSearchOnTable.BorderRadius = 9;
+            this.txbSearchOnTable.BorderThickness = 2;
+            this.txbSearchOnTable.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbSearchOnTable.DefaultText = "";
+            this.txbSearchOnTable.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbSearchOnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbSearchOnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbSearchOnTable.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbSearchOnTable.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbSearchOnTable.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSearchOnTable.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbSearchOnTable.IconLeft = global::Code_Generator_DApp.Properties.Resources.search;
+            this.txbSearchOnTable.IconLeftOffset = new System.Drawing.Point(10, 0);
+            this.txbSearchOnTable.IconLeftSize = new System.Drawing.Size(23, 23);
+            this.txbSearchOnTable.Location = new System.Drawing.Point(279, 138);
+            this.txbSearchOnTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbSearchOnTable.Name = "txbSearchOnTable";
+            this.txbSearchOnTable.PlaceholderText = "Search tables by name...";
+            this.txbSearchOnTable.SelectedText = "";
+            this.txbSearchOnTable.Size = new System.Drawing.Size(792, 59);
+            this.txbSearchOnTable.TabIndex = 35;
+            this.txbSearchOnTable.TextOffset = new System.Drawing.Point(20, 0);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::Code_Generator_DApp.Properties.Resources.key;
+            this.pictureBox8.Location = new System.Drawing.Point(489, 15);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 13;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::Code_Generator_DApp.Properties.Resources.column;
+            this.pictureBox7.Location = new System.Drawing.Point(260, 14);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 10;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Code_Generator_DApp.Properties.Resources.table;
+            this.pictureBox6.Location = new System.Drawing.Point(31, 15);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Code_Generator_DApp.Properties.Resources.search;
@@ -342,7 +342,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbSearchOnTable);
+            this.Controls.Add(this.txbSearchOnTable);
             this.Controls.Add(this.dgvTablesInfo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -352,12 +352,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.guna2ShadowPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -365,7 +365,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox tbSearchOnTable;
+        private Guna.UI2.WinForms.Guna2TextBox txbSearchOnTable;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTablesInfo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;

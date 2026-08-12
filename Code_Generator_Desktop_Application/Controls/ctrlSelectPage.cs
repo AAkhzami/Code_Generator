@@ -13,10 +13,6 @@ namespace Code_Generator_DApp.Controls
 {
     public partial class ctrlSelectPage : UserControl
     {
-        string _Database;
-        int _ColumnsCount = 0;
-        int _TablesCount = 0;
-        int _CountTablesHavePK = 0;
         public ctrlSelectPage()
         {
             InitializeComponent();
@@ -24,12 +20,11 @@ namespace Code_Generator_DApp.Controls
         public void Reset()
         {
             dgvTablesInfo.Rows.Clear();
-            _ColumnsCount = 0;
-            _TablesCount = 0;
-            _CountTablesHavePK = 0;
             lblColumns.Text = "0";
             lblKeysCount.Text = "0";
             lblTableCount.Text = "0";
+            txbSearchOnTable.Text = "";
+
         }
         public async Task LoadData(string Database)
         {
@@ -39,26 +34,26 @@ namespace Code_Generator_DApp.Controls
 
             DataTable dt = await clsMainBridge.GetAllTablesInfo(Database);
             
-            int _ColumnsCount = 0;
-            int _TablesCount = 0;
-            int _CountTablesHavePK = 0;
-            string isWithPrimaryKey = "";
+            int ColumnsCount = 0;
+            int TablesCount = 0;
+            int CountTablesHavePK = 0;
+            string CountPKTable = "";
 
             foreach (DataRow dr in dt.Rows)
             {
-                _TablesCount++;
-                _ColumnsCount += (int)dr[1];
+                TablesCount++;
+                ColumnsCount += (int)dr[1];
                 if (Convert.ToBoolean(dr[2]))
                 {
-                    _CountTablesHavePK++;
+                    CountTablesHavePK++;
                 }
-                isWithPrimaryKey = Convert.ToBoolean(dr[2]) ? "Ready" : "Warning No PrimaryKey";
-                dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], isWithPrimaryKey);
+                CountPKTable = Convert.ToBoolean(dr[2]) ? "Ready" : "Warning No PrimaryKey";
+                dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], CountPKTable);
 
             }
-            lblColumns.Text = _ColumnsCount.ToString();
-            lblKeysCount.Text = _CountTablesHavePK.ToString();
-            lblTableCount.Text = _TablesCount.ToString();
+            lblColumns.Text = ColumnsCount.ToString();
+            lblKeysCount.Text = CountTablesHavePK.ToString();
+            lblTableCount.Text = TablesCount.ToString();
         }
 
         private void dgvTablesInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
