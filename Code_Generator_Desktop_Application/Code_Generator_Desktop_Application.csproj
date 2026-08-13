@@ -76,6 +76,12 @@
     <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine.Designer.cs">
       <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Engine_Setup\ctrlOperationsSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Engine_Setup\ctrlOperationsSelection.Designer.cs">
+      <DependentUpon>ctrlOperationsSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Engine_Setup\ctrlExecutionEngine.resx">
       <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Engine_Setup\ctrlOperationsSelection.resx">
+      <DependentUpon>ctrlOperationsSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
@@ -204,6 +213,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\url.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
