@@ -38,3 +38,4 @@ C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Git
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Controls.Engine_Setup.ctrlExecutionEngine.resources
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Controls.ctrlEnginSetupPage.resources
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Controls.Engine_Setup.ctrlConnectionSetting.resources
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Controls.Engine_Setup.ctrlOperationsSelection.resources

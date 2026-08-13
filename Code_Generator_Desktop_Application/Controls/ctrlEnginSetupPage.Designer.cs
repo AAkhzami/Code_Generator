@@ -32,19 +32,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ctrlExecutionEngine1 = new Code_Generator_DApp.Controls.Engine_Setup.ctrlExecutionEngine();
             this.ctrlConnectionSetting1 = new Code_Generator_DApp.Controls.Engine_Setup.ctrlConnectionSetting();
+            this.ctrlOperationsSelection1 = new Code_Generator_DApp.Controls.Engine_Setup.ctrlOperationsSelection();
             this.panel5.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -93,6 +95,16 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(104, 100);
             this.guna2ShadowPanel1.TabIndex = 8;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Code_Generator_DApp.Properties.Resources.settings;
+            this.pictureBox5.Location = new System.Drawing.Point(20, 18);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -122,21 +134,12 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.ctrlOperationsSelection1);
             this.panel3.Location = new System.Drawing.Point(1011, 3);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(372, 469);
             this.panel3.TabIndex = 2;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Code_Generator_DApp.Properties.Resources.settings;
-            this.pictureBox5.Location = new System.Drawing.Point(20, 18);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
             // 
             // ctrlExecutionEngine1
             // 
@@ -152,6 +155,13 @@
             this.ctrlConnectionSetting1.Size = new System.Drawing.Size(498, 469);
             this.ctrlConnectionSetting1.TabIndex = 0;
             // 
+            // ctrlOperationsSelection1
+            // 
+            this.ctrlOperationsSelection1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlOperationsSelection1.Name = "ctrlOperationsSelection1";
+            this.ctrlOperationsSelection1.Size = new System.Drawing.Size(372, 469);
+            this.ctrlOperationsSelection1.TabIndex = 0;
+            // 
             // ctrlEnginSetupPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,10 +173,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.guna2ShadowPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,5 +195,6 @@
         private System.Windows.Forms.Panel panel3;
         private Engine_Setup.ctrlExecutionEngine ctrlExecutionEngine1;
         private Engine_Setup.ctrlConnectionSetting ctrlConnectionSetting1;
+        private Engine_Setup.ctrlOperationsSelection ctrlOperationsSelection1;
     }
 }
