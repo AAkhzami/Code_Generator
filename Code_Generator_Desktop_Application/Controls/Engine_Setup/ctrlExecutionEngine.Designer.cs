@@ -33,6 +33,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CustomRadioButton2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label7 = new System.Windows.Forms.Label();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -53,6 +56,9 @@
             this.guna2GradientPanel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -60,7 +66,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 21F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label4.Location = new System.Drawing.Point(78, 4);
+            this.label4.Location = new System.Drawing.Point(75, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(228, 34);
             this.label4.TabIndex = 7;
@@ -71,7 +77,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
-            this.label5.Location = new System.Drawing.Point(80, 38);
+            this.label5.Location = new System.Drawing.Point(77, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(365, 19);
             this.label5.TabIndex = 8;
@@ -83,10 +89,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel1);
             this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(64, 64);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(61, 66);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1248, 120);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1251, 120);
             this.flowLayoutPanel1.TabIndex = 12;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -120,6 +126,18 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(171, 35);
             this.guna2Panel3.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
+            this.label7.Location = new System.Drawing.Point(17, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 23);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Recommended";
             // 
             // guna2Panel1
             // 
@@ -265,25 +283,46 @@
             this.guna2CustomRadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2CustomRadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // label7
+            // guna2Panel4
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
-            this.label7.Location = new System.Drawing.Point(17, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 23);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Recommended";
+            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel4.BorderRadius = 9;
+            this.guna2Panel4.BorderThickness = 1;
+            this.guna2Panel4.Controls.Add(this.guna2Panel5);
+            this.guna2Panel4.Controls.Add(this.flowLayoutPanel1);
+            this.guna2Panel4.Controls.Add(this.label5);
+            this.guna2Panel4.Controls.Add(this.label4);
+            this.guna2Panel4.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(1376, 194);
+            this.guna2Panel4.TabIndex = 13;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BorderRadius = 9;
+            this.guna2Panel5.Controls.Add(this.pictureBox3);
+            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(253)))));
+            this.guna2Panel5.Location = new System.Drawing.Point(19, 10);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(50, 50);
+            this.guna2Panel5.TabIndex = 14;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.server;
+            this.pictureBox3.Location = new System.Drawing.Point(7, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 36);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
             // 
             // ctrlExecutionEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.guna2Panel4);
             this.Name = "ctrlExecutionEngine";
             this.Size = new System.Drawing.Size(1377, 194);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -297,8 +336,11 @@
             this.guna2GradientPanel2.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
+            this.guna2Panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -321,5 +363,8 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
         private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
