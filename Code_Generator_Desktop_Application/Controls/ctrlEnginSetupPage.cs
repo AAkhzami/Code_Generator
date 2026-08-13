@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Code_Generator_DApp.Controls.Engine_Setup
+namespace Code_Generator_DApp.Controls
 {
-    public partial class ctrlExecutionEngine : UserControl
+    public partial class ctrlEnginSetupPage : UserControl
     {
-        public ctrlExecutionEngine()
+        public ctrlEnginSetupPage()
         {
             InitializeComponent();
-        }
-
-        private void ctrlExecutionEngine_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

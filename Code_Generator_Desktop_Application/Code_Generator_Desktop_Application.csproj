@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ctrlEnginSetupPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrlEnginSetupPage.Designer.cs">
+      <DependentUpon>ctrlEnginSetupPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctrlSelectPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine.Designer.cs">
       <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine2.Designer.cs">
+      <DependentUpon>ctrlExecutionEngine2.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
@@ -85,11 +97,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\ctrlEnginSetupPage.resx">
+      <DependentUpon>ctrlEnginSetupPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ctrlSelectPage.resx">
       <DependentUpon>ctrlSelectPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Engine_Setup\ctrlExecutionEngine.resx">
       <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Engine_Setup\ctrlExecutionEngine2.resx">
+      <DependentUpon>ctrlExecutionEngine2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Code_Generator_DApp.Controls.Engine_Setup
 {
-    public partial class ctrlExecutionEngine : UserControl
+    public partial class ctrlExecutionEngine2 : UserControl
     {
-        public ctrlExecutionEngine()
+        public ctrlExecutionEngine2()
         {
             InitializeComponent();
-        }
-
-        private void ctrlExecutionEngine_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
