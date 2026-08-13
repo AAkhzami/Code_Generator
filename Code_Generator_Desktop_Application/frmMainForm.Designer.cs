@@ -353,7 +353,7 @@
             // 
             this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, 0);
             this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
-            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1389, 655);
+            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1389, 603);
             this.ctrlEnginSetupPage1.TabIndex = 44;
             // 
             // frmMainForm
