@@ -21,5 +21,12 @@ namespace Code_Generator_DApp.Controls.Engine_Setup
         {
 
         }
+
+
+
+        private void guna2GradientPanel1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
