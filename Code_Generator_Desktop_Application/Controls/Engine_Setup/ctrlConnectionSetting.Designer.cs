@@ -34,33 +34,30 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pStoredProcedures = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.rbStoredProcedures = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2CustomRadioButton1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.pDirectQueries = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.rbDirectQueries = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pAppConfig = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.rbAppConfig = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2CustomRadioButton2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.pStaticClass = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rbStaticClass = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2CustomRadioButton3 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            this.pStoredProcedures.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.guna2Panel3.SuspendLayout();
-            this.pDirectQueries.SuspendLayout();
+            this.pAppConfig.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pStaticClass.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -82,7 +79,7 @@
             // 
             this.guna2Panel5.BorderRadius = 9;
             this.guna2Panel5.Controls.Add(this.pictureBox3);
-            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(253)))));
+            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
             this.guna2Panel5.Location = new System.Drawing.Point(35, 47);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(50, 50);
@@ -90,7 +87,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.server;
+            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.url;
             this.pictureBox3.Location = new System.Drawing.Point(7, 7);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(36, 36);
@@ -124,182 +121,81 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.pStoredProcedures);
-            this.flowLayoutPanel1.Controls.Add(this.pDirectQueries);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 136);
+            this.flowLayoutPanel1.Controls.Add(this.pAppConfig);
+            this.flowLayoutPanel1.Controls.Add(this.pStaticClass);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 154);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 317);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 244);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
-            // pStoredProcedures
+            // pAppConfig
             // 
-            this.pStoredProcedures.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(128)))), ((int)(((byte)(230)))));
-            this.pStoredProcedures.BorderRadius = 8;
-            this.pStoredProcedures.BorderThickness = 2;
-            this.pStoredProcedures.Controls.Add(this.rbStoredProcedures);
-            this.pStoredProcedures.Controls.Add(this.guna2Panel2);
-            this.pStoredProcedures.Controls.Add(this.label2);
-            this.pStoredProcedures.Controls.Add(this.guna2Panel3);
-            this.pStoredProcedures.Controls.Add(this.label1);
-            this.pStoredProcedures.Controls.Add(this.guna2CustomRadioButton1);
-            this.pStoredProcedures.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.pStoredProcedures.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.flowLayoutPanel1.SetFlowBreak(this.pStoredProcedures, true);
-            this.pStoredProcedures.Location = new System.Drawing.Point(3, 3);
-            this.pStoredProcedures.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.pStoredProcedures.Name = "pStoredProcedures";
-            this.pStoredProcedures.Size = new System.Drawing.Size(483, 158);
-            this.pStoredProcedures.TabIndex = 7;
-            this.pStoredProcedures.Click += new System.EventHandler(this.pStoredProcedures_Click);
+            this.pAppConfig.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(147)))), ((int)(((byte)(91)))));
+            this.pAppConfig.BorderRadius = 8;
+            this.pAppConfig.BorderThickness = 2;
+            this.pAppConfig.Controls.Add(this.label3);
+            this.pAppConfig.Controls.Add(this.label6);
+            this.pAppConfig.Controls.Add(this.rbAppConfig);
+            this.pAppConfig.Controls.Add(this.guna2Panel4);
+            this.pAppConfig.Controls.Add(this.guna2CustomRadioButton2);
+            this.pAppConfig.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
+            this.pAppConfig.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
+            this.flowLayoutPanel1.SetFlowBreak(this.pAppConfig, true);
+            this.pAppConfig.Location = new System.Drawing.Point(3, 3);
+            this.pAppConfig.Name = "pAppConfig";
+            this.pAppConfig.Size = new System.Drawing.Size(483, 115);
+            this.pAppConfig.TabIndex = 8;
+            this.pAppConfig.Click += new System.EventHandler(this.pDirectQueries_Click);
             // 
-            // rbStoredProcedures
+            // label3
             // 
-            this.rbStoredProcedures.BackColor = System.Drawing.Color.Transparent;
-            this.rbStoredProcedures.Checked = true;
-            this.rbStoredProcedures.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbStoredProcedures.CheckedState.BorderThickness = 0;
-            this.rbStoredProcedures.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbStoredProcedures.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbStoredProcedures.Location = new System.Drawing.Point(435, 28);
-            this.rbStoredProcedures.Name = "rbStoredProcedures";
-            this.rbStoredProcedures.Size = new System.Drawing.Size(34, 24);
-            this.rbStoredProcedures.TabIndex = 18;
-            this.rbStoredProcedures.Text = "guna2CustomRadioButton3";
-            this.rbStoredProcedures.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbStoredProcedures.UncheckedState.BorderThickness = 2;
-            this.rbStoredProcedures.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbStoredProcedures.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label3.Location = new System.Drawing.Point(89, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(306, 19);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Store connection string in App.Config file.";
             // 
-            // guna2Panel2
+            // label6
             // 
-            this.guna2Panel2.BorderRadius = 9;
-            this.guna2Panel2.Controls.Add(this.pictureBox1);
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(20, 47);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(65, 65);
-            this.guna2Panel2.TabIndex = 17;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 18F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            this.label6.Location = new System.Drawing.Point(88, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 29);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "App.Config";
             // 
-            // pictureBox1
+            // rbAppConfig
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.box;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(95, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(360, 38);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Generates stored procedures and calls them\r\nfrom your C# code. More secure and pe" +
-    "rformant.";
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.AutoRoundedCorners = true;
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderThickness = 1;
-            this.guna2Panel3.Controls.Add(this.label7);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(100, 23);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(171, 35);
-            this.guna2Panel3.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
-            this.label7.Location = new System.Drawing.Point(17, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 23);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Recommended";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 18F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label1.Location = new System.Drawing.Point(95, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Stored Procedures (T-SQL)";
-            // 
-            // guna2CustomRadioButton1
-            // 
-            this.guna2CustomRadioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CustomRadioButton1.Checked = true;
-            this.guna2CustomRadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton1.CheckedState.BorderThickness = 0;
-            this.guna2CustomRadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(577, 11);
-            this.guna2CustomRadioButton1.Name = "guna2CustomRadioButton1";
-            this.guna2CustomRadioButton1.Size = new System.Drawing.Size(34, 24);
-            this.guna2CustomRadioButton1.TabIndex = 0;
-            this.guna2CustomRadioButton1.Text = "guna2CustomRadioButton1";
-            this.guna2CustomRadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CustomRadioButton1.UncheckedState.BorderThickness = 2;
-            this.guna2CustomRadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CustomRadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // pDirectQueries
-            // 
-            this.pDirectQueries.BorderColor = System.Drawing.Color.Silver;
-            this.pDirectQueries.BorderRadius = 8;
-            this.pDirectQueries.BorderThickness = 2;
-            this.pDirectQueries.Controls.Add(this.rbDirectQueries);
-            this.pDirectQueries.Controls.Add(this.guna2Panel4);
-            this.pDirectQueries.Controls.Add(this.label3);
-            this.pDirectQueries.Controls.Add(this.label6);
-            this.pDirectQueries.Controls.Add(this.guna2CustomRadioButton2);
-            this.pDirectQueries.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.pDirectQueries.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.flowLayoutPanel1.SetFlowBreak(this.pDirectQueries, true);
-            this.pDirectQueries.Location = new System.Drawing.Point(3, 167);
-            this.pDirectQueries.Name = "pDirectQueries";
-            this.pDirectQueries.Size = new System.Drawing.Size(483, 115);
-            this.pDirectQueries.TabIndex = 8;
-            this.pDirectQueries.Click += new System.EventHandler(this.pDirectQueries_Click);
-            // 
-            // rbDirectQueries
-            // 
-            this.rbDirectQueries.BackColor = System.Drawing.Color.Transparent;
-            this.rbDirectQueries.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbDirectQueries.CheckedState.BorderThickness = 0;
-            this.rbDirectQueries.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbDirectQueries.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbDirectQueries.Location = new System.Drawing.Point(435, 28);
-            this.rbDirectQueries.Name = "rbDirectQueries";
-            this.rbDirectQueries.Size = new System.Drawing.Size(34, 24);
-            this.rbDirectQueries.TabIndex = 19;
-            this.rbDirectQueries.Text = "guna2CustomRadioButton4";
-            this.rbDirectQueries.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbDirectQueries.UncheckedState.BorderThickness = 2;
-            this.rbDirectQueries.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbDirectQueries.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbAppConfig.BackColor = System.Drawing.Color.Transparent;
+            this.rbAppConfig.Checked = true;
+            this.rbAppConfig.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbAppConfig.CheckedState.BorderThickness = 0;
+            this.rbAppConfig.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(147)))), ((int)(((byte)(91)))));
+            this.rbAppConfig.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbAppConfig.Location = new System.Drawing.Point(435, 28);
+            this.rbAppConfig.Name = "rbAppConfig";
+            this.rbAppConfig.Size = new System.Drawing.Size(34, 24);
+            this.rbAppConfig.TabIndex = 19;
+            this.rbAppConfig.Text = "guna2CustomRadioButton4";
+            this.rbAppConfig.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbAppConfig.UncheckedState.BorderThickness = 2;
+            this.rbAppConfig.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbAppConfig.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbAppConfig.Click += new System.EventHandler(this.rbAppConfig_Click);
             // 
             // guna2Panel4
             // 
             this.guna2Panel4.BorderRadius = 9;
             this.guna2Panel4.Controls.Add(this.pictureBox2);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(221)))));
+            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(148)))), ((int)(((byte)(91)))));
             this.guna2Panel4.Location = new System.Drawing.Point(20, 25);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(65, 65);
@@ -308,38 +204,13 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.flash;
+            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.code;
             this.pictureBox2.Location = new System.Drawing.Point(8, 8);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
-            this.label3.Location = new System.Drawing.Point(96, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(329, 38);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Executes direct SQL queries in your C# code.\r\nFaster to implement, less abstracti" +
-    "on.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 18F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label6.Location = new System.Drawing.Point(95, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(245, 29);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Ad-hoc Direct Queries";
             // 
             // guna2CustomRadioButton2
             // 
@@ -358,28 +229,125 @@
             this.guna2CustomRadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2CustomRadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
+            // pStaticClass
+            // 
+            this.pStaticClass.BorderColor = System.Drawing.Color.Silver;
+            this.pStaticClass.BorderRadius = 8;
+            this.pStaticClass.BorderThickness = 2;
+            this.pStaticClass.Controls.Add(this.label1);
+            this.pStaticClass.Controls.Add(this.label2);
+            this.pStaticClass.Controls.Add(this.rbStaticClass);
+            this.pStaticClass.Controls.Add(this.guna2Panel2);
+            this.pStaticClass.Controls.Add(this.guna2CustomRadioButton3);
+            this.pStaticClass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.pStaticClass.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.flowLayoutPanel1.SetFlowBreak(this.pStaticClass, true);
+            this.pStaticClass.Location = new System.Drawing.Point(3, 124);
+            this.pStaticClass.Name = "pStaticClass";
+            this.pStaticClass.Size = new System.Drawing.Size(483, 115);
+            this.pStaticClass.TabIndex = 9;
+            this.pStaticClass.Click += new System.EventHandler(this.pStaticClass_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(90, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(304, 19);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Manage connection string in a static class.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 18F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            this.label2.Location = new System.Drawing.Point(89, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 29);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Static Class";
+            // 
+            // rbStaticClass
+            // 
+            this.rbStaticClass.BackColor = System.Drawing.Color.Transparent;
+            this.rbStaticClass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbStaticClass.CheckedState.BorderThickness = 0;
+            this.rbStaticClass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(64)))), ((int)(((byte)(199)))));
+            this.rbStaticClass.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbStaticClass.Location = new System.Drawing.Point(435, 28);
+            this.rbStaticClass.Name = "rbStaticClass";
+            this.rbStaticClass.Size = new System.Drawing.Size(34, 24);
+            this.rbStaticClass.TabIndex = 19;
+            this.rbStaticClass.Text = "guna2CustomRadioButton4";
+            this.rbStaticClass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbStaticClass.UncheckedState.BorderThickness = 2;
+            this.rbStaticClass.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbStaticClass.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbStaticClass.Click += new System.EventHandler(this.rbStaticClass_Click);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BorderRadius = 9;
+            this.guna2Panel2.Controls.Add(this.pictureBox1);
+            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(62)))), ((int)(((byte)(196)))));
+            this.guna2Panel2.Location = new System.Drawing.Point(20, 25);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(65, 65);
+            this.guna2Panel2.TabIndex = 13;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.idea;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // guna2CustomRadioButton3
+            // 
+            this.guna2CustomRadioButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CustomRadioButton3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CustomRadioButton3.CheckedState.BorderThickness = 0;
+            this.guna2CustomRadioButton3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CustomRadioButton3.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2CustomRadioButton3.Location = new System.Drawing.Point(556, 11);
+            this.guna2CustomRadioButton3.Name = "guna2CustomRadioButton3";
+            this.guna2CustomRadioButton3.Size = new System.Drawing.Size(34, 24);
+            this.guna2CustomRadioButton3.TabIndex = 0;
+            this.guna2CustomRadioButton3.Text = "guna2CustomRadioButton3";
+            this.guna2CustomRadioButton3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CustomRadioButton3.UncheckedState.BorderThickness = 2;
+            this.guna2CustomRadioButton3.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CustomRadioButton3.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
             // ctrlConnectionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlConnectionSetting";
-            this.Size = new System.Drawing.Size(498, 467);
+            this.Size = new System.Drawing.Size(498, 469);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.pStoredProcedures.ResumeLayout(false);
-            this.pStoredProcedures.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
-            this.pDirectQueries.ResumeLayout(false);
-            this.pDirectQueries.PerformLayout();
+            this.pAppConfig.ResumeLayout(false);
+            this.pAppConfig.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pStaticClass.ResumeLayout(false);
+            this.pStaticClass.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,21 +360,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2GradientPanel pStoredProcedures;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton rbStoredProcedures;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton1;
-        private Guna.UI2.WinForms.Guna2GradientPanel pDirectQueries;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton rbDirectQueries;
+        private Guna.UI2.WinForms.Guna2GradientPanel pAppConfig;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton rbAppConfig;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
+        private Guna.UI2.WinForms.Guna2GradientPanel pStaticClass;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton rbStaticClass;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

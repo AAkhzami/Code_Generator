@@ -18,41 +18,50 @@ namespace Code_Generator_DApp.Controls.Engine_Setup
         }
         private void ChangeTheOption()
         {
-            if (rbStoredProcedures.Checked)
+            if (rbStaticClass.Checked)
             {
-                rbDirectQueries.Checked = true;
-                rbStoredProcedures.Checked = false;
-                pDirectQueries.BorderColor = Color.FromArgb(85, 128, 230);
-                pStoredProcedures.BorderColor = Color.Silver;
+                rbAppConfig.Checked = true;
+                rbStaticClass.Checked = false;
+                pAppConfig.BorderColor = Color.FromArgb(47, 147, 91);
+                pStaticClass.BorderColor = Color.Silver;
 
-                pDirectQueries.FillColor = Color.FromArgb(242, 245, 253);
-                pDirectQueries.FillColor2 = Color.FromArgb(242, 245, 253);
+                pAppConfig.FillColor = Color.FromArgb(246, 252, 249);
+                pAppConfig.FillColor2 = Color.FromArgb(246, 252, 249);
 
-                pStoredProcedures.FillColor = Color.FromArgb(254, 254, 254);
-                pStoredProcedures.FillColor2 = Color.FromArgb(254, 254, 254);
+                pStaticClass.FillColor = Color.FromArgb(254, 254, 254);
+                pStaticClass.FillColor2 = Color.FromArgb(254, 254, 254);
             }
-            else if (rbDirectQueries.Checked)
+            else if (rbAppConfig.Checked)
             {
-                rbDirectQueries.Checked = false;
-                rbStoredProcedures.Checked = true;
+                rbAppConfig.Checked = false;
+                rbStaticClass.Checked = true;
 
-                pStoredProcedures.BorderColor = Color.FromArgb(85, 128, 230);
-                pDirectQueries.BorderColor = Color.Silver;
+                pStaticClass.BorderColor = Color.FromArgb(100, 62, 196);
+                pAppConfig.BorderColor = Color.Silver;
 
-                pStoredProcedures.FillColor = Color.FromArgb(242, 245, 253);
-                pStoredProcedures.FillColor2 = Color.FromArgb(242, 245, 253);
+                pStaticClass.FillColor = Color.FromArgb(237, 239, 253);
+                pStaticClass.FillColor2 = Color.FromArgb(237, 239, 253);
 
-                pDirectQueries.FillColor = Color.FromArgb(254, 254, 254);
-                pDirectQueries.FillColor2 = Color.FromArgb(254, 254, 254);
+                pAppConfig.FillColor = Color.FromArgb(254, 254, 254);
+                pAppConfig.FillColor2 = Color.FromArgb(254, 254, 254);
             }
         }
 
-        private void pStoredProcedures_Click(object sender, EventArgs e)
+        private void pDirectQueries_Click(object sender, EventArgs e)
+        {
+            ChangeTheOption();
+        }
+        private void pStaticClass_Click(object sender, EventArgs e)
         {
             ChangeTheOption();
         }
 
-        private void pDirectQueries_Click(object sender, EventArgs e)
+        private void rbStaticClass_Click(object sender, EventArgs e)
+        {
+            ChangeTheOption();
+        }
+
+        private void rbAppConfig_Click(object sender, EventArgs e)
         {
             ChangeTheOption();
         }

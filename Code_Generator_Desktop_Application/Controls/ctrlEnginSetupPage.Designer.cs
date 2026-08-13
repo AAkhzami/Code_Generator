@@ -37,11 +37,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.ctrlExecutionEngine1 = new Code_Generator_DApp.Controls.Engine_Setup.ctrlExecutionEngine();
             this.ctrlConnectionSetting1 = new Code_Generator_DApp.Controls.Engine_Setup.ctrlConnectionSetting();
             this.panel5.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +95,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
@@ -103,7 +106,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ctrlConnectionSetting1);
+            this.panel1.Controls.Add(this.ctrlExecutionEngine1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(498, 469);
@@ -111,6 +114,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.ctrlConnectionSetting1);
             this.panel2.Location = new System.Drawing.Point(507, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(498, 469);
@@ -134,6 +138,13 @@
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             // 
+            // ctrlExecutionEngine1
+            // 
+            this.ctrlExecutionEngine1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlExecutionEngine1.Name = "ctrlExecutionEngine1";
+            this.ctrlExecutionEngine1.Size = new System.Drawing.Size(498, 467);
+            this.ctrlExecutionEngine1.TabIndex = 0;
+            // 
             // ctrlConnectionSetting1
             // 
             this.ctrlConnectionSetting1.Location = new System.Drawing.Point(0, 0);
@@ -154,6 +165,7 @@
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -170,6 +182,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private Engine_Setup.ctrlExecutionEngine ctrlExecutionEngine1;
         private Engine_Setup.ctrlConnectionSetting ctrlConnectionSetting1;
     }
 }

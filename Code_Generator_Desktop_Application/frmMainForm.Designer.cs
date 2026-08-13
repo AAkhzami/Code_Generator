@@ -117,7 +117,6 @@
             this.guna2TabControl1.TabButtonSize = new System.Drawing.Size(180, 40);
             this.guna2TabControl1.TabIndex = 8;
             this.guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.guna2TabControl1.TabMenuVisible = false;
             // 
             // tpSelect
             // 
@@ -152,10 +151,10 @@
             // 
             this.tpEngineSetup.Controls.Add(this.guna2Button2);
             this.tpEngineSetup.Controls.Add(this.ctrlEnginSetupPage1);
-            this.tpEngineSetup.Location = new System.Drawing.Point(5, 4);
+            this.tpEngineSetup.Location = new System.Drawing.Point(184, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEngineSetup.Size = new System.Drawing.Size(1389, 655);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1210, 655);
             this.tpEngineSetup.TabIndex = 1;
             this.tpEngineSetup.Text = "Engine_Setup";
             this.tpEngineSetup.UseVisualStyleBackColor = true;
@@ -171,7 +170,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(993, 592);
+            this.guna2Button2.Location = new System.Drawing.Point(814, 592);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(390, 57);
             this.guna2Button2.TabIndex = 43;
@@ -351,6 +350,9 @@
             // 
             // ctrlEnginSetupPage1
             // 
+            this.ctrlEnginSetupPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, 0);
             this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
             this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1389, 603);
