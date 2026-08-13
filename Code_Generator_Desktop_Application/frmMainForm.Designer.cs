@@ -29,34 +29,33 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnReset = new System.Windows.Forms.PictureBox();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpSelect = new System.Windows.Forms.TabPage();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.tpPreviewGenerate = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnReset = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
+            this.ctrlEnginSetupPage1 = new Code_Generator_DApp.Controls.ctrlEnginSetupPage();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
             this.guna2TabControl1.SuspendLayout();
             this.tpSelect.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -85,17 +84,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1418, 766);
             this.guna2Panel1.TabIndex = 0;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Image = global::Code_Generator_DApp.Properties.Resources.reset;
-            this.btnReset.Location = new System.Drawing.Point(411, 35);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(32, 32);
-            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnReset.TabIndex = 9;
-            this.btnReset.TabStop = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // guna2TabControl1
             // 
@@ -160,21 +148,10 @@
             this.guna2Button1.TabIndex = 8;
             this.guna2Button1.Text = "Next: Configure Engine";
             // 
-            // ctrlSelectPage1
-            // 
-            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
-            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
-            this.ctrlSelectPage1.Size = new System.Drawing.Size(1198, 580);
-            this.ctrlSelectPage1.TabIndex = 7;
-            // 
             // tpEngineSetup
             // 
-            this.tpEngineSetup.Controls.Add(this.panel4);
-            this.tpEngineSetup.Controls.Add(this.panel3);
             this.tpEngineSetup.Controls.Add(this.guna2Button2);
+            this.tpEngineSetup.Controls.Add(this.ctrlEnginSetupPage1);
             this.tpEngineSetup.Location = new System.Drawing.Point(5, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
@@ -182,22 +159,6 @@
             this.tpEngineSetup.TabIndex = 1;
             this.tpEngineSetup.Text = "Engine_Setup";
             this.tpEngineSetup.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Location = new System.Drawing.Point(415, 275);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(0, 131);
-            this.panel4.TabIndex = 47;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Location = new System.Drawing.Point(415, 96);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(0, 173);
-            this.panel3.TabIndex = 46;
             // 
             // guna2Button2
             // 
@@ -210,7 +171,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(-93, 229);
+            this.guna2Button2.Location = new System.Drawing.Point(993, 592);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(390, 57);
             this.guna2Button2.TabIndex = 43;
@@ -218,9 +179,9 @@
             // 
             // tpPreviewGenerate
             // 
-            this.tpPreviewGenerate.Location = new System.Drawing.Point(5, 4);
+            this.tpPreviewGenerate.Location = new System.Drawing.Point(184, 4);
             this.tpPreviewGenerate.Name = "tpPreviewGenerate";
-            this.tpPreviewGenerate.Size = new System.Drawing.Size(1389, 655);
+            this.tpPreviewGenerate.Size = new System.Drawing.Size(1210, 655);
             this.tpPreviewGenerate.TabIndex = 2;
             this.tpPreviewGenerate.Text = "Preview_Generate";
             this.tpPreviewGenerate.UseVisualStyleBackColor = true;
@@ -241,16 +202,6 @@
             this.panel1.Size = new System.Drawing.Size(729, 45);
             this.panel1.TabIndex = 4;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Code_Generator_DApp.Properties.Resources.num_3_Not_Selected;
-            this.pictureBox4.Location = new System.Drawing.Point(533, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -261,16 +212,6 @@
             this.label3.Size = new System.Drawing.Size(148, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Preview && Generate";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.num_2_Not_Selected;
-            this.pictureBox3.Location = new System.Drawing.Point(285, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
             // 
             // guna2Panel4
             // 
@@ -294,16 +235,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Engine Setup";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.num_1;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -325,16 +256,6 @@
             this.label1.Size = new System.Drawing.Size(125, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Select && validate";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // cbSelectDatabase
             // 
@@ -367,6 +288,74 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1398, 2);
             this.guna2Panel2.TabIndex = 0;
             // 
+            // btnReset
+            // 
+            this.btnReset.Image = global::Code_Generator_DApp.Properties.Resources.reset;
+            this.btnReset.Location = new System.Drawing.Point(411, 35);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(32, 32);
+            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnReset.TabIndex = 9;
+            this.btnReset.TabStop = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Code_Generator_DApp.Properties.Resources.num_3_Not_Selected;
+            this.pictureBox4.Location = new System.Drawing.Point(533, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.num_2_Not_Selected;
+            this.pictureBox3.Location = new System.Drawing.Point(285, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.num_1;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ctrlSelectPage1
+            // 
+            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
+            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
+            this.ctrlSelectPage1.Size = new System.Drawing.Size(1198, 580);
+            this.ctrlSelectPage1.TabIndex = 7;
+            // 
+            // ctrlEnginSetupPage1
+            // 
+            this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
+            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1389, 655);
+            this.ctrlEnginSetupPage1.TabIndex = 44;
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,12 +370,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnReset)).EndInit();
             this.guna2TabControl1.ResumeLayout(false);
             this.tpSelect.ResumeLayout(false);
             this.tpEngineSetup.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -418,7 +407,6 @@
         private System.Windows.Forms.PictureBox btnReset;
         private System.Windows.Forms.TabPage tpPreviewGenerate;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
+        private Controls.ctrlEnginSetupPage ctrlEnginSetupPage1;
     }
 }

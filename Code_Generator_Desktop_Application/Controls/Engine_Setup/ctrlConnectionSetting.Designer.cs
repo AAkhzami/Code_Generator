@@ -75,7 +75,7 @@
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel1);
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(492, 523);
+            this.guna2Panel1.Size = new System.Drawing.Size(492, 460);
             this.guna2Panel1.TabIndex = 1;
             // 
             // guna2Panel5
@@ -364,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlConnectionSetting";
-            this.Size = new System.Drawing.Size(498, 529);
+            this.Size = new System.Drawing.Size(498, 467);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
