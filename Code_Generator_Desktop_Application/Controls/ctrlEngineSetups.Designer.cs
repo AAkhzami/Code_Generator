@@ -37,11 +37,18 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblConnectionDetails = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cbExecutionEngine = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -52,6 +59,10 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(65)))), ((int)(((byte)(80)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.guna2Panel3);
+            this.guna2Panel1.Controls.Add(this.cbExecutionEngine);
+            this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.lblConnectionDetails);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.cbConnectionType);
@@ -159,6 +170,71 @@
             this.lblConnectionDetails.TabIndex = 31;
             this.lblConnectionDetails.Text = "Store connection string in App.Config file.";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
+            this.label2.Location = new System.Drawing.Point(32, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(360, 38);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Generates stored procedures and calls them\r\nfrom your C# code. More secure and pe" +
+    "rformant.\r\n";
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BorderRadius = 9;
+            this.guna2Panel3.Controls.Add(this.pictureBox2);
+            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
+            this.guna2Panel3.Location = new System.Drawing.Point(28, 219);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(45, 45);
+            this.guna2Panel3.TabIndex = 34;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Code_Generator_DApp.Properties.Resources.server;
+            this.pictureBox2.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cbExecutionEngine
+            // 
+            this.cbExecutionEngine.BackColor = System.Drawing.Color.Transparent;
+            this.cbExecutionEngine.BorderRadius = 9;
+            this.cbExecutionEngine.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbExecutionEngine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExecutionEngine.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbExecutionEngine.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbExecutionEngine.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbExecutionEngine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbExecutionEngine.ItemHeight = 30;
+            this.cbExecutionEngine.Items.AddRange(new object[] {
+            "Stored Procedures (T-SQL)",
+            "Ad-hoc Direct Queries"});
+            this.cbExecutionEngine.Location = new System.Drawing.Point(28, 273);
+            this.cbExecutionEngine.Name = "cbExecutionEngine";
+            this.cbExecutionEngine.Size = new System.Drawing.Size(456, 36);
+            this.cbExecutionEngine.StartIndex = 0;
+            this.cbExecutionEngine.TabIndex = 33;
+            this.cbExecutionEngine.SelectedIndexChanged += new System.EventHandler(this.cbExecutionEngine_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(86, 230);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 23);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Execution Engine";
+            // 
             // ctrlEngineSetups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +248,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2Panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,5 +265,10 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblConnectionDetails;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox cbExecutionEngine;
+        private System.Windows.Forms.Label label3;
     }
 }
