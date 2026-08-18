@@ -91,6 +91,12 @@
     <Compile Include="Controls\Preview_And_Generate_Page\ctrlPreviewAndGeneratePage.Designer.cs">
       <DependentUpon>ctrlPreviewAndGeneratePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCodeGeneratorewindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCodeGeneratorewindows.Designer.cs">
+      <DependentUpon>frmCodeGeneratorewindows.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Preview_And_Generate_Page\ctrlPreviewAndGeneratePage.resx">
       <DependentUpon>ctrlPreviewAndGeneratePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCodeGeneratorewindows.resx">
+      <DependentUpon>frmCodeGeneratorewindows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
@@ -240,6 +249,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_next.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

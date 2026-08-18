@@ -251,17 +251,7 @@
             this.tpPreviewGenerate.TabIndex = 2;
             this.tpPreviewGenerate.Text = "Preview_Generate";
             this.tpPreviewGenerate.UseVisualStyleBackColor = true;
-            // 
-            // ctrlPreviewAndGeneratePage1
-            // 
-            this.ctrlPreviewAndGeneratePage1.BusinessLayerClass = "BusinessLayerClass";
-            this.ctrlPreviewAndGeneratePage1.Connection = "ConnectionType";
-            this.ctrlPreviewAndGeneratePage1.DataAccessClass = "DataAccessClass";
-            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(332, 8);
-            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
-            this.ctrlPreviewAndGeneratePage1.Querys = "Queries";
-            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1049, 580);
-            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
+
             // 
             // guna2Button1
             // 

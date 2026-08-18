@@ -42,3 +42,4 @@ C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Git
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\FastColoredTextBox.dll
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\bin\Debug\FastColoredTextBox.xml
 C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage.resources
+C:\Users\Abdullrahman\Desktop\Programing\C#\Projects In C#\Code Generatore - Github\Code_Generator\Code_Generator_Desktop_Application\obj\Debug\Code_Generator_DApp.frmCodeGeneratorewindows.resources
