@@ -79,6 +79,7 @@
             this.tbPages.TabIndex = 0;
             this.tbPages.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tbPages.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalBottom;
+            this.tbPages.TabMenuVisible = false;
             // 
             // tpEngineSetup
             // 
@@ -87,7 +88,7 @@
             this.tpEngineSetup.Location = new System.Drawing.Point(4, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 655);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 694);
             this.tpEngineSetup.TabIndex = 0;
             this.tpEngineSetup.Text = "Engine Setup";
             // 
@@ -192,7 +193,7 @@
             this.btnNextPage.Image = global::Code_Generator_DApp.Properties.Resources.arrow_next;
             this.btnNextPage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNextPage.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnNextPage.Location = new System.Drawing.Point(1138, 596);
+            this.btnNextPage.Location = new System.Drawing.Point(1138, 635);
             this.btnNextPage.Name = "btnNextPage";
             this.btnNextPage.Size = new System.Drawing.Size(301, 50);
             this.btnNextPage.TabIndex = 0;
