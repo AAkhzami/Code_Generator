@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -167,13 +168,16 @@
             // 
             // dgvTablesName
             // 
+            this.dgvTablesName.AllowUserToAddRows = false;
+            this.dgvTablesName.AllowUserToDeleteRows = false;
+            this.dgvTablesName.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvTablesName.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 20F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTablesName.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -185,7 +189,7 @@
             this.cStatus});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -194,14 +198,26 @@
             this.dgvTablesName.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTablesName.Location = new System.Drawing.Point(18, 134);
             this.dgvTablesName.Name = "dgvTablesName";
+            this.dgvTablesName.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTablesName.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTablesName.RowHeadersVisible = false;
+            this.dgvTablesName.RowTemplate.Height = 50;
             this.dgvTablesName.Size = new System.Drawing.Size(296, 382);
             this.dgvTablesName.TabIndex = 26;
             this.dgvTablesName.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTablesName.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
             this.dgvTablesName.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Tahoma", 20F);
             this.dgvTablesName.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvTablesName.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.dgvTablesName.ThemeStyle.ReadOnly = true;
+            this.dgvTablesName.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTablesName.ThemeStyle.RowsStyle.Height = 50;
             this.dgvTablesName.SelectionChanged += new System.EventHandler(this.dgvTablesName_SelectionChanged);
             // 
             // lblTablesCount
@@ -229,17 +245,20 @@
             // 
             this.cTable.HeaderText = "Table";
             this.cTable.Name = "cTable";
+            this.cTable.ReadOnly = true;
             // 
             // Columns
             // 
             this.Columns.HeaderText = "cColumns";
             this.Columns.Name = "Columns";
+            this.Columns.ReadOnly = true;
             this.Columns.Visible = false;
             // 
             // cStatus
             // 
             this.cStatus.HeaderText = "cStatus";
             this.cStatus.Name = "cStatus";
+            this.cStatus.ReadOnly = true;
             this.cStatus.Visible = false;
             // 
             // ctrlTablesList

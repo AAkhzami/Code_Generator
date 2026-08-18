@@ -65,7 +65,7 @@ namespace Code_Generator_DApp
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
     }

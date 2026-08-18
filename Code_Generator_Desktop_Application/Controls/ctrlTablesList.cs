@@ -70,8 +70,9 @@ namespace Code_Generator_DApp.Controls
 
         private void dgvTablesName_SelectionChanged(object sender, EventArgs e)
         {
-            int status = (int)dgvTablesName.SelectedRows[0].Cells["cStatus"].Value;    
-            if(status != 1)
+
+            int? status = (int)dgvTablesName.SelectedRows[0].Cells["cStatus"].Value;    
+            if(status != 1 && status != null)
             {
                 pWarningMessage.Visible = true;
             }
