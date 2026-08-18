@@ -229,6 +229,7 @@
             // 
             // ctrlTablesList1
             // 
+            this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ctrlTablesList1.Location = new System.Drawing.Point(8, 6);
             this.ctrlTablesList1.Name = "ctrlTablesList1";
             this.ctrlTablesList1.Size = new System.Drawing.Size(339, 623);
@@ -246,6 +247,7 @@
             this.Name = "frmCodeGeneratorewindows";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Code Generator v1.0";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCodeGeneratorewindows_Load);
             this.tbPages.ResumeLayout(false);
             this.tpEngineSetup.ResumeLayout(false);
