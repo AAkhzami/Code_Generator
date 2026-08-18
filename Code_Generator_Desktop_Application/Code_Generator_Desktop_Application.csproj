@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ctrlEngineSetups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ctrlEngineSetups.Designer.cs">
+      <DependentUpon>ctrlEngineSetups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctrlEnginSetupPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\ctrlEngineSetups.resx">
+      <DependentUpon>ctrlEngineSetups.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ctrlEnginSetupPage.resx">
       <DependentUpon>ctrlEnginSetupPage.cs</DependentUpon>
     </EmbeddedResource>
