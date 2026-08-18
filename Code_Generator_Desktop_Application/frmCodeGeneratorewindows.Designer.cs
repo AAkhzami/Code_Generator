@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCodeGeneratorewindows));
             this.tbPages = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
+            this.btnNextPage = new Guna.UI2.WinForms.Guna2Button();
             this.tpPreviewAndGenerate = new System.Windows.Forms.TabPage();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnGenerate = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnNextPage = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tbPages.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.tpPreviewAndGenerate.SuspendLayout();
@@ -92,93 +92,6 @@
             this.tpEngineSetup.TabIndex = 0;
             this.tpEngineSetup.Text = "Engine Setup";
             // 
-            // tpPreviewAndGenerate
-            // 
-            this.tpPreviewAndGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(30)))), ((int)(((byte)(44)))));
-            this.tpPreviewAndGenerate.Controls.Add(this.btnBack);
-            this.tpPreviewAndGenerate.Controls.Add(this.btnGenerate);
-            this.tpPreviewAndGenerate.Location = new System.Drawing.Point(4, 4);
-            this.tpPreviewAndGenerate.Name = "tpPreviewAndGenerate";
-            this.tpPreviewAndGenerate.Size = new System.Drawing.Size(1448, 655);
-            this.tpPreviewAndGenerate.TabIndex = 1;
-            this.tpPreviewAndGenerate.Text = "Preview & Generate";
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
-            this.guna2GradientPanel1.BorderRadius = 10;
-            this.guna2GradientPanel1.BorderThickness = 1;
-            this.guna2GradientPanel1.Controls.Add(this.btnReset);
-            this.guna2GradientPanel1.Controls.Add(this.pictureBox1);
-            this.guna2GradientPanel1.Controls.Add(this.cbSelectDatabase);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(12, 12);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1432, 83);
-            this.guna2GradientPanel1.TabIndex = 1;
-            // 
-            // cbSelectDatabase
-            // 
-            this.cbSelectDatabase.BackColor = System.Drawing.Color.Transparent;
-            this.cbSelectDatabase.BorderRadius = 9;
-            this.cbSelectDatabase.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbSelectDatabase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSelectDatabase.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbSelectDatabase.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbSelectDatabase.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.cbSelectDatabase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.cbSelectDatabase.ItemHeight = 30;
-            this.cbSelectDatabase.Items.AddRange(new object[] {
-            "Select Database"});
-            this.cbSelectDatabase.Location = new System.Drawing.Point(549, 23);
-            this.cbSelectDatabase.Name = "cbSelectDatabase";
-            this.cbSelectDatabase.Size = new System.Drawing.Size(326, 36);
-            this.cbSelectDatabase.StartIndex = 0;
-            this.cbSelectDatabase.TabIndex = 10;
-            // 
-            // btnGenerate
-            // 
-            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerate.BorderRadius = 9;
-            this.btnGenerate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGenerate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGenerate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGenerate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGenerate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(76)))), ((int)(((byte)(188)))));
-            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnGenerate.Location = new System.Drawing.Point(1151, 596);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(288, 50);
-            this.btnGenerate.TabIndex = 1;
-            this.btnGenerate.Text = "Generate Code";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.Location = new System.Drawing.Point(901, 25);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(32, 32);
-            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnReset.TabIndex = 12;
-            this.btnReset.TabStop = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
-            this.pictureBox1.Location = new System.Drawing.Point(500, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnNextPage
             // 
             this.btnNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -200,6 +113,17 @@
             this.btnNextPage.Text = "Next: Preview && Generate ";
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
+            // tpPreviewAndGenerate
+            // 
+            this.tpPreviewAndGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(30)))), ((int)(((byte)(44)))));
+            this.tpPreviewAndGenerate.Controls.Add(this.btnBack);
+            this.tpPreviewAndGenerate.Controls.Add(this.btnGenerate);
+            this.tpPreviewAndGenerate.Location = new System.Drawing.Point(4, 4);
+            this.tpPreviewAndGenerate.Name = "tpPreviewAndGenerate";
+            this.tpPreviewAndGenerate.Size = new System.Drawing.Size(1448, 694);
+            this.tpPreviewAndGenerate.TabIndex = 1;
+            this.tpPreviewAndGenerate.Text = "Preview & Generate";
+            // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -220,6 +144,85 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerate.BorderRadius = 9;
+            this.btnGenerate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGenerate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGenerate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGenerate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGenerate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(76)))), ((int)(((byte)(188)))));
+            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnGenerate.Location = new System.Drawing.Point(1151, 596);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(288, 50);
+            this.btnGenerate.TabIndex = 1;
+            this.btnGenerate.Text = "Generate Code";
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
+            this.guna2GradientPanel1.BorderRadius = 10;
+            this.guna2GradientPanel1.BorderThickness = 1;
+            this.guna2GradientPanel1.Controls.Add(this.btnReset);
+            this.guna2GradientPanel1.Controls.Add(this.pictureBox1);
+            this.guna2GradientPanel1.Controls.Add(this.cbSelectDatabase);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(12, 12);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1432, 83);
+            this.guna2GradientPanel1.TabIndex = 1;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
+            this.btnReset.Location = new System.Drawing.Point(901, 25);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(32, 32);
+            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnReset.TabIndex = 12;
+            this.btnReset.TabStop = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::Code_Generator_DApp.Properties.Resources.database;
+            this.pictureBox1.Location = new System.Drawing.Point(500, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cbSelectDatabase
+            // 
+            this.cbSelectDatabase.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbSelectDatabase.BackColor = System.Drawing.Color.Transparent;
+            this.cbSelectDatabase.BorderRadius = 9;
+            this.cbSelectDatabase.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSelectDatabase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSelectDatabase.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSelectDatabase.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSelectDatabase.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.cbSelectDatabase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            this.cbSelectDatabase.ItemHeight = 30;
+            this.cbSelectDatabase.Items.AddRange(new object[] {
+            "Select Database"});
+            this.cbSelectDatabase.Location = new System.Drawing.Point(549, 23);
+            this.cbSelectDatabase.Name = "cbSelectDatabase";
+            this.cbSelectDatabase.Size = new System.Drawing.Size(326, 36);
+            this.cbSelectDatabase.StartIndex = 0;
+            this.cbSelectDatabase.TabIndex = 10;
             // 
             // frmCodeGeneratorewindows
             // 
