@@ -62,9 +62,21 @@ namespace Code_Generator_DApp
         {
             if(cbSelectDatabase.Text == "Select Database")
             {
+                MessageBox.Show("No database selected!", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
-            tcGCsteps.SelectedIndex = 1;
+
+            List<string> tablesName = ctrlSelectPage1.GetSelectedTableName();
+            if(tablesName.Count > 0)
+            {
+                MessageBox.Show(string.Join(",\n",tablesName));
+                tcGCsteps.SelectedIndex = 1;
+            }
+            else
+            {
+                MessageBox.Show("No table selected!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btnBackToSelectTablePage_Click(object sender, EventArgs e)

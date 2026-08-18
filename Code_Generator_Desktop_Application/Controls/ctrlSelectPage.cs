@@ -96,7 +96,7 @@ namespace Code_Generator_DApp.Controls
                 string tableName = "";
                 foreach (DataGridViewRow item in rows)
                 {
-                    tableName = item.Cells["Table"].Value.ToString();
+                    tableName = item.Cells["cTable"].Value.ToString();
                     if (item.Cells["Table"].Value.ToString() != "Ready")
                     {
                         if (
