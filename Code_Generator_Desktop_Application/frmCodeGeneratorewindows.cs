@@ -1,4 +1,5 @@
 ﻿using Code_Generator_Business_Layer;
+using Code_Generator_DApp.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,9 +50,23 @@ namespace Code_Generator_DApp
             tbPages.SelectedIndex = 0;
         }
 
-        private void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (cbSelectDatabase.Text != "Select Database")
+                {
+                    ctrlTablesList1.LoadData(cbSelectDatabase.Text);
+                }
+                else
+                {
+                    ctrlTablesList1.Reset();
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

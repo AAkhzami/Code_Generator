@@ -44,11 +44,16 @@ namespace Code_Generator_DApp.Controls
 
                 if (dt.Rows.Count > 0)
                 {
-                    dgvTablesName.DataSource = dt;
+                    lblTablesCount.Text = dt.Rows.Count.ToString();
+                    foreach(DataRow row in dt.Rows)
+                    {
+                        dgvTablesName.Rows.Add(row[0], row[1], row[2]);
+
+                    }
                 }
                 else
                 {
-
+                    dgvTablesName.DataSource = null;
                 }
             }
             catch (Exception ex)
@@ -74,6 +79,13 @@ namespace Code_Generator_DApp.Controls
             {
                 pWarningMessage.Visible = false;
             }
+        }
+        public void Reset()
+        {
+            dgvTablesName.Rows.Clear();
+            lblTablesCount.Text = "0";
+            guna2ProgressIndicator1.AutoStart = true;
+            guna2ProgressIndicator1.Visible = true;
         }
     }
 }

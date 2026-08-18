@@ -39,12 +39,12 @@
             this.pWarningMessage = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMoreDetails = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Columns = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTablesName = new Guna.UI2.WinForms.Guna2DataGridView();
             this.lblTablesCount = new System.Windows.Forms.Label();
             this.guna2ProgressIndicator1 = new Guna.UI2.WinForms.Guna2ProgressIndicator();
+            this.cTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Columns = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -165,23 +165,6 @@
             this.lblMoreDetails.Text = "More details";
             this.lblMoreDetails.Click += new System.EventHandler(this.lblMoreDetails_Click);
             // 
-            // Status
-            // 
-            this.Status.HeaderText = "cStatus";
-            this.Status.Name = "Status";
-            this.Status.Visible = false;
-            // 
-            // Columns
-            // 
-            this.Columns.HeaderText = "cColumns";
-            this.Columns.Name = "Columns";
-            this.Columns.Visible = false;
-            // 
-            // cTable
-            // 
-            this.cTable.HeaderText = "Table";
-            this.cTable.Name = "cTable";
-            // 
             // dgvTablesName
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -199,7 +182,7 @@
             this.dgvTablesName.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cTable,
             this.Columns,
-            this.Status});
+            this.cStatus});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -242,6 +225,23 @@
             this.guna2ProgressIndicator1.Size = new System.Drawing.Size(60, 60);
             this.guna2ProgressIndicator1.TabIndex = 30;
             // 
+            // cTable
+            // 
+            this.cTable.HeaderText = "Table";
+            this.cTable.Name = "cTable";
+            // 
+            // Columns
+            // 
+            this.Columns.HeaderText = "cColumns";
+            this.Columns.Name = "Columns";
+            this.Columns.Visible = false;
+            // 
+            // cStatus
+            // 
+            this.cStatus.HeaderText = "cStatus";
+            this.cStatus.Name = "cStatus";
+            this.cStatus.Visible = false;
+            // 
             // ctrlTablesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +275,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvTablesName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columns;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cStatus;
     }
 }
