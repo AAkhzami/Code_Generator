@@ -35,15 +35,15 @@ namespace Code_Generator_DApp.Controls
         private void cbExecutionEngine_SelectedIndexChanged(object sender, EventArgs e)
         {
             string type = cbExecutionEngine.SelectedItem as string;
-            if (type == "Stored Procedures(T-SQL)")
+            if (type == "Stored Procedures (T-SQL)")
             {
-                lblConnectionDetails.Text = "Generates stored procedures and calls them\r\nfrom your C# code. More secure and performant.";
-                lblConnectionDetails.ForeColor = Color.FromArgb(43, 89, 209);
+                lblExecutionEngineDetails.Text = "Generates stored procedures and calls them\r\nfrom your C# code. More secure and performant.";
+                lblExecutionEngineDetails.ForeColor = Color.FromArgb(43, 89, 209);
             }
             else if (type == "Ad-hoc Direct Queries")
             {
-                lblConnectionDetails.Text = "Executes direct SQL queries in your C# code.\r\nFaster to implement, less abstraction.";
-                lblConnectionDetails.ForeColor = Color.FromArgb(254, 243, 221);
+                lblExecutionEngineDetails.Text = "Executes direct SQL queries in your C# code.\r\nFaster to implement, less abstraction.";
+                lblExecutionEngineDetails.ForeColor = Color.FromArgb(254, 243, 221);
             }
         }
     }
