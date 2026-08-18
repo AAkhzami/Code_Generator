@@ -71,10 +71,19 @@ namespace Code_Generator_DApp.Controls
         private void dgvTablesName_SelectionChanged(object sender, EventArgs e)
         {
 
-            int? status = (int)dgvTablesName.SelectedRows[0].Cells["cStatus"].Value;    
-            if(status != 1 && status != null)
+
+            if (dgvTablesName.SelectedRows.Count == 0)
             {
-                pWarningMessage.Visible = true;
+                pWarningMessage.Visible = false;
+                return;
+            }
+
+            var cellValue = dgvTablesName.SelectedRows[0].Cells["cStatus"].Value;
+
+
+            if (cellValue != null && cellValue != DBNull.Value && int.TryParse(cellValue.ToString(), out int status))
+            {
+                pWarningMessage.Visible = (status != 1);
             }
             else
             {
@@ -87,6 +96,22 @@ namespace Code_Generator_DApp.Controls
             lblTablesCount.Text = "0";
             guna2ProgressIndicator1.AutoStart = true;
             guna2ProgressIndicator1.Visible = true;
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(dgvTablesName.Rows.Count != 0)
+            {
+                string tableName = txbSearch.Text;
+                DataTable dt = (DataTable)dgvTablesName.DataSource;
+
+                if (!string.IsNullOrWhiteSpace(tableName) && dt != null)
+                {
+                    dt.DefaultView.RowFilter = string.Format("cTable LIKE '%{0}%'", tableName);
+                }
+            }
+ 
+
         }
     }
 }
