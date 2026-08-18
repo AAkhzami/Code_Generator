@@ -1,4 +1,5 @@
 ﻿using Code_Generator_Business_Layer;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -100,32 +101,20 @@ namespace Code_Generator_DApp.Controls
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if(dgvTablesName.Rows.Count != 0)
+            if (dgvTablesName.DataSource is BindingSource bs)
             {
-                string filterText = txbSearch.Text.Trim();
-                DataTable dt = null;
+                string filterText = txbSearch.Text.Trim().Replace("'", "''");
 
-                if (dgvTablesName.DataSource is DataTable dataTable)
+                if (string.IsNullOrWhiteSpace(filterText))
                 {
-                    dt = dataTable;
+                    bs.RemoveFilter();
                 }
-                else if (dgvTablesName.DataSource is BindingSource bindingSource && bindingSource.DataSource is DataTable bDataTable)
+                else
                 {
-                    dt = bDataTable;
-                }
-                else if (dgvTablesName.DataSource is DataView dataView)
-                {
-                    dt = dataView.Table;
-                }
-
-                if (!string.IsNullOrWhiteSpace(filterText) && dt != null)
-                {
-                    dt.DefaultView.RowFilter = string.IsNullOrWhiteSpace(filterText)
-                                ? string.Empty
-                                : string.Format("Name LIKE '{0}%'", filterText.Replace("'", "''"));
+                    // استبدل TableName باسم العمود الفعلي في الـ DataTable
+                    bs.Filter = string.Format("Name LIKE '{0}%'", filterText);
                 }
             }
- 
 
         }
     }
