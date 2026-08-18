@@ -39,18 +39,27 @@ namespace Code_Generator_DApp.Controls
             int CountTablesHavePK = 0;
             string CountPKTable = "";
 
-            foreach (DataRow dr in dt.Rows)
+            if (dt.Rows.Count > 0)
             {
-                TablesCount++;
-                ColumnsCount += (int)dr[1];
-                if (Convert.ToBoolean(dr[2]))
+                foreach (DataRow dr in dt.Rows)
                 {
-                    CountTablesHavePK++;
-                }
-                CountPKTable = Convert.ToBoolean(dr[2]) ? "Ready" : "Warning No PrimaryKey";
-                dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], CountPKTable);
+                    TablesCount++;
+                    ColumnsCount += (int)dr[1];
+                    if (Convert.ToBoolean(dr[2]))
+                    {
+                        CountTablesHavePK++;
+                    }
+                    CountPKTable = Convert.ToBoolean(dr[2]) ? "Ready" : "Warning No PrimaryKey";
+                    dgvTablesInfo.Rows.Add(dr[0], (int)dr[1], CountPKTable);
 
+                }           
+                cbsSelectAllTables.Enabled = true;
             }
+            else
+            {
+                cbsSelectAllTables.Enabled = false;
+            }
+
             lblColumns.Text = ColumnsCount.ToString();
             lblKeysCount.Text = CountTablesHavePK.ToString();
             lblTableCount.Text = TablesCount.ToString();
@@ -84,6 +93,8 @@ namespace Code_Generator_DApp.Controls
             lblColumns.Text = "0";
             lblKeysCount.Text = "0";
             lblTableCount.Text = "0";
+            cbsSelectAllTables.Checked = false;
+
         }
 
         public List<string> GetSelectedTableName()
@@ -115,6 +126,15 @@ namespace Code_Generator_DApp.Controls
             }
 
             return tablesName;
+        }
+
+        private void cbsSelectAllTables_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbsSelectAllTables.Checked)
+            {
+                dgvTablesInfo.SelectAll();
+                dgvTablesInfo.Enabled = false;
+            }
         }
     }
 }
