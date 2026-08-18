@@ -101,18 +101,23 @@ namespace Code_Generator_DApp.Controls
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (dgvTablesName.DataSource is BindingSource bs)
-            {
-                string filterText = txbSearch.Text.Trim().Replace("'", "''");
+            string filterText = txbSearch.Text.Trim().ToLower();
 
-                if (string.IsNullOrWhiteSpace(filterText))
+            dgvTablesName.CurrentCell = null;
+
+            foreach (DataGridViewRow row in dgvTablesName.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var cellValue = row.Cells["cTable"].Value?.ToString().ToLower();
+
+                if (string.IsNullOrEmpty(filterText))
                 {
-                    bs.RemoveFilter();
+                    row.Visible = true;
                 }
                 else
                 {
-                    // استبدل TableName باسم العمود الفعلي في الـ DataTable
-                    bs.Filter = string.Format("Name LIKE '{0}%'", filterText);
+                    row.Visible = cellValue != null && cellValue.StartsWith(filterText);
                 }
             }
 
