@@ -136,6 +136,12 @@ namespace Code_Generator_DApp.Controls
                 dgvTablesInfo.SelectAll();
                 dgvTablesInfo.Enabled = false;
             }
+            else
+            {
+                dgvTablesInfo.Enabled =true;
+                dgvTablesInfo.ClearSelection();
+            }
         }
+      
     }
 }
