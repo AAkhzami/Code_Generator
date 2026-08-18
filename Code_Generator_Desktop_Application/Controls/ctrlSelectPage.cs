@@ -94,6 +94,7 @@ namespace Code_Generator_DApp.Controls
             lblKeysCount.Text = "0";
             lblTableCount.Text = "0";
             cbsSelectAllTables.Checked = false;
+            cbsSelectAllTables.Enabled = false;
 
         }
 
