@@ -102,12 +102,27 @@ namespace Code_Generator_DApp.Controls
         {
             if(dgvTablesName.Rows.Count != 0)
             {
-                string tableName = txbSearch.Text;
-                DataTable dt = dgvTablesName.DataSource as DataTable;
+                string filterText = txbSearch.Text.Trim();
+                DataTable dt = null;
 
-                if (!string.IsNullOrWhiteSpace(tableName) && dt != null)
+                if (dgvTablesName.DataSource is DataTable dataTable)
                 {
-                    dt.DefaultView.RowFilter = string.Format("cTable LIKE '{0}%'", tableName);
+                    dt = dataTable;
+                }
+                else if (dgvTablesName.DataSource is BindingSource bindingSource && bindingSource.DataSource is DataTable bDataTable)
+                {
+                    dt = bDataTable;
+                }
+                else if (dgvTablesName.DataSource is DataView dataView)
+                {
+                    dt = dataView.Table;
+                }
+
+                if (!string.IsNullOrWhiteSpace(filterText) && dt != null)
+                {
+                    dt.DefaultView.RowFilter = string.IsNullOrWhiteSpace(filterText)
+                                ? string.Empty
+                                : string.Format("Name LIKE '{0}%'", filterText.Replace("'", "''"));
                 }
             }
  
