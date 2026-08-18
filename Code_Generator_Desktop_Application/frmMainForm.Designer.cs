@@ -30,12 +30,12 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnReset = new System.Windows.Forms.PictureBox();
-            this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
+            this.tcGCsteps = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpSelect = new System.Windows.Forms.TabPage();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
+            this.btnNext_ConfigEngine = new Guna.UI2.WinForms.Guna2Button();
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToSelectTablePage = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNextGenerateCodePage = new Guna.UI2.WinForms.Guna2Button();
             this.tpPreviewGenerate = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -49,11 +49,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
             this.ctrlEnginSetupPage1 = new Code_Generator_DApp.Controls.ctrlEnginSetupPage();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
-            this.guna2TabControl1.SuspendLayout();
+            this.tcGCsteps.SuspendLayout();
             this.tpSelect.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.btnReset);
-            this.guna2Panel1.Controls.Add(this.guna2TabControl1);
+            this.guna2Panel1.Controls.Add(this.tcGCsteps);
             this.guna2Panel1.Controls.Add(this.panel1);
             this.guna2Panel1.Controls.Add(this.pictureBox1);
             this.guna2Panel1.Controls.Add(this.cbSelectDatabase);
@@ -97,108 +97,119 @@
             this.btnReset.TabStop = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // guna2TabControl1
+            // tcGCsteps
             // 
-            this.guna2TabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.guna2TabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcGCsteps.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tcGCsteps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TabControl1.Controls.Add(this.tpSelect);
-            this.guna2TabControl1.Controls.Add(this.tpEngineSetup);
-            this.guna2TabControl1.Controls.Add(this.tpPreviewGenerate);
-            this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(10, 100);
-            this.guna2TabControl1.Name = "guna2TabControl1";
-            this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1398, 663);
-            this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.guna2TabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.guna2TabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.guna2TabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.guna2TabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.guna2TabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.guna2TabControl1.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
-            this.guna2TabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.guna2TabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
-            this.guna2TabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.guna2TabControl1.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.TabIndex = 8;
-            this.guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.guna2TabControl1.TabMenuVisible = false;
+            this.tcGCsteps.Controls.Add(this.tpSelect);
+            this.tcGCsteps.Controls.Add(this.tpEngineSetup);
+            this.tcGCsteps.Controls.Add(this.tpPreviewGenerate);
+            this.tcGCsteps.ItemSize = new System.Drawing.Size(180, 40);
+            this.tcGCsteps.Location = new System.Drawing.Point(10, 100);
+            this.tcGCsteps.Name = "tcGCsteps";
+            this.tcGCsteps.SelectedIndex = 0;
+            this.tcGCsteps.Size = new System.Drawing.Size(1398, 663);
+            this.tcGCsteps.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.tcGCsteps.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tcGCsteps.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcGCsteps.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.tcGCsteps.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tcGCsteps.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.tcGCsteps.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcGCsteps.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcGCsteps.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.tcGCsteps.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcGCsteps.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.tcGCsteps.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
+            this.tcGCsteps.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcGCsteps.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.tcGCsteps.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.tcGCsteps.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.tcGCsteps.TabIndex = 8;
+            this.tcGCsteps.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcGCsteps.TabMenuVisible = false;
             // 
             // tpSelect
             // 
             this.tpSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.tpSelect.Controls.Add(this.guna2Button1);
+            this.tpSelect.Controls.Add(this.btnNext_ConfigEngine);
             this.tpSelect.Controls.Add(this.ctrlSelectPage1);
-            this.tpSelect.Location = new System.Drawing.Point(184, 4);
+            this.tpSelect.Location = new System.Drawing.Point(5, 4);
             this.tpSelect.Name = "tpSelect";
             this.tpSelect.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSelect.Size = new System.Drawing.Size(1210, 655);
+            this.tpSelect.Size = new System.Drawing.Size(1389, 655);
             this.tpSelect.TabIndex = 0;
             this.tpSelect.Text = "Select_Table";
             // 
-            // guna2Button1
+            // btnNext_ConfigEngine
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 9;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(805, 592);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(390, 57);
-            this.guna2Button1.TabIndex = 8;
-            this.guna2Button1.Text = "Next: Configure Engine";
-            // 
-            // ctrlSelectPage1
-            // 
-            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
-            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
-            this.ctrlSelectPage1.Size = new System.Drawing.Size(1198, 580);
-            this.ctrlSelectPage1.TabIndex = 7;
+            this.btnNext_ConfigEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext_ConfigEngine.BorderRadius = 9;
+            this.btnNext_ConfigEngine.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext_ConfigEngine.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext_ConfigEngine.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNext_ConfigEngine.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNext_ConfigEngine.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
+            this.btnNext_ConfigEngine.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext_ConfigEngine.ForeColor = System.Drawing.Color.White;
+            this.btnNext_ConfigEngine.Location = new System.Drawing.Point(984, 592);
+            this.btnNext_ConfigEngine.Name = "btnNext_ConfigEngine";
+            this.btnNext_ConfigEngine.Size = new System.Drawing.Size(390, 57);
+            this.btnNext_ConfigEngine.TabIndex = 8;
+            this.btnNext_ConfigEngine.Text = "Next: Configure Engine";
+            this.btnNext_ConfigEngine.Click += new System.EventHandler(this.btnNext_ConfigEngine_Click);
             // 
             // tpEngineSetup
             // 
-            this.tpEngineSetup.Controls.Add(this.guna2Button3);
-            this.tpEngineSetup.Controls.Add(this.guna2Button2);
+            this.tpEngineSetup.Controls.Add(this.btnBackToSelectTablePage);
+            this.tpEngineSetup.Controls.Add(this.btnNextGenerateCodePage);
             this.tpEngineSetup.Controls.Add(this.ctrlEnginSetupPage1);
-            this.tpEngineSetup.Location = new System.Drawing.Point(5, 4);
+            this.tpEngineSetup.Location = new System.Drawing.Point(184, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEngineSetup.Size = new System.Drawing.Size(1389, 655);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1210, 655);
             this.tpEngineSetup.TabIndex = 1;
             this.tpEngineSetup.Text = "Engine_Setup";
             this.tpEngineSetup.UseVisualStyleBackColor = true;
             // 
-            // guna2Button2
+            // btnBackToSelectTablePage
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.BorderRadius = 9;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(993, 592);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(390, 57);
-            this.guna2Button2.TabIndex = 43;
-            this.guna2Button2.Text = "Generate Code Now";
+            this.btnBackToSelectTablePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBackToSelectTablePage.BorderColor = System.Drawing.Color.Silver;
+            this.btnBackToSelectTablePage.BorderRadius = 9;
+            this.btnBackToSelectTablePage.BorderThickness = 1;
+            this.btnBackToSelectTablePage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToSelectTablePage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToSelectTablePage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToSelectTablePage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToSelectTablePage.FillColor = System.Drawing.Color.White;
+            this.btnBackToSelectTablePage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToSelectTablePage.ForeColor = System.Drawing.Color.Black;
+            this.btnBackToSelectTablePage.Location = new System.Drawing.Point(6, 592);
+            this.btnBackToSelectTablePage.Name = "btnBackToSelectTablePage";
+            this.btnBackToSelectTablePage.Size = new System.Drawing.Size(390, 57);
+            this.btnBackToSelectTablePage.TabIndex = 44;
+            this.btnBackToSelectTablePage.Text = "Back";
+            this.btnBackToSelectTablePage.Click += new System.EventHandler(this.btnBackToSelectTablePage_Click);
+            // 
+            // btnNextGenerateCodePage
+            // 
+            this.btnNextGenerateCodePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextGenerateCodePage.BorderRadius = 9;
+            this.btnNextGenerateCodePage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNextGenerateCodePage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNextGenerateCodePage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNextGenerateCodePage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNextGenerateCodePage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
+            this.btnNextGenerateCodePage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextGenerateCodePage.ForeColor = System.Drawing.Color.White;
+            this.btnNextGenerateCodePage.Location = new System.Drawing.Point(814, 592);
+            this.btnNextGenerateCodePage.Name = "btnNextGenerateCodePage";
+            this.btnNextGenerateCodePage.Size = new System.Drawing.Size(390, 57);
+            this.btnNextGenerateCodePage.TabIndex = 43;
+            this.btnNextGenerateCodePage.Text = "Generate Code Now";
             // 
             // tpPreviewGenerate
             // 
@@ -351,31 +362,22 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1398, 2);
             this.guna2Panel2.TabIndex = 0;
             // 
-            // guna2Button3
+            // ctrlSelectPage1
             // 
-            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button3.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Button3.BorderRadius = 9;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(8, 592);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(390, 57);
-            this.guna2Button3.TabIndex = 44;
-            this.guna2Button3.Text = "Back";
+            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
+            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
+            this.ctrlSelectPage1.Size = new System.Drawing.Size(1377, 580);
+            this.ctrlSelectPage1.TabIndex = 7;
             // 
             // ctrlEnginSetupPage1
             // 
             this.ctrlEnginSetupPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, 0);
             this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
-            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1389, 603);
+            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1210, 603);
             this.ctrlEnginSetupPage1.TabIndex = 45;
             // 
             // frmMainForm
@@ -393,7 +395,7 @@
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).EndInit();
-            this.guna2TabControl1.ResumeLayout(false);
+            this.tcGCsteps.ResumeLayout(false);
             this.tpSelect.ResumeLayout(false);
             this.tpEngineSetup.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -421,15 +423,15 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
+        private Guna.UI2.WinForms.Guna2TabControl tcGCsteps;
         private System.Windows.Forms.TabPage tpSelect;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnNext_ConfigEngine;
         private Controls.ctrlSelectPage ctrlSelectPage1;
         private System.Windows.Forms.TabPage tpEngineSetup;
         private System.Windows.Forms.PictureBox btnReset;
         private System.Windows.Forms.TabPage tpPreviewGenerate;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnNextGenerateCodePage;
+        private Guna.UI2.WinForms.Guna2Button btnBackToSelectTablePage;
         private Controls.ctrlEnginSetupPage ctrlEnginSetupPage1;
     }
 }

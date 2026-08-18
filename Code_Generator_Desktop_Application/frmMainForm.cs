@@ -57,5 +57,20 @@ namespace Code_Generator_DApp
             ctrlSelectPage1.Reset();
             
         }
+
+        private void btnNext_ConfigEngine_Click(object sender, EventArgs e)
+        {
+            if(cbSelectDatabase.Text == "Select Database")
+            {
+                return;
+            }
+            tcGCsteps.SelectedIndex = 1;
+        }
+
+        private void btnBackToSelectTablePage_Click(object sender, EventArgs e)
+        {
+            tcGCsteps.SelectedIndex = 0;
+
+        }
     }
 }
