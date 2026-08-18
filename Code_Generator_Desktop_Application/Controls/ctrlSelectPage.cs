@@ -97,7 +97,7 @@ namespace Code_Generator_DApp.Controls
                 foreach (DataGridViewRow item in rows)
                 {
                     tableName = item.Cells["cTable"].Value.ToString();
-                    if (item.Cells["Table"].Value.ToString() != "Ready")
+                    if (item.Cells["cStatus"].Value.ToString() != "Ready")
                     {
                         if (
                             MessageBox.Show($"Warning: The selected table ({tableName}) does not contain a Primary Key.\nGenerating code for this table may result in limited or unexpected functionality because the generated class will not have a Primary Key to identify records uniquely.\nDo you want to continue?",
@@ -107,8 +107,9 @@ namespace Code_Generator_DApp.Controls
                         {
                             continue;
                         }
-                        tablesName.Add(tableName);
                     }
+
+                    tablesName.Add(tableName);
 
                 }
             }
