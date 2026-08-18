@@ -50,9 +50,11 @@
             // tbPages
             // 
             this.tbPages.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tbPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPages.Controls.Add(this.tpEngineSetup);
             this.tbPages.Controls.Add(this.tpPreviewAndGenerate);
-            this.tbPages.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbPages.ItemSize = new System.Drawing.Size(180, 40);
             this.tbPages.Location = new System.Drawing.Point(0, 101);
             this.tbPages.Name = "tbPages";
@@ -164,6 +166,7 @@
             this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnReset.TabIndex = 12;
             this.btnReset.TabStop = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // pictureBox1
             // 
@@ -229,6 +232,7 @@
             this.Name = "frmCodeGeneratorewindows";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Code Generator v1.0";
+            this.Load += new System.EventHandler(this.frmCodeGeneratorewindows_Load);
             this.tbPages.ResumeLayout(false);
             this.tpEngineSetup.ResumeLayout(false);
             this.tpPreviewAndGenerate.ResumeLayout(false);
