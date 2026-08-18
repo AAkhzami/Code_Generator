@@ -106,6 +106,7 @@
             // 
             // txbSearch
             // 
+            this.txbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbSearch.BackColor = System.Drawing.Color.Transparent;
             this.txbSearch.BorderRadius = 10;
             this.txbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -130,6 +131,8 @@
             // 
             // pWarningMessage
             // 
+            this.pWarningMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pWarningMessage.BackColor = System.Drawing.Color.Transparent;
             this.pWarningMessage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(68)))));
             this.pWarningMessage.BorderRadius = 9;
@@ -175,6 +178,9 @@
             this.dgvTablesName.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvTablesName.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTablesName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 20F);
