@@ -28,15 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainForm));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Table1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Table2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Table3");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Table4");
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.tcGCsteps = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpSelect = new System.Windows.Forms.TabPage();
             this.btnNext_ConfigEngine = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
             this.btnBackToSelectTablePage = new Guna.UI2.WinForms.Guna2Button();
             this.btnNextGenerateCodePage = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlEnginSetupPage1 = new Code_Generator_DApp.Controls.ctrlEnginSetupPage();
             this.tpPreviewGenerate = new System.Windows.Forms.TabPage();
+            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,18 +58,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.ctrlSelectPage1 = new Code_Generator_DApp.Controls.ctrlSelectPage();
-            this.ctrlEnginSetupPage1 = new Code_Generator_DApp.Controls.ctrlEnginSetupPage();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
             this.tcGCsteps.SuspendLayout();
             this.tpSelect.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
+            this.tpPreviewGenerate.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -88,7 +99,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Image = global::Code_Generator_DApp.Properties.Resources.reset;
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.Location = new System.Drawing.Point(411, 35);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(32, 32);
@@ -136,10 +147,10 @@
             this.tpSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.tpSelect.Controls.Add(this.btnNext_ConfigEngine);
             this.tpSelect.Controls.Add(this.ctrlSelectPage1);
-            this.tpSelect.Location = new System.Drawing.Point(5, 4);
+            this.tpSelect.Location = new System.Drawing.Point(184, 4);
             this.tpSelect.Name = "tpSelect";
             this.tpSelect.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSelect.Size = new System.Drawing.Size(1389, 655);
+            this.tpSelect.Size = new System.Drawing.Size(1210, 655);
             this.tpSelect.TabIndex = 0;
             this.tpSelect.Text = "Select_Table";
             // 
@@ -154,12 +165,22 @@
             this.btnNext_ConfigEngine.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
             this.btnNext_ConfigEngine.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext_ConfigEngine.ForeColor = System.Drawing.Color.White;
-            this.btnNext_ConfigEngine.Location = new System.Drawing.Point(984, 592);
+            this.btnNext_ConfigEngine.Location = new System.Drawing.Point(805, 592);
             this.btnNext_ConfigEngine.Name = "btnNext_ConfigEngine";
             this.btnNext_ConfigEngine.Size = new System.Drawing.Size(390, 57);
             this.btnNext_ConfigEngine.TabIndex = 8;
             this.btnNext_ConfigEngine.Text = "Next: Configure Engine";
             this.btnNext_ConfigEngine.Click += new System.EventHandler(this.btnNext_ConfigEngine_Click);
+            // 
+            // ctrlSelectPage1
+            // 
+            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
+            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
+            this.ctrlSelectPage1.Size = new System.Drawing.Size(1198, 580);
+            this.ctrlSelectPage1.TabIndex = 7;
             // 
             // tpEngineSetup
             // 
@@ -187,7 +208,7 @@
             this.btnBackToSelectTablePage.FillColor = System.Drawing.Color.White;
             this.btnBackToSelectTablePage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackToSelectTablePage.ForeColor = System.Drawing.Color.Black;
-            this.btnBackToSelectTablePage.Location = new System.Drawing.Point(6, 592);
+            this.btnBackToSelectTablePage.Location = new System.Drawing.Point(6, 229);
             this.btnBackToSelectTablePage.Name = "btnBackToSelectTablePage";
             this.btnBackToSelectTablePage.Size = new System.Drawing.Size(390, 57);
             this.btnBackToSelectTablePage.TabIndex = 44;
@@ -205,20 +226,59 @@
             this.btnNextGenerateCodePage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
             this.btnNextGenerateCodePage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextGenerateCodePage.ForeColor = System.Drawing.Color.White;
-            this.btnNextGenerateCodePage.Location = new System.Drawing.Point(814, 592);
+            this.btnNextGenerateCodePage.Location = new System.Drawing.Point(-263, 229);
             this.btnNextGenerateCodePage.Name = "btnNextGenerateCodePage";
             this.btnNextGenerateCodePage.Size = new System.Drawing.Size(390, 57);
             this.btnNextGenerateCodePage.TabIndex = 43;
             this.btnNextGenerateCodePage.Text = "Generate Code Now";
             // 
+            // ctrlEnginSetupPage1
+            // 
+            this.ctrlEnginSetupPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, -181);
+            this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
+            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(127, 603);
+            this.ctrlEnginSetupPage1.TabIndex = 45;
+            // 
             // tpPreviewGenerate
             // 
-            this.tpPreviewGenerate.Location = new System.Drawing.Point(184, 4);
+            this.tpPreviewGenerate.Controls.Add(this.guna2Panel5);
+            this.tpPreviewGenerate.Controls.Add(this.ctrlPreviewAndGeneratePage1);
+            this.tpPreviewGenerate.Controls.Add(this.guna2Button1);
+            this.tpPreviewGenerate.Location = new System.Drawing.Point(5, 4);
             this.tpPreviewGenerate.Name = "tpPreviewGenerate";
-            this.tpPreviewGenerate.Size = new System.Drawing.Size(1210, 655);
+            this.tpPreviewGenerate.Size = new System.Drawing.Size(1389, 655);
             this.tpPreviewGenerate.TabIndex = 2;
             this.tpPreviewGenerate.Text = "Preview_Generate";
             this.tpPreviewGenerate.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPreviewAndGeneratePage1
+            // 
+            this.ctrlPreviewAndGeneratePage1.BusinessLayerClass = "BusinessLayerClass";
+            this.ctrlPreviewAndGeneratePage1.Connection = "ConnectionType";
+            this.ctrlPreviewAndGeneratePage1.DataAccessClass = "DataAccessClass";
+            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(332, 8);
+            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
+            this.ctrlPreviewAndGeneratePage1.Querys = "Queries";
+            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1049, 580);
+            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BorderRadius = 9;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(99)))), ((int)(((byte)(231)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(990, 592);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(390, 57);
+            this.guna2Button1.TabIndex = 44;
+            this.guna2Button1.Text = "Generate Code Now";
             // 
             // panel1
             // 
@@ -362,23 +422,37 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1398, 2);
             this.guna2Panel2.TabIndex = 0;
             // 
-            // ctrlSelectPage1
+            // guna2Panel5
             // 
-            this.ctrlSelectPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlSelectPage1.Location = new System.Drawing.Point(6, 6);
-            this.ctrlSelectPage1.Name = "ctrlSelectPage1";
-            this.ctrlSelectPage1.Size = new System.Drawing.Size(1377, 580);
-            this.ctrlSelectPage1.TabIndex = 7;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Panel5.BorderRadius = 8;
+            this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.treeView1);
+            this.guna2Panel5.Location = new System.Drawing.Point(13, 13);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(313, 574);
+            this.guna2Panel5.TabIndex = 45;
             // 
-            // ctrlEnginSetupPage1
+            // treeView1
             // 
-            this.ctrlEnginSetupPage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlEnginSetupPage1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlEnginSetupPage1.Name = "ctrlEnginSetupPage1";
-            this.ctrlEnginSetupPage1.Size = new System.Drawing.Size(1210, 603);
-            this.ctrlEnginSetupPage1.TabIndex = 45;
+            this.treeView1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Location = new System.Drawing.Point(80, 88);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Table1";
+            treeNode2.Name = "Node1";
+            treeNode2.Text = "Table2";
+            treeNode3.Name = "Node2";
+            treeNode3.Text = "Table3";
+            treeNode4.Name = "Node3";
+            treeNode4.Text = "Table4";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            this.treeView1.Size = new System.Drawing.Size(186, 366);
+            this.treeView1.TabIndex = 0;
             // 
             // frmMainForm
             // 
@@ -398,12 +472,14 @@
             this.tcGCsteps.ResumeLayout(false);
             this.tpSelect.ResumeLayout(false);
             this.tpEngineSetup.ResumeLayout(false);
+            this.tpPreviewGenerate.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -433,5 +509,9 @@
         private Guna.UI2.WinForms.Guna2Button btnNextGenerateCodePage;
         private Guna.UI2.WinForms.Guna2Button btnBackToSelectTablePage;
         private Controls.ctrlEnginSetupPage ctrlEnginSetupPage1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage ctrlPreviewAndGeneratePage1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

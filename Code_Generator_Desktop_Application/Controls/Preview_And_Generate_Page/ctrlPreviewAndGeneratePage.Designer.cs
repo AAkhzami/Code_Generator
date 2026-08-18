@@ -40,15 +40,13 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Panel1.BorderRadius = 8;
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.tbCodesGenerator);
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1371, 574);
+            this.guna2Panel1.Size = new System.Drawing.Size(1043, 574);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tbCodesGenerator
@@ -61,10 +59,10 @@
             this.tbCodesGenerator.Controls.Add(this.tpQueries);
             this.tbCodesGenerator.Controls.Add(this.tpConnection);
             this.tbCodesGenerator.ItemSize = new System.Drawing.Size(180, 40);
-            this.tbCodesGenerator.Location = new System.Drawing.Point(3, 3);
+            this.tbCodesGenerator.Location = new System.Drawing.Point(9, 8);
             this.tbCodesGenerator.Name = "tbCodesGenerator";
             this.tbCodesGenerator.SelectedIndex = 0;
-            this.tbCodesGenerator.Size = new System.Drawing.Size(1365, 568);
+            this.tbCodesGenerator.Size = new System.Drawing.Size(1025, 558);
             this.tbCodesGenerator.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tbCodesGenerator.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tbCodesGenerator.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -81,7 +79,7 @@
             this.tbCodesGenerator.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.tbCodesGenerator.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.tbCodesGenerator.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.tbCodesGenerator.TabIndex = 0;
+            this.tbCodesGenerator.TabIndex = 1;
             this.tbCodesGenerator.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tbCodesGenerator.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
@@ -89,7 +87,7 @@
             // 
             this.tpDataAccessClass.Location = new System.Drawing.Point(4, 44);
             this.tpDataAccessClass.Name = "tpDataAccessClass";
-            this.tpDataAccessClass.Size = new System.Drawing.Size(1357, 520);
+            this.tpDataAccessClass.Size = new System.Drawing.Size(1017, 510);
             this.tpDataAccessClass.TabIndex = 0;
             this.tpDataAccessClass.Text = "DataAccessClass";
             this.tpDataAccessClass.UseVisualStyleBackColor = true;
@@ -98,7 +96,7 @@
             // 
             this.tpBusinessLayer.Location = new System.Drawing.Point(4, 44);
             this.tpBusinessLayer.Name = "tpBusinessLayer";
-            this.tpBusinessLayer.Size = new System.Drawing.Size(1357, 520);
+            this.tpBusinessLayer.Size = new System.Drawing.Size(1017, 510);
             this.tpBusinessLayer.TabIndex = 1;
             this.tpBusinessLayer.Text = "BusinessLayerClass";
             this.tpBusinessLayer.UseVisualStyleBackColor = true;
@@ -107,7 +105,7 @@
             // 
             this.tpQueries.Location = new System.Drawing.Point(4, 44);
             this.tpQueries.Name = "tpQueries";
-            this.tpQueries.Size = new System.Drawing.Size(1357, 520);
+            this.tpQueries.Size = new System.Drawing.Size(1017, 510);
             this.tpQueries.TabIndex = 2;
             this.tpQueries.Text = "Queries";
             this.tpQueries.UseVisualStyleBackColor = true;
@@ -116,7 +114,7 @@
             // 
             this.tpConnection.Location = new System.Drawing.Point(4, 44);
             this.tpConnection.Name = "tpConnection";
-            this.tpConnection.Size = new System.Drawing.Size(1357, 520);
+            this.tpConnection.Size = new System.Drawing.Size(1017, 510);
             this.tpConnection.TabIndex = 3;
             this.tpConnection.Text = "ConnectionType";
             this.tpConnection.UseVisualStyleBackColor = true;
@@ -127,7 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlPreviewAndGeneratePage";
-            this.Size = new System.Drawing.Size(1377, 580);
+            this.Size = new System.Drawing.Size(1049, 580);
             this.guna2Panel1.ResumeLayout(false);
             this.tbCodesGenerator.ResumeLayout(false);
             this.ResumeLayout(false);
