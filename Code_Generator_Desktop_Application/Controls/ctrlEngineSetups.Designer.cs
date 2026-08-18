@@ -42,6 +42,20 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cbExecutionEngine = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkBoxDelete = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.checkBoxUpdate = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.checkBoxInsert = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.checkBoxGetByID = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.checkBoxGetAll = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -49,6 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.guna2Panel6.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -59,6 +76,9 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(65)))), ((int)(((byte)(80)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.guna2Panel6);
+            this.guna2Panel1.Controls.Add(this.guna2Panel4);
+            this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.guna2Panel3);
             this.guna2Panel1.Controls.Add(this.cbExecutionEngine);
@@ -235,6 +255,210 @@
             this.label3.TabIndex = 32;
             this.label3.Text = "Execution Engine";
             // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Controls.Add(this.label11);
+            this.guna2Panel6.Controls.Add(this.label9);
+            this.guna2Panel6.Controls.Add(this.label8);
+            this.guna2Panel6.Controls.Add(this.label7);
+            this.guna2Panel6.Controls.Add(this.label5);
+            this.guna2Panel6.Controls.Add(this.checkBoxDelete);
+            this.guna2Panel6.Controls.Add(this.checkBoxUpdate);
+            this.guna2Panel6.Controls.Add(this.checkBoxInsert);
+            this.guna2Panel6.Controls.Add(this.checkBoxGetByID);
+            this.guna2Panel6.Controls.Add(this.checkBoxGetAll);
+            this.guna2Panel6.Location = new System.Drawing.Point(28, 412);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(456, 185);
+            this.guna2Panel6.TabIndex = 42;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BorderRadius = 9;
+            this.guna2Panel4.Controls.Add(this.pictureBox4);
+            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
+            this.guna2Panel4.Location = new System.Drawing.Point(28, 361);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(45, 45);
+            this.guna2Panel4.TabIndex = 41;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Code_Generator_DApp.Properties.Resources.settings_2;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(86, 372);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(189, 23);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Operations Selections";
+            // 
+            // checkBoxDelete
+            // 
+            this.checkBoxDelete.AutoSize = true;
+            this.checkBoxDelete.Checked = true;
+            this.checkBoxDelete.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxDelete.CheckedState.BorderRadius = 0;
+            this.checkBoxDelete.CheckedState.BorderThickness = 0;
+            this.checkBoxDelete.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxDelete.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDelete.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.checkBoxDelete.Location = new System.Drawing.Point(48, 145);
+            this.checkBoxDelete.Name = "checkBoxDelete";
+            this.checkBoxDelete.Size = new System.Drawing.Size(96, 27);
+            this.checkBoxDelete.TabIndex = 22;
+            this.checkBoxDelete.Text = "Delete()";
+            this.checkBoxDelete.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxDelete.UncheckedState.BorderRadius = 0;
+            this.checkBoxDelete.UncheckedState.BorderThickness = 0;
+            this.checkBoxDelete.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // checkBoxUpdate
+            // 
+            this.checkBoxUpdate.AutoSize = true;
+            this.checkBoxUpdate.Checked = true;
+            this.checkBoxUpdate.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxUpdate.CheckedState.BorderRadius = 0;
+            this.checkBoxUpdate.CheckedState.BorderThickness = 0;
+            this.checkBoxUpdate.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUpdate.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.checkBoxUpdate.Location = new System.Drawing.Point(48, 112);
+            this.checkBoxUpdate.Name = "checkBoxUpdate";
+            this.checkBoxUpdate.Size = new System.Drawing.Size(103, 27);
+            this.checkBoxUpdate.TabIndex = 21;
+            this.checkBoxUpdate.Text = "Update()";
+            this.checkBoxUpdate.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxUpdate.UncheckedState.BorderRadius = 0;
+            this.checkBoxUpdate.UncheckedState.BorderThickness = 0;
+            this.checkBoxUpdate.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // checkBoxInsert
+            // 
+            this.checkBoxInsert.AutoSize = true;
+            this.checkBoxInsert.Checked = true;
+            this.checkBoxInsert.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxInsert.CheckedState.BorderRadius = 0;
+            this.checkBoxInsert.CheckedState.BorderThickness = 0;
+            this.checkBoxInsert.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxInsert.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxInsert.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.checkBoxInsert.Location = new System.Drawing.Point(48, 79);
+            this.checkBoxInsert.Name = "checkBoxInsert";
+            this.checkBoxInsert.Size = new System.Drawing.Size(92, 27);
+            this.checkBoxInsert.TabIndex = 20;
+            this.checkBoxInsert.Text = "Insert()";
+            this.checkBoxInsert.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxInsert.UncheckedState.BorderRadius = 0;
+            this.checkBoxInsert.UncheckedState.BorderThickness = 0;
+            this.checkBoxInsert.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // checkBoxGetByID
+            // 
+            this.checkBoxGetByID.AutoSize = true;
+            this.checkBoxGetByID.Checked = true;
+            this.checkBoxGetByID.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxGetByID.CheckedState.BorderRadius = 0;
+            this.checkBoxGetByID.CheckedState.BorderThickness = 0;
+            this.checkBoxGetByID.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxGetByID.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGetByID.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.checkBoxGetByID.Location = new System.Drawing.Point(48, 46);
+            this.checkBoxGetByID.Name = "checkBoxGetByID";
+            this.checkBoxGetByID.Size = new System.Drawing.Size(127, 27);
+            this.checkBoxGetByID.TabIndex = 19;
+            this.checkBoxGetByID.Text = "GetByID(id)";
+            this.checkBoxGetByID.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxGetByID.UncheckedState.BorderRadius = 0;
+            this.checkBoxGetByID.UncheckedState.BorderThickness = 0;
+            this.checkBoxGetByID.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // checkBoxGetAll
+            // 
+            this.checkBoxGetAll.AutoSize = true;
+            this.checkBoxGetAll.Checked = true;
+            this.checkBoxGetAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxGetAll.CheckedState.BorderRadius = 0;
+            this.checkBoxGetAll.CheckedState.BorderThickness = 0;
+            this.checkBoxGetAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
+            this.checkBoxGetAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGetAll.Font = new System.Drawing.Font("Tahoma", 14.25F);
+            this.checkBoxGetAll.Location = new System.Drawing.Point(48, 13);
+            this.checkBoxGetAll.Name = "checkBoxGetAll";
+            this.checkBoxGetAll.Size = new System.Drawing.Size(91, 27);
+            this.checkBoxGetAll.TabIndex = 18;
+            this.checkBoxGetAll.Text = "GetAll()";
+            this.checkBoxGetAll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxGetAll.UncheckedState.BorderRadius = 0;
+            this.checkBoxGetAll.UncheckedState.BorderThickness = 0;
+            this.checkBoxGetAll.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label5.Location = new System.Drawing.Point(314, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 17);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Retrieve all records\r\n";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label7.Location = new System.Drawing.Point(282, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 17);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Retrieve by primary key";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label11.Location = new System.Drawing.Point(347, 150);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 17);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Delete record";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label9.Location = new System.Drawing.Point(291, 117);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 17);
+            this.label9.TabIndex = 45;
+            this.label9.Text = "Update existing record";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
+            this.label8.Location = new System.Drawing.Point(321, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(116, 17);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "Insert new record";
+            // 
             // ctrlEngineSetups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +474,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel6.PerformLayout();
+            this.guna2Panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,5 +498,19 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2ComboBox cbExecutionEngine;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2CheckBox checkBoxDelete;
+        private Guna.UI2.WinForms.Guna2CheckBox checkBoxUpdate;
+        private Guna.UI2.WinForms.Guna2CheckBox checkBoxInsert;
+        private Guna.UI2.WinForms.Guna2CheckBox checkBoxGetByID;
+        private Guna.UI2.WinForms.Guna2CheckBox checkBoxGetAll;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
