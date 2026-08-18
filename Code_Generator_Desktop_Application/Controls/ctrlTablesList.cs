@@ -103,11 +103,11 @@ namespace Code_Generator_DApp.Controls
             if(dgvTablesName.Rows.Count != 0)
             {
                 string tableName = txbSearch.Text;
-                DataTable dt = (DataTable)dgvTablesName.DataSource;
+                DataTable dt = dgvTablesName.DataSource as DataTable;
 
                 if (!string.IsNullOrWhiteSpace(tableName) && dt != null)
                 {
-                    dt.DefaultView.RowFilter = string.Format("cTable LIKE '%{0}%'", tableName);
+                    dt.DefaultView.RowFilter = string.Format("cTable LIKE '{0}%'", tableName);
                 }
             }
  
