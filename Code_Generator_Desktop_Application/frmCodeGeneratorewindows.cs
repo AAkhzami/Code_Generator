@@ -48,5 +48,10 @@ namespace Code_Generator_DApp
             }
             tbPages.SelectedIndex = 0;
         }
+
+        private void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
