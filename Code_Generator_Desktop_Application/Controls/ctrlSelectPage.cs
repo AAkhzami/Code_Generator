@@ -85,5 +85,35 @@ namespace Code_Generator_DApp.Controls
             lblKeysCount.Text = "0";
             lblTableCount.Text = "0";
         }
+
+        public List<string> GetSelectedTableName()
+        {
+            DataGridViewSelectedRowCollection rows = dgvTablesInfo.SelectedRows;
+            List<string> tablesName = new List<string>();
+            
+            if(rows.Count > 0)
+            {
+                string tableName = "";
+                foreach (DataGridViewRow item in rows)
+                {
+                    tableName = item.Cells["Table"].Value.ToString();
+                    if (item.Cells["Table"].Value.ToString() != "Ready")
+                    {
+                        if (
+                            MessageBox.Show($"Warning: The selected table ({tableName}) does not contain a Primary Key.\nGenerating code for this table may result in limited or unexpected functionality because the generated class will not have a Primary Key to identify records uniquely.\nDo you want to continue?",
+                            "Warning",
+                            MessageBoxButtons.YesNo,MessageBoxIcon.Warning) 
+                            == DialogResult.No)
+                        {
+                            continue;
+                        }
+                        tablesName.Add(tableName);
+                    }
+
+                }
+            }
+
+            return tablesName;
+        }
     }
 }
