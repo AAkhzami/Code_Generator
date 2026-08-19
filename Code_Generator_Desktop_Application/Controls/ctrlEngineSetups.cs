@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Generator_Business_Layer.DataAccessGenerators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,6 +46,21 @@ namespace Code_Generator_DApp.Controls
                 lblExecutionEngineDetails.Text = "Executes direct SQL queries in your C# code.\r\nFaster to implement, less abstraction.";
                 lblExecutionEngineDetails.ForeColor = Color.FromArgb(254, 243, 221);
             }
+        }
+
+
+        public clsConnectionData.enConnectionType? GetConnectionType()
+        {
+            string type = cbConnectionType.SelectedItem as string;
+            if (type == "App.Config")
+            {
+                return clsConnectionData.enConnectionType.AppConfig;
+            }
+            else if (type == "Static Class")
+            {
+                return clsConnectionData.enConnectionType.StaticClass;
+            }
+            return null;
         }
     }
 }
