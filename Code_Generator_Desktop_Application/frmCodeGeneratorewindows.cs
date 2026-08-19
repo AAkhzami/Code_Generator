@@ -22,6 +22,10 @@ namespace Code_Generator_DApp
         private void btnNextPage_Click(object sender, EventArgs e)
         {
             tbPages.SelectedIndex = 1;
+            string database = cbSelectDatabase.Text;
+            string table = "";
+
+            ctrlPreviewAndGeneratePage1.LoadAccessDataClass(database, table, ctrlEngineSetups1.DatabaseType, ctrlEngineSetups1.GetOperations());
         }
 
         private void btnBack_Click(object sender, EventArgs e)

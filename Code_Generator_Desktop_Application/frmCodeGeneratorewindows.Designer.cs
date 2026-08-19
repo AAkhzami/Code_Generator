@@ -41,7 +41,7 @@
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ctrlEngineSetups1 = new Code_Generator_DApp.Controls.ctrlEngineSetups();
             this.ctrlTablesList1 = new Code_Generator_DApp.Controls.ctrlTablesList();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
             this.tbPages.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.tpPreviewAndGenerate.SuspendLayout();
@@ -120,7 +120,7 @@
             // tpPreviewAndGenerate
             // 
             this.tpPreviewAndGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(30)))), ((int)(((byte)(44)))));
-            this.tpPreviewAndGenerate.Controls.Add(this.panel1);
+            this.tpPreviewAndGenerate.Controls.Add(this.ctrlPreviewAndGeneratePage1);
             this.tpPreviewAndGenerate.Controls.Add(this.btnBack);
             this.tpPreviewAndGenerate.Controls.Add(this.btnGenerate);
             this.tpPreviewAndGenerate.Location = new System.Drawing.Point(4, 4);
@@ -248,12 +248,16 @@
             this.ctrlTablesList1.Size = new System.Drawing.Size(394, 584);
             this.ctrlTablesList1.TabIndex = 5;
             // 
-            // panel1
+            // ctrlPreviewAndGeneratePage1
             // 
-            this.panel1.Location = new System.Drawing.Point(9, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1431, 577);
-            this.panel1.TabIndex = 3;
+            this.ctrlPreviewAndGeneratePage1.BusinessLayerClass = "BusinessLayerClass";
+            this.ctrlPreviewAndGeneratePage1.Connection = "ConnectionType";
+            this.ctrlPreviewAndGeneratePage1.DataAccessClass = "DataAccessClass";
+            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(200, 11);
+            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
+            this.ctrlPreviewAndGeneratePage1.Querys = "Queries";
+            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1049, 580);
+            this.ctrlPreviewAndGeneratePage1.TabIndex = 4;
             // 
             // frmCodeGeneratorewindows
             // 
@@ -293,6 +297,6 @@
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Controls.ctrlEngineSetups ctrlEngineSetups1;
         private Controls.ctrlTablesList ctrlTablesList1;
-        private System.Windows.Forms.Panel panel1;
+        private Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage ctrlPreviewAndGeneratePage1;
     }
 }
