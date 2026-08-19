@@ -274,7 +274,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(Database, Table);
             clsBusinessLayerGenerator BusinessLayer = new clsBusinessLayerGenerator(Database, Table);
             fctbBusinessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations));
-            tpDataAccess.Text = $"cls{Table}.cs";
+            tpBusinessLayer.Text = $"cls{Table}.cs";
 
         }
         public void LoadTSQLQueries(string Database, string Table, List<clsClassCodeBuilder.enOperationType> operations)
@@ -336,6 +336,11 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         }
         public void Reset()
         {
+            tpDataAccess.Text = "DataAccessClass";
+            tpBusinessLayer.Text = "BusinessLayerClass";
+            tpQueries.Text = "Queries";
+            tpConnection.Text = "ConnectionType";
+
             fctbDataAccessClass.Text = "";
             fctbBusinessClass.Text = "";
             fctbQueries.Text = "";
