@@ -252,6 +252,18 @@ namespace Code_Generator_Business_Layer
             sb.AppendLine("}");
             return sb.ToString();
         }
-
+        public string GenerateSaveUpdateMethod()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"public bool Save()");
+            sb.AppendLine("{");
+            sb.AppendLine("\tif(Mode == enMode.Update)");
+            sb.AppendLine("\t{");
+            sb.AppendLine($"\t\treturn _Update{_table}();");
+            sb.AppendLine("\t}");
+            sb.AppendLine("\treturn false;");
+            sb.AppendLine("}");
+            return sb.ToString();
+        }
     }
 }
