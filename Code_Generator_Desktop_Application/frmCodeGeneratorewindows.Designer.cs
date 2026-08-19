@@ -99,7 +99,7 @@
             // ctrlEngineSetups1
             // 
             this.ctrlEngineSetups1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ctrlEngineSetups1.Location = new System.Drawing.Point(665, 8);
             this.ctrlEngineSetups1.Name = "ctrlEngineSetups1";
             this.ctrlEngineSetups1.Size = new System.Drawing.Size(518, 584);
@@ -108,7 +108,7 @@
             // ctrlTablesList1
             // 
             this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlTablesList1.Location = new System.Drawing.Point(265, 8);
             this.ctrlTablesList1.Name = "ctrlTablesList1";
             this.ctrlTablesList1.Size = new System.Drawing.Size(394, 584);

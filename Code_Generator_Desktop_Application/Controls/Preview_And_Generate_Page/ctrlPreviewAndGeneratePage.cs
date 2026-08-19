@@ -250,6 +250,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                     {
                         clsSQLServerDataAccessLayerGenerator SQL = new clsSQLServerDataAccessLayerGenerator(Table, connection);
                         fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations));
+                        fctbQueries.Text = "";
                         lblMessage.Visible = true;
                         break;
                     }
