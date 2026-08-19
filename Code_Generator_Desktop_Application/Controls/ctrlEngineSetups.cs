@@ -86,7 +86,7 @@ namespace Code_Generator_DApp.Controls
             return null;
         }
 
-        public void ChangeOperationsStatus(object sender, EventArgs e)
+        private void ChangeOperationsStatus(object sender, EventArgs e)
         {
             Guna2CheckBox checkBox = (Guna2CheckBox) sender;
 
