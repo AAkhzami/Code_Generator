@@ -148,7 +148,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
         public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
-            if (!string.IsNullOrWhiteSpace(connection.databaseName) && !string.IsNullOrWhiteSpace(Table))
+            if (string.IsNullOrWhiteSpace(connection.databaseName) && string.IsNullOrWhiteSpace(Table))
             {
                 return;
             }
@@ -172,7 +172,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         }
         public void LoadBusinessClass(string Database,string Table, List<clsClassCodeBuilder.enOperationType> operations)
         {
-            if (!string.IsNullOrWhiteSpace(Database) && !string.IsNullOrWhiteSpace(Table))
+            if (string.IsNullOrWhiteSpace(Database) && string.IsNullOrWhiteSpace(Table))
             {
                 return;
             }
