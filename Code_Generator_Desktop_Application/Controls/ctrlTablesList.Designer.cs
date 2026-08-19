@@ -172,6 +172,7 @@
             this.dgvTablesName.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTablesName.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTablesName.Location = new System.Drawing.Point(18, 134);
+            this.dgvTablesName.MultiSelect = false;
             this.dgvTablesName.Name = "dgvTablesName";
             this.dgvTablesName.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
