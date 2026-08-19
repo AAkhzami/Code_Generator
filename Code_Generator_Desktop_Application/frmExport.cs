@@ -54,12 +54,10 @@ namespace Code_Generator_DApp
                 {
                     clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", _Locations);
                 }
-
                 if (tsBusinessClass.Checked)
                 {
                     clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", _Locations);
-                }
-                
+                }                
                 if (tsConnection.Checked)
                 {
                     switch (_Connection.connectionType)
@@ -72,24 +70,24 @@ namespace Code_Generator_DApp
                             break;
                     }
                 }
-
                 if (tsQueries.Checked)
                 {
                     if (_Connection != null)
                     {
                         if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
                         {
-                            throw new ArgumentException("An error occurred while executing queries in the databases.");
+                            return;
                         }
                     }
                 }
-
-                MessageBox.Show("");
             }
             catch(Exception ex)
             {
                 MessageBox.Show($"An Error occurred: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            MessageBox.Show("Exported File Successfully!","Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
