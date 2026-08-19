@@ -94,7 +94,7 @@ namespace Code_Generator_DApp
                 dialog.ValidateNames = false;
                 dialog.CheckFileExists = false;
                 dialog.CheckPathExists = true;
-                dialog.FileName = "اختر المجلد الحالي"; // اسم وهمي لتحديد المجلد
+                dialog.FileName = "Select the folder";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string folderPath = System.IO.Path.GetDirectoryName(dialog.FileName);

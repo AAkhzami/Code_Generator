@@ -115,12 +115,12 @@ namespace Code_Generator_DApp
         {
             string dataAccessClass = ctrlPreviewAndGeneratePage1.DataAccessClass();
             string businessClass = ctrlPreviewAndGeneratePage1.BusinessClass();
-            string queries = ctrlPreviewAndGeneratePage1.Queries();
-            string connection = ctrlPreviewAndGeneratePage1.ConnectionsText();
+            List<string> queries = ctrlPreviewAndGeneratePage1.Queries();
 
             string table = ctrlTablesList1.GetSelectedTableName();
             List<string> tables = new List<string>();
-            //frmExport frm = new frmExport(table, dataAccessClass, businessClass, tables, connection);
+
+            frmExport frm = new frmExport(table, dataAccessClass, businessClass, queries, _connectionInfo);
         }
     }
 }
