@@ -39,37 +39,52 @@ namespace Code_Generator_DApp
         private void btnExport_Click(object sender, EventArgs e)
         {
             string location = Directory.GetCurrentDirectory();
-            if (tsDataAccessClass.Checked)
+
+            if (string.IsNullOrEmpty(location))
             {
-                clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", location);
+                MessageBox.Show("Choose export's location!","Not Allowed",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
             }
-            else if(tsBusinessClass.Checked)
+
+            try
             {
-                clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", location);
-            }
-            else if (tsQueries.Checked)
-            {
-                if (_Connection != null)
+                if (tsDataAccessClass.Checked)
                 {
-                    if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries,_Connection))
+                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", location);
+                }
+                else if (tsBusinessClass.Checked)
+                {
+                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", location);
+                }
+                else if (tsQueries.Checked)
+                {
+                    if (_Connection != null)
                     {
-                        MessageBox.Show("An error occurred while executing queries in the databases.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                        return;
+                        if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
+                        {
+                            throw new ArgumentException("An error occurred while executing queries in the databases.");
+                        }
+                    }
+                }
+                else if (tsConnection.Checked)
+                {
+                    switch (_Connection.connectionType)
+                    {
+                        case clsConnectionData.enConnectionType.StaticClass:
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", "DataAccess_Layer", location);
+                            break;
+                        case clsConnectionData.enConnectionType.AppConfig:
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", "DataAccess_Layer", location);
+                            break;
                     }
                 }
             }
-            else if (tsConnection.Checked)
+            catch(Exception ex)
             {
-                switch(_Connection.connectionType)
-                {
-                    case clsConnectionData.enConnectionType.StaticClass:
-                        clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", "DataAccess_Layer", location);
-                        break;
-                    case clsConnectionData.enConnectionType.AppConfig:
-                        clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", "DataAccess_Layer", location);
-                        break;
-                }
+                MessageBox.Show($"An Error occurred: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
     }
 }
