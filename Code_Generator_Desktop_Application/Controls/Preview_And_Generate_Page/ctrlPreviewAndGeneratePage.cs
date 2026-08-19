@@ -276,5 +276,9 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             fctbQueries.Text = sb.ToString();
 
         }
+        public void LoadConnectionText(clsConnectionData connection)
+        {
+            connection.GenerateConnection();
+        }
     }
 }
