@@ -37,21 +37,27 @@
             this.tpBusinessLayer = new System.Windows.Forms.TabPage();
             this.tpQueries = new System.Windows.Forms.TabPage();
             this.tpConnection = new System.Windows.Forms.TabPage();
+            this.fctbBusinessClass = new FastColoredTextBoxNS.FastColoredTextBox();
             this.guna2Panel1.SuspendLayout();
             this.tbCodesGenerator.SuspendLayout();
             this.tpDataAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).BeginInit();
+            this.tpBusinessLayer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fctbBusinessClass)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Panel1.BorderRadius = 8;
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.tbCodesGenerator);
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1162, 574);
+            this.guna2Panel1.Size = new System.Drawing.Size(1129, 574);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tbCodesGenerator
@@ -67,7 +73,7 @@
             this.tbCodesGenerator.Location = new System.Drawing.Point(9, 8);
             this.tbCodesGenerator.Name = "tbCodesGenerator";
             this.tbCodesGenerator.SelectedIndex = 0;
-            this.tbCodesGenerator.Size = new System.Drawing.Size(1120, 558);
+            this.tbCodesGenerator.Size = new System.Drawing.Size(1109, 558);
             this.tbCodesGenerator.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tbCodesGenerator.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tbCodesGenerator.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -93,7 +99,7 @@
             this.tpDataAccess.Controls.Add(this.fctbDataAccessClass);
             this.tpDataAccess.Location = new System.Drawing.Point(4, 44);
             this.tpDataAccess.Name = "tpDataAccess";
-            this.tpDataAccess.Size = new System.Drawing.Size(1112, 510);
+            this.tpDataAccess.Size = new System.Drawing.Size(1101, 510);
             this.tpDataAccess.TabIndex = 0;
             this.tpDataAccess.Text = "DataAccessClass";
             this.tpDataAccess.UseVisualStyleBackColor = true;
@@ -117,21 +123,24 @@
             this.fctbDataAccessClass.CharWidth = 8;
             this.fctbDataAccessClass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctbDataAccessClass.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fctbDataAccessClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctbDataAccessClass.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctbDataAccessClass.IsReplaceMode = false;
-            this.fctbDataAccessClass.Location = new System.Drawing.Point(3, 3);
+            this.fctbDataAccessClass.Location = new System.Drawing.Point(0, 0);
             this.fctbDataAccessClass.Name = "fctbDataAccessClass";
             this.fctbDataAccessClass.Paddings = new System.Windows.Forms.Padding(0);
             this.fctbDataAccessClass.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fctbDataAccessClass.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctbDataAccessClass.ServiceColors")));
-            this.fctbDataAccessClass.Size = new System.Drawing.Size(1106, 504);
+            this.fctbDataAccessClass.Size = new System.Drawing.Size(1101, 510);
             this.fctbDataAccessClass.TabIndex = 0;
             this.fctbDataAccessClass.Zoom = 100;
             // 
             // tpBusinessLayer
             // 
+            this.tpBusinessLayer.Controls.Add(this.fctbBusinessClass);
             this.tpBusinessLayer.Location = new System.Drawing.Point(4, 44);
             this.tpBusinessLayer.Name = "tpBusinessLayer";
-            this.tpBusinessLayer.Size = new System.Drawing.Size(1112, 510);
+            this.tpBusinessLayer.Size = new System.Drawing.Size(1101, 510);
             this.tpBusinessLayer.TabIndex = 1;
             this.tpBusinessLayer.Text = "BusinessLayerClass";
             this.tpBusinessLayer.UseVisualStyleBackColor = true;
@@ -154,6 +163,36 @@
             this.tpConnection.Text = "ConnectionType";
             this.tpConnection.UseVisualStyleBackColor = true;
             // 
+            // fctbBusinessClass
+            // 
+            this.fctbBusinessClass.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.fctbBusinessClass.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fctbBusinessClass.BackBrush = null;
+            this.fctbBusinessClass.CharHeight = 14;
+            this.fctbBusinessClass.CharWidth = 8;
+            this.fctbBusinessClass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fctbBusinessClass.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fctbBusinessClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctbBusinessClass.IsReplaceMode = false;
+            this.fctbBusinessClass.Location = new System.Drawing.Point(0, 0);
+            this.fctbBusinessClass.Name = "fctbBusinessClass";
+            this.fctbBusinessClass.Paddings = new System.Windows.Forms.Padding(0);
+            this.fctbBusinessClass.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.fctbBusinessClass.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctbBusinessClass.ServiceColors")));
+            this.fctbBusinessClass.Size = new System.Drawing.Size(1101, 510);
+            this.fctbBusinessClass.TabIndex = 1;
+            this.fctbBusinessClass.Zoom = 100;
+            // 
             // ctrlPreviewAndGeneratePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +204,8 @@
             this.tbCodesGenerator.ResumeLayout(false);
             this.tpDataAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).EndInit();
+            this.tpBusinessLayer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fctbBusinessClass)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +219,6 @@
         private System.Windows.Forms.TabPage tpQueries;
         private System.Windows.Forms.TabPage tpConnection;
         private FastColoredTextBoxNS.FastColoredTextBox fctbDataAccessClass;
+        private FastColoredTextBoxNS.FastColoredTextBox fctbBusinessClass;
     }
 }

@@ -155,10 +155,10 @@
             this.ctrlPreviewAndGeneratePage1.BusinessLayerClass = "BusinessLayerClass";
             this.ctrlPreviewAndGeneratePage1.Connection = "ConnectionType";
             this.ctrlPreviewAndGeneratePage1.DataAccessClass = "DataAccessClass";
-            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
             this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
             this.ctrlPreviewAndGeneratePage1.Querys = "Queries";
-            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1135, 577);
+            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
             this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
             // btnBack

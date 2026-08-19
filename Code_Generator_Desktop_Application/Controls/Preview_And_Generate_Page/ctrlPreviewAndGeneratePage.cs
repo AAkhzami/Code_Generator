@@ -11,7 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static Code_Generator_DApp.Controls.ctrlEngineSetups;
 
 namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 {
@@ -75,6 +77,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         {
             InitializeComponent();
             ApplyTokyoNightTheme(fctbDataAccessClass);
+            ApplyOneDarkProTheme(fctbBusinessClass);
         }
         private void ApplyTokyoNightTheme(FastColoredTextBox codeEditor)
         {
@@ -108,6 +111,41 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             codeEditor.OnTextChanged();
         }
+        private void ApplyOneDarkProTheme(FastColoredTextBox fctb)
+        {
+            fctb.BackColor = Color.FromArgb(40, 44, 52);
+            fctb.ForeColor = Color.FromArgb(171, 178, 191);
+            fctb.IndentBackColor = Color.FromArgb(33, 37, 43);
+            fctb.LineNumberColor = Color.FromArgb(92, 99, 112);
+            fctb.SelectionColor = Color.FromArgb(80, 61, 68, 81);
+            fctb.CaretColor = Color.FromArgb(82, 139, 255);
+            fctb.Font = new Font("Consolas", 11f, FontStyle.Regular);
+
+            fctb.Language = Language.Custom;
+            fctb.ClearStylesBuffer();
+
+            TextStyle keywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(198, 120, 221)), null, FontStyle.Regular);
+            TextStyle typeStyle = new TextStyle(new SolidBrush(Color.FromArgb(86, 182, 194)), null, FontStyle.Regular);
+            TextStyle methodStyle = new TextStyle(new SolidBrush(Color.FromArgb(97, 175, 239)), null, FontStyle.Regular); 
+            TextStyle stringStyle = new TextStyle(new SolidBrush(Color.FromArgb(152, 195, 121)), null, FontStyle.Regular);
+            TextStyle commentStyle = new TextStyle(new SolidBrush(Color.FromArgb(92, 99, 112)), null, FontStyle.Italic);  
+            TextStyle numberStyle = new TextStyle(new SolidBrush(Color.FromArgb(209, 154, 102)), null, FontStyle.Regular);
+
+            fctb.TextChanged += (s, ev) =>
+            {
+                ev.ChangedRange.ClearStyle(keywordStyle, typeStyle, methodStyle, stringStyle, commentStyle, numberStyle);
+
+                ev.ChangedRange.SetStyle(keywordStyle, @"\b(using|namespace|class|public|private|protected|internal|static|async|await|return|var|new|void|string|int|bool|object)\b");
+                ev.ChangedRange.SetStyle(typeStyle, @"\b(Task|DataTable|SqlConnection|SqlCommand|SqlDataAdapter|Exception)\b|\b[A-Z]\w*\b");
+                ev.ChangedRange.SetStyle(stringStyle, @"""""|@""[^""]*""|""([^""\\]|\\.)*""");
+                ev.ChangedRange.SetStyle(commentStyle, @"//.*$|/\*[\s\S]*?\*/", RegexOptions.Multiline);
+                ev.ChangedRange.SetStyle(numberStyle, @"\b\d+\b");
+            };
+
+            fctb.OnTextChanged();
+        }
+
+
         public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
             clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(connection.databaseName, Table);
