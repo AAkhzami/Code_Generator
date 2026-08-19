@@ -78,6 +78,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             InitializeComponent();
             ApplyTokyoNightTheme(fctbDataAccessClass);
             ApplyOneDarkProTheme(fctbBusinessClass);
+            ApplyModernTSQLTheme(fctbQueries);
         }
         private void ApplyTokyoNightTheme(FastColoredTextBox codeEditor)
         {
@@ -144,7 +145,51 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             fctb.OnTextChanged();
         }
+        private void ApplyModernTSQLTheme(FastColoredTextBox codeEditor)
+        {
+            codeEditor.BackColor = Color.FromArgb(24, 28, 36);             
+            codeEditor.ForeColor = Color.FromArgb(220, 224, 230);          
+            codeEditor.IndentBackColor = Color.FromArgb(18, 21, 28);       
+            codeEditor.LineNumberColor = Color.FromArgb(80, 90, 105);      
+            codeEditor.SelectionColor = Color.FromArgb(80, 52, 84, 138);   
+            codeEditor.CaretColor = Color.FromArgb(0, 230, 208);           
+            codeEditor.Font = new Font("Consolas", 11f, FontStyle.Regular);
 
+            codeEditor.Language = Language.Custom;
+            codeEditor.ClearStylesBuffer();
+
+            TextStyle keywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(198, 120, 221)), null, FontStyle.Bold);     
+            TextStyle statementStyle = new TextStyle(new SolidBrush(Color.FromArgb(97, 175, 239)), null, FontStyle.Regular); 
+            TextStyle functionStyle = new TextStyle(new SolidBrush(Color.FromArgb(229, 192, 123)), null, FontStyle.Regular); 
+            TextStyle typeStyle = new TextStyle(new SolidBrush(Color.FromArgb(86, 182, 194)), null, FontStyle.Regular);      
+            TextStyle variableStyle = new TextStyle(new SolidBrush(Color.FromArgb(224, 108, 117)), null, FontStyle.Regular); 
+            TextStyle stringStyle = new TextStyle(new SolidBrush(Color.FromArgb(152, 195, 121)), null, FontStyle.Regular);   
+            TextStyle commentStyle = new TextStyle(new SolidBrush(Color.FromArgb(92, 99, 112)), null, FontStyle.Italic);     
+            TextStyle numberStyle = new TextStyle(new SolidBrush(Color.FromArgb(209, 154, 102)), null, FontStyle.Regular);   
+
+            codeEditor.TextChanged += (s, ev) =>
+            {
+                ev.ChangedRange.ClearStyle(keywordStyle, statementStyle, functionStyle, typeStyle, variableStyle, stringStyle, commentStyle, numberStyle);
+
+                ev.ChangedRange.SetStyle(keywordStyle, @"\b(SELECT|INSERT|UPDATE|DELETE|FROM|WHERE|INTO|VALUES|SET|CREATE|ALTER|DROP|PROCEDURE|PROC|FUNCTION|TRIGGER|VIEW|TABLE|WITH|EXEC|EXECUTE)\b", RegexOptions.IgnoreCase);
+
+                ev.ChangedRange.SetStyle(statementStyle, @"\b(INNER|LEFT|RIGHT|FULL|OUTER|CROSS|JOIN|ON|AND|OR|NOT|IN|EXISTS|LIKE|BETWEEN|NULL|IS|AS|ORDER|BY|GROUP|HAVING|ASC|DESC|UNION|ALL|CASE|WHEN|THEN|ELSE|END|BEGIN|COMMIT|ROLLBACK|TRAN|TRANSACTION)\b", RegexOptions.IgnoreCase);
+
+                ev.ChangedRange.SetStyle(functionStyle, @"\b(CAST|CONVERT|ISNULL|COALESCE|ROW_NUMBER|GETDATE|DATEADD|DATEDIFF|COUNT|SUM|AVG|MIN|MAX|SUBSTRING|LEN|UPPER|LOWER|TRIM|REPLACE|OVER|PARTITION)\b", RegexOptions.IgnoreCase);
+
+                ev.ChangedRange.SetStyle(typeStyle, @"\b(INT|BIGINT|SMALLINT|TINYINT|VARCHAR|NVARCHAR|CHAR|NCHAR|TEXT|DATE|DATETIME|DATETIME2|DECIMAL|NUMERIC|FLOAT|MONEY|BIT|UNIQUEIDENTIFIER|VARBINARY|IMAGE)\b", RegexOptions.IgnoreCase);
+
+                ev.ChangedRange.SetStyle(variableStyle, @"@\w+");
+
+                ev.ChangedRange.SetStyle(stringStyle, @"N?''[^'']*''|N?'[^']*'");
+
+                ev.ChangedRange.SetStyle(commentStyle, @"--.*$|/\*[\s\S]*?\*/", RegexOptions.Multiline);
+
+                ev.ChangedRange.SetStyle(numberStyle, @"\b\d+\b");
+            };
+
+            codeEditor.OnTextChanged();
+        }
 
         public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
