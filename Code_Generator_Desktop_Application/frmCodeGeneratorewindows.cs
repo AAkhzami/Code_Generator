@@ -81,11 +81,13 @@ namespace Code_Generator_DApp
             {
                 cbSelectDatabase.Items.Add(dr[0]);
             }
+
             tbPages.SelectedIndex = 0;
             ctrlPreviewAndGeneratePage1.Reset();
+            ctrlEngineSetups1.Reset();
+
             _Database = null;
             _connectionInfo = null;
-            ctrlEngineSetups1.Reset();
 
         }
 
@@ -100,8 +102,7 @@ namespace Code_Generator_DApp
                 }
                 else
                 {
-                    ctrlTablesList1.Reset();
-                    _Database = null ;
+                    btnReset_Click(null, null);
                 }
             }
             catch(Exception ex)
