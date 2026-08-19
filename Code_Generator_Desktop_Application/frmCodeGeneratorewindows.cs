@@ -20,6 +20,18 @@ namespace Code_Generator_DApp
             InitializeComponent();
         }
 
+        private void GenerateDataAccessLayerClass()
+        {
+            string database = cbSelectDatabase.Text;
+            string table = ctrlTablesList1.GetSelectedTableName();
+            List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
+
+            clsConnectionData connections = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
+                , ".", database, "sa", "sa123456");
+
+            ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, connections, operations);
+        }
+
         private void btnNextPage_Click(object sender, EventArgs e)
         {
             if(cbSelectDatabase.Text == "Select Database")
@@ -28,16 +40,9 @@ namespace Code_Generator_DApp
                 return;
             }
 
-
+            GenerateDataAccessLayerClass();
             tbPages.SelectedIndex = 1;
-            string database = cbSelectDatabase.Text;
-            string table = ctrlTablesList1.GetSelectedTableName();
-            List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
-
-            clsConnectionData connections = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ??  clsConnectionData.enConnectionType.StaticClass
-                ,".",database,"sa","sa123456");
-
-            ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, connections, operations);
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -83,6 +88,11 @@ namespace Code_Generator_DApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -199,6 +199,7 @@
             this.btnGenerate.Size = new System.Drawing.Size(288, 50);
             this.btnGenerate.TabIndex = 1;
             this.btnGenerate.Text = "Generate Code";
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // guna2GradientPanel1
             // 

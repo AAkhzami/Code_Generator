@@ -129,6 +129,7 @@
             this.fctbDataAccessClass.Location = new System.Drawing.Point(0, 0);
             this.fctbDataAccessClass.Name = "fctbDataAccessClass";
             this.fctbDataAccessClass.Paddings = new System.Windows.Forms.Padding(0);
+            this.fctbDataAccessClass.ReadOnly = true;
             this.fctbDataAccessClass.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fctbDataAccessClass.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctbDataAccessClass.ServiceColors")));
             this.fctbDataAccessClass.Size = new System.Drawing.Size(1101, 510);
@@ -187,6 +188,7 @@
             this.fctbBusinessClass.Location = new System.Drawing.Point(0, 0);
             this.fctbBusinessClass.Name = "fctbBusinessClass";
             this.fctbBusinessClass.Paddings = new System.Windows.Forms.Padding(0);
+            this.fctbBusinessClass.ReadOnly = true;
             this.fctbBusinessClass.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fctbBusinessClass.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctbBusinessClass.ServiceColors")));
             this.fctbBusinessClass.Size = new System.Drawing.Size(1101, 510);
