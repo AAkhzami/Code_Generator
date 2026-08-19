@@ -345,6 +345,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             fctbBusinessClass.Text = "";
             fctbQueries.Text = "";
             fctbConnections.Text = "";
+
             tcCodesGenerator.SelectedIndex = 0;
         }
     }
