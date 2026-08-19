@@ -22,6 +22,9 @@ namespace Code_Generator_DApp
         List<string> _Queries = new List<string>();
         string _Table = "";
         clsConnectionData _Connection;
+
+        string _Locations = null;
+
         public frmExport(string Table, string DataAccessClass, string BusinessClass, List<string> Queries, clsConnectionData connections)
         {
             InitializeComponent();
@@ -38,9 +41,8 @@ namespace Code_Generator_DApp
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            string location = Directory.GetCurrentDirectory();
 
-            if (string.IsNullOrEmpty(location))
+            if (string.IsNullOrEmpty(_Locations))
             {
                 MessageBox.Show("Choose export's location!","Not Allowed",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
@@ -50,13 +52,15 @@ namespace Code_Generator_DApp
             {
                 if (tsDataAccessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", location);
+                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", _Locations);
                 }
-                else if (tsBusinessClass.Checked)
+
+                if (tsBusinessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", location);
+                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", _Locations);
                 }
-                else if (tsQueries.Checked)
+                
+                if (tsQueries.Checked)
                 {
                     if (_Connection != null)
                     {
@@ -66,15 +70,16 @@ namespace Code_Generator_DApp
                         }
                     }
                 }
-                else if (tsConnection.Checked)
+                
+                if (tsConnection.Checked)
                 {
                     switch (_Connection.connectionType)
                     {
                         case clsConnectionData.enConnectionType.StaticClass:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", "DataAccess_Layer", location);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", "DataAccess_Layer", _Locations);
                             break;
                         case clsConnectionData.enConnectionType.AppConfig:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", "DataAccess_Layer", location);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", "DataAccess_Layer", _Locations);
                             break;
                     }
                 }
@@ -83,8 +88,6 @@ namespace Code_Generator_DApp
             {
                 MessageBox.Show($"An Error occurred: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -97,7 +100,7 @@ namespace Code_Generator_DApp
                 dialog.FileName = "Select the folder";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    string folderPath = System.IO.Path.GetDirectoryName(dialog.FileName);
+                    _Locations = System.IO.Path.GetDirectoryName(dialog.FileName);
                 }
             }
         }

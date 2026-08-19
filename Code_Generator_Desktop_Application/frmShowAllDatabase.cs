@@ -171,14 +171,14 @@ namespace Code_Generator_DApp
         {
             for (int i = 0; i < DataAccessClassesList.Count; i++)
             {
-                clsExport.CreateClassWithContent(DataAccessClassesList[i], $@"cls{TablesName[i]}Data", $"{DatabaseName}_DataAccess_Layer", FolderPath);
+                //clsExport.CreateClassWithContent(DataAccessClassesList[i], $@"cls{TablesName[i]}Data", $"{DatabaseName}_DataAccess_Layer", FolderPath);
             }
         }
         private void _CreateBusinessLayer(string DatabaseName, List<string> ClassesList, List<string> TablesName, string FolderPath)
         {
             for (int i = 0; i < ClassesList.Count; i++)
             {
-                clsExport.CreateClassWithContent(ClassesList[i], $@"cls{TablesName[i]}", $"{DatabaseName}_Business_Layer", FolderPath);
+                //clsExport.CreateClassWithContent(ClassesList[i], $@"cls{TablesName[i]}", $"{DatabaseName}_Business_Layer", FolderPath);
             }
         }
         private void _CreateFiles()

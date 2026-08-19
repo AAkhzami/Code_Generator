@@ -326,11 +326,11 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         }
         public string DataAccessClass()
         {
-            return tpDataAccess.Text;
+            return fctbDataAccessClass.Text;
         }
         public string BusinessClass()
         {
-            return tpBusinessLayer.Text;
+            return fctbBusinessClass.Text;
         }
         public List<string> Queries() 
         { 
@@ -342,10 +342,6 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             {
                 return null;
             }
-        }
-        public string ConnectionsText()
-        {
-            return tpConnection.Text;
         }
     }
 }

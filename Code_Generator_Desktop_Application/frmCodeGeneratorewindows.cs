@@ -25,7 +25,7 @@ namespace Code_Generator_DApp
 
         private void GenerateDataAccessLayerClass( List<clsClassCodeBuilder.enOperationType> operations)
         {
-            if (_Database != null && _connectionInfo != null && string.IsNullOrWhiteSpace(_Database))
+            if (_Database != null && _connectionInfo != null && !string.IsNullOrWhiteSpace(_Database))
             {
                 string table = ctrlTablesList1.GetSelectedTableName();
                 ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, _connectionInfo, operations);
@@ -118,9 +118,9 @@ namespace Code_Generator_DApp
             List<string> queries = ctrlPreviewAndGeneratePage1.Queries();
 
             string table = ctrlTablesList1.GetSelectedTableName();
-            List<string> tables = new List<string>();
 
             frmExport frm = new frmExport(table, dataAccessClass, businessClass, queries, _connectionInfo);
+            frm.ShowDialog();
         }
     }
 }
