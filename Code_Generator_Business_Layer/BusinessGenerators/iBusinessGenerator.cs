@@ -70,5 +70,15 @@ namespace Code_Generator_Business_Layer.BusinessGenerators
         /// </summary>
         /// <returns>A string containing the entire generated class file content.</returns>
         string GenerateBusinessLayerClass();
+        /// <summary>
+        /// Generate the Save method that only works Create only
+        /// </summary>
+        /// <returns>A string containing the code for the Save method.</returns>
+        string GenerateSaveCreateMethod();
+        /// <summary>
+        /// Generate the Save method that only works update only
+        /// </summary>
+        /// <returns>A string containing the code for the Save method.</returns>
+        string GenerateSaveUpdateMethod();
     }
 }
