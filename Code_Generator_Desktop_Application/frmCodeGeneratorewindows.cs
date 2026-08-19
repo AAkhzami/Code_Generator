@@ -22,6 +22,13 @@ namespace Code_Generator_DApp
 
         private void btnNextPage_Click(object sender, EventArgs e)
         {
+            if(cbSelectDatabase.Text == "Select Database")
+            {
+                MessageBox.Show("No Database selected!", "Not Allowed", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+
             tbPages.SelectedIndex = 1;
             string database = cbSelectDatabase.Text;
             string table = ctrlTablesList1.GetSelectedTableName();
