@@ -21,9 +21,7 @@ namespace Code_Generator_DApp
 
         private void btnNextPage_Click(object sender, EventArgs e)
         {
-            //tbPages.SelectedIndex = 1;
-            List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
-            MessageBox.Show(string.Join(",\n",operations));
+            tbPages.SelectedIndex = 1;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
