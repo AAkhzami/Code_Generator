@@ -125,5 +125,18 @@ namespace Code_Generator_DApp.Controls
 
             return operations;
         }
+        public void Reset()
+        {
+            cbConnectionType.SelectedIndex = 0;
+            cbExecutionEngine.SelectedIndex = 0;
+
+            checkBoxGetAll.Checked = true;
+            checkBoxGetByID.Checked = true;
+            checkBoxInsert.Checked = true;
+            checkBoxDelete.Checked = true;
+            checkBoxUpdate.Checked = true;
+
+            DatabaseType = enDatabaseType.TSQL;
+        }
     }
 }
