@@ -1,4 +1,6 @@
-﻿using Code_Generator_Business_Layer.DataAccessGenerators;
+﻿using Code_Generator_Business_Layer;
+using Code_Generator_Business_Layer.DataAccessGenerators;
+using Code_Generator_Business_Layer.DataAccessGenerators.SQLServer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,13 @@ namespace Code_Generator_DApp.Controls
 {
     public partial class ctrlEngineSetups : UserControl
     {
+        public enum enDatabaseType
+        {
+            TSQL = 1,
+            SQL = 2
+        }
+        public enDatabaseType DatabaseType = enDatabaseType.TSQL;
+
         public ctrlEngineSetups()
         {
             InitializeComponent();
@@ -40,11 +49,13 @@ namespace Code_Generator_DApp.Controls
             {
                 lblExecutionEngineDetails.Text = "Generates stored procedures and calls them\r\nfrom your C# code. More secure and performant.";
                 lblExecutionEngineDetails.ForeColor = Color.FromArgb(43, 89, 209);
+                DatabaseType = enDatabaseType.TSQL;
             }
             else if (type == "Ad-hoc Direct Queries")
             {
                 lblExecutionEngineDetails.Text = "Executes direct SQL queries in your C# code.\r\nFaster to implement, less abstraction.";
                 lblExecutionEngineDetails.ForeColor = Color.FromArgb(254, 243, 221);
+                DatabaseType = enDatabaseType.SQL;
             }
         }
 

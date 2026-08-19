@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer
 {
-    public class ClassCodeBuilder
+    public class clsClassCodeBuilder
     {
 
         private readonly string Database;
@@ -19,7 +19,7 @@ namespace Code_Generator_Business_Layer
         /// </summary>
         /// <param name="Database">The name of the database.</param>
         /// <param name="Table">The name of the table.</param>
-        public ClassCodeBuilder(string Database, string Table)
+        public clsClassCodeBuilder(string Database, string Table)
         {
             this.Database = Database;
             this.Table = Table;
