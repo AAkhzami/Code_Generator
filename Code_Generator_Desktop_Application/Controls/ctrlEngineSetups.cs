@@ -1,7 +1,9 @@
 ﻿using Code_Generator_Business_Layer;
 using Code_Generator_Business_Layer.DataAccessGenerators;
 using Code_Generator_Business_Layer.DataAccessGenerators.SQLServer;
+using Guna.UI2.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,16 @@ namespace Code_Generator_DApp.Controls
             SQL = 2
         }
         public enDatabaseType DatabaseType = enDatabaseType.TSQL;
+
+        public Dictionary<clsClassCodeBuilder.enOperationType, bool> Operations = new Dictionary<clsClassCodeBuilder.enOperationType, bool>()
+        {
+            { clsClassCodeBuilder.enOperationType.SelectAll, true},
+            { clsClassCodeBuilder.enOperationType.Select, true},
+            { clsClassCodeBuilder.enOperationType.Insert, true},
+            { clsClassCodeBuilder.enOperationType.Update, true},
+            { clsClassCodeBuilder.enOperationType.Delete, true}
+        };
+
 
         public ctrlEngineSetups()
         {
@@ -72,6 +84,32 @@ namespace Code_Generator_DApp.Controls
                 return clsConnectionData.enConnectionType.StaticClass;
             }
             return null;
+        }
+
+        public void ChangeOperationsStatus(object sender, EventArgs e)
+        {
+            Guna2CheckBox checkBox = (Guna2CheckBox) sender;
+
+            if (checkBox == checkBoxGetAll)
+            {
+                Operations[clsClassCodeBuilder.enOperationType.SelectAll] = checkBoxGetAll.Checked;
+            }
+            else if (checkBox == checkBoxGetByID)
+            {
+                Operations[clsClassCodeBuilder.enOperationType.Select] = checkBoxGetByID.Checked;
+            }
+            else if (checkBox == checkBoxInsert)
+            {
+                Operations[clsClassCodeBuilder.enOperationType.Insert] = checkBoxInsert.Checked;
+            }
+            else if (checkBox == checkBoxUpdate)
+            {
+                Operations[clsClassCodeBuilder.enOperationType.Update] = checkBoxUpdate.Checked;
+            }
+            else if (checkBox == checkBoxUpdate)
+            {
+                Operations[clsClassCodeBuilder.enOperationType.Delete] = checkBoxDelete.Checked;
+            }
         }
     }
 }

@@ -194,6 +194,7 @@
             this.checkBoxDelete.UncheckedState.BorderRadius = 0;
             this.checkBoxDelete.UncheckedState.BorderThickness = 0;
             this.checkBoxDelete.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxDelete.CheckedChanged += new System.EventHandler(this.ChangeOperationsStatus);
             // 
             // checkBoxUpdate
             // 
@@ -216,6 +217,7 @@
             this.checkBoxUpdate.UncheckedState.BorderRadius = 0;
             this.checkBoxUpdate.UncheckedState.BorderThickness = 0;
             this.checkBoxUpdate.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxUpdate.CheckedChanged += new System.EventHandler(this.ChangeOperationsStatus);
             // 
             // checkBoxInsert
             // 
@@ -238,6 +240,7 @@
             this.checkBoxInsert.UncheckedState.BorderRadius = 0;
             this.checkBoxInsert.UncheckedState.BorderThickness = 0;
             this.checkBoxInsert.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxInsert.CheckedChanged += new System.EventHandler(this.ChangeOperationsStatus);
             // 
             // checkBoxGetByID
             // 
@@ -260,6 +263,7 @@
             this.checkBoxGetByID.UncheckedState.BorderRadius = 0;
             this.checkBoxGetByID.UncheckedState.BorderThickness = 0;
             this.checkBoxGetByID.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxGetByID.CheckedChanged += new System.EventHandler(this.ChangeOperationsStatus);
             // 
             // checkBoxGetAll
             // 
@@ -282,6 +286,7 @@
             this.checkBoxGetAll.UncheckedState.BorderRadius = 0;
             this.checkBoxGetAll.UncheckedState.BorderThickness = 0;
             this.checkBoxGetAll.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBoxGetAll.CheckedChanged += new System.EventHandler(this.ChangeOperationsStatus);
             // 
             // guna2Panel4
             // 
