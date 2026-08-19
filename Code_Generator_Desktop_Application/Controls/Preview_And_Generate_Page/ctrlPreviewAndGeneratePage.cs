@@ -294,5 +294,21 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             tcCodesGenerator.SelectedIndex = 0;
         }
+        public string DataAccessClass()
+        {
+            return tpDataAccess.Text;
+        }
+        public string BusinessClass()
+        {
+            return tpBusinessLayer.Text;
+        }
+        public string QueriesClass() 
+        { 
+            return tpQueries.Text;
+        }
+        public string ConnectionsText()
+        {
+            return tpConnection.Text;
+        }
     }
 }

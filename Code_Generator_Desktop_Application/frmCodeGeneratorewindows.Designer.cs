@@ -152,12 +152,8 @@
             this.ctrlPreviewAndGeneratePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlPreviewAndGeneratePage1.BusinessLayerClass = "BusinessLayerClass";
-            this.ctrlPreviewAndGeneratePage1.Connection = "ConnectionType";
-            this.ctrlPreviewAndGeneratePage1.DataAccessClass = "DataAccessClass";
             this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
             this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
-            this.ctrlPreviewAndGeneratePage1.Querys = "Queries";
             this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
             this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
