@@ -33,24 +33,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txbSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pWarningMessage = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblMoreDetails = new System.Windows.Forms.Label();
-            this.dgvTablesName = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lblTablesCount = new System.Windows.Forms.Label();
             this.guna2ProgressIndicator1 = new Guna.UI2.WinForms.Guna2ProgressIndicator();
+            this.pWarningMessage = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMoreDetails = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTablesCount = new System.Windows.Forms.Label();
+            this.dgvTablesName = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columns = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txbSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pWarningMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesName)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -73,61 +73,15 @@
             this.guna2Panel1.Size = new System.Drawing.Size(333, 617);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // guna2Panel5
+            // guna2ProgressIndicator1
             // 
-            this.guna2Panel5.BorderRadius = 9;
-            this.guna2Panel5.Controls.Add(this.pictureBox3);
-            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
-            this.guna2Panel5.Location = new System.Drawing.Point(18, 19);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(50, 50);
-            this.guna2Panel5.TabIndex = 24;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.server;
-            this.pictureBox3.Location = new System.Drawing.Point(7, 7);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 21F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(74, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 34);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Tablse";
-            // 
-            // txbSearch
-            // 
-            this.txbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbSearch.BackColor = System.Drawing.Color.Transparent;
-            this.txbSearch.BorderRadius = 10;
-            this.txbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbSearch.DefaultText = "";
-            this.txbSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txbSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txbSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(20)))), ((int)(((byte)(31)))));
-            this.txbSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbSearch.IconLeft = global::Code_Generator_DApp.Properties.Resources.search;
-            this.txbSearch.Location = new System.Drawing.Point(18, 81);
-            this.txbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txbSearch.Name = "txbSearch";
-            this.txbSearch.PlaceholderText = "Search by table name";
-            this.txbSearch.SelectedText = "";
-            this.txbSearch.Size = new System.Drawing.Size(296, 50);
-            this.txbSearch.TabIndex = 25;
-            this.txbSearch.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.guna2ProgressIndicator1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2ProgressIndicator1.BackColor = System.Drawing.Color.White;
+            this.guna2ProgressIndicator1.Location = new System.Drawing.Point(136, 297);
+            this.guna2ProgressIndicator1.Name = "guna2ProgressIndicator1";
+            this.guna2ProgressIndicator1.Size = new System.Drawing.Size(60, 60);
+            this.guna2ProgressIndicator1.TabIndex = 30;
+            this.guna2ProgressIndicator1.Visible = false;
             // 
             // pWarningMessage
             // 
@@ -147,17 +101,6 @@
             this.pWarningMessage.TabIndex = 28;
             this.pWarningMessage.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(68)))));
-            this.label1.Location = new System.Drawing.Point(49, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 23);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "No Primary Key Found";
-            // 
             // lblMoreDetails
             // 
             this.lblMoreDetails.AutoSize = true;
@@ -170,6 +113,30 @@
             this.lblMoreDetails.TabIndex = 28;
             this.lblMoreDetails.Text = "More details";
             this.lblMoreDetails.Click += new System.EventHandler(this.lblMoreDetails_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(68)))));
+            this.label1.Location = new System.Drawing.Point(49, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 23);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "No Primary Key Found";
+            // 
+            // lblTablesCount
+            // 
+            this.lblTablesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTablesCount.AutoSize = true;
+            this.lblTablesCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblTablesCount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTablesCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
+            this.lblTablesCount.Location = new System.Drawing.Point(270, 139);
+            this.lblTablesCount.Name = "lblTablesCount";
+            this.lblTablesCount.Size = new System.Drawing.Size(23, 25);
+            this.lblTablesCount.TabIndex = 27;
+            this.lblTablesCount.Text = "0";
             // 
             // dgvTablesName
             // 
@@ -228,27 +195,6 @@
             this.dgvTablesName.ThemeStyle.RowsStyle.Height = 50;
             this.dgvTablesName.SelectionChanged += new System.EventHandler(this.dgvTablesName_SelectionChanged);
             // 
-            // lblTablesCount
-            // 
-            this.lblTablesCount.AutoSize = true;
-            this.lblTablesCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblTablesCount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTablesCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
-            this.lblTablesCount.Location = new System.Drawing.Point(270, 139);
-            this.lblTablesCount.Name = "lblTablesCount";
-            this.lblTablesCount.Size = new System.Drawing.Size(23, 25);
-            this.lblTablesCount.TabIndex = 27;
-            this.lblTablesCount.Text = "0";
-            // 
-            // guna2ProgressIndicator1
-            // 
-            this.guna2ProgressIndicator1.AutoStart = true;
-            this.guna2ProgressIndicator1.BackColor = System.Drawing.Color.White;
-            this.guna2ProgressIndicator1.Location = new System.Drawing.Point(136, 297);
-            this.guna2ProgressIndicator1.Name = "guna2ProgressIndicator1";
-            this.guna2ProgressIndicator1.Size = new System.Drawing.Size(60, 60);
-            this.guna2ProgressIndicator1.TabIndex = 30;
-            // 
             // cTable
             // 
             this.cTable.HeaderText = "Table";
@@ -269,6 +215,63 @@
             this.cStatus.ReadOnly = true;
             this.cStatus.Visible = false;
             // 
+            // txbSearch
+            // 
+            this.txbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txbSearch.BorderRadius = 10;
+            this.txbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbSearch.DefaultText = "";
+            this.txbSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(20)))), ((int)(((byte)(31)))));
+            this.txbSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbSearch.IconLeft = global::Code_Generator_DApp.Properties.Resources.search;
+            this.txbSearch.Location = new System.Drawing.Point(18, 81);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.PlaceholderText = "Search by table name";
+            this.txbSearch.SelectedText = "";
+            this.txbSearch.Size = new System.Drawing.Size(296, 50);
+            this.txbSearch.TabIndex = 25;
+            this.txbSearch.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BorderRadius = 9;
+            this.guna2Panel5.Controls.Add(this.pictureBox3);
+            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
+            this.guna2Panel5.Location = new System.Drawing.Point(18, 19);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(50, 50);
+            this.guna2Panel5.TabIndex = 24;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Generator_DApp.Properties.Resources.server;
+            this.pictureBox3.Location = new System.Drawing.Point(7, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 36);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 21F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(74, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 34);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Tablse";
+            // 
             // ctrlTablesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,11 +281,11 @@
             this.Size = new System.Drawing.Size(339, 623);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pWarningMessage.ResumeLayout(false);
             this.pWarningMessage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablesName)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

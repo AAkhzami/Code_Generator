@@ -96,6 +96,8 @@
             // 
             // guna2Panel6
             // 
+            this.guna2Panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel6.Controls.Add(this.label11);
             this.guna2Panel6.Controls.Add(this.label9);
             this.guna2Panel6.Controls.Add(this.label8);
@@ -113,6 +115,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
@@ -124,6 +127,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
@@ -135,6 +139,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
@@ -146,6 +151,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
@@ -157,6 +163,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(139)))), ((int)(((byte)(153)))));
@@ -168,6 +175,7 @@
             // 
             // checkBoxDelete
             // 
+            this.checkBoxDelete.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxDelete.AutoSize = true;
             this.checkBoxDelete.Checked = true;
             this.checkBoxDelete.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
@@ -189,6 +197,7 @@
             // 
             // checkBoxUpdate
             // 
+            this.checkBoxUpdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxUpdate.AutoSize = true;
             this.checkBoxUpdate.Checked = true;
             this.checkBoxUpdate.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
@@ -210,6 +219,7 @@
             // 
             // checkBoxInsert
             // 
+            this.checkBoxInsert.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxInsert.AutoSize = true;
             this.checkBoxInsert.Checked = true;
             this.checkBoxInsert.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
@@ -231,6 +241,7 @@
             // 
             // checkBoxGetByID
             // 
+            this.checkBoxGetByID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxGetByID.AutoSize = true;
             this.checkBoxGetByID.Checked = true;
             this.checkBoxGetByID.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
@@ -252,6 +263,7 @@
             // 
             // checkBoxGetAll
             // 
+            this.checkBoxGetAll.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxGetAll.AutoSize = true;
             this.checkBoxGetAll.Checked = true;
             this.checkBoxGetAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(104)))), ((int)(((byte)(242)))));
@@ -273,6 +285,7 @@
             // 
             // guna2Panel4
             // 
+            this.guna2Panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2Panel4.BorderRadius = 9;
             this.guna2Panel4.Controls.Add(this.pictureBox4);
             this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
@@ -294,6 +307,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
@@ -305,6 +319,7 @@
             // 
             // lblExecutionEngineDetails
             // 
+            this.lblExecutionEngineDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExecutionEngineDetails.AutoSize = true;
             this.lblExecutionEngineDetails.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExecutionEngineDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(89)))), ((int)(((byte)(209)))));
@@ -317,6 +332,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2Panel3.BorderRadius = 9;
             this.guna2Panel3.Controls.Add(this.pictureBox2);
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
@@ -338,6 +354,7 @@
             // 
             // cbExecutionEngine
             // 
+            this.cbExecutionEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbExecutionEngine.BackColor = System.Drawing.Color.Transparent;
             this.cbExecutionEngine.BorderRadius = 9;
             this.cbExecutionEngine.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -359,6 +376,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
@@ -370,6 +388,8 @@
             // 
             // lblConnectionDetails
             // 
+            this.lblConnectionDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblConnectionDetails.AutoSize = true;
             this.lblConnectionDetails.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConnectionDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(148)))), ((int)(((byte)(91)))));
@@ -381,6 +401,7 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2Panel2.BorderRadius = 9;
             this.guna2Panel2.Controls.Add(this.pictureBox1);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
@@ -402,6 +423,8 @@
             // 
             // cbConnectionType
             // 
+            this.cbConnectionType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbConnectionType.BackColor = System.Drawing.Color.Transparent;
             this.cbConnectionType.BorderRadius = 9;
             this.cbConnectionType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -423,6 +446,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -434,6 +458,7 @@
             // 
             // guna2Panel5
             // 
+            this.guna2Panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2Panel5.BorderRadius = 9;
             this.guna2Panel5.Controls.Add(this.pictureBox3);
             this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
@@ -455,6 +480,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 21F);
             this.label4.ForeColor = System.Drawing.Color.White;
