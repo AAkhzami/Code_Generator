@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Code_Generator_Business_Layer
 {
-    internal class clsHelper
+    public class clsHelper
     {
         /// <summary>
         /// Formats a C# data type string to represent a nullable type (adding '?') if applicable based on nullability and type category.
