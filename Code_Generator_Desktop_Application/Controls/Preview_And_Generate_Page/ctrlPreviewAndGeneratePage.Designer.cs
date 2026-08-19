@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPreviewAndGeneratePage));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tbCodesGenerator = new Guna.UI2.WinForms.Guna2TabControl();
-            this.tpDataAccessClass = new System.Windows.Forms.TabPage();
+            this.tpDataAccess = new System.Windows.Forms.TabPage();
+            this.fctbDataAccessClass = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tpBusinessLayer = new System.Windows.Forms.TabPage();
             this.tpQueries = new System.Windows.Forms.TabPage();
             this.tpConnection = new System.Windows.Forms.TabPage();
-            this.fctbDataAccessClass = new FastColoredTextBoxNS.FastColoredTextBox();
             this.guna2Panel1.SuspendLayout();
             this.tbCodesGenerator.SuspendLayout();
-            this.tpDataAccessClass.SuspendLayout();
+            this.tpDataAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.tbCodesGenerator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCodesGenerator.Controls.Add(this.tpDataAccessClass);
+            this.tbCodesGenerator.Controls.Add(this.tpDataAccess);
             this.tbCodesGenerator.Controls.Add(this.tpBusinessLayer);
             this.tbCodesGenerator.Controls.Add(this.tpQueries);
             this.tbCodesGenerator.Controls.Add(this.tpConnection);
@@ -88,42 +88,15 @@
             this.tbCodesGenerator.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tbCodesGenerator.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
-            // tpDataAccessClass
+            // tpDataAccess
             // 
-            this.tpDataAccessClass.Controls.Add(this.fctbDataAccessClass);
-            this.tpDataAccessClass.Location = new System.Drawing.Point(4, 44);
-            this.tpDataAccessClass.Name = "tpDataAccessClass";
-            this.tpDataAccessClass.Size = new System.Drawing.Size(1112, 510);
-            this.tpDataAccessClass.TabIndex = 0;
-            this.tpDataAccessClass.Text = "DataAccessClass";
-            this.tpDataAccessClass.UseVisualStyleBackColor = true;
-            // 
-            // tpBusinessLayer
-            // 
-            this.tpBusinessLayer.Location = new System.Drawing.Point(4, 44);
-            this.tpBusinessLayer.Name = "tpBusinessLayer";
-            this.tpBusinessLayer.Size = new System.Drawing.Size(1017, 510);
-            this.tpBusinessLayer.TabIndex = 1;
-            this.tpBusinessLayer.Text = "BusinessLayerClass";
-            this.tpBusinessLayer.UseVisualStyleBackColor = true;
-            // 
-            // tpQueries
-            // 
-            this.tpQueries.Location = new System.Drawing.Point(4, 44);
-            this.tpQueries.Name = "tpQueries";
-            this.tpQueries.Size = new System.Drawing.Size(1017, 510);
-            this.tpQueries.TabIndex = 2;
-            this.tpQueries.Text = "Queries";
-            this.tpQueries.UseVisualStyleBackColor = true;
-            // 
-            // tpConnection
-            // 
-            this.tpConnection.Location = new System.Drawing.Point(4, 44);
-            this.tpConnection.Name = "tpConnection";
-            this.tpConnection.Size = new System.Drawing.Size(1017, 510);
-            this.tpConnection.TabIndex = 3;
-            this.tpConnection.Text = "ConnectionType";
-            this.tpConnection.UseVisualStyleBackColor = true;
+            this.tpDataAccess.Controls.Add(this.fctbDataAccessClass);
+            this.tpDataAccess.Location = new System.Drawing.Point(4, 44);
+            this.tpDataAccess.Name = "tpDataAccess";
+            this.tpDataAccess.Size = new System.Drawing.Size(1112, 510);
+            this.tpDataAccess.TabIndex = 0;
+            this.tpDataAccess.Text = "DataAccessClass";
+            this.tpDataAccess.UseVisualStyleBackColor = true;
             // 
             // fctbDataAccessClass
             // 
@@ -144,7 +117,6 @@
             this.fctbDataAccessClass.CharWidth = 8;
             this.fctbDataAccessClass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctbDataAccessClass.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fctbDataAccessClass.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctbDataAccessClass.IsReplaceMode = false;
             this.fctbDataAccessClass.Location = new System.Drawing.Point(3, 3);
             this.fctbDataAccessClass.Name = "fctbDataAccessClass";
@@ -155,6 +127,33 @@
             this.fctbDataAccessClass.TabIndex = 0;
             this.fctbDataAccessClass.Zoom = 100;
             // 
+            // tpBusinessLayer
+            // 
+            this.tpBusinessLayer.Location = new System.Drawing.Point(4, 44);
+            this.tpBusinessLayer.Name = "tpBusinessLayer";
+            this.tpBusinessLayer.Size = new System.Drawing.Size(1112, 510);
+            this.tpBusinessLayer.TabIndex = 1;
+            this.tpBusinessLayer.Text = "BusinessLayerClass";
+            this.tpBusinessLayer.UseVisualStyleBackColor = true;
+            // 
+            // tpQueries
+            // 
+            this.tpQueries.Location = new System.Drawing.Point(4, 44);
+            this.tpQueries.Name = "tpQueries";
+            this.tpQueries.Size = new System.Drawing.Size(1112, 510);
+            this.tpQueries.TabIndex = 2;
+            this.tpQueries.Text = "Queries";
+            this.tpQueries.UseVisualStyleBackColor = true;
+            // 
+            // tpConnection
+            // 
+            this.tpConnection.Location = new System.Drawing.Point(4, 44);
+            this.tpConnection.Name = "tpConnection";
+            this.tpConnection.Size = new System.Drawing.Size(1112, 510);
+            this.tpConnection.TabIndex = 3;
+            this.tpConnection.Text = "ConnectionType";
+            this.tpConnection.UseVisualStyleBackColor = true;
+            // 
             // ctrlPreviewAndGeneratePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,7 +163,7 @@
             this.Size = new System.Drawing.Size(1135, 577);
             this.guna2Panel1.ResumeLayout(false);
             this.tbCodesGenerator.ResumeLayout(false);
-            this.tpDataAccessClass.ResumeLayout(false);
+            this.tpDataAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).EndInit();
             this.ResumeLayout(false);
 
@@ -174,7 +173,7 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2TabControl tbCodesGenerator;
-        private System.Windows.Forms.TabPage tpDataAccessClass;
+        private System.Windows.Forms.TabPage tpDataAccess;
         private System.Windows.Forms.TabPage tpBusinessLayer;
         private System.Windows.Forms.TabPage tpQueries;
         private System.Windows.Forms.TabPage tpConnection;

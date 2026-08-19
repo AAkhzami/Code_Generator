@@ -31,7 +31,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _DataAccessClass = value;
-                tbCodesGenerator.TabPages["tpDataAccessClass"].Text = _DataAccessClass;
+                tbCodesGenerator.TabPages["tpDataAccess"].Text = value;
             }
         }
         public string BusinessLayerClass
@@ -43,7 +43,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _BusinessLayerClass = value;
-                tbCodesGenerator.TabPages["tbBusinessLayerClass"].Text = _BusinessLayerClass;
+                tbCodesGenerator.TabPages["tpBusinessLayer"].Text = value;
             }
         }
         public string Querys
@@ -55,7 +55,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _Queries = value;                
-                tbCodesGenerator.TabPages["tpQueries"].Text = _BusinessLayerClass;
+                tbCodesGenerator.TabPages["tpQueries"].Text = value;
             }
         }
         public string Connection
@@ -67,7 +67,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _Connection = value;                
-                tbCodesGenerator.TabPages["tpConnection"].Text = _BusinessLayerClass;
+                tbCodesGenerator.TabPages["tpConnection"].Text = value;
             }
         }
 
