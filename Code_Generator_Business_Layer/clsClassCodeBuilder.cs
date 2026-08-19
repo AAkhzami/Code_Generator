@@ -150,9 +150,19 @@ namespace Code_Generator_Business_Layer
                     }
                 });
                 
-                if(operationType.Contains(enOperationType.Update) || operationType.Contains(enOperationType.Insert))
+                if(operationType.Contains(enOperationType.Update) && operationType.Contains(enOperationType.Insert))
                 {
                     sb.Append(businessGenerator.GenerateSaveMethod());
+                    sb.AppendLine();
+                }
+                else if (operationType.Contains(enOperationType.Insert) && !operationType.Contains(enOperationType.Update))
+                {
+                    sb.Append(businessGenerator.GenerateSaveCreateMethod());
+                    sb.AppendLine();
+                }
+                else if (operationType.Contains(enOperationType.Update) && !operationType.Contains(enOperationType.Insert))
+                {
+                    sb.Append(businessGenerator.GenerateSaveUpdateMethod());
                     sb.AppendLine();
                 }
 
