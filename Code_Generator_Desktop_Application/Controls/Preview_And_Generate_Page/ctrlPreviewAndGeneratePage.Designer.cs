@@ -40,6 +40,7 @@
             this.tpConnection = new System.Windows.Forms.TabPage();
             this.fctbQueries = new FastColoredTextBoxNS.FastColoredTextBox();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.fctbConnections = new FastColoredTextBoxNS.FastColoredTextBox();
             this.guna2Panel1.SuspendLayout();
             this.tbCodesGenerator.SuspendLayout();
             this.tpDataAccess.SuspendLayout();
@@ -47,7 +48,9 @@
             this.tpBusinessLayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbBusinessClass)).BeginInit();
             this.tpQueries.SuspendLayout();
+            this.tpConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbQueries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fctbConnections)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -194,6 +197,7 @@
             // 
             // tpConnection
             // 
+            this.tpConnection.Controls.Add(this.fctbConnections);
             this.tpConnection.Location = new System.Drawing.Point(4, 44);
             this.tpConnection.Name = "tpConnection";
             this.tpConnection.Size = new System.Drawing.Size(1101, 510);
@@ -244,6 +248,37 @@
             this.lblMessage.Text = "No Queries To Show";
             this.lblMessage.Visible = false;
             // 
+            // fctbConnections
+            // 
+            this.fctbConnections.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.fctbConnections.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fctbConnections.BackBrush = null;
+            this.fctbConnections.CharHeight = 14;
+            this.fctbConnections.CharWidth = 8;
+            this.fctbConnections.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fctbConnections.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fctbConnections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctbConnections.IsReplaceMode = false;
+            this.fctbConnections.Location = new System.Drawing.Point(0, 0);
+            this.fctbConnections.Name = "fctbConnections";
+            this.fctbConnections.Paddings = new System.Windows.Forms.Padding(0);
+            this.fctbConnections.ReadOnly = true;
+            this.fctbConnections.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.fctbConnections.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctbConnections.ServiceColors")));
+            this.fctbConnections.Size = new System.Drawing.Size(1101, 510);
+            this.fctbConnections.TabIndex = 2;
+            this.fctbConnections.Zoom = 100;
+            // 
             // ctrlPreviewAndGeneratePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,7 +294,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.fctbBusinessClass)).EndInit();
             this.tpQueries.ResumeLayout(false);
             this.tpQueries.PerformLayout();
+            this.tpConnection.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fctbQueries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fctbConnections)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +313,6 @@
         private FastColoredTextBoxNS.FastColoredTextBox fctbBusinessClass;
         private FastColoredTextBoxNS.FastColoredTextBox fctbQueries;
         private System.Windows.Forms.Label lblMessage;
+        private FastColoredTextBoxNS.FastColoredTextBox fctbConnections;
     }
 }
