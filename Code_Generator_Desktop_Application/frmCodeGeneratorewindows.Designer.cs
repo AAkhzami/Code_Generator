@@ -92,7 +92,7 @@
             this.tpEngineSetup.Location = new System.Drawing.Point(4, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 655);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 694);
             this.tpEngineSetup.TabIndex = 0;
             this.tpEngineSetup.Text = "Engine Setup";
             // 
@@ -110,7 +110,7 @@
             this.btnNextPage.Image = global::Code_Generator_DApp.Properties.Resources.arrow_next;
             this.btnNextPage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNextPage.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnNextPage.Location = new System.Drawing.Point(1139, 598);
+            this.btnNextPage.Location = new System.Drawing.Point(1139, 637);
             this.btnNextPage.Name = "btnNextPage";
             this.btnNextPage.Size = new System.Drawing.Size(301, 50);
             this.btnNextPage.TabIndex = 0;
@@ -142,7 +142,7 @@
             this.btnBack.Image = global::Code_Generator_DApp.Properties.Resources.arrow_back;
             this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBack.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnBack.Location = new System.Drawing.Point(8, 518);
+            this.btnBack.Location = new System.Drawing.Point(8, 479);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(288, 50);
             this.btnBack.TabIndex = 2;
@@ -161,7 +161,7 @@
             this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.ForeColor = System.Drawing.Color.White;
             this.btnGenerate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnGenerate.Location = new System.Drawing.Point(1151, 518);
+            this.btnGenerate.Location = new System.Drawing.Point(1151, 479);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(288, 50);
             this.btnGenerate.TabIndex = 1;
@@ -235,7 +235,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlEngineSetups1.Location = new System.Drawing.Point(665, 8);
             this.ctrlEngineSetups1.Name = "ctrlEngineSetups1";
-            this.ctrlEngineSetups1.Size = new System.Drawing.Size(518, 584);
+            this.ctrlEngineSetups1.Size = new System.Drawing.Size(518, 623);
             this.ctrlEngineSetups1.TabIndex = 6;
             // 
             // ctrlTablesList1
@@ -244,7 +244,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ctrlTablesList1.Location = new System.Drawing.Point(265, 8);
             this.ctrlTablesList1.Name = "ctrlTablesList1";
-            this.ctrlTablesList1.Size = new System.Drawing.Size(394, 584);
+            this.ctrlTablesList1.Size = new System.Drawing.Size(394, 623);
             this.ctrlTablesList1.TabIndex = 5;
             // 
             // frmCodeGeneratorewindows
