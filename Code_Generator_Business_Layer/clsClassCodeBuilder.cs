@@ -149,6 +149,13 @@ namespace Code_Generator_Business_Layer
                             break;
                     }
                 });
+                
+                if(operationType.Contains(enOperationType.Update) || operationType.Contains(enOperationType.Insert))
+                {
+                    sb.Append(businessGenerator.GenerateSaveMethod());
+                    sb.AppendLine();
+                }
+
                 sb.AppendLine("}");
             }
             sb.AppendLine("}");
