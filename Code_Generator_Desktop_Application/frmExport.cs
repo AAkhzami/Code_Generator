@@ -86,5 +86,20 @@ namespace Code_Generator_DApp
 
 
         }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.ValidateNames = false;
+                dialog.CheckFileExists = false;
+                dialog.CheckPathExists = true;
+                dialog.FileName = "اختر المجلد الحالي"; // اسم وهمي لتحديد المجلد
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string folderPath = System.IO.Path.GetDirectoryName(dialog.FileName);
+                }
+            }
+        }
     }
 }

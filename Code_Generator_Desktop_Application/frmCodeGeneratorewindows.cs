@@ -20,17 +20,23 @@ namespace Code_Generator_DApp
             InitializeComponent();
         }
 
-        private void GenerateDataAccessLayerClass(clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
+        string _Database = null;
+        clsConnectionData _connectionInfo = null;
+
+        private void GenerateDataAccessLayerClass( List<clsClassCodeBuilder.enOperationType> operations)
         {
-            string table = ctrlTablesList1.GetSelectedTableName();
-            ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, connection, operations);
+            if (_Database != null && _connectionInfo != null && string.IsNullOrWhiteSpace(_Database))
+            {
+                string table = ctrlTablesList1.GetSelectedTableName();
+                ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, _connectionInfo, operations);
+            }
         }
         private void GenerateBusinessLayerClass(List<clsClassCodeBuilder.enOperationType> operations)
         {
-            string database = cbSelectDatabase.Text;
-            string table = ctrlTablesList1.GetSelectedTableName();
-
-            ctrlPreviewAndGeneratePage1.LoadBusinessClass(database, table, operations);
+            if(_Database != null && !string.IsNullOrWhiteSpace(_Database))
+            {
+                ctrlPreviewAndGeneratePage1.LoadBusinessClass(_Database, ctrlTablesList1.GetSelectedTableName(), operations);
+            }
         }
         private void btnNextPage_Click(object sender, EventArgs e)
         {
@@ -44,7 +50,7 @@ namespace Code_Generator_DApp
             clsConnectionData connection = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
                 , ".", cbSelectDatabase.Text, "sa", "sa123456");
 
-            GenerateDataAccessLayerClass(connection, operations);
+            GenerateDataAccessLayerClass(operations);
             GenerateBusinessLayerClass(operations);
             ctrlPreviewAndGeneratePage1.LoadConnectionText(connection);
 
@@ -85,10 +91,12 @@ namespace Code_Generator_DApp
                 if (cbSelectDatabase.Text != "Select Database")
                 {
                     ctrlTablesList1.LoadData(cbSelectDatabase.Text);
+                    _Database = cbSelectDatabase.Text;
                 }
                 else
                 {
                     ctrlTablesList1.Reset();
+                    _Database = null ;
                 }
             }
             catch(Exception ex)
@@ -103,6 +111,10 @@ namespace Code_Generator_DApp
             string businessClass = ctrlPreviewAndGeneratePage1.BusinessClass();
             string queries = ctrlPreviewAndGeneratePage1.Queries();
             string connection = ctrlPreviewAndGeneratePage1.ConnectionsText();
+
+            string table = ctrlTablesList1.GetSelectedTableName();
+            List<string> tables = new List<string>();
+            //frmExport frm = new frmExport(table, dataAccessClass, businessClass, tables, connection);
         }
     }
 }

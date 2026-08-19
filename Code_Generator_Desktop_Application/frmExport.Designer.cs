@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExport));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tsConnection = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -44,6 +44,7 @@
             this.tsDataAccessClass = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.btnBrowse = new Guna.UI2.WinForms.Guna2Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel2.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -59,6 +60,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(438, 100);
             this.panel2.TabIndex = 33;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 22F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(97, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(325, 36);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Export Generated Class";
             // 
             // guna2ShadowPanel1
             // 
@@ -82,17 +94,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 2;
             this.pictureBox5.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 22F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(97, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(325, 36);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Export Generated Class";
             // 
             // guna2Panel1
             // 
@@ -293,6 +294,11 @@
             this.btnBrowse.Size = new System.Drawing.Size(215, 52);
             this.btnBrowse.TabIndex = 37;
             this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmExport
             // 
@@ -334,5 +340,6 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch tsDataAccessClass;
         private Guna.UI2.WinForms.Guna2Button btnExport;
         private Guna.UI2.WinForms.Guna2Button btnBrowse;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
