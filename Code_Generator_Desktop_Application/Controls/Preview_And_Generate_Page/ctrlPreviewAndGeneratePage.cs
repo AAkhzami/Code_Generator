@@ -148,6 +148,11 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
         public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
+            if (!string.IsNullOrWhiteSpace(connection.databaseName) && !string.IsNullOrWhiteSpace(Table))
+            {
+                return;
+            }
+
             clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(connection.databaseName, Table);
             switch(databaseType)
             {
@@ -164,6 +169,17 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                         break;
                     }
             }
+        }
+        public void LoadBusinessClass(string Database,string Table, List<clsClassCodeBuilder.enOperationType> operations)
+        {
+            if (!string.IsNullOrWhiteSpace(Database) && !string.IsNullOrWhiteSpace(Table))
+            {
+                return;
+            }
+
+            clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(Database, Table);
+            clsBusinessLayerGenerator BusinessLayer = new clsBusinessLayerGenerator(Database, Table);
+            fctbBusinessClass.Text = codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations);
 
         }
 
