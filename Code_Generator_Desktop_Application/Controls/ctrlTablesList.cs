@@ -124,6 +124,8 @@ namespace Code_Generator_DApp.Controls
         }
         public string GetSelectedTableName()
         {
+            if (dgvTablesName.Rows.Count == 0) return null;
+            
             string tableName = dgvTablesName.SelectedRows[0].Cells["cTable"].Value.ToString().Trim();
             if(tableName != null && !string.IsNullOrWhiteSpace(tableName))
             {
