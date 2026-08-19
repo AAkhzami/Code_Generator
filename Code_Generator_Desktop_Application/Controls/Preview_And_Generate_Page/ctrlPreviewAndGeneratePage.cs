@@ -206,12 +206,16 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                     {
                         clsTSQLDataMethodsGenerator TSQL = new clsTSQLDataMethodsGenerator(Table, connection);                        
                         fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(TSQL, connection, operations));
+                        LoadTSQLQueries(connection.databaseName, Table, operations);
+                        lblMessage.Visible = false;
+
                         break;
                     }
                 case ctrlEngineSetups.enDatabaseType.SQL:
                     {
                         clsSQLServerDataAccessLayerGenerator SQL = new clsSQLServerDataAccessLayerGenerator(Table, connection);
                         fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations));
+                        lblMessage.Visible = true;
                         break;
                     }
             }
@@ -228,6 +232,49 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             fctbBusinessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations));
 
         }
+        public void LoadTSQLQueries(string Database, string Table, List<clsClassCodeBuilder.enOperationType> operations)
+        {
+            clsTSqlScriptBuilder scripts = new clsTSqlScriptBuilder(Database,Table);
+            StringBuilder sb = new StringBuilder();
+            operations.ForEach(operation =>
+            {
+                switch(operation)
+                {
+                    case clsClassCodeBuilder.enOperationType.SelectAll:
+                        {
+                            sb.Append(scripts.GenerateGetAllRecordsScript());
+                            sb.AppendLine();
+                            break;
+                        }
+                    case clsClassCodeBuilder.enOperationType.Select:
+                        {
+                            sb.Append(scripts.GenerateGetRecordByPrimaryKeyScript());
+                            sb.AppendLine();
+                            break;
+                        }
+                    case clsClassCodeBuilder.enOperationType.Insert:
+                        {
+                            sb.Append(scripts.GenerateAddNewRecord());
+                            sb.AppendLine();
+                            break;
+                        }
+                    case clsClassCodeBuilder.enOperationType.Update:
+                        {
+                            sb.Append(scripts.GenerateUpdateRecord());
+                            sb.AppendLine();
+                            break;
+                        }
+                    case clsClassCodeBuilder.enOperationType.Delete:
+                        {
+                            sb.Append(scripts.GenerateDeleteRecordByPrimaryKeyScript());
+                            sb.AppendLine();
+                            break;
+                        }
+                }
+            });
 
+            fctbQueries.Text = sb.ToString();
+
+        }
     }
 }
