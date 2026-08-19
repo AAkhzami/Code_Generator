@@ -111,5 +111,19 @@ namespace Code_Generator_DApp.Controls
                 Operations[clsClassCodeBuilder.enOperationType.Delete] = checkBoxDelete.Checked;
             }
         }
+        public List<clsClassCodeBuilder.enOperationType> GetOperations()
+        {
+            List<clsClassCodeBuilder.enOperationType> operations = new List<clsClassCodeBuilder.enOperationType>();
+            foreach (var item in Operations)
+            {
+                if (item.Value == true)
+                {
+                    operations.Add(item.Key);
+                }
+            }
+
+
+            return operations;
+        }
     }
 }
