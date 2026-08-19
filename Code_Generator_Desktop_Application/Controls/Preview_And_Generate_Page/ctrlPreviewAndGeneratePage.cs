@@ -332,9 +332,16 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         {
             return tpBusinessLayer.Text;
         }
-        public string Queries() 
+        public List<string> Queries() 
         { 
-            return tpQueries.Text;
+            if (_TSqlScripts.Count > 0)
+            {
+                return _TSqlScripts;
+            }
+            else
+            {
+                return null;
+            }
         }
         public string ConnectionsText()
         {
