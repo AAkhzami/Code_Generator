@@ -35,13 +35,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2ToggleSwitch3 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.tsConnection = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2ToggleSwitch2 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.tsQueries = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.tsBusinessClass = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label12 = new System.Windows.Forms.Label();
-            this.guna2ToggleSwitch5 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.tsDataAccessClass = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.btnBrowse = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
@@ -102,13 +102,13 @@
             this.guna2Panel1.BorderRadius = 9;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.guna2ToggleSwitch3);
+            this.guna2Panel1.Controls.Add(this.tsConnection);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.guna2ToggleSwitch2);
+            this.guna2Panel1.Controls.Add(this.tsQueries);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.guna2ToggleSwitch1);
+            this.guna2Panel1.Controls.Add(this.tsBusinessClass);
             this.guna2Panel1.Controls.Add(this.label12);
-            this.guna2Panel1.Controls.Add(this.guna2ToggleSwitch5);
+            this.guna2Panel1.Controls.Add(this.tsDataAccessClass);
             this.guna2Panel1.Location = new System.Drawing.Point(40, 120);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(394, 366);
@@ -126,29 +126,29 @@
             this.label3.TabIndex = 66;
             this.label3.Text = "Connection File";
             // 
-            // guna2ToggleSwitch3
+            // tsConnection
             // 
-            this.guna2ToggleSwitch3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2ToggleSwitch3.Animated = true;
-            this.guna2ToggleSwitch3.AutoRoundedCorners = true;
-            this.guna2ToggleSwitch3.Checked = true;
-            this.guna2ToggleSwitch3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch3.CheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch3.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch3.CheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch3.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch3.Location = new System.Drawing.Point(306, 244);
-            this.guna2ToggleSwitch3.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2ToggleSwitch3.Name = "guna2ToggleSwitch3";
-            this.guna2ToggleSwitch3.Size = new System.Drawing.Size(62, 31);
-            this.guna2ToggleSwitch3.TabIndex = 65;
-            this.guna2ToggleSwitch3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch3.UncheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch3.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch3.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch3.UncheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch3.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsConnection.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tsConnection.Animated = true;
+            this.tsConnection.AutoRoundedCorners = true;
+            this.tsConnection.Checked = true;
+            this.tsConnection.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsConnection.CheckedState.BorderRadius = 14;
+            this.tsConnection.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsConnection.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsConnection.CheckedState.InnerBorderRadius = 10;
+            this.tsConnection.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsConnection.Location = new System.Drawing.Point(306, 244);
+            this.tsConnection.Margin = new System.Windows.Forms.Padding(10);
+            this.tsConnection.Name = "tsConnection";
+            this.tsConnection.Size = new System.Drawing.Size(62, 31);
+            this.tsConnection.TabIndex = 65;
+            this.tsConnection.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsConnection.UncheckedState.BorderRadius = 14;
+            this.tsConnection.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsConnection.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsConnection.UncheckedState.InnerBorderRadius = 10;
+            this.tsConnection.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // label2
             // 
@@ -162,29 +162,29 @@
             this.label2.TabIndex = 64;
             this.label2.Text = "Execute T-SQL queries";
             // 
-            // guna2ToggleSwitch2
+            // tsQueries
             // 
-            this.guna2ToggleSwitch2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2ToggleSwitch2.Animated = true;
-            this.guna2ToggleSwitch2.AutoRoundedCorners = true;
-            this.guna2ToggleSwitch2.Checked = true;
-            this.guna2ToggleSwitch2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch2.CheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch2.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.CheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.Location = new System.Drawing.Point(306, 193);
-            this.guna2ToggleSwitch2.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2ToggleSwitch2.Name = "guna2ToggleSwitch2";
-            this.guna2ToggleSwitch2.Size = new System.Drawing.Size(62, 31);
-            this.guna2ToggleSwitch2.TabIndex = 63;
-            this.guna2ToggleSwitch2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch2.UncheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch2.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.UncheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch2.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsQueries.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tsQueries.Animated = true;
+            this.tsQueries.AutoRoundedCorners = true;
+            this.tsQueries.Checked = true;
+            this.tsQueries.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsQueries.CheckedState.BorderRadius = 14;
+            this.tsQueries.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsQueries.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsQueries.CheckedState.InnerBorderRadius = 10;
+            this.tsQueries.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsQueries.Location = new System.Drawing.Point(306, 193);
+            this.tsQueries.Margin = new System.Windows.Forms.Padding(10);
+            this.tsQueries.Name = "tsQueries";
+            this.tsQueries.Size = new System.Drawing.Size(62, 31);
+            this.tsQueries.TabIndex = 63;
+            this.tsQueries.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsQueries.UncheckedState.BorderRadius = 14;
+            this.tsQueries.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsQueries.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsQueries.UncheckedState.InnerBorderRadius = 10;
+            this.tsQueries.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // label1
             // 
@@ -198,29 +198,29 @@
             this.label1.TabIndex = 62;
             this.label1.Text = "Business Class";
             // 
-            // guna2ToggleSwitch1
+            // tsBusinessClass
             // 
-            this.guna2ToggleSwitch1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2ToggleSwitch1.Animated = true;
-            this.guna2ToggleSwitch1.AutoRoundedCorners = true;
-            this.guna2ToggleSwitch1.Checked = true;
-            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch1.CheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(306, 142);
-            this.guna2ToggleSwitch1.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
-            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(62, 31);
-            this.guna2ToggleSwitch1.TabIndex = 61;
-            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsBusinessClass.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tsBusinessClass.Animated = true;
+            this.tsBusinessClass.AutoRoundedCorners = true;
+            this.tsBusinessClass.Checked = true;
+            this.tsBusinessClass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsBusinessClass.CheckedState.BorderRadius = 14;
+            this.tsBusinessClass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsBusinessClass.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsBusinessClass.CheckedState.InnerBorderRadius = 10;
+            this.tsBusinessClass.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsBusinessClass.Location = new System.Drawing.Point(306, 142);
+            this.tsBusinessClass.Margin = new System.Windows.Forms.Padding(10);
+            this.tsBusinessClass.Name = "tsBusinessClass";
+            this.tsBusinessClass.Size = new System.Drawing.Size(62, 31);
+            this.tsBusinessClass.TabIndex = 61;
+            this.tsBusinessClass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsBusinessClass.UncheckedState.BorderRadius = 14;
+            this.tsBusinessClass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsBusinessClass.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsBusinessClass.UncheckedState.InnerBorderRadius = 10;
+            this.tsBusinessClass.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // label12
             // 
@@ -234,29 +234,29 @@
             this.label12.TabIndex = 60;
             this.label12.Text = "DataAccess Class";
             // 
-            // guna2ToggleSwitch5
+            // tsDataAccessClass
             // 
-            this.guna2ToggleSwitch5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2ToggleSwitch5.Animated = true;
-            this.guna2ToggleSwitch5.AutoRoundedCorners = true;
-            this.guna2ToggleSwitch5.Checked = true;
-            this.guna2ToggleSwitch5.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch5.CheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch5.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2ToggleSwitch5.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch5.CheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch5.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch5.Location = new System.Drawing.Point(306, 91);
-            this.guna2ToggleSwitch5.Margin = new System.Windows.Forms.Padding(10);
-            this.guna2ToggleSwitch5.Name = "guna2ToggleSwitch5";
-            this.guna2ToggleSwitch5.Size = new System.Drawing.Size(62, 31);
-            this.guna2ToggleSwitch5.TabIndex = 59;
-            this.guna2ToggleSwitch5.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch5.UncheckedState.BorderRadius = 14;
-            this.guna2ToggleSwitch5.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch5.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch5.UncheckedState.InnerBorderRadius = 10;
-            this.guna2ToggleSwitch5.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsDataAccessClass.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tsDataAccessClass.Animated = true;
+            this.tsDataAccessClass.AutoRoundedCorners = true;
+            this.tsDataAccessClass.Checked = true;
+            this.tsDataAccessClass.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsDataAccessClass.CheckedState.BorderRadius = 14;
+            this.tsDataAccessClass.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.tsDataAccessClass.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsDataAccessClass.CheckedState.InnerBorderRadius = 10;
+            this.tsDataAccessClass.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.tsDataAccessClass.Location = new System.Drawing.Point(306, 91);
+            this.tsDataAccessClass.Margin = new System.Windows.Forms.Padding(10);
+            this.tsDataAccessClass.Name = "tsDataAccessClass";
+            this.tsDataAccessClass.Size = new System.Drawing.Size(62, 31);
+            this.tsDataAccessClass.TabIndex = 59;
+            this.tsDataAccessClass.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsDataAccessClass.UncheckedState.BorderRadius = 14;
+            this.tsDataAccessClass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.tsDataAccessClass.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.tsDataAccessClass.UncheckedState.InnerBorderRadius = 10;
+            this.tsDataAccessClass.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // btnExport
             // 
@@ -274,6 +274,7 @@
             this.btnExport.Size = new System.Drawing.Size(215, 52);
             this.btnExport.TabIndex = 36;
             this.btnExport.Text = "Export";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnBrowse
             // 
@@ -324,13 +325,13 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch3;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch tsConnection;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch2;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch tsQueries;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch tsBusinessClass;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch5;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch tsDataAccessClass;
         private Guna.UI2.WinForms.Guna2Button btnExport;
         private Guna.UI2.WinForms.Guna2Button btnBrowse;
     }
