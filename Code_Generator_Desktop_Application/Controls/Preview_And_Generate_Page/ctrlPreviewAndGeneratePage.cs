@@ -159,13 +159,13 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                 case ctrlEngineSetups.enDatabaseType.TSQL:
                     {
                         clsTSQLDataMethodsGenerator TSQL = new clsTSQLDataMethodsGenerator(Table, connection);                        
-                        fctbDataAccessClass.Text = codeBuilder.GenerateDataAccessLayerClass(TSQL, connection, operations);
+                        fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(TSQL, connection, operations));
                         break;
                     }
                 case ctrlEngineSetups.enDatabaseType.SQL:
                     {
                         clsSQLServerDataAccessLayerGenerator SQL = new clsSQLServerDataAccessLayerGenerator(Table, connection);
-                        fctbDataAccessClass.Text = codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations);
+                        fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations));
                         break;
                     }
             }
@@ -179,7 +179,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(Database, Table);
             clsBusinessLayerGenerator BusinessLayer = new clsBusinessLayerGenerator(Database, Table);
-            fctbBusinessClass.Text = codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations);
+            fctbBusinessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations));
 
         }
 
