@@ -33,7 +33,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _DataAccessClass = value;
-                tbCodesGenerator.TabPages["tpDataAccess"].Text = value;
+                tcCodesGenerator.TabPages["tpDataAccess"].Text = value;
             }
         }
         public string BusinessLayerClass
@@ -45,7 +45,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _BusinessLayerClass = value;
-                tbCodesGenerator.TabPages["tpBusinessLayer"].Text = value;
+                tcCodesGenerator.TabPages["tpBusinessLayer"].Text = value;
             }
         }
         public string Querys
@@ -57,7 +57,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _Queries = value;                
-                tbCodesGenerator.TabPages["tpQueries"].Text = value;
+                tcCodesGenerator.TabPages["tpQueries"].Text = value;
             }
         }
         public string Connection
@@ -69,7 +69,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             set
             {
                 _Connection = value;                
-                tbCodesGenerator.TabPages["tpConnection"].Text = value;
+                tcCodesGenerator.TabPages["tpConnection"].Text = value;
             }
         }
 
@@ -315,6 +315,14 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         public void LoadConnectionText(clsConnectionData connection)
         {
             fctbConnections.Text = connection.GenerateConnection();
+        }
+        public void Reset()
+        {
+            fctbDataAccessClass.Text = "";
+            fctbBusinessClass.Text = "";
+            fctbQueries.Text = "";
+            fctbConnections.Text = "";
+            tcCodesGenerator.SelectedIndex = 0;
         }
     }
 }

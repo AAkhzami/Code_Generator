@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPreviewAndGeneratePage));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbCodesGenerator = new Guna.UI2.WinForms.Guna2TabControl();
+            this.tcCodesGenerator = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpDataAccess = new System.Windows.Forms.TabPage();
             this.fctbDataAccessClass = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tpBusinessLayer = new System.Windows.Forms.TabPage();
@@ -42,7 +42,7 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.fctbConnections = new FastColoredTextBoxNS.FastColoredTextBox();
             this.guna2Panel1.SuspendLayout();
-            this.tbCodesGenerator.SuspendLayout();
+            this.tcCodesGenerator.SuspendLayout();
             this.tpDataAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).BeginInit();
             this.tpBusinessLayer.SuspendLayout();
@@ -61,45 +61,45 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Panel1.BorderRadius = 8;
             this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.tbCodesGenerator);
+            this.guna2Panel1.Controls.Add(this.tcCodesGenerator);
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1129, 574);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // tbCodesGenerator
+            // tcCodesGenerator
             // 
-            this.tbCodesGenerator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcCodesGenerator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCodesGenerator.Controls.Add(this.tpDataAccess);
-            this.tbCodesGenerator.Controls.Add(this.tpBusinessLayer);
-            this.tbCodesGenerator.Controls.Add(this.tpQueries);
-            this.tbCodesGenerator.Controls.Add(this.tpConnection);
-            this.tbCodesGenerator.ItemSize = new System.Drawing.Size(180, 40);
-            this.tbCodesGenerator.Location = new System.Drawing.Point(9, 8);
-            this.tbCodesGenerator.Name = "tbCodesGenerator";
-            this.tbCodesGenerator.SelectedIndex = 0;
-            this.tbCodesGenerator.Size = new System.Drawing.Size(1109, 558);
-            this.tbCodesGenerator.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.tbCodesGenerator.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tbCodesGenerator.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tbCodesGenerator.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.tbCodesGenerator.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tbCodesGenerator.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.tbCodesGenerator.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.tbCodesGenerator.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tbCodesGenerator.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.tbCodesGenerator.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.tbCodesGenerator.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.tbCodesGenerator.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
-            this.tbCodesGenerator.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tbCodesGenerator.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
-            this.tbCodesGenerator.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.tbCodesGenerator.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.tbCodesGenerator.TabIndex = 1;
-            this.tbCodesGenerator.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.tbCodesGenerator.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.tcCodesGenerator.Controls.Add(this.tpDataAccess);
+            this.tcCodesGenerator.Controls.Add(this.tpBusinessLayer);
+            this.tcCodesGenerator.Controls.Add(this.tpQueries);
+            this.tcCodesGenerator.Controls.Add(this.tpConnection);
+            this.tcCodesGenerator.ItemSize = new System.Drawing.Size(180, 40);
+            this.tcCodesGenerator.Location = new System.Drawing.Point(9, 8);
+            this.tcCodesGenerator.Name = "tcCodesGenerator";
+            this.tcCodesGenerator.SelectedIndex = 0;
+            this.tcCodesGenerator.Size = new System.Drawing.Size(1109, 558);
+            this.tcCodesGenerator.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.tcCodesGenerator.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tcCodesGenerator.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcCodesGenerator.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.tcCodesGenerator.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tcCodesGenerator.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.tcCodesGenerator.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcCodesGenerator.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcCodesGenerator.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.tcCodesGenerator.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcCodesGenerator.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.tcCodesGenerator.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
+            this.tcCodesGenerator.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tcCodesGenerator.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.tcCodesGenerator.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.tcCodesGenerator.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.tcCodesGenerator.TabIndex = 1;
+            this.tcCodesGenerator.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.tcCodesGenerator.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // tpDataAccess
             // 
@@ -291,7 +291,7 @@
             this.Name = "ctrlPreviewAndGeneratePage";
             this.Size = new System.Drawing.Size(1135, 577);
             this.guna2Panel1.ResumeLayout(false);
-            this.tbCodesGenerator.ResumeLayout(false);
+            this.tcCodesGenerator.ResumeLayout(false);
             this.tpDataAccess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fctbDataAccessClass)).EndInit();
             this.tpBusinessLayer.ResumeLayout(false);
@@ -308,7 +308,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2TabControl tbCodesGenerator;
+        private Guna.UI2.WinForms.Guna2TabControl tcCodesGenerator;
         private System.Windows.Forms.TabPage tpDataAccess;
         private System.Windows.Forms.TabPage tpBusinessLayer;
         private System.Windows.Forms.TabPage tpQueries;
