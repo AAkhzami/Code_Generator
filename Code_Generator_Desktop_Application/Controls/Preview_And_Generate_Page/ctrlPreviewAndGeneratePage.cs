@@ -80,6 +80,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             ApplyTokyoNightTheme(fctbDataAccessClass);
             ApplyOneDarkProTheme(fctbBusinessClass);
             ApplyModernTSQLTheme(fctbQueries);
+            ApplyOutputConnectionTheme(fctbConnections);
         }
         private void ApplyTokyoNightTheme(FastColoredTextBox codeEditor)
         {
