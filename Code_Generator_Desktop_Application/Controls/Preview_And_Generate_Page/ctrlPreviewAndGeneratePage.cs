@@ -191,7 +191,41 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             codeEditor.OnTextChanged();
         }
+        private void ApplyOutputConnectionTheme(FastColoredTextBox codeEditor)
+        {
+            codeEditor.BackColor = Color.FromArgb(18, 24, 38);             
+            codeEditor.ForeColor = Color.FromArgb(225, 230, 240);          
+            codeEditor.IndentBackColor = Color.FromArgb(12, 16, 26);       
+            codeEditor.LineNumberColor = Color.FromArgb(70, 85, 105);      
+            codeEditor.SelectionColor = Color.FromArgb(80, 50, 90, 140);   
+            codeEditor.CaretColor = Color.FromArgb(0, 230, 208);           
+            codeEditor.Font = new Font("Consolas", 11f, FontStyle.Regular);
 
+            codeEditor.Language = Language.Custom;
+            codeEditor.ClearStylesBuffer();
+
+            TextStyle keywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(198, 120, 221)), null, FontStyle.Bold);         
+            TextStyle stringValueStyle = new TextStyle(new SolidBrush(Color.FromArgb(152, 195, 121)), null, FontStyle.Regular);  
+            TextStyle keysStyle = new TextStyle(new SolidBrush(Color.FromArgb(229, 192, 123)), null, FontStyle.Regular);         
+            TextStyle xmlTagStyle = new TextStyle(new SolidBrush(Color.FromArgb(97, 175, 239)), null, FontStyle.Bold);           
+            TextStyle xmlAttributeStyle = new TextStyle(new SolidBrush(Color.FromArgb(224, 108, 117)), null, FontStyle.Regular); 
+
+            codeEditor.TextChanged += (s, ev) =>
+            {
+                ev.ChangedRange.ClearStyle(keywordStyle, stringValueStyle, keysStyle, xmlTagStyle, xmlAttributeStyle);
+
+                ev.ChangedRange.SetStyle(keywordStyle, @"\b(public|static|class|string)\b");
+                ev.ChangedRange.SetStyle(stringValueStyle, @"""""|""([^""\\]|\\.)*""");
+
+                ev.ChangedRange.SetStyle(xmlTagStyle, @"</?[\w:]+");
+                ev.ChangedRange.SetStyle(xmlTagStyle, @">|/>");
+                ev.ChangedRange.SetStyle(xmlAttributeStyle, @"\b(key|value)\b(?=\s*=)");
+
+                ev.ChangedRange.SetStyle(keysStyle, @"\b(Server|Database|User Id|Password)\b(?=\s*=)", RegexOptions.IgnoreCase);
+            };
+
+            codeEditor.OnTextChanged();
+        }
         public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
             if (string.IsNullOrWhiteSpace(connection.databaseName) && string.IsNullOrWhiteSpace(Table))
