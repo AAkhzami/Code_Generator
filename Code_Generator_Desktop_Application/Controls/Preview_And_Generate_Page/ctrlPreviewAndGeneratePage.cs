@@ -74,6 +74,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         public ctrlPreviewAndGeneratePage()
         {
             InitializeComponent();
+            ApplyTokyoNightTheme(fctbDataAccessClass);
         }
         private void ApplyTokyoNightTheme(FastColoredTextBox codeEditor)
         {
@@ -114,17 +115,18 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             {
                 case ctrlEngineSetups.enDatabaseType.TSQL:
                     {
-                        clsTSQLDataMethodsGenerator TSQL = new clsTSQLDataMethodsGenerator(Table, connection);
-                        codeBuilder.GenerateDataAccessLayerClass(TSQL, connection, operations);
+                        clsTSQLDataMethodsGenerator TSQL = new clsTSQLDataMethodsGenerator(Table, connection);                        
+                        fctbDataAccessClass.Text = codeBuilder.GenerateDataAccessLayerClass(TSQL, connection, operations);
                         break;
                     }
                 case ctrlEngineSetups.enDatabaseType.SQL:
                     {
                         clsSQLServerDataAccessLayerGenerator SQL = new clsSQLServerDataAccessLayerGenerator(Table, connection);
-                        codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations);
+                        fctbDataAccessClass.Text = codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations);
                         break;
                     }
             }
+
         }
 
     }
