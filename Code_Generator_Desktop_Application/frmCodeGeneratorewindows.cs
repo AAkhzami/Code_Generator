@@ -47,12 +47,12 @@ namespace Code_Generator_DApp
             }
             List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
 
-            clsConnectionData connection = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
+            _connectionInfo = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
                 , ".", cbSelectDatabase.Text, "sa", "sa123456");
 
             GenerateDataAccessLayerClass(operations);
             GenerateBusinessLayerClass(operations);
-            ctrlPreviewAndGeneratePage1.LoadConnectionText(connection);
+            ctrlPreviewAndGeneratePage1.LoadConnectionText(_connectionInfo);
 
             tbPages.SelectedIndex = 1;
             
@@ -82,6 +82,11 @@ namespace Code_Generator_DApp
                 cbSelectDatabase.Items.Add(dr[0]);
             }
             tbPages.SelectedIndex = 0;
+            ctrlPreviewAndGeneratePage1.Reset();
+            _Database = null;
+            _connectionInfo = null;
+            ctrlEngineSetups1.Reset();
+
         }
 
         private async void cbSelectDatabase_SelectedIndexChanged(object sender, EventArgs e)
