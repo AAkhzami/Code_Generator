@@ -19,6 +19,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 {
     public partial class ctrlPreviewAndGeneratePage : UserControl
     {
+        List<string> _TSqlScripts = new List<string>();
         public ctrlPreviewAndGeneratePage()
         {
             InitializeComponent();
@@ -293,6 +294,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             fctbConnections.Text = "";
 
             tcCodesGenerator.SelectedIndex = 0;
+            _TSqlScripts.Clear();
         }
         public string DataAccessClass()
         {
