@@ -20,18 +20,23 @@ namespace Code_Generator_DApp
             InitializeComponent();
         }
 
-        private void GenerateDataAccessLayerClass()
+        private void GenerateDataAccessLayerClass(List<clsClassCodeBuilder.enOperationType> operations)
         {
             string database = cbSelectDatabase.Text;
             string table = ctrlTablesList1.GetSelectedTableName();
-            List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
 
             clsConnectionData connections = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
                 , ".", database, "sa", "sa123456");
 
             ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, connections, operations);
         }
+        private void GenerateBusinessLayerClass(List<clsClassCodeBuilder.enOperationType> operations)
+        {
+            string database = cbSelectDatabase.Text;
+            string table = ctrlTablesList1.GetSelectedTableName();
 
+            ctrlPreviewAndGeneratePage1.LoadBusinessClass(database, table, operations);
+        }
         private void btnNextPage_Click(object sender, EventArgs e)
         {
             if(cbSelectDatabase.Text == "Select Database")
@@ -39,8 +44,11 @@ namespace Code_Generator_DApp
                 MessageBox.Show("No Database selected!", "Not Allowed", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+            List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
 
-            GenerateDataAccessLayerClass();
+            GenerateDataAccessLayerClass(operations);
+            GenerateBusinessLayerClass(operations);
+
             tbPages.SelectedIndex = 1;
             
         }
