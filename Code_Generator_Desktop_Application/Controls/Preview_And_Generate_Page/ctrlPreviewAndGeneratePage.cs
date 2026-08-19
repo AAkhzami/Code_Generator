@@ -108,9 +108,9 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
 
             codeEditor.OnTextChanged();
         }
-        public void LoadAccessDataClass(string Datatable, string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
+        public void LoadAccessDataClass(string Table, ctrlEngineSetups.enDatabaseType databaseType, clsConnectionData connection, List<clsClassCodeBuilder.enOperationType> operations)
         {
-            clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(Datatable, Table);
+            clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(connection.databaseName, Table);
             switch(databaseType)
             {
                 case ctrlEngineSetups.enDatabaseType.TSQL:
