@@ -106,7 +106,7 @@ namespace Code_Generator_DApp.Controls
             {
                 Operations[clsClassCodeBuilder.enOperationType.Update] = checkBoxUpdate.Checked;
             }
-            else if (checkBox == checkBoxUpdate)
+            else if (checkBox == checkBoxDelete)
             {
                 Operations[clsClassCodeBuilder.enOperationType.Delete] = checkBoxDelete.Checked;
             }
