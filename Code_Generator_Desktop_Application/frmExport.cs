@@ -60,17 +60,6 @@ namespace Code_Generator_DApp
                     clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", _Locations);
                 }
                 
-                if (tsQueries.Checked)
-                {
-                    if (_Connection != null)
-                    {
-                        if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
-                        {
-                            throw new ArgumentException("An error occurred while executing queries in the databases.");
-                        }
-                    }
-                }
-                
                 if (tsConnection.Checked)
                 {
                     switch (_Connection.connectionType)
@@ -83,6 +72,19 @@ namespace Code_Generator_DApp
                             break;
                     }
                 }
+
+                if (tsQueries.Checked)
+                {
+                    if (_Connection != null)
+                    {
+                        if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
+                        {
+                            throw new ArgumentException("An error occurred while executing queries in the databases.");
+                        }
+                    }
+                }
+
+                MessageBox.Show("");
             }
             catch(Exception ex)
             {

@@ -259,7 +259,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                         }
                     case clsClassCodeBuilder.enOperationType.Insert:
                         {
-                            script = scripts.GenerateGetRecordByPrimaryKeyScript();
+                            script = scripts.GenerateAddNewRecord();
 
                             _TSqlScripts.Add(script);
                             sb.Append(script);

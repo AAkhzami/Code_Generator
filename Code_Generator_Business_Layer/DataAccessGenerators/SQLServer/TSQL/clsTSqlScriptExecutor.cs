@@ -38,6 +38,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer.TSQL
             {
                 return false;
             }
+
             return true;
             
         }
