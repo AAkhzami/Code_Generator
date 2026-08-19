@@ -302,7 +302,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         {
             return tpBusinessLayer.Text;
         }
-        public string QueriesClass() 
+        public string Queries() 
         { 
             return tpQueries.Text;
         }

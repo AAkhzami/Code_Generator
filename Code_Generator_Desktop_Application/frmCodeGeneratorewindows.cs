@@ -99,7 +99,10 @@ namespace Code_Generator_DApp
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-
+            string dataAccessClass = ctrlPreviewAndGeneratePage1.DataAccessClass();
+            string businessClass = ctrlPreviewAndGeneratePage1.BusinessClass();
+            string queries = ctrlPreviewAndGeneratePage1.Queries();
+            string connection = ctrlPreviewAndGeneratePage1.ConnectionsText();
         }
     }
 }
