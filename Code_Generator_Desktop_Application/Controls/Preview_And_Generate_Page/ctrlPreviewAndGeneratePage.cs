@@ -244,6 +244,10 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                         LoadTSQLQueries(connection.databaseName, Table, operations);
                         lblMessage.Visible = false;
 
+                        tpDataAccess.Text = $"cls{Table}Data.cs";
+                        tpQueries.Text = $"{Table}_script.sql";
+
+
                         break;
                     }
                 case ctrlEngineSetups.enDatabaseType.SQL:
@@ -252,6 +256,10 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                         fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations));
                         fctbQueries.Text = "";
                         lblMessage.Visible = true;
+
+                        tpDataAccess.Text = $"cls{Table}Data.cs";
+                        tpQueries.Text = "Queries";
+
                         break;
                     }
             }
@@ -266,6 +274,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
             clsClassCodeBuilder codeBuilder = new clsClassCodeBuilder(Database, Table);
             clsBusinessLayerGenerator BusinessLayer = new clsBusinessLayerGenerator(Database, Table);
             fctbBusinessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateBusinessLayerClass(BusinessLayer, operations));
+            tpDataAccess.Text = $"cls{Table}.cs";
 
         }
         public void LoadTSQLQueries(string Database, string Table, List<clsClassCodeBuilder.enOperationType> operations)
@@ -315,6 +324,15 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         public void LoadConnectionText(clsConnectionData connection)
         {
             fctbConnections.Text = connection.GenerateConnection();
+            switch(connection.connectionType)
+            {
+                case clsConnectionData.enConnectionType.StaticClass:
+                    tpConnection.Text = "clsConnection.cs";
+                    break;
+                case clsConnectionData.enConnectionType.AppConfig:
+                    tpConnection.Text = "App.config Snippet";
+                    break;
+            }
         }
         public void Reset()
         {
