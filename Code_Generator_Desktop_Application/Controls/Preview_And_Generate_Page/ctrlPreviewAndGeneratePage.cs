@@ -228,38 +228,66 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         {
             clsTSqlScriptBuilder scripts = new clsTSqlScriptBuilder(Database,Table);
             StringBuilder sb = new StringBuilder();
+
+            string script = null;
+
             operations.ForEach(operation =>
             {
                 switch(operation)
                 {
                     case clsClassCodeBuilder.enOperationType.SelectAll:
                         {
-                            sb.Append(scripts.GenerateGetAllRecordsScript());
+                            script = scripts.GenerateGetAllRecordsScript();
+
+                            _TSqlScripts.Add(script);
+                            sb.Append(script);
                             sb.AppendLine();
+
+                            script = null;
                             break;
                         }
                     case clsClassCodeBuilder.enOperationType.Select:
                         {
-                            sb.Append(scripts.GenerateGetRecordByPrimaryKeyScript());
+                            script = scripts.GenerateGetRecordByPrimaryKeyScript();
+
+                            _TSqlScripts.Add(script);
+                            sb.Append(script);
                             sb.AppendLine();
+
+                            script = null;
                             break;
                         }
                     case clsClassCodeBuilder.enOperationType.Insert:
                         {
-                            sb.Append(scripts.GenerateAddNewRecord());
+                            script = scripts.GenerateGetRecordByPrimaryKeyScript();
+
+                            _TSqlScripts.Add(script);
+                            sb.Append(script);
                             sb.AppendLine();
+
+                            script = null;
                             break;
                         }
                     case clsClassCodeBuilder.enOperationType.Update:
                         {
-                            sb.Append(scripts.GenerateUpdateRecord());
+                            script = scripts.GenerateUpdateRecord();
+
+                            _TSqlScripts.Add(script);
+                            sb.Append(script);
                             sb.AppendLine();
+
+                            script = null;
                             break;
                         }
                     case clsClassCodeBuilder.enOperationType.Delete:
                         {
-                            sb.Append(scripts.GenerateDeleteRecordByPrimaryKeyScript());
+                            script = scripts.GenerateDeleteRecordByPrimaryKeyScript();
+
+                            _TSqlScripts.Add(script);
+                            sb.Append(script);
                             sb.AppendLine();
+
+                            script = null;
                             break;
                         }
                 }
