@@ -313,7 +313,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         }
         public void LoadConnectionText(clsConnectionData connection)
         {
-            connection.GenerateConnection();
+            fctbConnections.Text = connection.GenerateConnection();
         }
     }
 }
