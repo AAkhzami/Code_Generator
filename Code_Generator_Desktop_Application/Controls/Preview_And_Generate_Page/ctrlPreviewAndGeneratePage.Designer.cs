@@ -220,6 +220,7 @@
         '\''};
             this.fctbQueries.AutoScrollMinSize = new System.Drawing.Size(27, 14);
             this.fctbQueries.BackBrush = null;
+            this.fctbQueries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
             this.fctbQueries.CharHeight = 14;
             this.fctbQueries.CharWidth = 8;
             this.fctbQueries.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -238,7 +239,9 @@
             // 
             // lblMessage
             // 
+            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
             this.lblMessage.Font = new System.Drawing.Font("Tahoma", 21F);
             this.lblMessage.ForeColor = System.Drawing.Color.White;
             this.lblMessage.Location = new System.Drawing.Point(415, 238);
@@ -283,6 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlPreviewAndGeneratePage";
             this.Size = new System.Drawing.Size(1135, 577);
