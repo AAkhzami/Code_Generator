@@ -76,6 +76,7 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
         public ctrlPreviewAndGeneratePage()
         {
             InitializeComponent();
+            lblMessage.Visible = true;
             ApplyTokyoNightTheme(fctbDataAccessClass);
             ApplyOneDarkProTheme(fctbBusinessClass);
             ApplyModernTSQLTheme(fctbQueries);

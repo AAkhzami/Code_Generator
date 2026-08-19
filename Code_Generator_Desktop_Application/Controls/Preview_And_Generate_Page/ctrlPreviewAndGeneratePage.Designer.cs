@@ -39,6 +39,7 @@
             this.tpQueries = new System.Windows.Forms.TabPage();
             this.tpConnection = new System.Windows.Forms.TabPage();
             this.fctbQueries = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.tbCodesGenerator.SuspendLayout();
             this.tpDataAccess.SuspendLayout();
@@ -182,6 +183,7 @@
             // 
             // tpQueries
             // 
+            this.tpQueries.Controls.Add(this.lblMessage);
             this.tpQueries.Controls.Add(this.fctbQueries);
             this.tpQueries.Location = new System.Drawing.Point(4, 44);
             this.tpQueries.Name = "tpQueries";
@@ -230,6 +232,18 @@
             this.fctbQueries.TabIndex = 2;
             this.fctbQueries.Zoom = 100;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Tahoma", 21F);
+            this.lblMessage.ForeColor = System.Drawing.Color.White;
+            this.lblMessage.Location = new System.Drawing.Point(415, 238);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(270, 34);
+            this.lblMessage.TabIndex = 25;
+            this.lblMessage.Text = "No Queries To Show";
+            this.lblMessage.Visible = false;
+            // 
             // ctrlPreviewAndGeneratePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +258,7 @@
             this.tpBusinessLayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fctbBusinessClass)).EndInit();
             this.tpQueries.ResumeLayout(false);
+            this.tpQueries.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fctbQueries)).EndInit();
             this.ResumeLayout(false);
 
@@ -260,5 +275,6 @@
         private FastColoredTextBoxNS.FastColoredTextBox fctbDataAccessClass;
         private FastColoredTextBoxNS.FastColoredTextBox fctbBusinessClass;
         private FastColoredTextBoxNS.FastColoredTextBox fctbQueries;
+        private System.Windows.Forms.Label lblMessage;
     }
 }
