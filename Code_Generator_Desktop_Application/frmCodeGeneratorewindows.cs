@@ -45,6 +45,18 @@ namespace Code_Generator_DApp
                 MessageBox.Show("No Database selected!", "Not Allowed", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
+            if (ctrlTablesList1.IsTableHasPrimaryKey)
+            {
+                if (
+                    MessageBox.Show("The specified table does not contain a primary key, which will lead to unexpected problems during code generation. Are you sure you want to continue?",
+                    "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No
+                    )
+                {
+                    return;
+                }
+            }
+
             List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
 
             _connectionInfo = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
