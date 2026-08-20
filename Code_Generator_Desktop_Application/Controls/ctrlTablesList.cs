@@ -162,7 +162,7 @@ namespace Code_Generator_DApp.Controls
             {
                 foreach (DataRow row in columns.Rows)
                 {
-                    dgvColumnsTable.Rows.Add(row["ColumnName"], row["SqlDataType"], row["IsNullable"], row["IsPrimaryKey"]);
+                    dgvColumnsTable.Rows.Add(row["ColumnName"], row["SqlDataType"], row["IsNullable"], (int)row["IsPrimaryKey"] == 1 );
                 }
             }
         }
