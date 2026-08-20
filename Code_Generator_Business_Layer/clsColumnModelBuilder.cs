@@ -173,7 +173,7 @@ namespace Code_Generator_Business_Layer
         /// <returns>A <see cref="strColumnInfo"/> struct containing the matching column metadata.</returns>
         public strColumnInfo GetColumnInfo(string ColumnName)
         {
-            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableNameAsync(_databaseName, _tableName);
+            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
             strColumnInfo info = new strColumnInfo();
             foreach(DataRow dr in dt.Rows)
             {
@@ -194,7 +194,7 @@ namespace Code_Generator_Business_Layer
         /// <returns>A <see cref="strColumnInfo"/> struct containing the matching column metadata.</returns>
         public strColumnInfo GetColumnInfo(int ColumnID)
         {
-            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableNameAsync(_databaseName, _tableName);
+            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
             strColumnInfo info = new strColumnInfo();
             foreach (DataRow dr in dt.Rows)
             {
@@ -232,7 +232,7 @@ namespace Code_Generator_Business_Layer
         public List<clsColumnModelBuilder.strColumnInfo> GetAllColumnsInfo()
         {
             List<strColumnInfo> list = new List<strColumnInfo>();
-            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableNameAsync(_databaseName, _tableName);
+            DataTable dt = clsColumnsData.GetAllColumnsInfoByTableName(_databaseName, _tableName);
             foreach (DataRow dr in dt.Rows)
             {
                 list.Add(InsertColumnData(dr));
