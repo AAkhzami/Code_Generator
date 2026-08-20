@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Linq;
 namespace Code_Generator_DApp
 {
     public partial class login : Form
@@ -62,7 +63,18 @@ namespace Code_Generator_DApp
                 string userID = txbUserID.Text;
                 string password = txbPassword.Text;
                 string location = txbServerLocation.Text.Trim();
-                if(cbRememberMe.Checked)
+
+                string[] localIdentifiers = { ".", "local", "(local)", "localhost" };
+                
+                if (
+                    string.IsNullOrWhiteSpace(location) ||
+                    localIdentifiers.Any(id => id.Equals(location, StringComparison.OrdinalIgnoreCase))
+                    )
+                {
+                    location = ".";
+                }
+
+                if (cbRememberMe.Checked)
                 {
                     if (WriteToRegistry(userID, password, location))
                     {
