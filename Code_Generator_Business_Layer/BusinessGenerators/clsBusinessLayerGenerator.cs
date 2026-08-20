@@ -46,10 +46,10 @@ namespace Code_Generator_Business_Layer
 
             _Columns.GetAllColumnsInfo().ForEach((c) =>
             {
-                if (!c.IsPrimaryKey && !c.IsIdentity)
-                {
+                //if (!c.IsPrimaryKey && !c.IsIdentity)
+                //{
                     Parameters.Add($"this.{c.ColumnName}");
-                }
+                //}
             });
 
             sb.Append(string.Join(", ", Parameters));
