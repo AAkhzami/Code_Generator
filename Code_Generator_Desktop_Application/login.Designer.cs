@@ -44,7 +44,7 @@
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txbServerLocation = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -87,11 +87,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(114, 334);
+            this.label6.Location = new System.Drawing.Point(166, 334);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 14);
+            this.label6.Size = new System.Drawing.Size(164, 14);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Made by Abdullrahman Al-Akhzami";
+            this.label6.Text = "Abdullrahman Al-Akhzami";
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             this.guna2Panel2.BorderRadius = 9;
             this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.label7);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel2.Controls.Add(this.txbServerLocation);
             this.guna2Panel2.Controls.Add(this.btnClose);
             this.guna2Panel2.Controls.Add(this.cbRememberMe);
             this.guna2Panel2.Controls.Add(this.btnLogin);
@@ -158,7 +158,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label5.Location = new System.Drawing.Point(10, 128);
+            this.label5.Location = new System.Drawing.Point(10, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 33;
@@ -170,7 +170,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label4.Location = new System.Drawing.Point(10, 51);
+            this.label4.Location = new System.Drawing.Point(10, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 16);
             this.label4.TabIndex = 32;
@@ -188,7 +188,7 @@
             this.txbUserID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.txbUserID.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbUserID.Location = new System.Drawing.Point(13, 71);
+            this.txbUserID.Location = new System.Drawing.Point(13, 158);
             this.txbUserID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbUserID.Name = "txbUserID";
             this.txbUserID.PlaceholderText = "User ID";
@@ -208,7 +208,7 @@
             this.txbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.txbPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.txbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbPassword.Location = new System.Drawing.Point(13, 148);
+            this.txbPassword.Location = new System.Drawing.Point(13, 231);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '*';
@@ -228,7 +228,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(13, 278);
+            this.btnLogin.Location = new System.Drawing.Point(13, 286);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(400, 49);
             this.btnLogin.TabIndex = 38;
@@ -245,7 +245,7 @@
             this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.cbRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRememberMe.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.cbRememberMe.Location = new System.Drawing.Point(13, 335);
+            this.cbRememberMe.Location = new System.Drawing.Point(13, 341);
             this.cbRememberMe.Name = "cbRememberMe";
             this.cbRememberMe.Size = new System.Drawing.Size(130, 23);
             this.cbRememberMe.TabIndex = 39;
@@ -284,25 +284,25 @@
             this.pictureBox5.TabIndex = 2;
             this.pictureBox5.TabStop = false;
             // 
-            // guna2TextBox1
+            // txbServerLocation
             // 
-            this.guna2TextBox1.BorderRadius = 9;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(13, 230);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "e.g., . or localhost";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(400, 41);
-            this.guna2TextBox1.TabIndex = 41;
+            this.txbServerLocation.BorderRadius = 9;
+            this.txbServerLocation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbServerLocation.DefaultText = "";
+            this.txbServerLocation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbServerLocation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbServerLocation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbServerLocation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbServerLocation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
+            this.txbServerLocation.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txbServerLocation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbServerLocation.Location = new System.Drawing.Point(13, 84);
+            this.txbServerLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbServerLocation.Name = "txbServerLocation";
+            this.txbServerLocation.PlaceholderText = "e.g., . or localhost";
+            this.txbServerLocation.SelectedText = "";
+            this.txbServerLocation.Size = new System.Drawing.Size(400, 41);
+            this.txbServerLocation.TabIndex = 41;
             // 
             // label7
             // 
@@ -310,7 +310,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label7.Location = new System.Drawing.Point(10, 210);
+            this.label7.Location = new System.Drawing.Point(10, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(352, 16);
             this.label7.TabIndex = 42;
@@ -360,7 +360,7 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txbServerLocation;
     }
 }
 
