@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCodeGeneratorewindows));
             this.tbPages = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
+            this.ctrlEngineSetups1 = new Code_Generator_DApp.Controls.ctrlEngineSetups();
+            this.ctrlTablesList1 = new Code_Generator_DApp.Controls.ctrlTablesList();
             this.btnNextPage = new Guna.UI2.WinForms.Guna2Button();
             this.tpPreviewAndGenerate = new System.Windows.Forms.TabPage();
+            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnGenerate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.ctrlEngineSetups1 = new Code_Generator_DApp.Controls.ctrlEngineSetups();
-            this.ctrlTablesList1 = new Code_Generator_DApp.Controls.ctrlTablesList();
-            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
             this.tbPages.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.tpPreviewAndGenerate.SuspendLayout();
@@ -82,6 +82,7 @@
             this.tbPages.TabIndex = 0;
             this.tbPages.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tbPages.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalBottom;
+            this.tbPages.TabMenuVisible = false;
             // 
             // tpEngineSetup
             // 
@@ -92,9 +93,28 @@
             this.tpEngineSetup.Location = new System.Drawing.Point(4, 4);
             this.tpEngineSetup.Name = "tpEngineSetup";
             this.tpEngineSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 699);
+            this.tpEngineSetup.Size = new System.Drawing.Size(1448, 738);
             this.tpEngineSetup.TabIndex = 0;
             this.tpEngineSetup.Text = "Engine Setup";
+            // 
+            // ctrlEngineSetups1
+            // 
+            this.ctrlEngineSetups1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlEngineSetups1.Location = new System.Drawing.Point(800, 8);
+            this.ctrlEngineSetups1.Name = "ctrlEngineSetups1";
+            this.ctrlEngineSetups1.Size = new System.Drawing.Size(518, 667);
+            this.ctrlEngineSetups1.TabIndex = 8;
+            // 
+            // ctrlTablesList1
+            // 
+            this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlTablesList1.Location = new System.Drawing.Point(131, 9);
+            this.ctrlTablesList1.Name = "ctrlTablesList1";
+            this.ctrlTablesList1.Size = new System.Drawing.Size(670, 667);
+            this.ctrlTablesList1.TabIndex = 7;
             // 
             // btnNextPage
             // 
@@ -110,7 +130,7 @@
             this.btnNextPage.Image = global::Code_Generator_DApp.Properties.Resources.arrow_next;
             this.btnNextPage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNextPage.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnNextPage.Location = new System.Drawing.Point(1139, 642);
+            this.btnNextPage.Location = new System.Drawing.Point(1139, 681);
             this.btnNextPage.Name = "btnNextPage";
             this.btnNextPage.Size = new System.Drawing.Size(301, 50);
             this.btnNextPage.TabIndex = 0;
@@ -128,6 +148,17 @@
             this.tpPreviewAndGenerate.Size = new System.Drawing.Size(1448, 699);
             this.tpPreviewAndGenerate.TabIndex = 1;
             this.tpPreviewAndGenerate.Text = "Preview & Generate";
+            // 
+            // ctrlPreviewAndGeneratePage1
+            // 
+            this.ctrlPreviewAndGeneratePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlPreviewAndGeneratePage1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
+            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
+            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
             // btnBack
             // 
@@ -230,36 +261,6 @@
             this.cbSelectDatabase.StartIndex = 0;
             this.cbSelectDatabase.TabIndex = 10;
             this.cbSelectDatabase.SelectedIndexChanged += new System.EventHandler(this.cbSelectDatabase_SelectedIndexChanged);
-            // 
-            // ctrlEngineSetups1
-            // 
-            this.ctrlEngineSetups1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlEngineSetups1.Location = new System.Drawing.Point(800, 8);
-            this.ctrlEngineSetups1.Name = "ctrlEngineSetups1";
-            this.ctrlEngineSetups1.Size = new System.Drawing.Size(518, 628);
-            this.ctrlEngineSetups1.TabIndex = 8;
-            // 
-            // ctrlTablesList1
-            // 
-            this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlTablesList1.Location = new System.Drawing.Point(131, 9);
-            this.ctrlTablesList1.Name = "ctrlTablesList1";
-            this.ctrlTablesList1.Size = new System.Drawing.Size(670, 628);
-            this.ctrlTablesList1.TabIndex = 7;
-            // 
-            // ctrlPreviewAndGeneratePage1
-            // 
-            this.ctrlPreviewAndGeneratePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlPreviewAndGeneratePage1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
-            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
-            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
             // frmCodeGeneratorewindows
             // 
