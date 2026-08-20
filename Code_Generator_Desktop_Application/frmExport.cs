@@ -34,7 +34,7 @@ namespace Code_Generator_DApp
             _BusinessClass = BusinessClass;
             _Queries = Queries;
 
-            tsQueries.Checked = (Queries.Count > 0);
+            tsQueries.Checked = (Queries != null && Queries.Count > 0);
 
             _Connection = connections;
         }

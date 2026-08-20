@@ -74,6 +74,7 @@ namespace Code_Generator_DApp
 
         private async void btnReset_Click(object sender, EventArgs e)
         {
+            cbSelectDatabase.Items.Clear();
             cbSelectDatabase.Items.Add("Select Database");
             cbSelectDatabase.SelectedIndex = 0;
             DataTable dt = await clsMainBridge.GetAllDatabaseNameInCurrentDevise();
