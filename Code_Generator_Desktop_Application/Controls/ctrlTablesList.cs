@@ -146,7 +146,7 @@ namespace Code_Generator_DApp.Controls
             if (string.IsNullOrWhiteSpace(_Database))
                 return;
 
-            DataTable columns = clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
+            DataTable columns = await clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
             if(columns.Rows.Count > 0)
             {
                 foreach (DataRow row in columns.Rows)
