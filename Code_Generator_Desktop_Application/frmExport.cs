@@ -52,21 +52,21 @@ namespace Code_Generator_DApp
             {
                 if (tsDataAccessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", "DataAccess_Layer", _Locations);
+                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", $"{_Connection.databaseName}_DataAccess", _Locations);
                 }
                 if (tsBusinessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", "Business_Layer", _Locations);
+                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", $"{_Connection.databaseName}_Business", _Locations);
                 }                
                 if (tsConnection.Checked)
                 {
                     switch (_Connection.connectionType)
                     {
                         case clsConnectionData.enConnectionType.StaticClass:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", "DataAccess_Layer", _Locations);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", $"{_Connection.databaseName}_DataAccess", _Locations);
                             break;
                         case clsConnectionData.enConnectionType.AppConfig:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", "DataAccess_Layer", _Locations);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", $"{_Connection.databaseName}_DataAccess", _Locations);
                             break;
                     }
                 }

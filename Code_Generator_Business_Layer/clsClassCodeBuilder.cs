@@ -112,7 +112,7 @@ namespace Code_Generator_Business_Layer
 
             sb.AppendLine($"using {Database}_DataAccess;");
 
-            sb.AppendLine($"namespace {Database}_BusinessLayer");
+            sb.AppendLine($"namespace {Database}_Business");
             sb.AppendLine("{");
             if (operationType.Contains(enOperationType.All))
             {
