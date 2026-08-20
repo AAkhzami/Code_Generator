@@ -67,24 +67,6 @@
     <Compile Include="Controls\ctrlTablesList.Designer.cs">
       <DependentUpon>ctrlTablesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlConnectionSetting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlConnectionSetting.Designer.cs">
-      <DependentUpon>ctrlConnectionSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlExecutionEngine.Designer.cs">
-      <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlOperationsSelection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Engine_Setup\ctrlOperationsSelection.Designer.cs">
-      <DependentUpon>ctrlOperationsSelection.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Preview_And_Generate_Page\ctrlPreviewAndGeneratePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,15 +99,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ctrlTablesList.resx">
       <DependentUpon>ctrlTablesList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Engine_Setup\ctrlConnectionSetting.resx">
-      <DependentUpon>ctrlConnectionSetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Engine_Setup\ctrlExecutionEngine.resx">
-      <DependentUpon>ctrlExecutionEngine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Engine_Setup\ctrlOperationsSelection.resx">
-      <DependentUpon>ctrlOperationsSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Preview_And_Generate_Page\ctrlPreviewAndGeneratePage.resx">
       <DependentUpon>ctrlPreviewAndGeneratePage.cs</DependentUpon>
