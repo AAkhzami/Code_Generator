@@ -40,16 +40,20 @@ namespace Code_Generator_Business_Layer
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"private bool _AddNew{_table}()");
             sb.AppendLine("{");
-            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNewRecordeOn{_table}(");
+            sb.Append($"\tcls{_table}Data.AddNewRecordeOn{_table}(");
 
             List<string> Parameters = new List<string>();
 
             _Columns.GetAllColumnsInfo().ForEach((c) =>
             {
-                //if (!c.IsPrimaryKey && !c.IsIdentity)
-                //{
+                if (!c.IsPrimaryKey && !c.IsIdentity)
+                {
                     Parameters.Add($"this.{c.ColumnName}");
-                //}
+                }
+                else
+                {
+                    Parameters.Add($"ref this.{c.ColumnName}");
+                }
             });
 
             sb.Append(string.Join(", ", Parameters));
