@@ -18,7 +18,7 @@ namespace Code_Generator_DApp
     public partial class frmExport : Form
     {
         string _DataAccessClass = "";
-        string _Business = "";
+        string _BusinessClass = "";
         List<string> _Queries = new List<string>();
         string _Table = "";
         clsConnectionData _Connection;
@@ -31,7 +31,7 @@ namespace Code_Generator_DApp
 
             _Table = Table;
             _DataAccessClass = DataAccessClass;
-            _Business = BusinessClass;
+            _BusinessClass = BusinessClass;
             _Queries = Queries;
 
             tsQueries.Checked = (Queries.Count > 0);
@@ -62,7 +62,7 @@ namespace Code_Generator_DApp
 
                 if (tsBusinessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", $"{_Connection?.databaseName}_Business", _Locations);
+                    clsExport.CreateClassWithContent(_BusinessClass, $"cls{_Table}", "cs", $"{_Connection?.databaseName}_Business", _Locations);
                 }
 
                 if (tsConnection.Checked)
