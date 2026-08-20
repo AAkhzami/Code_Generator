@@ -18,7 +18,7 @@ namespace Code_Generator_DApp.Controls
         {
             InitializeComponent();
         }
-
+        public bool IsTableHasPrimaryKey = false;
         private void lblMoreDetails_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Generating code for this table may result in limited or unexpected functionality because the generated class will not have a Primary Key to identify records uniquely."
@@ -81,6 +81,8 @@ namespace Code_Generator_DApp.Controls
 
             var cellValue = dgvTablesName.SelectedRows[0].Cells["cStatus"].Value;
 
+
+            this.IsTableHasPrimaryKey = ((int)cellValue == 1);
 
             if (cellValue != null && cellValue != DBNull.Value && int.TryParse(cellValue.ToString(), out int status))
             {
