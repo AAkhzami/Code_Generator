@@ -264,6 +264,7 @@
             this.btnClose.TabIndex = 40;
             this.btnClose.Text = "X";
             this.btnClose.TextOffset = new System.Drawing.Point(1, -1);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // login
             // 
