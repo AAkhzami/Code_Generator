@@ -40,7 +40,7 @@ namespace Code_Generator_Business_Layer
         /// <returns>A <see cref="DataTable"/> containing raw database column schema attributes.</returns>
         static public async Task<DataTable> GetAllColumnsRawInfo(string Database, string Table)
         {
-            return await clsColumnsData.GetAllColumnsInfoByTableName(Database,Table);
+            return await clsColumnsData.GetAllColumnsInfoByTableNameAsync(Database,Table);
         }
 
         /// <summary>
