@@ -46,7 +46,7 @@ namespace Code_Generator_DApp
                 return;
             }
 
-            if (ctrlTablesList1.IsTableHasPrimaryKey)
+            if (!ctrlTablesList1.IsTableHasPrimaryKey)
             {
                 if (
                     MessageBox.Show("The specified table does not contain a primary key, which will lead to unexpected problems during code generation. Are you sure you want to continue?",
