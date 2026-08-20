@@ -12,7 +12,7 @@ namespace Code_Generator_Data_Access_Layer
     public class clsColumnsData
     {
 		
-        static public DataTable GetAllColumnsInfoByTableName(string DatabaseName,string TableName)
+        static public async Task<DataTable> GetAllColumnsInfoByTableName(string DatabaseName,string TableName)
         {
             DataTable dt = new DataTable();
             string query = $@"
@@ -72,14 +72,15 @@ namespace Code_Generator_Data_Access_Layer
                 command.Parameters.AddWithValue("@TableName", TableName);
                 try
                 {
-                    connection.Open();
-					using (SqlDataReader reader = command.ExecuteReader())
+                    await connection.OpenAsync();
+					using (SqlDataReader reader = (SqlDataReader)await command.ExecuteReaderAsync())
                     {
                         dt.Load(reader);                        
                     }
                 }
                 catch (Exception ex)
                 {
+                    throw new Exception($"Error fetching columns for table {TableName}: {ex.Message}", ex);
                 }
             }
             return dt;

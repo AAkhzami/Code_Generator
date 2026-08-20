@@ -38,9 +38,9 @@ namespace Code_Generator_Business_Layer
         /// <param name="Database">The target database name.</param>
         /// <param name="Table">The target table name.</param>
         /// <returns>A <see cref="DataTable"/> containing raw database column schema attributes.</returns>
-        static public DataTable GetAllColumnsRawInfo(string Database, string Table)
+        static public async Task<DataTable> GetAllColumnsRawInfo(string Database, string Table)
         {
-            return clsColumnsData.GetAllColumnsInfoByTableName(Database,Table);
+            return await clsColumnsData.GetAllColumnsInfoByTableName(Database,Table);
         }
 
         /// <summary>
