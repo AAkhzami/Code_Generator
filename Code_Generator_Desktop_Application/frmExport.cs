@@ -41,10 +41,15 @@ namespace Code_Generator_DApp
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrEmpty(_Locations))
+            if (string.IsNullOrWhiteSpace(_Locations))
             {
-                MessageBox.Show("Choose export's location!","Not Allowed",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Choose export's location!", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (_Connection == null && (tsConnection.Checked || tsQueries.Checked))
+            {
+                MessageBox.Show("Database connection details are missing!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -52,42 +57,42 @@ namespace Code_Generator_DApp
             {
                 if (tsDataAccessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", $"{_Connection.databaseName}_DataAccess", _Locations);
+                    clsExport.CreateClassWithContent(_DataAccessClass, $"cls{_Table}Data", "cs", $"{_Connection?.databaseName}_DataAccess", _Locations);
                 }
+
                 if (tsBusinessClass.Checked)
                 {
-                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", $"{_Connection.databaseName}_Business", _Locations);
-                }                
+                    clsExport.CreateClassWithContent(_Business, $"cls{_Table}", "cs", $"{_Connection?.databaseName}_Business", _Locations);
+                }
+
                 if (tsConnection.Checked)
                 {
                     switch (_Connection.connectionType)
                     {
                         case clsConnectionData.enConnectionType.StaticClass:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"clsConnection", "cs", $"{_Connection.databaseName}_DataAccess", _Locations);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), "clsConnection", "cs", $"{_Connection.databaseName}_DataAccess", _Locations);
                             break;
                         case clsConnectionData.enConnectionType.AppConfig:
-                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), $"App", "config", $"{_Connection.databaseName}_DataAccess", _Locations);
+                            clsExport.CreateClassWithContent(_Connection.GenerateConnection(), "App", "config", $"{_Connection.databaseName}_DataAccess", _Locations);
                             break;
                     }
                 }
+
                 if (tsQueries.Checked)
                 {
-                    if (_Connection != null)
+                    if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
                     {
-                        if (!clsTSqlScriptExecutor.ExecuteScripts(_Queries, _Connection))
-                        {
-                            return;
-                        }
+                        MessageBox.Show("Failed to execute T-SQL scripts.", "Execution Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show($"An Error occurred: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            MessageBox.Show("Exported File Successfully!","Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Exported Files Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An Error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
