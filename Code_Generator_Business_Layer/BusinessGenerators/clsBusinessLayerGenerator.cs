@@ -29,7 +29,16 @@ namespace Code_Generator_Business_Layer
             _Columns.GetAllColumnsInfo().ForEach(c =>
             {
                 bool isNullable = c.IsPrimaryKey || c.IsNullable;
-                propertiesText.AppendLine($"public {clsHelper.FormatNullableType(c.ColumnType, isNullable)} {c.ColumnName} {{get;set;}}");
+                if(c.IsPrimaryKey || c.IsIdentity)
+                {
+                    propertiesText.AppendLine($"public {clsHelper.FormatNullableType(c.ColumnType, isNullable)} {c.ColumnName};");
+
+                }
+                else
+                {
+                    propertiesText.AppendLine($"public {clsHelper.FormatNullableType(c.ColumnType, isNullable)} {c.ColumnName} {{get;set;}}");
+
+                }
             });
 
             return propertiesText.ToString();
