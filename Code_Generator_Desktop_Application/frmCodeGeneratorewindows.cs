@@ -1,6 +1,7 @@
 ﻿using Code_Generator_Business_Layer;
 using Code_Generator_Business_Layer.DataAccessGenerators;
 using Code_Generator_DApp.Controls;
+using Code_Generator_DApp.General_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,14 +22,15 @@ namespace Code_Generator_DApp
         }
 
         string _Database = null;
-        clsConnectionData _connectionInfo = null;
 
         private void GenerateDataAccessLayerClass( List<clsClassCodeBuilder.enOperationType> operations)
         {
-            if (_Database != null && _connectionInfo != null && !string.IsNullOrWhiteSpace(_Database))
+            if (_Database != null &&
+                (clsCurrentUser.connectionInfo.databaseName != null || string.IsNullOrWhiteSpace(clsCurrentUser.connectionInfo.databaseName)) &&
+                !string.IsNullOrWhiteSpace(_Database))
             {
                 string table = ctrlTablesList1.GetSelectedTableName();
-                ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, _connectionInfo, operations);
+                ctrlPreviewAndGeneratePage1.LoadAccessDataClass(table, ctrlEngineSetups1.DatabaseType, clsCurrentUser.connectionInfo, operations);
             }
         }
         private void GenerateBusinessLayerClass(List<clsClassCodeBuilder.enOperationType> operations)
@@ -59,12 +61,12 @@ namespace Code_Generator_DApp
 
             List<clsClassCodeBuilder.enOperationType> operations = ctrlEngineSetups1.GetOperations();
 
-            _connectionInfo = new clsConnectionData(ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass
-                , ".", cbSelectDatabase.Text, "sa", "sa123456");
+            clsCurrentUser.connectionInfo.connectionType = ctrlEngineSetups1.GetConnectionType() ?? clsConnectionData.enConnectionType.StaticClass;
+            clsCurrentUser.connectionInfo.databaseName = cbSelectDatabase.Text;
 
             GenerateDataAccessLayerClass(operations);
             GenerateBusinessLayerClass(operations);
-            ctrlPreviewAndGeneratePage1.LoadConnectionText(_connectionInfo);
+            ctrlPreviewAndGeneratePage1.LoadConnectionText(clsCurrentUser.connectionInfo);
 
             tbPages.SelectedIndex = 1;
             
@@ -102,7 +104,7 @@ namespace Code_Generator_DApp
 
 
             _Database = null;
-            _connectionInfo = null;
+            clsCurrentUser.connectionInfo.databaseName = null;
 
         }
 
@@ -122,7 +124,7 @@ namespace Code_Generator_DApp
                     ctrlEngineSetups1.Reset();
                     ctrlTablesList1.Reset();
                     _Database = null;
-                    _connectionInfo = null;
+                    clsCurrentUser.connectionInfo.databaseName = null;
                 }
             }
             catch(Exception ex)
@@ -139,7 +141,7 @@ namespace Code_Generator_DApp
 
             string table = ctrlTablesList1.GetSelectedTableName();
 
-            frmExport frm = new frmExport(table, dataAccessClass, businessClass, queries, _connectionInfo);
+            frmExport frm = new frmExport(table, dataAccessClass, businessClass, queries, clsCurrentUser.connectionInfo);
             frm.ShowDialog();
         }
     }
