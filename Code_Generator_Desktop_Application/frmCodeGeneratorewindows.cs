@@ -85,6 +85,8 @@ namespace Code_Generator_DApp
             tbPages.SelectedIndex = 0;
             ctrlPreviewAndGeneratePage1.Reset();
             ctrlEngineSetups1.Reset();
+            ctrlTablesList1.Reset();
+
 
             _Database = null;
             _connectionInfo = null;
@@ -102,7 +104,12 @@ namespace Code_Generator_DApp
                 }
                 else
                 {
-                    btnReset_Click(null, null);
+                    tbPages.SelectedIndex = 0;
+                    ctrlPreviewAndGeneratePage1.Reset();
+                    ctrlEngineSetups1.Reset();
+                    ctrlTablesList1.Reset();
+                    _Database = null;
+                    _connectionInfo = null;
                 }
             }
             catch(Exception ex)
