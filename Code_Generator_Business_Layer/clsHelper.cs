@@ -103,6 +103,8 @@ namespace Code_Generator_Business_Layer
         /// <param name="columnName">The name of the database column or property.</param>
         public static string SafeParamName(string columnName)
         {
+            if (columnName == null) return "";
+
             string paramName = char.ToLower(columnName[0]) + columnName.Substring(1);
 
             string[] reservedKeywords = { "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked",
