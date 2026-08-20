@@ -99,6 +99,8 @@ namespace Code_Generator_DApp.Controls
         public void Reset()
         {
             dgvTablesName.Rows.Clear();
+            dgvColumnsTable.Rows.Clear();
+
             lblTablesCount.Text = "0";
             guna2ProgressIndicator1.AutoStart = true;
             guna2ProgressIndicator1.Visible = true;
@@ -145,6 +147,8 @@ namespace Code_Generator_DApp.Controls
         {
             if (string.IsNullOrWhiteSpace(_Database))
                 return;
+
+            if (dgvColumnsTable.Rows.Count > 0) dgvColumnsTable.Rows.Clear();
 
             DataTable columns = await clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
             if(columns.Rows.Count > 0)

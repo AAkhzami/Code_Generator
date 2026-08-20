@@ -81,7 +81,7 @@
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(633, 617);
+            this.guna2Panel1.Size = new System.Drawing.Size(689, 617);
             this.guna2Panel1.TabIndex = 0;
             // 
             // pWarningMessage
@@ -98,7 +98,7 @@
             this.pWarningMessage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
             this.pWarningMessage.Location = new System.Drawing.Point(19, 522);
             this.pWarningMessage.Name = "pWarningMessage";
-            this.pWarningMessage.Size = new System.Drawing.Size(595, 82);
+            this.pWarningMessage.Size = new System.Drawing.Size(651, 82);
             this.pWarningMessage.TabIndex = 28;
             this.pWarningMessage.Visible = false;
             // 
@@ -109,7 +109,7 @@
             this.lblMoreDetails.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMoreDetails.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoreDetails.ForeColor = System.Drawing.Color.Silver;
-            this.lblMoreDetails.Location = new System.Drawing.Point(250, 46);
+            this.lblMoreDetails.Location = new System.Drawing.Point(278, 46);
             this.lblMoreDetails.Name = "lblMoreDetails";
             this.lblMoreDetails.Size = new System.Drawing.Size(94, 19);
             this.lblMoreDetails.TabIndex = 28;
@@ -122,7 +122,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(206)))), ((int)(((byte)(68)))));
-            this.label1.Location = new System.Drawing.Point(199, 18);
+            this.label1.Location = new System.Drawing.Point(227, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 23);
             this.label1.TabIndex = 25;
@@ -135,7 +135,7 @@
             this.lblTablesCount.BackColor = System.Drawing.Color.Transparent;
             this.lblTablesCount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTablesCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(229)))));
-            this.lblTablesCount.Location = new System.Drawing.Point(198, 139);
+            this.lblTablesCount.Location = new System.Drawing.Point(221, 139);
             this.lblTablesCount.Name = "lblTablesCount";
             this.lblTablesCount.Size = new System.Drawing.Size(23, 25);
             this.lblTablesCount.TabIndex = 27;
@@ -188,7 +188,7 @@
             this.dgvTablesName.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTablesName.RowHeadersVisible = false;
             this.dgvTablesName.RowTemplate.Height = 50;
-            this.dgvTablesName.Size = new System.Drawing.Size(207, 382);
+            this.dgvTablesName.Size = new System.Drawing.Size(230, 382);
             this.dgvTablesName.TabIndex = 26;
             this.dgvTablesName.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTablesName.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
@@ -241,7 +241,7 @@
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.PlaceholderText = "Search by table name";
             this.txbSearch.SelectedText = "";
-            this.txbSearch.Size = new System.Drawing.Size(596, 50);
+            this.txbSearch.Size = new System.Drawing.Size(652, 50);
             this.txbSearch.TabIndex = 25;
             this.txbSearch.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
@@ -280,7 +280,7 @@
             // 
             this.guna2ProgressIndicator1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2ProgressIndicator1.BackColor = System.Drawing.Color.White;
-            this.guna2ProgressIndicator1.Location = new System.Drawing.Point(91, 293);
+            this.guna2ProgressIndicator1.Location = new System.Drawing.Point(103, 293);
             this.guna2ProgressIndicator1.Name = "guna2ProgressIndicator1";
             this.guna2ProgressIndicator1.Size = new System.Drawing.Size(60, 60);
             this.guna2ProgressIndicator1.TabIndex = 31;
@@ -319,7 +319,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvColumnsTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvColumnsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvColumnsTable.Location = new System.Drawing.Point(231, 134);
+            this.dgvColumnsTable.Location = new System.Drawing.Point(268, 134);
             this.dgvColumnsTable.MultiSelect = false;
             this.dgvColumnsTable.Name = "dgvColumnsTable";
             this.dgvColumnsTable.ReadOnly = true;
@@ -333,7 +333,7 @@
             this.dgvColumnsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvColumnsTable.RowHeadersVisible = false;
             this.dgvColumnsTable.RowTemplate.Height = 50;
-            this.dgvColumnsTable.Size = new System.Drawing.Size(383, 382);
+            this.dgvColumnsTable.Size = new System.Drawing.Size(403, 382);
             this.dgvColumnsTable.TabIndex = 32;
             this.dgvColumnsTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvColumnsTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
@@ -373,7 +373,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlTablesList";
-            this.Size = new System.Drawing.Size(639, 623);
+            this.Size = new System.Drawing.Size(695, 623);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.pWarningMessage.ResumeLayout(false);
