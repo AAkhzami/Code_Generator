@@ -38,11 +38,11 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.txbUserID = new Guna.UI2.WinForms.Guna2TextBox();
             this.txbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -131,13 +131,13 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.guna2Panel2.BorderRadius = 9;
             this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.btnClose);
             this.guna2Panel2.Controls.Add(this.cbRememberMe);
             this.guna2Panel2.Controls.Add(this.btnLogin);
             this.guna2Panel2.Controls.Add(this.txbPassword);
             this.guna2Panel2.Controls.Add(this.txbUserID);
             this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Controls.Add(this.btnClose);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2Panel2.Location = new System.Drawing.Point(340, 0);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -150,7 +150,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label5.Location = new System.Drawing.Point(10, 159);
+            this.label5.Location = new System.Drawing.Point(10, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 16);
             this.label5.TabIndex = 33;
@@ -162,20 +162,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            this.label4.Location = new System.Drawing.Point(10, 72);
+            this.label4.Location = new System.Drawing.Point(10, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 32;
             this.label4.Text = "USER ID";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(398, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(32, 32);
-            this.btnClose.TabIndex = 29;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // txbUserID
             // 
@@ -189,7 +180,7 @@
             this.txbUserID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.txbUserID.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbUserID.Location = new System.Drawing.Point(13, 92);
+            this.txbUserID.Location = new System.Drawing.Point(13, 111);
             this.txbUserID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbUserID.Name = "txbUserID";
             this.txbUserID.PlaceholderText = "User ID";
@@ -209,7 +200,7 @@
             this.txbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.txbPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.txbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbPassword.Location = new System.Drawing.Point(13, 179);
+            this.txbPassword.Location = new System.Drawing.Point(13, 198);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '*';
@@ -246,7 +237,7 @@
             this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(96)))), ((int)(((byte)(240)))));
             this.cbRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRememberMe.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.cbRememberMe.Location = new System.Drawing.Point(13, 342);
+            this.cbRememberMe.Location = new System.Drawing.Point(13, 335);
             this.cbRememberMe.Name = "cbRememberMe";
             this.cbRememberMe.Size = new System.Drawing.Size(130, 23);
             this.cbRememberMe.TabIndex = 39;
@@ -255,6 +246,24 @@
             this.cbRememberMe.UncheckedState.BorderRadius = 0;
             this.cbRememberMe.UncheckedState.BorderThickness = 0;
             this.cbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 9;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Crimson;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(389, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(38, 38);
+            this.btnClose.TabIndex = 40;
+            this.btnClose.Text = "X";
+            this.btnClose.TextOffset = new System.Drawing.Point(1, -1);
             // 
             // login
             // 
@@ -287,7 +296,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
@@ -297,6 +305,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txbUserID;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }
 
