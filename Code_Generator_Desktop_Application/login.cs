@@ -65,9 +65,9 @@ namespace Code_Generator_DApp
                 {
                     if (WriteToRegistry(userID, password))
                     {
-                        frmShowAllDatabase frm = new frmShowAllDatabase();
+                        //frmShowAllDatabase frm = new frmShowAllDatabase();
                         this.Hide();
-                        frm.ShowDialog();
+                        //frm.ShowDialog();
                         this.Close();
                     }
                     else
