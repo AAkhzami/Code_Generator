@@ -203,6 +203,11 @@ namespace Code_Generator_DApp.Controls.Preview_And_Generate_Page
                         fctbDataAccessClass.Text = clsHelper.FormatCode(codeBuilder.GenerateDataAccessLayerClass(SQL, connection, operations));
                         fctbQueries.Text = "";
                         lblMessage.Visible = true;
+                        
+                        if(_TSqlScripts.Count > 0)
+                        {
+                            _TSqlScripts.Clear();
+                        }
 
                         tpDataAccess.Text = $"cls{Table}Data.cs";
                         tpQueries.Text = "Queries";
