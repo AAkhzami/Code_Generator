@@ -121,12 +121,6 @@
     <Compile Include="frmMainForm.Designer.cs">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShowAllDatabase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmShowAllDatabase.Designer.cs">
-      <DependentUpon>frmShowAllDatabase.cs</DependentUpon>
-    </Compile>
     <Compile Include="General Classes\clsCurrentUser.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -168,9 +162,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmShowAllDatabase.resx">
-      <DependentUpon>frmShowAllDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
