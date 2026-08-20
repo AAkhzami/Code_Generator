@@ -89,10 +89,13 @@ namespace Code_Generator_DApp
                 }
 
                 MessageBox.Show("Exported Files Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnExport.Enabled = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An Error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnExport.Enabled = true;
+
             }
         }
 
