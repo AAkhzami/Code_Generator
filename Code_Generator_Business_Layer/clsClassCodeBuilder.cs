@@ -123,6 +123,8 @@ namespace Code_Generator_Business_Layer
                 sb.AppendLine($"public class cls{Table}");
                 sb.AppendLine("{");
                 sb.AppendLine(businessGenerator.GenerateProperties());
+                sb.AppendLine(businessGenerator.GeneratePublicConstructor());
+                sb.AppendLine();
                 operationType.ForEach(op =>
                 {
                     switch (op)
@@ -152,6 +154,8 @@ namespace Code_Generator_Business_Layer
                 
                 if(operationType.Contains(enOperationType.Update) && operationType.Contains(enOperationType.Insert))
                 {
+                    sb.AppendLine(businessGenerator.GeneratePrivateConstructor());
+                    sb.AppendLine();
                     sb.Append(businessGenerator.GenerateSaveMethod());
                     sb.AppendLine();
                 }
