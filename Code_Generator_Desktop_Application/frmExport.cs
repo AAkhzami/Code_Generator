@@ -35,6 +35,7 @@ namespace Code_Generator_DApp
             _Queries = Queries;
 
             tsQueries.Checked = (Queries != null && Queries.Count > 0);
+            tsQueries.Enabled = (Queries != null && Queries.Count > 0);
 
             _Connection = connections;
         }
