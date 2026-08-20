@@ -69,7 +69,7 @@ namespace Code_Generator_DApp.Controls
 
         }
 
-        private void dgvTablesName_SelectionChanged(object sender, EventArgs e)
+        private async void dgvTablesName_SelectionChanged(object sender, EventArgs e)
         {
 
 
@@ -92,6 +92,11 @@ namespace Code_Generator_DApp.Controls
             {
                 pWarningMessage.Visible = false;
             }
+
+            string tableName = (string)dgvTablesName.SelectedRows[0].Cells["cTable"].Value;
+
+            await _LoadColumnsByTableName(tableName.Trim());
+
         }
         public void Reset()
         {
@@ -137,6 +142,10 @@ namespace Code_Generator_DApp.Controls
             {
                 return null;
             }
+        }
+        private async Task _LoadColumnsByTableName(string TableName)
+        {
+        
         }
     }
 }
