@@ -65,9 +65,13 @@ namespace Code_Generator_DApp
                 {
                     if (WriteToRegistry(userID, password))
                     {
-                        //frmShowAllDatabase frm = new frmShowAllDatabase();
+                        frmCodeGeneratorewindows frm = new frmCodeGeneratorewindows();
+                        MessageBox.Show("Make sure that this information will be used to generate code, especially in connection information code with the database.",
+                            "Inform", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        //frm.ShowDialog();
+
+                        frm.ShowDialog();
+
                         this.Close();
                     }
                     else

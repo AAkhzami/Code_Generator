@@ -43,9 +43,11 @@
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -67,6 +69,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(61)))), ((int)(((byte)(72)))));
+            this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label3);
@@ -82,11 +85,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(174, 335);
+            this.label6.Location = new System.Drawing.Point(114, 334);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 14);
+            this.label6.Size = new System.Drawing.Size(220, 14);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Made by Abdullrahman K";
+            this.label6.Text = "Made by Abdullrahman Al-Akhzami";
             // 
             // label1
             // 
@@ -266,6 +269,16 @@
             this.btnClose.TextOffset = new System.Drawing.Point(1, -1);
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Code_Generator_DApp.Properties.Resources.login;
+            this.pictureBox5.Location = new System.Drawing.Point(128, 23);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(84, 84);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +299,7 @@
             this.panel2.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +321,7 @@
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
         private Guna.UI2.WinForms.Guna2Button btnClose;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 
