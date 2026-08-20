@@ -33,6 +33,13 @@ namespace Code_Generator_DApp.Controls
                 MessageBox.Show("No Database selected!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
+            if(dgvTablesName.Rows.Count > 0)
+            {
+                dgvTablesName.Rows.Clear();
+                dgvColumnsTable.Rows.Clear();
+            }
+
             _Database = Database;
             guna2ProgressIndicator1.AutoStart = true;
             guna2ProgressIndicator1.Visible = true;
