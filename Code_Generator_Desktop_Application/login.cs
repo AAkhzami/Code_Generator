@@ -20,13 +20,14 @@ namespace Code_Generator_DApp
         {
             MessageBox.Show("Error Message : " +  message);
         }
-        public bool WriteToRegistry(string userID, string password)
+        public bool WriteToRegistry(string userID, string password, string location)
         {
             try
             {
 
                 Registry.SetValue(_keyPath, "userID", userID, RegistryValueKind.String);
                 Registry.SetValue(_keyPath, "password", password, RegistryValueKind.String);
+                Registry.SetValue(_keyPath, "location", location, RegistryValueKind.String);
                 return true;
             }
             catch(Exception ex)
@@ -60,10 +61,10 @@ namespace Code_Generator_DApp
             {
                 string userID = txbUserID.Text;
                 string password = txbPassword.Text;
-
+                string location = txbServerLocation.Text.Trim();
                 if(cbRememberMe.Checked)
                 {
-                    if (WriteToRegistry(userID, password))
+                    if (WriteToRegistry(userID, password, location))
                     {
                         frmCodeGeneratorewindows frm = new frmCodeGeneratorewindows();
                         MessageBox.Show("Make sure that this information will be used to generate code, especially in connection information code with the database.",
@@ -93,14 +94,18 @@ namespace Code_Generator_DApp
         {
             string userID = Registry.GetValue(_keyPath, "userID",null) as string;
             string password = Registry.GetValue(_keyPath, "password",null) as string;
-            
-            if(userID != null && password != null)
+            string location = Registry.GetValue(_keyPath, "location",null) as string;
+
+            if (userID != null && password != null && location != null)
             {
                 clsCurrentUser.connectionInfo.userName = userID;
                 clsCurrentUser.connectionInfo.password = password;
+                clsCurrentUser.connectionInfo.location = location;
 
                 txbUserID.Text = userID;
                 txbPassword.Text = password;
+                txbServerLocation.Text = location;
+
                 cbRememberMe.Checked = true;
             }
         }
