@@ -83,6 +83,9 @@ namespace Code_Generator_DApp
                             "Inform", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
 
+                        clsCurrentUser.connectionInfo.userName = userID;
+                        clsCurrentUser.connectionInfo.password = password;
+                        clsCurrentUser.connectionInfo.location = location;
                         frm.ShowDialog();
 
                         this.Close();
@@ -98,8 +101,6 @@ namespace Code_Generator_DApp
                         MessageBox.Show("Failed");
                 }
 
-                clsCurrentUser.connectionInfo.userName = userID;
-                clsCurrentUser.connectionInfo.password = password;
             }
         }
         private void LoadDataFromRegistry()
