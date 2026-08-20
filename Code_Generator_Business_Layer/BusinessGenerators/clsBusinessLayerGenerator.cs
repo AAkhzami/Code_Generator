@@ -40,7 +40,7 @@ namespace Code_Generator_Business_Layer
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"private bool _AddNew{_table}()");
             sb.AppendLine("{");
-            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNew{_table}(");
+            sb.Append($"\tthis.{_Columns.PrimaryKey.ColumnName} = cls{_table}Data.AddNewRecordeOn{_table}(");
 
             List<string> Parameters = new List<string>();
 
@@ -76,8 +76,8 @@ namespace Code_Generator_Business_Layer
                         sb.AppendLine($"\t{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {c.ColumnName} = {clsHelper.DefaultValue(c.ColumnType)};");
                     }
                 });
-
-            sb.Append($"\tbool IsFound = cls{_table}Data.Get{_table}By{_Columns.PrimaryKey.ColumnName}(");
+            
+            sb.Append($"\tbool IsFound = cls{_table}Data.GetOnRecordFrom{_table}(");
 
             List<string> propertiesList = new List<string>();
 
@@ -107,7 +107,7 @@ namespace Code_Generator_Business_Layer
 
             sb.AppendLine($"private bool _Update{_table}()");
             sb.AppendLine("{");
-            sb.Append($"\treturn cls{_table}Data.Update{_table}By{_Columns.PrimaryKey.ColumnName}(");
+            sb.Append($"\treturn cls{_table}Data.UpdateRecordFrom{_table}(");
 
             List<string> columnsName = new List<string>();
 
@@ -128,7 +128,7 @@ namespace Code_Generator_Business_Layer
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"public static bool Delete{_table}({_Columns.PrimaryKey.ColumnType} {_Columns.PrimaryKey.ColumnName})");
             sb.AppendLine("{");
-            sb.AppendLine($"\treturn cls{_table}Data.Delete{_table}By{_Columns.PrimaryKey.ColumnName}({_Columns.PrimaryKey.ColumnName});");
+            sb.AppendLine($"\treturn cls{_table}Data.DeleteRecordFrom{_table}({_Columns.PrimaryKey.ColumnName});");
             sb.AppendLine("}");
             return sb.ToString();
         }
