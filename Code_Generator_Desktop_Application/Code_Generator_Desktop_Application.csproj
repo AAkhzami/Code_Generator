@@ -67,12 +67,6 @@
     <Compile Include="Controls\ctrlEnginSetupPage.Designer.cs">
       <DependentUpon>ctrlEnginSetupPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ctrlSelectPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ctrlSelectPage.Designer.cs">
-      <DependentUpon>ctrlSelectPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ctrlTablesList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,9 +123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ctrlEnginSetupPage.resx">
       <DependentUpon>ctrlEnginSetupPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ctrlSelectPage.resx">
-      <DependentUpon>ctrlSelectPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ctrlTablesList.resx">
       <DependentUpon>ctrlTablesList.cs</DependentUpon>
