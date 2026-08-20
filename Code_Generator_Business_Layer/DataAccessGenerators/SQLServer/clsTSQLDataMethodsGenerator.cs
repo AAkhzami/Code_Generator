@@ -32,7 +32,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
 
             List<string> functionsParameters = new List<string>();
 
-            columnsWithPrimaryKeys.Select(c => $"ref {clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
+            columnsWithPrimaryKeys.Select(c => $"ref {clsHelper.FormatNullableType(c.ColumnType, true)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
                 c => functionsParameters.Add(c));
             columnsWithOutPrimaryKey.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType, c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}").ToList().ForEach(
                 c => functionsParameters.Add(c));
@@ -89,7 +89,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators.SQLServer
             StringBuilder method = new StringBuilder();
             method.Append($"public static bool UpdateRecordFrom{_TableName}");
 
-            method.AppendLine($"({string.Join(", ", parameters.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,c.IsNullable)} {clsHelper.SafeParamName(c.ColumnName)}"))})");
+            method.AppendLine($"({string.Join(", ", parameters.Select(c => $"{clsHelper.FormatNullableType(c.ColumnType,true)} {clsHelper.SafeParamName(c.ColumnName)}"))})");
 
             method.AppendLine("{");
             method.AppendLine($"\tusing (SqlConnection connection = new SqlConnection({_Connection.GenerateConnectionString()}))");
