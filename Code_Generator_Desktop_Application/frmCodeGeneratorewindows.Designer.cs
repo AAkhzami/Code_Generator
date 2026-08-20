@@ -33,7 +33,6 @@
             this.tpEngineSetup = new System.Windows.Forms.TabPage();
             this.btnNextPage = new Guna.UI2.WinForms.Guna2Button();
             this.tpPreviewAndGenerate = new System.Windows.Forms.TabPage();
-            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnGenerate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -42,6 +41,7 @@
             this.cbSelectDatabase = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ctrlEngineSetups1 = new Code_Generator_DApp.Controls.ctrlEngineSetups();
             this.ctrlTablesList1 = new Code_Generator_DApp.Controls.ctrlTablesList();
+            this.ctrlPreviewAndGeneratePage1 = new Code_Generator_DApp.Controls.Preview_And_Generate_Page.ctrlPreviewAndGeneratePage();
             this.tbPages.SuspendLayout();
             this.tpEngineSetup.SuspendLayout();
             this.tpPreviewAndGenerate.SuspendLayout();
@@ -128,17 +128,6 @@
             this.tpPreviewAndGenerate.Size = new System.Drawing.Size(1448, 699);
             this.tpPreviewAndGenerate.TabIndex = 1;
             this.tpPreviewAndGenerate.Text = "Preview & Generate";
-            // 
-            // ctrlPreviewAndGeneratePage1
-            // 
-            this.ctrlPreviewAndGeneratePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlPreviewAndGeneratePage1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
-            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
-            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
             // btnBack
             // 
@@ -253,12 +242,24 @@
             // 
             // ctrlTablesList1
             // 
-            this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ctrlTablesList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlTablesList1.Location = new System.Drawing.Point(131, 9);
             this.ctrlTablesList1.Name = "ctrlTablesList1";
             this.ctrlTablesList1.Size = new System.Drawing.Size(670, 628);
             this.ctrlTablesList1.TabIndex = 7;
+            // 
+            // ctrlPreviewAndGeneratePage1
+            // 
+            this.ctrlPreviewAndGeneratePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlPreviewAndGeneratePage1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlPreviewAndGeneratePage1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPreviewAndGeneratePage1.Name = "ctrlPreviewAndGeneratePage1";
+            this.ctrlPreviewAndGeneratePage1.Size = new System.Drawing.Size(1442, 587);
+            this.ctrlPreviewAndGeneratePage1.TabIndex = 0;
             // 
             // frmCodeGeneratorewindows
             // 

@@ -41,8 +41,8 @@ namespace Code_Generator_DApp.Controls
             }
 
             _Database = Database;
-            guna2ProgressIndicator1.AutoStart = true;
-            guna2ProgressIndicator1.Visible = true;
+            piTable.AutoStart = true;
+            piTable.Visible = true;
 
             try
             {
@@ -71,8 +71,8 @@ namespace Code_Generator_DApp.Controls
             }
             finally
             {
-                guna2ProgressIndicator1.AutoStart = false;
-                guna2ProgressIndicator1.Visible = false;
+                piTable.AutoStart = false;
+                piTable.Visible = false;
             }
 
         }
@@ -109,8 +109,8 @@ namespace Code_Generator_DApp.Controls
             dgvColumnsTable.Rows.Clear();
 
             lblTablesCount.Text = "0";
-            guna2ProgressIndicator1.AutoStart = true;
-            guna2ProgressIndicator1.Visible = true;
+            piTable.AutoStart = true;
+            piTable.Visible = true;
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
@@ -157,13 +157,27 @@ namespace Code_Generator_DApp.Controls
 
             if (dgvColumnsTable.Rows.Count > 0) dgvColumnsTable.Rows.Clear();
 
-            DataTable columns = await clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
-            if(columns.Rows.Count > 0)
+            piColumns.AutoStart = true;
+            piColumns.Visible = true;
+            try
             {
-                foreach (DataRow row in columns.Rows)
+                DataTable columns = await clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
+                if (columns.Rows.Count > 0)
                 {
-                    dgvColumnsTable.Rows.Add(row["ColumnName"], row["SqlDataType"], row["IsNullable"], (int)row["IsPrimaryKey"] == 1 );
+                    foreach (DataRow row in columns.Rows)
+                    {
+                        dgvColumnsTable.Rows.Add(row["ColumnName"], row["SqlDataType"], row["IsNullable"], (int)row["IsPrimaryKey"] == 1);
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                piColumns.AutoStart = false;
+                piColumns.Visible = false;
             }
         }
     }
