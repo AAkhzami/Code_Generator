@@ -38,8 +38,7 @@ namespace Code_Generator_Business_Layer.DataAccessGenerators
         {
             var columns = _Columns.GetAllColumnsInfo().ToList();
             StringBuilder query = new StringBuilder();
-            query.AppendLine($"Select {clsHelper.FormatingProperties(columns.ToList().Select(n => n.ColumnName).ToList())}");
-            query.AppendLine($"from {_tableName}");
+            query.AppendLine($"Select * from {_tableName}");
             query.AppendLine($"where {_Columns.PrimaryKey.ColumnName} = @{_Columns.PrimaryKey.ColumnName};");
             return query.ToString();
         }
