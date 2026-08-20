@@ -18,6 +18,7 @@ namespace Code_Generator_DApp.Controls
         {
             InitializeComponent();
         }
+        string _Database = "";
         public bool IsTableHasPrimaryKey = false;
         private void lblMoreDetails_Click(object sender, EventArgs e)
         {
@@ -32,7 +33,7 @@ namespace Code_Generator_DApp.Controls
                 MessageBox.Show("No Database selected!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-
+            _Database = Database;
             guna2ProgressIndicator1.AutoStart = true;
             guna2ProgressIndicator1.Visible = true;
 
@@ -71,8 +72,6 @@ namespace Code_Generator_DApp.Controls
 
         private async void dgvTablesName_SelectionChanged(object sender, EventArgs e)
         {
-
-
             if (dgvTablesName.SelectedRows.Count == 0)
             {
                 pWarningMessage.Visible = false;
@@ -96,7 +95,6 @@ namespace Code_Generator_DApp.Controls
             string tableName = (string)dgvTablesName.SelectedRows[0].Cells["cTable"].Value;
 
             await _LoadColumnsByTableName(tableName.Trim());
-
         }
         public void Reset()
         {
@@ -145,7 +143,17 @@ namespace Code_Generator_DApp.Controls
         }
         private async Task _LoadColumnsByTableName(string TableName)
         {
-        
+            if (string.IsNullOrWhiteSpace(_Database))
+                return;
+
+            DataTable columns = clsMainBridge.GetAllColumnsRawInfo(_Database, TableName);
+            if(columns.Rows.Count > 0)
+            {
+                foreach (DataRow row in columns.Rows)
+                {
+                    dgvColumnsTable.Rows.Add(row["ColumnName"], row["SqlDataType"], row["IsNullable"], row["IsPrimaryKey"]);
+                }
+            }
         }
     }
 }
