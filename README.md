@@ -1,62 +1,92 @@
-# 🚀 C# Code Generator Project
+# 🚀 C# Code Generator (Enhanced Edition)
 
-# 👋 Hello!
+## 👋 Hello & Welcome!
 
-This is a project I built to solve a problem I faced while learning and do some project. I noticed that writing the same code over and over for Data Access and Business layers takes a lot of time, so I decided to build this tool to do it for me!
-
-## 🎯 Overview
-
-A tool designed to automate the creation of **Multi-Tier Architecture** layers for C# applications. This generator connects directly to **SQL Server**, analyzes database metadata, and instantly produces production-ready code for both **Data Access** and **Business Logic** layers.
+This is an enhanced version of the **C# Code Generator** tool. It automates the boilerplate creation of the **3-Tier Architecture** (Data Access Layer & Business Logic Layer) by analyzing SQL Server metadata, saving development time, eliminating manual coding errors, and letting you focus on core application logic.
 
 ---
 
-## 📸 How it looks (Screenshots)
+## ⚡ Important Setup Note
 
-### 🔐 1. Login Screen
+> [!IMPORTANT]  
+> Before running the solution in Visual Studio, ensure that **`Code_Generator_Desktop_Application`** is set as the **Startup Project**.  
+> _Right-click `Code_Generator_Desktop_Application` in the Solution Explorer ➔ Select **Set as Startup Project**._
+
+---
+
+## 🎯 What's New in This Version?
+
+- **⚙️ Core Refactoring (SOLID Principles):** Redesigned backend architecture using interfaces (`iBusinessGenerators`, `iDataAccessGenerator`) and decoupled builders to strictly adhere to the **Single Responsibility Principle (SRP)**.
+- **📜 Stored Procedures Support:** Option to generate and automatically execute SQL Stored Procedures on SQL Server, generating seamless DAL wrapper code to call them.
+- **🔌 Flexible Connection Management:** Choose between generating connection strings dynamically via `App.config` or through a dedicated Static Connection Class.
+- **🎨 Modernized UI & Previews:** Updated user interface featuring real-time code previews (`Data Access Layer`, `Business Layer`, `Connection`, and `TSQL Scripts`), improved warnings, and enhanced export dialogs.
+- **🧹 Automatic Code Formatting:** Integrated indentation engine (`clsHelper.FormatCode`) that formats `{ }` block structures automatically for clean, readable code output.
+
+---
+
+## 📸 Screenshots Showcase
+
+### 🔐 1. Login & Connection Setup
+
+Connect securely to your local or remote SQL Server instance.
 
 ![Login](/screenshots/login_screen.png)
 
-I made this screen to connect securely to the SQL Server.
+---
 
-### 🗄️ 2. Database Selection
+### 🗄️ 2. Main Dashboard & Database Selection
 
-![Database](/screenshots/select_database.png)
+View all available databases and inspect table properties dynamically.
 
-Once connected, you can see all your databases and choose the one you want to work on.
+|                     Select Database                     |       Main Interface Overview       |                      Table without Primary Key                       |
+| :-----------------------------------------------------: | :---------------------------------: | :------------------------------------------------------------------: |
+| ![Database](/screenshots/main_page_select_database.png) | ![Main](/screenshots/main_page.png) | ![Table Warning](/screenshots/main_page_select_table_without_PK.png) |
 
-### 📊 3. Table & Code Generation
+---
 
-![Tables](/screenshots/select_tables.png)
+### ⚙️ 3. Engine Settings & Code Configurations
 
-This is the heart of the project! You select a table, and the tool shows you the columns and generates the `Data Layer` and `Business Layer` files for you.
+Configure generation options, operation types, and architecture settings.
+
+|                Configuration 1                |                Configuration 2                |
+| :-------------------------------------------: | :-------------------------------------------: |
+| ![Setups 1](/screenshots/engine_setups_1.png) | ![Setups 2](/screenshots/engine_setups_2.png) |
+
+---
+
+### 👁️ 4. Real-Time Code Previewing
+
+Inspect generated C# code layers and T-SQL scripts before exporting.
+
+|                   Data Access Layer                    |                Business Logic Layer                 |                  Connection Code                  |                   T-SQL Scripts                    |
+| :----------------------------------------------------: | :-------------------------------------------------: | :-----------------------------------------------: | :------------------------------------------------: |
+| ![DAL](/screenshots/preview_code_DataAccess_Layer.png) | ![BLL](/screenshots/preview_code_Logical_Layer.png) | ![Conn](/screenshots/preview_code_connection.png) | ![SQL](/screenshots/preview_code_TSQL_Scripts.png) |
+
+---
+
+### 💾 5. Exporting Generated Code
+
+Export `.cs` files and SQL scripts directly to your project destination.
+
+|                 Export Form                  |                      Successful Export                       |
+| :------------------------------------------: | :----------------------------------------------------------: |
+| ![Export Form](/screenshots/Export_Form.png) | ![Export Success](/screenshots/Export_Form_Successfully.png) |
 
 ---
 
 ## ✨ Key Features
 
-- 🔍 **Dynamic Metadata Extraction:** Automatically fetches databases, tables, and column details using SQL System Views.
-- 🛠 **Smart Type Mapping:** Seamlessly maps SQL data types to their corresponding C# types.
-- ⚡ **Identity Column Intelligence:** Automatically detects `IsIdentity` columns to handle primary keys and auto-increment.
-- 🏗 **Layered Architecture:** Generates clean, decoupled code following the **N-Tier** pattern (Data Access & Business Layers).
-- 📂 **File Exporting:** Exports generated code directly into `.cs` files with a single click.
+- **🔍 Dynamic Metadata Extraction:** Fetches databases, tables, columns, primary keys, identity columns, foreign keys, and constraints using SQL System Views.
+- **🛠️ Smart Type Mapping:** Automatically maps SQL Server data types to equivalent C# data types (`varchar` ➔ `string`, `int` ➔ `int`, `bit` ➔ `bool`, etc.).
+- **🏗️ Decoupled 3-Tier Code Generation:** Generates robust, production-ready `Data Access` and `Business Logic` classes.
+- **📜 Automatic Stored Procedure Generation:** Generates T-SQL scripts for `Insert`, `Update`, `Delete`, `Select`, and `SelectAll` procedures.
+- **⚡ Clean Code Formatter:** Formats generated code indentation automatically using internal helper routines.
 
-## 🏗 System Architecture
+---
 
-The tool generates a robust architecture based on:
-
-1. **Data Access Layer (DAL):** Uses `ADO.NET` with optimized `SqlClient` commands for CRUD operations.
-2. **Business Logic Layer (BLL):** Creates object-oriented representations of database entities with integrated validation logic.
-3. **UI Layer:** A user-friendly **Windows Forms** interface for managing the generation process.
-
-## 🚀 How to Use
-
-1. **Connect:** Enter your SQL Server credentials and select your target database.
-2. **Select:** Choose the table you want to generate code for.
-3. **Generate:** The engine uses `StringBuilder` and predefined templates to construct the logic.
-4. **Export:** Save your professional `.cs` files and include them in your project immediately.
-
-## 🛠 Tech Stack
+## 🛠️ Tech Stack & Architecture
 
 - **Language:** C# (.NET Framework)
-- **Database:** Microsoft SQL Server
-- **Logic:** Advanced String Manipulation & Metadata Analysis
+- **UI Framework:** Windows Forms (WinForms with Guna UI2 / Custom Controls)
+- **Database:** Microsoft SQL Server (ADO.NET / `System.Data.SqlClient`)
+- **Design Patterns:** Builder Pattern, Facade Pattern (`clsMainBridge`), Interface Segregation (`iBusinessGenerators`, `iDataAccessGenerator`)
