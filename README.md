@@ -1,5 +1,12 @@
 # 🚀 C# Code Generator (Enhanced Edition)
+# ⚡ C# 3-Tier Code Generator
 
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL_Server-CC292B?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-3--Tier-0078D4?style=for-the-badge)
+![UI Library](https://img.shields.io/badge/UI-Guna_UI2-6366F1?style=for-the-badge)
+![Status](https://img.shields.io/badge/Project-Enhanced_v2.0-success?style=for-the-badge)
 ## 👋 Hello & Welcome!
 
 This is an enhanced version of the **C# Code Generator** tool. It automates the boilerplate creation of the **3-Tier Architecture** (Data Access Layer & Business Logic Layer) by analyzing SQL Server metadata, saving development time, eliminating manual coding errors, and letting you focus on core application logic.
